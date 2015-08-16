@@ -2153,9 +2153,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_ObjectHasAttribute
      * @covers \PhpUnit\Framework\Assert::objectHasAttribute
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\ObjectHasAttribute
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintObjectHasAttribute()
@@ -2186,8 +2186,8 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_ObjectHasAttribute
      * @covers \PhpUnit\Framework\Assert::objectHasAttribute
+     * @covers \PhpUnit\Framework\Constraint\ObjectHasAttribute
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintObjectHasAttribute2()
@@ -2213,10 +2213,10 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_ObjectHasAttribute
-     * @covers \PhpUnit\Framework\Assert::objectHasAttribute
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Assert::objectHasAttribute
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
+     * @covers \PhpUnit\Framework\Constraint\ObjectHasAttribute
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintObjectNotHasAttribute()
@@ -2249,10 +2249,10 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_ObjectHasAttribute
-     * @covers \PhpUnit\Framework\Assert::objectHasAttribute
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Assert::objectHasAttribute
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
+     * @covers \PhpUnit\Framework\Constraint\ObjectHasAttribute
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintObjectNotHasAttribute2()

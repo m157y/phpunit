@@ -2061,10 +2061,10 @@ function never()
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_ObjectHasAttribute matcher object.
+ * Returns a PhpUnit\Framework\Constraint\ObjectHasAttribute matcher object.
  *
  * @param  string                                          $attributeName
- * @return PHPUnit_Framework_Constraint_ObjectHasAttribute
+ * @return \PhpUnit\Framework\Constraint\ObjectHasAttribute
  * @since  Method available since Release 3.0.0
  */
 function objectHasAttribute($attributeName)

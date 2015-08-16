@@ -40,7 +40,6 @@ use PHPUnit_Framework_Constraint_IsType;
 use PHPUnit_Framework_Constraint_JsonMatches;
 use PHPUnit_Framework_Constraint_GreaterThan;
 use PHPUnit_Framework_Constraint_LessThan;
-use PHPUnit_Framework_Constraint_ObjectHasAttribute;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
 use PHPUnit_Util_XML;
@@ -1192,7 +1191,7 @@ abstract class Assert
             throw PHPUnit_Util_InvalidArgumentHelper::factory(2, 'object');
         }
 
-        $constraint = new PHPUnit_Framework_Constraint_ObjectHasAttribute(
+        $constraint = new Constraint\ObjectHasAttribute(
             $attributeName
         );
 
@@ -1222,7 +1221,7 @@ abstract class Assert
         }
 
         $constraint = new Constraint\LogicalNot(
-            new PHPUnit_Framework_Constraint_ObjectHasAttribute($attributeName)
+            new Constraint\ObjectHasAttribute($attributeName)
         );
 
         self::assertThat($object, $constraint, $message);
@@ -2504,15 +2503,15 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_ObjectHasAttribute matcher object.
+     * Returns a PhpUnit\Framework\Constraint\ObjectHasAttribute matcher object.
      *
      * @param  string                                          $attributeName
-     * @return PHPUnit_Framework_Constraint_ObjectHasAttribute
+     * @return \PhpUnit\Framework\Constraint\ObjectHasAttribute
      * @since  Method available since Release 3.0.0
      */
     public static function objectHasAttribute($attributeName)
     {
-        return new PHPUnit_Framework_Constraint_ObjectHasAttribute(
+        return new Constraint\ObjectHasAttribute(
             $attributeName
         );
     }

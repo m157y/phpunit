@@ -8,6 +8,11 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
+use PHPUnit_Framework_Constraint_ClassHasAttribute;
+use ReflectionObject;
+
 /**
  * Constraint that asserts that the object it is evaluated for has a given
  * attribute.
@@ -16,7 +21,7 @@
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Framework_Constraint_ObjectHasAttribute extends PHPUnit_Framework_Constraint_ClassHasAttribute
+class ObjectHasAttribute extends PHPUnit_Framework_Constraint_ClassHasAttribute
 {
     /**
      * Evaluates the constraint for parameter $other. Returns true if the
