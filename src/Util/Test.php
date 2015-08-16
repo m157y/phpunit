@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestCase;
 
 /**
@@ -34,11 +35,11 @@ class PHPUnit_Util_Test
     private static $hookMethods = [];
 
     /**
-     * @param  PHPUnit_Framework_Test $test
-     * @param  bool                   $asString
+     * @param  \PhpUnit\Framework\Test $test
+     * @param  bool                    $asString
      * @return mixed
      */
-    public static function describe(PHPUnit_Framework_Test $test, $asString = true)
+    public static function describe(Test $test, $asString = true)
     {
         if ($asString) {
             if ($test instanceof PHPUnit_Framework_SelfDescribing) {

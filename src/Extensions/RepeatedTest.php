@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestResult;
 use PhpUnit\Framework\TestSuite;
 
@@ -29,12 +30,12 @@ class PHPUnit_Extensions_RepeatedTest extends PHPUnit_Extensions_TestDecorator
     protected $timesRepeat = 1;
 
     /**
-     * @param  PHPUnit_Framework_Test      $test
+     * @param  \PhpUnit\Framework\Test     $test
      * @param  int                         $timesRepeat
      * @param  bool                        $processIsolation
      * @throws PHPUnit_Framework_Exception
      */
-    public function __construct(PHPUnit_Framework_Test $test, $timesRepeat = 1, $processIsolation = false)
+    public function __construct(Test $test, $timesRepeat = 1, $processIsolation = false)
     {
         parent::__construct($test);
 

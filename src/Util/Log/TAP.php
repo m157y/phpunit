@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestFailure;
 use PhpUnit\Framework\TestListener;
@@ -52,11 +53,11 @@ class PHPUnit_Util_Log_TAP extends PHPUnit_Util_Printer implements TestListener
     /**
      * An error occurred.
      *
-     * @param PHPUnit_Framework_Test $test
-     * @param Exception              $e
-     * @param float                  $time
+     * @param \PhpUnit\Framework\Test $test
+     * @param Exception               $e
+     * @param float                   $time
      */
-    public function addError(PHPUnit_Framework_Test $test, Exception $e, $time)
+    public function addError(Test $test, Exception $e, $time)
     {
         $this->writeNotOk($test, 'Error');
     }
@@ -64,11 +65,11 @@ class PHPUnit_Util_Log_TAP extends PHPUnit_Util_Printer implements TestListener
     /**
      * A failure occurred.
      *
-     * @param PHPUnit_Framework_Test                 $test
+     * @param \PhpUnit\Framework\Test                $test
      * @param PHPUnit_Framework_AssertionFailedError $e
      * @param float                                  $time
      */
-    public function addFailure(PHPUnit_Framework_Test $test, PHPUnit_Framework_AssertionFailedError $e, $time)
+    public function addFailure(Test $test, PHPUnit_Framework_AssertionFailedError $e, $time)
     {
         $this->writeNotOk($test, 'Failure');
 
@@ -106,11 +107,11 @@ class PHPUnit_Util_Log_TAP extends PHPUnit_Util_Printer implements TestListener
     /**
      * Incomplete test.
      *
-     * @param PHPUnit_Framework_Test $test
-     * @param Exception              $e
-     * @param float                  $time
+     * @param \PhpUnit\Framework\Test $test
+     * @param Exception               $e
+     * @param float                   $time
      */
-    public function addIncompleteTest(PHPUnit_Framework_Test $test, Exception $e, $time)
+    public function addIncompleteTest(Test $test, Exception $e, $time)
     {
         $this->writeNotOk($test, '', 'TODO Incomplete Test');
     }
@@ -118,12 +119,12 @@ class PHPUnit_Util_Log_TAP extends PHPUnit_Util_Printer implements TestListener
     /**
      * Risky test.
      *
-     * @param PHPUnit_Framework_Test $test
-     * @param Exception              $e
-     * @param float                  $time
+     * @param \PhpUnit\Framework\Test $test
+     * @param Exception               $e
+     * @param float                   $time
      * @since  Method available since Release 4.0.0
      */
-    public function addRiskyTest(PHPUnit_Framework_Test $test, Exception $e, $time)
+    public function addRiskyTest(Test $test, Exception $e, $time)
     {
         $this->write(
             sprintf(
@@ -139,12 +140,12 @@ class PHPUnit_Util_Log_TAP extends PHPUnit_Util_Printer implements TestListener
     /**
      * Skipped test.
      *
-     * @param PHPUnit_Framework_Test $test
-     * @param Exception              $e
-     * @param float                  $time
+     * @param \PhpUnit\Framework\Test $test
+     * @param Exception               $e
+     * @param float                   $time
      * @since  Method available since Release 3.0.0
      */
-    public function addSkippedTest(PHPUnit_Framework_Test $test, Exception $e, $time)
+    public function addSkippedTest(Test $test, Exception $e, $time)
     {
         $this->write(
             sprintf(
@@ -184,9 +185,9 @@ class PHPUnit_Util_Log_TAP extends PHPUnit_Util_Printer implements TestListener
     /**
      * A test started.
      *
-     * @param PHPUnit_Framework_Test $test
+     * @param \PhpUnit\Framework\Test $test
      */
-    public function startTest(PHPUnit_Framework_Test $test)
+    public function startTest(Test $test)
     {
         $this->testNumber++;
         $this->testSuccessful = true;
@@ -195,10 +196,10 @@ class PHPUnit_Util_Log_TAP extends PHPUnit_Util_Printer implements TestListener
     /**
      * A test ended.
      *
-     * @param PHPUnit_Framework_Test $test
-     * @param float                  $time
+     * @param \PhpUnit\Framework\Test $test
+     * @param float                   $time
      */
-    public function endTest(PHPUnit_Framework_Test $test, $time)
+    public function endTest(Test $test, $time)
     {
         if ($this->testSuccessful === true) {
             $this->write(
@@ -214,11 +215,11 @@ class PHPUnit_Util_Log_TAP extends PHPUnit_Util_Printer implements TestListener
     }
 
     /**
-     * @param PHPUnit_Framework_Test $test
-     * @param string                 $prefix
-     * @param string                 $directive
+     * @param \PhpUnit\Framework\Test $test
+     * @param string                  $prefix
+     * @param string                  $directive
      */
-    protected function writeNotOk(PHPUnit_Framework_Test $test, $prefix = '', $directive = '')
+    protected function writeNotOk(Test $test, $prefix = '', $directive = '')
     {
         $this->write(
             sprintf(
@@ -234,9 +235,9 @@ class PHPUnit_Util_Log_TAP extends PHPUnit_Util_Printer implements TestListener
     }
 
     /**
-     * @param PHPUnit_Framework_Test $test
+     * @param \PhpUnit\Framework\Test $test
      */
-    private function writeDiagnostics(PHPUnit_Framework_Test $test)
+    private function writeDiagnostics(Test $test)
     {
         if (!$test instanceof TestCase) {
             return;

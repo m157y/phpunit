@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
 use PhpUnit\Framework\Warning;
@@ -32,57 +33,57 @@ abstract class PHPUnit_Extensions_TicketListener implements TestListener
     /**
      * An error occurred.
      *
-     * @param PHPUnit_Framework_Test $test
-     * @param Exception              $e
-     * @param float                  $time
+     * @param \PhpUnit\Framework\Test $test
+     * @param Exception               $e
+     * @param float                   $time
      */
-    public function addError(PHPUnit_Framework_Test $test, Exception $e, $time)
+    public function addError(Test $test, Exception $e, $time)
     {
     }
 
     /**
      * A failure occurred.
      *
-     * @param PHPUnit_Framework_Test                 $test
+     * @param \PhpUnit\Framework\Test                $test
      * @param PHPUnit_Framework_AssertionFailedError $e
      * @param float                                  $time
      */
-    public function addFailure(PHPUnit_Framework_Test $test, PHPUnit_Framework_AssertionFailedError $e, $time)
+    public function addFailure(Test $test, PHPUnit_Framework_AssertionFailedError $e, $time)
     {
     }
 
     /**
      * Incomplete test.
      *
-     * @param PHPUnit_Framework_Test $test
-     * @param Exception              $e
-     * @param float                  $time
+     * @param \PhpUnit\Framework\Test $test
+     * @param Exception               $e
+     * @param float                   $time
      */
-    public function addIncompleteTest(PHPUnit_Framework_Test $test, Exception $e, $time)
+    public function addIncompleteTest(Test $test, Exception $e, $time)
     {
     }
 
     /**
      * Risky test.
      *
-     * @param PHPUnit_Framework_Test $test
-     * @param Exception              $e
-     * @param float                  $time
+     * @param \PhpUnit\Framework\Test $test
+     * @param Exception               $e
+     * @param float                   $time
      * @since  Method available since Release 4.0.0
      */
-    public function addRiskyTest(PHPUnit_Framework_Test $test, Exception $e, $time)
+    public function addRiskyTest(Test $test, Exception $e, $time)
     {
     }
 
     /**
      * Skipped test.
      *
-     * @param PHPUnit_Framework_Test $test
-     * @param Exception              $e
-     * @param float                  $time
+     * @param \PhpUnit\Framework\Test $test
+     * @param Exception               $e
+     * @param float                   $time
      * @since  Method available since Release 3.0.0
      */
-    public function addSkippedTest(PHPUnit_Framework_Test $test, Exception $e, $time)
+    public function addSkippedTest(Test $test, Exception $e, $time)
     {
     }
 
@@ -109,9 +110,9 @@ abstract class PHPUnit_Extensions_TicketListener implements TestListener
     /**
      * A test started.
      *
-     * @param PHPUnit_Framework_Test $test
+     * @param \PhpUnit\Framework\Test $test
      */
-    public function startTest(PHPUnit_Framework_Test $test)
+    public function startTest(Test $test)
     {
         if (!$test instanceof Warning) {
             if ($this->ran) {
@@ -132,10 +133,10 @@ abstract class PHPUnit_Extensions_TicketListener implements TestListener
     /**
      * A test ended.
      *
-     * @param PHPUnit_Framework_Test $test
-     * @param float                  $time
+     * @param \PhpUnit\Framework\Test $test
+     * @param float                   $time
      */
-    public function endTest(PHPUnit_Framework_Test $test, $time)
+    public function endTest(Test $test, $time)
     {
         if (!$test instanceof Warning) {
             if ($test->getStatus() == PHPUnit_Runner_BaseTestRunner::STATUS_PASSED) {

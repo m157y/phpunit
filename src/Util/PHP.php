@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestFailure;
 use PhpUnit\Framework\TestResult;
 
@@ -35,11 +36,11 @@ abstract class PHPUnit_Util_PHP
      * Runs a single test in a separate PHP process.
      *
      * @param  string                        $job
-     * @param  PHPUnit_Framework_Test        $test
+     * @param  \PhpUnit\Framework\Test       $test
      * @param  \PhpUnit\Framework\TestResult $result
      * @throws PHPUnit_Framework_Exception
      */
-    public function runTestJob($job, PHPUnit_Framework_Test $test, TestResult $result)
+    public function runTestJob($job, Test $test, TestResult $result)
     {
         $result->startTest($test);
 
@@ -82,13 +83,13 @@ abstract class PHPUnit_Util_PHP
     /**
      * Processes the TestResult object from an isolated process.
      *
-     * @param PHPUnit_Framework_Test        $test
+     * @param \PhpUnit\Framework\Test       $test
      * @param \PhpUnit\Framework\TestResult $result
      * @param string                        $stdout
      * @param string                        $stderr
      * @since Method available since Release 3.5.0
      */
-    private function processChildResult(PHPUnit_Framework_Test $test, TestResult $result, $stdout, $stderr)
+    private function processChildResult(Test $test, TestResult $result, $stdout, $stderr)
     {
         $time = 0;
 

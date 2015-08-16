@@ -12,7 +12,6 @@ namespace PhpUnit\Framework;
 
 use Exception;
 use PHPUnit_Framework_AssertionFailedError;
-use PHPUnit_Framework_Test;
 
 /**
  * A Listener for test progress.
@@ -24,49 +23,49 @@ interface TestListener
     /**
      * An error occurred.
      *
-     * @param \PHPUnit_Framework_Test $test
+     * @param \PhpUnit\Framework\Test $test
      * @param \Exception              $e
      * @param float                   $time
      */
-    public function addError(PHPUnit_Framework_Test $test, Exception $e, $time);
+    public function addError(Test $test, Exception $e, $time);
 
     /**
      * A failure occurred.
      *
-     * @param \PHPUnit_Framework_Test                 $test
+     * @param \PhpUnit\Framework\Test                 $test
      * @param \PHPUnit_Framework_AssertionFailedError $e
      * @param float                                   $time
      */
-    public function addFailure(PHPUnit_Framework_Test $test, PHPUnit_Framework_AssertionFailedError $e, $time);
+    public function addFailure(Test $test, PHPUnit_Framework_AssertionFailedError $e, $time);
 
     /**
      * Incomplete test.
      *
-     * @param \PHPUnit_Framework_Test $test
+     * @param \PhpUnit\Framework\Test $test
      * @param \Exception              $e
      * @param float                   $time
      */
-    public function addIncompleteTest(PHPUnit_Framework_Test $test, Exception $e, $time);
+    public function addIncompleteTest(Test $test, Exception $e, $time);
 
     /**
      * Risky test.
      *
-     * @param \PHPUnit_Framework_Test $test
+     * @param \PhpUnit\Framework\Test $test
      * @param \Exception              $e
      * @param float                   $time
      * @since  Method available since Release 4.0.0
      */
-    public function addRiskyTest(PHPUnit_Framework_Test $test, Exception $e, $time);
+    public function addRiskyTest(Test $test, Exception $e, $time);
 
     /**
      * Skipped test.
      *
-     * @param \PHPUnit_Framework_Test $test
+     * @param \PhpUnit\Framework\Test $test
      * @param \Exception              $e
      * @param float                   $time
      * @since  Method available since Release 3.0.0
      */
-    public function addSkippedTest(PHPUnit_Framework_Test $test, Exception $e, $time);
+    public function addSkippedTest(Test $test, Exception $e, $time);
 
     /**
      * A test suite started.
@@ -87,15 +86,15 @@ interface TestListener
     /**
      * A test started.
      *
-     * @param \PHPUnit_Framework_Test $test
+     * @param \PhpUnit\Framework\Test $test
      */
-    public function startTest(PHPUnit_Framework_Test $test);
+    public function startTest(Test $test);
 
     /**
      * A test ended.
      *
-     * @param \PHPUnit_Framework_Test $test
+     * @param \PhpUnit\Framework\Test $test
      * @param float                  $time
      */
-    public function endTest(PHPUnit_Framework_Test $test, $time);
+    public function endTest(Test $test, $time);
 }

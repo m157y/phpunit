@@ -1,9 +1,10 @@
 <?php
 
+use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestResult;
 
-class DoubleTestCase implements PHPUnit_Framework_Test
+class DoubleTestCase implements Test
 {
     protected $testCase;
 

@@ -21,7 +21,6 @@ use PHPUnit_Framework_SelfDescribing;
 use PHPUnit_Framework_SkippedTestCase;
 use PHPUnit_Framework_SkippedTestError;
 use PHPUnit_Framework_SkippedTestSuiteError;
-use PHPUnit_Framework_Test;
 use PHPUnit_Framework_TestSuite_DataProvider;
 use PHPUnit_Runner_BaseTestRunner;
 use PHPUnit_Runner_Filter_Factory;
@@ -63,7 +62,7 @@ use Throwable;
  *
  * @since Class available since Release 2.0.0
  */
-class TestSuite implements PHPUnit_Framework_Test, PHPUnit_Framework_SelfDescribing, IteratorAggregate
+class TestSuite implements Test, PHPUnit_Framework_SelfDescribing, IteratorAggregate
 {
     /**
      * Last count of tests in this suite.
@@ -246,10 +245,10 @@ class TestSuite implements PHPUnit_Framework_Test, PHPUnit_Framework_SelfDescrib
     /**
      * Adds a test to the suite.
      *
-     * @param \PHPUnit_Framework_Test $test
+     * @param \PhpUnit\Framework\Test $test
      * @param array                   $groups
      */
-    public function addTest(PHPUnit_Framework_Test $test, $groups = [])
+    public function addTest(Test $test, $groups = [])
     {
         $class = new ReflectionClass($test);
 
@@ -398,7 +397,7 @@ class TestSuite implements PHPUnit_Framework_Test, PHPUnit_Framework_SelfDescrib
                     if ($method->isStatic()) {
                         $this->addTest($method->invoke(null, $className));
                     }
-                } elseif ($class->implementsInterface('PHPUnit_Framework_Test')) {
+                } elseif ($class->implementsInterface('PhpUnit\\Framework\\Test')) {
                     $this->addTestSuite($class);
                 }
             }
@@ -453,7 +452,7 @@ class TestSuite implements PHPUnit_Framework_Test, PHPUnit_Framework_SelfDescrib
     /**
      * @param  ReflectionClass             $theClass
      * @param  string                      $name
-     * @return PHPUnit_Framework_Test
+     * @return \PhpUnit\Framework\Test
      * @throws PHPUnit_Framework_Exception
      */
     public static function createTest(ReflectionClass $theClass, $name)
@@ -791,10 +790,10 @@ class TestSuite implements PHPUnit_Framework_Test, PHPUnit_Framework_SelfDescrib
      * Runs a test.
      *
      * @deprecated
-     * @param PHPUnit_Framework_Test        $test
+     * @param \PhpUnit\Framework\Test       $test
      * @param \PhpUnit\Framework\TestResult $result
      */
-    public function runTest(PHPUnit_Framework_Test $test, TestResult $result)
+    public function runTest(Test $test, TestResult $result)
     {
         $test->run($result);
     }
@@ -813,7 +812,7 @@ class TestSuite implements PHPUnit_Framework_Test, PHPUnit_Framework_SelfDescrib
      * Returns the test at the given index.
      *
      * @param  int
-     * @return PHPUnit_Framework_Test
+     * @return \PhpUnit\Framework\Test
      */
     public function testAt($index)
     {

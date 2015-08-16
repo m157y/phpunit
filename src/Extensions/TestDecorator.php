@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestResult;
 
 /**
@@ -19,7 +20,7 @@ use PhpUnit\Framework\TestResult;
  *
  * @since Class available since Release 2.0.0
  */
-class PHPUnit_Extensions_TestDecorator extends PHPUnit_Framework_Assert implements PHPUnit_Framework_Test, PHPUnit_Framework_SelfDescribing
+class PHPUnit_Extensions_TestDecorator extends PHPUnit_Framework_Assert implements Test, PHPUnit_Framework_SelfDescribing
 {
     /**
      * The Test to be decorated.
@@ -31,9 +32,9 @@ class PHPUnit_Extensions_TestDecorator extends PHPUnit_Framework_Assert implemen
     /**
      * Constructor.
      *
-     * @param PHPUnit_Framework_Test $test
+     * @param \PhpUnit\Framework\Test $test
      */
-    public function __construct(PHPUnit_Framework_Test $test)
+    public function __construct(Test $test)
     {
         $this->test = $test;
     }
@@ -83,7 +84,7 @@ class PHPUnit_Extensions_TestDecorator extends PHPUnit_Framework_Assert implemen
     /**
      * Returns the test to be run.
      *
-     * @return PHPUnit_Framework_Test
+     * @return \PhpUnit\Framework\Test
      */
     public function getTest()
     {

@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestResult;
 use PhpUnit\Framework\TestSuite;
@@ -72,7 +73,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
     }
 
     /**
-     * @param  PHPUnit_Framework_Test|ReflectionClass $test
+     * @param  \PhpUnit\Framework\Test|ReflectionClass $test
      * @param  array                                  $arguments
      * @return \PhpUnit\Framework\TestResult
      * @throws PHPUnit_Framework_Exception
@@ -83,7 +84,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
             $test = new TestSuite($test);
         }
 
-        if ($test instanceof PHPUnit_Framework_Test) {
+        if ($test instanceof Test) {
             $aTestRunner = new self;
 
             return $aTestRunner->doRun(
@@ -139,11 +140,11 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
     }
 
     /**
-     * @param  PHPUnit_Framework_Test       $suite
+     * @param  \PhpUnit\Framework\Test      $suite
      * @param  array                        $arguments
      * @return \PhpUnit\Framework\TestResult
      */
-    public function doRun(PHPUnit_Framework_Test $suite, array $arguments = [])
+    public function doRun(Test $suite, array $arguments = [])
     {
         $this->handleConfiguration($arguments);
 

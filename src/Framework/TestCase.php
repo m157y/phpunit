@@ -42,7 +42,6 @@ use PHPUnit_Framework_RiskyTestError;
 use PHPUnit_Framework_SelfDescribing;
 use PHPUnit_Framework_SkippedTest;
 use PHPUnit_Framework_SkippedTestError;
-use PHPUnit_Framework_Test;
 use PHPUnit_Runner_BaseTestRunner;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_GlobalState;
@@ -107,7 +106,7 @@ use Throwable;
  *
  * @since Class available since Release 2.0.0
  */
-abstract class TestCase extends PHPUnit_Framework_Assert implements PHPUnit_Framework_Test, PHPUnit_Framework_SelfDescribing
+abstract class TestCase extends PHPUnit_Framework_Assert implements Test, PHPUnit_Framework_SelfDescribing
 {
     /**
      * Enable or disable the backup and restoration of the $GLOBALS array.

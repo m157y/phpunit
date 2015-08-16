@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
 
@@ -36,11 +37,11 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements TestListener
     /**
      * An error occurred.
      *
-     * @param PHPUnit_Framework_Test $test
-     * @param Exception              $e
-     * @param float                  $time
+     * @param \PhpUnit\Framework\Test $test
+     * @param Exception               $e
+     * @param float                   $time
      */
-    public function addError(PHPUnit_Framework_Test $test, Exception $e, $time)
+    public function addError(Test $test, Exception $e, $time)
     {
         $this->writeCase(
             'error',
@@ -56,11 +57,11 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements TestListener
     /**
      * A failure occurred.
      *
-     * @param PHPUnit_Framework_Test                 $test
+     * @param \PhpUnit\Framework\Test                $test
      * @param PHPUnit_Framework_AssertionFailedError $e
      * @param float                                  $time
      */
-    public function addFailure(PHPUnit_Framework_Test $test, PHPUnit_Framework_AssertionFailedError $e, $time)
+    public function addFailure(Test $test, PHPUnit_Framework_AssertionFailedError $e, $time)
     {
         $this->writeCase(
             'fail',
@@ -76,11 +77,11 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements TestListener
     /**
      * Incomplete test.
      *
-     * @param PHPUnit_Framework_Test $test
-     * @param Exception              $e
-     * @param float                  $time
+     * @param \PhpUnit\Framework\Test $test
+     * @param Exception               $e
+     * @param float                   $time
      */
-    public function addIncompleteTest(PHPUnit_Framework_Test $test, Exception $e, $time)
+    public function addIncompleteTest(Test $test, Exception $e, $time)
     {
         $this->writeCase(
             'error',
@@ -96,12 +97,12 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements TestListener
     /**
      * Risky test.
      *
-     * @param PHPUnit_Framework_Test $test
-     * @param Exception              $e
-     * @param float                  $time
+     * @param \PhpUnit\Framework\Test $test
+     * @param Exception               $e
+     * @param float                   $time
      * @since  Method available since Release 4.0.0
      */
-    public function addRiskyTest(PHPUnit_Framework_Test $test, Exception $e, $time)
+    public function addRiskyTest(Test $test, Exception $e, $time)
     {
         $this->writeCase(
             'error',
@@ -117,11 +118,11 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements TestListener
     /**
      * Skipped test.
      *
-     * @param PHPUnit_Framework_Test $test
-     * @param Exception              $e
-     * @param float                  $time
+     * @param \PhpUnit\Framework\Test $test
+     * @param Exception               $e
+     * @param float                   $time
      */
-    public function addSkippedTest(PHPUnit_Framework_Test $test, Exception $e, $time)
+    public function addSkippedTest(Test $test, Exception $e, $time)
     {
         $this->writeCase(
             'error',
@@ -167,9 +168,9 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements TestListener
     /**
      * A test started.
      *
-     * @param PHPUnit_Framework_Test $test
+     * @param \PhpUnit\Framework\Test $test
      */
-    public function startTest(PHPUnit_Framework_Test $test)
+    public function startTest(Test $test)
     {
         $this->currentTestName = PHPUnit_Util_Test::describe($test);
         $this->currentTestPass = true;
@@ -186,10 +187,10 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements TestListener
     /**
      * A test ended.
      *
-     * @param PHPUnit_Framework_Test $test
-     * @param float                  $time
+     * @param \PhpUnit\Framework\Test $test
+     * @param float                   $time
      */
-    public function endTest(PHPUnit_Framework_Test $test, $time)
+    public function endTest(Test $test, $time)
     {
         if ($this->currentTestPass) {
             $this->writeCase('pass', $time, [], '', $test);

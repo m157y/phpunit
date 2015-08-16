@@ -31,7 +31,6 @@ use PHPUnit_Framework_RiskyTest;
 use PHPUnit_Framework_RiskyTestError;
 use PHPUnit_Framework_SkippedTest;
 use PHPUnit_Framework_SkippedTestError;
-use PHPUnit_Framework_Test;
 use PHPUnit_Util_Blacklist;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Test;
@@ -225,11 +224,11 @@ class TestResult implements Countable
     /**
      * Adds an error to the list of errors.
      *
-     * @param \PHPUnit_Framework_Test $test
+     * @param \PhpUnit\Framework\Test $test
      * @param \Exception              $e
      * @param float                   $time
      */
-    public function addError(PHPUnit_Framework_Test $test, Exception $e, $time)
+    public function addError(Test $test, Exception $e, $time)
     {
         if ($e instanceof PHPUnit_Framework_RiskyTest) {
             $this->risky[] = new TestFailure($test, $e);
@@ -273,11 +272,11 @@ class TestResult implements Countable
      * Adds a failure to the list of failures.
      * The passed in exception caused the failure.
      *
-     * @param \PHPUnit_Framework_Test                 $test
+     * @param \PhpUnit\Framework\Test                 $test
      * @param \PHPUnit_Framework_AssertionFailedError $e
      * @param float                                   $time
      */
-    public function addFailure(PHPUnit_Framework_Test $test, PHPUnit_Framework_AssertionFailedError $e, $time)
+    public function addFailure(Test $test, PHPUnit_Framework_AssertionFailedError $e, $time)
     {
         if ($e instanceof PHPUnit_Framework_RiskyTest ||
             $e instanceof PHPUnit_Framework_OutputError) {
@@ -351,9 +350,9 @@ class TestResult implements Countable
     /**
      * Informs the result that a test will be started.
      *
-     * @param \PHPUnit_Framework_Test $test
+     * @param \PhpUnit\Framework\Test $test
      */
-    public function startTest(PHPUnit_Framework_Test $test)
+    public function startTest(Test $test)
     {
         $this->lastTestFailed = false;
         $this->runTests      += count($test);
@@ -366,10 +365,10 @@ class TestResult implements Countable
     /**
      * Informs the result that a test was completed.
      *
-     * @param \PHPUnit_Framework_Test $test
+     * @param \PhpUnit\Framework\Test $test
      * @param float                   $time
      */
-    public function endTest(PHPUnit_Framework_Test $test, $time)
+    public function endTest(Test $test, $time)
     {
         foreach ($this->listeners as $listener) {
             $listener->endTest($test, $time);
@@ -563,9 +562,9 @@ class TestResult implements Countable
     /**
      * Runs a TestCase.
      *
-     * @param \PHPUnit_Framework_Test $test
+     * @param \PhpUnit\Framework\Test $test
      */
-    public function run(PHPUnit_Framework_Test $test)
+    public function run(Test $test)
     {
         PHPUnit_Framework_Assert::resetCount();
 

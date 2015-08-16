@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestResult;
 
 /**
@@ -15,7 +16,7 @@ use PhpUnit\Framework\TestResult;
  *
  * @since Class available since Release 3.1.4
  */
-class PHPUnit_Extensions_PhptTestCase implements PHPUnit_Framework_Test, PHPUnit_Framework_SelfDescribing
+class PHPUnit_Extensions_PhptTestCase implements Test, PHPUnit_Framework_SelfDescribing
 {
     /**
      * @var string
