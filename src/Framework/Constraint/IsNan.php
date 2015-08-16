@@ -8,12 +8,14 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint;
+
 /**
  * Constraint that accepts nan.
  *
  * @since      Class available since Release 4.8.0
  */
-class PHPUnit_Framework_Constraint_IsNan extends PHPUnit_Framework_Constraint
+class PHPUnit_Framework_Constraint_IsNan extends Constraint
 {
     /**
      * Evaluates the constraint for parameter $other. Returns true if the

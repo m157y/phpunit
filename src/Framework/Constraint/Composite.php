@@ -8,22 +8,23 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint;
 use PhpUnit\Framework\ExpectationFailedException;
 
 /**
  * @since Class available since Release 3.1.0
  */
-abstract class PHPUnit_Framework_Constraint_Composite extends PHPUnit_Framework_Constraint
+abstract class PHPUnit_Framework_Constraint_Composite extends Constraint
 {
     /**
-     * @var PHPUnit_Framework_Constraint
+     * @var \PhpUnit\Framework\Constraint
      */
     protected $innerConstraint;
 
     /**
-     * @param PHPUnit_Framework_Constraint $innerConstraint
+     * @param \PhpUnit\Framework\Constraint $innerConstraint
      */
-    public function __construct(PHPUnit_Framework_Constraint $innerConstraint)
+    public function __construct(Constraint $innerConstraint)
     {
         parent::__construct();
         $this->innerConstraint = $innerConstraint;

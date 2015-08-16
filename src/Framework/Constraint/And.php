@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint;
 use PhpUnit\Framework\Exception as FrameworkException;
 
 /**
@@ -15,20 +16,20 @@ use PhpUnit\Framework\Exception as FrameworkException;
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Framework_Constraint_And extends PHPUnit_Framework_Constraint
+class PHPUnit_Framework_Constraint_And extends Constraint
 {
     /**
-     * @var PHPUnit_Framework_Constraint[]
+     * @var \PhpUnit\Framework\Constraint[]
      */
     protected $constraints = [];
 
     /**
-     * @var PHPUnit_Framework_Constraint
+     * @var \PhpUnit\Framework\Constraint
      */
     protected $lastConstraint = null;
 
     /**
-     * @param  PHPUnit_Framework_Constraint[] $constraints
+     * @param  \PhpUnit\Framework\Constraint[] $constraints
      * @throws \PhpUnit\Framework\Exception
      */
     public function setConstraints(array $constraints)
@@ -36,7 +37,7 @@ class PHPUnit_Framework_Constraint_And extends PHPUnit_Framework_Constraint
         $this->constraints = [];
 
         foreach ($constraints as $constraint) {
-            if (!($constraint instanceof PHPUnit_Framework_Constraint)) {
+            if (!($constraint instanceof Constraint)) {
                 throw new FrameworkException(
                     'All parameters to ' . __CLASS__ .
                     ' must be a constraint object.'

@@ -8,10 +8,12 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint;
+
 /**
  * Constraint that evaluates against a specified closure.
  */
-class PHPUnit_Framework_Constraint_Callback extends PHPUnit_Framework_Constraint
+class PHPUnit_Framework_Constraint_Callback extends Constraint
 {
     private $callback;
 

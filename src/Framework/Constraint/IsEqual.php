@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint;
 use PhpUnit\Framework\ExpectationFailedException;
 
 /**
@@ -21,7 +22,7 @@ use PhpUnit\Framework\ExpectationFailedException;
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Framework_Constraint_IsEqual extends PHPUnit_Framework_Constraint
+class PHPUnit_Framework_Constraint_IsEqual extends Constraint
 {
     /**
      * @var mixed

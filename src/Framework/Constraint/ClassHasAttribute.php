@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint;
+
 /**
  * Constraint that asserts that the class it is evaluated for has a given
  * attribute.
@@ -16,7 +18,7 @@
  *
  * @since Class available since Release 3.1.0
  */
-class PHPUnit_Framework_Constraint_ClassHasAttribute extends PHPUnit_Framework_Constraint
+class PHPUnit_Framework_Constraint_ClassHasAttribute extends Constraint
 {
     /**
      * @var string

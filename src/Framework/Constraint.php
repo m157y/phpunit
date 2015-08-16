@@ -8,8 +8,10 @@
  * file that was distributed with this source code.
  */
 
-use PhpUnit\Framework\ExpectationFailedException;
-use PhpUnit\Framework\SelfDescribing;
+namespace PhpUnit\Framework;
+
+use Countable;
+use SebastianBergmann\Comparator\ComparisonFailure;
 use SebastianBergmann\Exporter\Exporter;
 
 /**
@@ -17,7 +19,7 @@ use SebastianBergmann\Exporter\Exporter;
  *
  * @since      Interface available since Release 3.0.0
  */
-abstract class PHPUnit_Framework_Constraint implements Countable, SelfDescribing
+abstract class Constraint implements Countable, SelfDescribing
 {
     protected $exporter;
 
@@ -87,12 +89,12 @@ abstract class PHPUnit_Framework_Constraint implements Countable, SelfDescribing
     /**
      * Throws an exception for the given compared value and test description
      *
-     * @param  mixed                                          $other             Evaluated value or object.
-     * @param  string                                         $description       Additional information about the test
+     * @param  mixed                                           $other             Evaluated value or object.
+     * @param  string                                          $description       Additional information about the test
      * @param  \SebastianBergmann\Comparator\ComparisonFailure $comparisonFailure
      * @throws \PhpUnit\Framework\ExpectationFailedException
      */
-    protected function fail($other, $description, SebastianBergmann\Comparator\ComparisonFailure $comparisonFailure = null)
+    protected function fail($other, $description, ComparisonFailure $comparisonFailure = null)
     {
         $failureDescription = sprintf(
             'Failed asserting that %s.',

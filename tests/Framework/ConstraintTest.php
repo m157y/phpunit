@@ -20,7 +20,7 @@ class Framework_ConstraintTest extends TestCase
     /**
      * @covers PHPUnit_Framework_Constraint_ArrayHasKey
      * @covers PHPUnit_Framework_Assert::arrayHasKey
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintArrayHasKey()
@@ -145,7 +145,7 @@ EOF
     /**
      * @covers PHPUnit_Framework_Constraint_FileExists
      * @covers PHPUnit_Framework_Assert::fileExists
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintFileExists()
@@ -274,7 +274,7 @@ EOF
     /**
      * @covers PHPUnit_Framework_Constraint_GreaterThan
      * @covers PHPUnit_Framework_Assert::greaterThan
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintGreaterThan()
@@ -537,7 +537,7 @@ EOF
     /**
      * @covers PHPUnit_Framework_Constraint_IsAnything
      * @covers PHPUnit_Framework_Assert::anything
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintIsAnything()
@@ -588,7 +588,7 @@ EOF
     /**
      * @covers PHPUnit_Framework_Constraint_IsEqual
      * @covers PHPUnit_Framework_Assert::equalTo
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintIsEqual()
@@ -972,7 +972,7 @@ EOF
     /**
      * @covers PHPUnit_Framework_Constraint_IsIdentical
      * @covers PHPUnit_Framework_Assert::identicalTo
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintIsIdentical()
@@ -1171,7 +1171,7 @@ EOF
     /**
      * @covers PHPUnit_Framework_Constraint_IsInstanceOf
      * @covers PHPUnit_Framework_Assert::isInstanceOf
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintIsInstanceOf()
@@ -1303,7 +1303,7 @@ EOF
     /**
      * @covers PHPUnit_Framework_Constraint_IsType
      * @covers PHPUnit_Framework_Assert::isType
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintIsType()
@@ -1454,7 +1454,7 @@ EOF
     /**
      * @covers PHPUnit_Framework_Constraint_IsNull
      * @covers PHPUnit_Framework_Assert::isNull
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintIsNull()
@@ -1515,7 +1515,7 @@ EOF
      * @covers PHPUnit_Framework_Constraint_Not
      * @covers PHPUnit_Framework_Assert::isNull
      * @covers PHPUnit_Framework_Assert::logicalNot
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintIsNotNull()
@@ -1580,7 +1580,7 @@ EOF
     /**
      * @covers PHPUnit_Framework_Constraint_LessThan
      * @covers PHPUnit_Framework_Assert::lessThan
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintLessThan()
@@ -1899,7 +1899,7 @@ EOF
     /**
      * @covers PHPUnit_Framework_Constraint_ClassHasAttribute
      * @covers PHPUnit_Framework_Assert::classHasAttribute
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintClassHasAttribute()
@@ -2026,7 +2026,7 @@ EOF
     /**
      * @covers PHPUnit_Framework_Constraint_ClassHasStaticAttribute
      * @covers PHPUnit_Framework_Assert::classHasStaticAttribute
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintClassHasStaticAttribute()
@@ -2153,7 +2153,7 @@ EOF
     /**
      * @covers PHPUnit_Framework_Constraint_ObjectHasAttribute
      * @covers PHPUnit_Framework_Assert::objectHasAttribute
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintObjectHasAttribute()
@@ -2280,7 +2280,7 @@ EOF
     /**
      * @covers PHPUnit_Framework_Constraint_PCREMatch
      * @covers PHPUnit_Framework_Assert::matchesRegularExpression
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintPCREMatch()
@@ -2407,7 +2407,7 @@ EOF
     /**
      * @covers PHPUnit_Framework_Constraint_StringMatches
      * @covers PHPUnit_Framework_Assert::matches
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      */
     public function testConstraintStringMatches()
     {
@@ -2421,7 +2421,7 @@ EOF
     /**
      * @covers PHPUnit_Framework_Constraint_StringMatches
      * @covers PHPUnit_Framework_Assert::matches
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      */
     public function testConstraintStringMatches2()
     {
@@ -2435,7 +2435,7 @@ EOF
     /**
      * @covers PHPUnit_Framework_Constraint_StringMatches
      * @covers PHPUnit_Framework_Assert::matches
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      */
     public function testConstraintStringMatches3()
     {
@@ -2449,7 +2449,7 @@ EOF
     /**
      * @covers PHPUnit_Framework_Constraint_StringMatches
      * @covers PHPUnit_Framework_Assert::matches
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      */
     public function testConstraintStringMatches4()
     {
@@ -2463,7 +2463,7 @@ EOF
     /**
      * @covers PHPUnit_Framework_Constraint_StringMatches
      * @covers PHPUnit_Framework_Assert::matches
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      */
     public function testConstraintStringMatches5()
     {
@@ -2477,7 +2477,7 @@ EOF
     /**
      * @covers PHPUnit_Framework_Constraint_StringMatches
      * @covers PHPUnit_Framework_Assert::matches
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      */
     public function testConstraintStringMatches6()
     {
@@ -2491,7 +2491,7 @@ EOF
     /**
      * @covers PHPUnit_Framework_Constraint_StringStartsWith
      * @covers PHPUnit_Framework_Assert::stringStartsWith
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintStringStartsWith()
@@ -2617,7 +2617,7 @@ EOF
     /**
      * @covers PHPUnit_Framework_Constraint_StringContains
      * @covers PHPUnit_Framework_Assert::stringContains
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintStringContains()
@@ -2746,7 +2746,7 @@ EOF
     /**
      * @covers PHPUnit_Framework_Constraint_StringEndsWith
      * @covers PHPUnit_Framework_Assert::stringEndsWith
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintStringEndsWith()
@@ -2890,7 +2890,7 @@ EOF
 
     /**
      * @covers PHPUnit_Framework_Constraint_TraversableContains
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintArrayContains()
@@ -3015,7 +3015,7 @@ EOF
 
     /**
      * @covers PHPUnit_Framework_Constraint_TraversableContains
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintSplObjectStorageContains()
@@ -3216,7 +3216,7 @@ EOF
 
     /**
      * @covers PHPUnit_Framework_Constraint_IsEmpty
-     * @covers PHPUnit_Framework_Constraint::count
+     * @covers \PhpUnit\Framework\Constraint::count
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintIsEmpty()

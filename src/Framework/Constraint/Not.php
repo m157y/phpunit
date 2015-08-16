@@ -8,26 +8,28 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint;
+
 /**
  * Logical NOT.
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Framework_Constraint_Not extends PHPUnit_Framework_Constraint
+class PHPUnit_Framework_Constraint_Not extends Constraint
 {
     /**
-     * @var PHPUnit_Framework_Constraint
+     * @var \PhpUnit\Framework\Constraint
      */
     protected $constraint;
 
     /**
-     * @param PHPUnit_Framework_Constraint $constraint
+     * @param \PhpUnit\Framework\Constraint $constraint
      */
     public function __construct($constraint)
     {
         parent::__construct();
 
-        if (!($constraint instanceof PHPUnit_Framework_Constraint)) {
+        if (!($constraint instanceof Constraint)) {
             $constraint = new PHPUnit_Framework_Constraint_IsEqual($constraint);
         }
 

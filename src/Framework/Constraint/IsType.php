@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint;
 use PhpUnit\Framework\Exception as FrameworkException;
 
 /**
@@ -18,7 +19,7 @@ use PhpUnit\Framework\Exception as FrameworkException;
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Framework_Constraint_IsType extends PHPUnit_Framework_Constraint
+class PHPUnit_Framework_Constraint_IsType extends Constraint
 {
     const TYPE_ARRAY    = 'array';
     const TYPE_BOOL     = 'bool';

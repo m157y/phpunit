@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint;
+
 /**
  * Constraint that asserts that the string it is evaluated for contains
  * a given string.
@@ -19,7 +21,7 @@
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Framework_Constraint_StringContains extends PHPUnit_Framework_Constraint
+class PHPUnit_Framework_Constraint_StringContains extends Constraint
 {
     /**
      * @var string

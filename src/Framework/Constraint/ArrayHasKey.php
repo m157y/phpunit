@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint;
+
 /**
  * Constraint that asserts that the array it is evaluated for has a given key.
  *
@@ -18,7 +20,7 @@
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Framework_Constraint_ArrayHasKey extends PHPUnit_Framework_Constraint
+class PHPUnit_Framework_Constraint_ArrayHasKey extends Constraint
 {
     /**
      * @var int|string

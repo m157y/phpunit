@@ -8,13 +8,15 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint;
+
 /**
  * Constraint that asserts that the string it is evaluated for ends with a given
  * suffix.
  *
  * @since Class available since Release 3.4.0
  */
-class PHPUnit_Framework_Constraint_StringEndsWith extends PHPUnit_Framework_Constraint
+class PHPUnit_Framework_Constraint_StringEndsWith extends Constraint
 {
     /**
      * @var string

@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint;
 use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\IncompleteTestError;
 use PhpUnit\Framework\SkippedTestError;
@@ -1938,14 +1939,14 @@ abstract class PHPUnit_Framework_Assert
     }
 
     /**
-     * Evaluates a PHPUnit_Framework_Constraint matcher object.
+     * Evaluates a PhpUnit\Framework\Constraint matcher object.
      *
-     * @param mixed                        $value
-     * @param PHPUnit_Framework_Constraint $constraint
-     * @param string                       $message
+     * @param mixed                         $value
+     * @param \PhpUnit\Framework\Constraint $constraint
+     * @param string                        $message
      * @since  Method available since Release 3.0.0
      */
-    public static function assertThat($value, PHPUnit_Framework_Constraint $constraint, $message = '')
+    public static function assertThat($value, Constraint $constraint, $message = '')
     {
         self::$count += count($constraint);
 
@@ -2143,11 +2144,11 @@ abstract class PHPUnit_Framework_Assert
     /**
      * Returns a PHPUnit_Framework_Constraint_Not matcher object.
      *
-     * @param  PHPUnit_Framework_Constraint     $constraint
+     * @param  \PhpUnit\Framework\Constraint     $constraint
      * @return PHPUnit_Framework_Constraint_Not
      * @since  Method available since Release 3.0.0
      */
-    public static function logicalNot(PHPUnit_Framework_Constraint $constraint)
+    public static function logicalNot(Constraint $constraint)
     {
         return new PHPUnit_Framework_Constraint_Not($constraint);
     }
@@ -2270,12 +2271,12 @@ abstract class PHPUnit_Framework_Assert
     /**
      * Returns a PHPUnit_Framework_Constraint_Attribute matcher object.
      *
-     * @param  PHPUnit_Framework_Constraint           $constraint
+     * @param  \PhpUnit\Framework\Constraint          $constraint
      * @param  string                                 $attributeName
      * @return PHPUnit_Framework_Constraint_Attribute
      * @since  Method available since Release 3.1.0
      */
-    public static function attribute(PHPUnit_Framework_Constraint $constraint, $attributeName)
+    public static function attribute(Constraint $constraint, $attributeName)
     {
         return new PHPUnit_Framework_Constraint_Attribute(
             $constraint,

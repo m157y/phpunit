@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint;
+
 /**
  * Constraint that asserts that the object it is evaluated for is an instance
  * of a given class.
@@ -16,7 +18,7 @@
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Framework_Constraint_IsInstanceOf extends PHPUnit_Framework_Constraint
+class PHPUnit_Framework_Constraint_IsInstanceOf extends Constraint
 {
     /**
      * @var string

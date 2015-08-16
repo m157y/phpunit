@@ -8,12 +8,14 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint;
+
 /**
  * Constraint that accepts any input value.
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Framework_Constraint_IsAnything extends PHPUnit_Framework_Constraint
+class PHPUnit_Framework_Constraint_IsAnything extends Constraint
 {
     /**
      * Evaluates the constraint for parameter $other

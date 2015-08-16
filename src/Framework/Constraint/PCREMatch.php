@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint;
+
 /**
  * Constraint that asserts that the string it is evaluated for matches
  * a regular expression.
@@ -19,7 +21,7 @@
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Framework_Constraint_PCREMatch extends PHPUnit_Framework_Constraint
+class PHPUnit_Framework_Constraint_PCREMatch extends Constraint
 {
     /**
      * @var string

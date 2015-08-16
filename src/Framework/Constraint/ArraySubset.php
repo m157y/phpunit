@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint;
+
 /**
  * Constraint that asserts that the array it is evaluated for has a specified subset.
  *
@@ -16,7 +18,7 @@
  *
  * @since Class available since Release 4.4.0
  */
-class PHPUnit_Framework_Constraint_ArraySubset extends PHPUnit_Framework_Constraint
+class PHPUnit_Framework_Constraint_ArraySubset extends Constraint
 {
     /**
      * @var array|ArrayAccess

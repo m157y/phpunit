@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint;
+
 /**
  * Constraint that asserts that one value is identical to another.
  *
@@ -21,7 +23,7 @@
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Framework_Constraint_IsIdentical extends PHPUnit_Framework_Constraint
+class PHPUnit_Framework_Constraint_IsIdentical extends Constraint
 {
     /**
      * @var float

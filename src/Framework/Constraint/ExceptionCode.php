@@ -8,10 +8,12 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint;
+
 /**
  * @since Class available since Release 3.6.6
  */
-class PHPUnit_Framework_Constraint_ExceptionCode extends PHPUnit_Framework_Constraint
+class PHPUnit_Framework_Constraint_ExceptionCode extends Constraint
 {
     /**
      * @var int

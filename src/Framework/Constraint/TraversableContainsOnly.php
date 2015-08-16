@@ -8,16 +8,18 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint;
+
 /**
  * Constraint that asserts that the Traversable it is applied to contains
  * only values of a given type.
  *
  * @since Class available since Release 3.1.4
  */
-class PHPUnit_Framework_Constraint_TraversableContainsOnly extends PHPUnit_Framework_Constraint
+class PHPUnit_Framework_Constraint_TraversableContainsOnly extends Constraint
 {
     /**
-     * @var PHPUnit_Framework_Constraint
+     * @var \PhpUnit\Framework\Constraint
      */
     protected $constraint;
 

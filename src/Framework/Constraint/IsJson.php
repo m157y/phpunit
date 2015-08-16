@@ -8,12 +8,14 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint;
+
 /**
  * Constraint that asserts that a string is valid JSON.
  *
  * @since Class available since Release 3.7.20
  */
-class PHPUnit_Framework_Constraint_IsJson extends PHPUnit_Framework_Constraint
+class PHPUnit_Framework_Constraint_IsJson extends Constraint
 {
     /**
      * Evaluates the constraint for parameter $other. Returns true if the
