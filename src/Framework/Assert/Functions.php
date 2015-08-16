@@ -26,9 +26,9 @@ function any()
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_IsAnything matcher object.
+ * Returns a PhpUnit\Framework\Constraint\Anything matcher object.
  *
- * @return PHPUnit_Framework_Constraint_IsAnything
+ * @return \PhpUnit\Framework\Constraint\Anything
  * @since  Method available since Release 3.0.0
  */
 function anything()

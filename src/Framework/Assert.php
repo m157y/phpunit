@@ -24,7 +24,6 @@ use PHPUnit_Framework_Constraint_ClassHasAttribute;
 use PHPUnit_Framework_Constraint_ClassHasStaticAttribute;
 use PHPUnit_Framework_Constraint_Count;
 use PHPUnit_Framework_Constraint_FileExists;
-use PHPUnit_Framework_Constraint_IsAnything;
 use PHPUnit_Framework_Constraint_GreaterThan;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
@@ -2182,14 +2181,14 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_IsAnything matcher object.
+     * Returns a PhpUnit\Framework\Constraint\Anything matcher object.
      *
-     * @return PHPUnit_Framework_Constraint_IsAnything
+     * @return \PhpUnit\Framework\Constraint\Anything
      * @since  Method available since Release 3.0.0
      */
     public static function anything()
     {
-        return new PHPUnit_Framework_Constraint_IsAnything;
+        return new Constraint\Anything;
     }
 
     /**

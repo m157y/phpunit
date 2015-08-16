@@ -537,12 +537,12 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsAnything
      * @covers \PhpUnit\Framework\Assert::anything
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\Anything
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
-    public function testConstraintIsAnything()
+    public function testConstraintAnything()
     {
         $constraint = Assert::anything();
 
@@ -553,13 +553,13 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsAnything
      * @covers \PhpUnit\Framework\Assert::anything
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\Anything
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
-    public function testConstraintNotIsAnything()
+    public function testConstraintNotAnything()
     {
         $constraint = Assert::logicalNot(
             Assert::anything()
