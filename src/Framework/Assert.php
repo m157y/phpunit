@@ -31,7 +31,6 @@ use PHPUnit_Framework_Constraint_IsFalse;
 use PHPUnit_Framework_Constraint_IsFinite;
 use PHPUnit_Framework_Constraint_IsIdentical;
 use PHPUnit_Framework_Constraint_IsInfinite;
-use PHPUnit_Framework_Constraint_IsInstanceOf;
 use PHPUnit_Framework_Constraint_GreaterThan;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
@@ -1314,7 +1313,7 @@ abstract class Assert
             throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'class or interface name');
         }
 
-        $constraint = new PHPUnit_Framework_Constraint_IsInstanceOf(
+        $constraint = new Constraint\IsInstanceOf(
             $expected
         );
 
@@ -1354,7 +1353,7 @@ abstract class Assert
         }
 
         $constraint = new Constraint\LogicalNot(
-            new PHPUnit_Framework_Constraint_IsInstanceOf($expected)
+            new Constraint\IsInstanceOf($expected)
         );
 
         self::assertThat($actual, $constraint, $message);
@@ -2512,15 +2511,15 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_IsInstanceOf matcher object.
+     * Returns a PhpUnit\Framework\Constraint\IsInstanceOf matcher object.
      *
      * @param  string                                    $className
-     * @return PHPUnit_Framework_Constraint_IsInstanceOf
+     * @return \PhpUnit\Framework\Constraint\IsInstanceOf
      * @since  Method available since Release 3.0.0
      */
     public static function isInstanceOf($className)
     {
-        return new PHPUnit_Framework_Constraint_IsInstanceOf($className);
+        return new Constraint\IsInstanceOf($className);
     }
 
     /**

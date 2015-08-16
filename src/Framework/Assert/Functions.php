@@ -1856,10 +1856,10 @@ function isFalse()
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_IsInstanceOf matcher object.
+ * Returns a PhpUnit\Framework\Constraint\IsInstanceOf matcher object.
  *
  * @param  string                                    $className
- * @return PHPUnit_Framework_Constraint_IsInstanceOf
+ * @return \PhpUnit\Framework\Constraint\IsInstanceOf
  * @since  Method available since Release 3.0.0
  */
 function isInstanceOf($className)

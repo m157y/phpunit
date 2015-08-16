@@ -1171,9 +1171,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsInstanceOf
      * @covers \PhpUnit\Framework\Assert::isInstanceOf
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\IsInstanceOf
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintIsInstanceOf()
@@ -1209,8 +1209,8 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsInstanceOf
      * @covers \PhpUnit\Framework\Assert::isInstanceOf
+     * @covers \PhpUnit\Framework\Constraint\IsInstanceOf
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintIsInstanceOf2()
@@ -1236,9 +1236,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsInstanceOf
      * @covers \PhpUnit\Framework\Assert::isInstanceOf
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\IsInstanceOf
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
@@ -1272,9 +1272,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsInstanceOf
      * @covers \PhpUnit\Framework\Assert::isInstanceOf
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\IsInstanceOf
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */

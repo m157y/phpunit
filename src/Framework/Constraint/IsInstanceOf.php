@@ -8,7 +8,11 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
 use PhpUnit\Framework\Constraint;
+use ReflectionClass;
+use ReflectionException;
 
 /**
  * Constraint that asserts that the object it is evaluated for is an instance
@@ -18,7 +22,7 @@ use PhpUnit\Framework\Constraint;
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Framework_Constraint_IsInstanceOf extends Constraint
+class IsInstanceOf extends Constraint
 {
     /**
      * @var string
