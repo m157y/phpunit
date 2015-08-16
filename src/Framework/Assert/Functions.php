@@ -1899,9 +1899,9 @@ function isNull()
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_IsTrue matcher object.
+ * Returns a PhpUnit\Framework\Constraint\IsTrue matcher object.
  *
- * @return PHPUnit_Framework_Constraint_IsTrue
+ * @return \PhpUnit\Framework\Constraint\IsTrue
  * @since  Method available since Release 3.3.0
  */
 function isTrue()
