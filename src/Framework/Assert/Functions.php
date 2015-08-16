@@ -2171,11 +2171,11 @@ function returnValueMap(array $valueMap)
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_StringContains matcher object.
+ * Returns a PhpUnit\Framework\Constraint\StringContains matcher object.
  *
  * @param  string                                      $string
  * @param  bool                                        $case
- * @return PHPUnit_Framework_Constraint_StringContains
+ * @return \PhpUnit\Framework\Constraint\StringContains
  * @since  Method available since Release 3.0.0
  */
 function stringContains($string, $case = true)

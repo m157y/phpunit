@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
 use PhpUnit\Framework\Constraint;
 
 /**
@@ -21,7 +23,7 @@ use PhpUnit\Framework\Constraint;
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Framework_Constraint_StringContains extends Constraint
+class StringContains extends Constraint
 {
     /**
      * @var string

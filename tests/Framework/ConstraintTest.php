@@ -2617,9 +2617,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_StringContains
      * @covers \PhpUnit\Framework\Assert::stringContains
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\StringContains
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintStringContains()
@@ -2650,8 +2650,8 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_StringContains
      * @covers \PhpUnit\Framework\Assert::stringContains
+     * @covers \PhpUnit\Framework\Constraint\StringContains
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintStringContains2()
@@ -2678,10 +2678,10 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_StringContains
      * @covers PHPUnit_Framework_Constraint_Not
      * @covers \PhpUnit\Framework\Assert::stringContains
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\StringContains
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintStringNotContains()
@@ -2714,10 +2714,10 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_StringContains
      * @covers PHPUnit_Framework_Constraint_Not
      * @covers \PhpUnit\Framework\Assert::stringContains
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\StringContains
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintStringNotContains2()

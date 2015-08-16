@@ -45,7 +45,6 @@ use PHPUnit_Framework_Constraint_ObjectHasAttribute;
 use PHPUnit_Framework_Constraint_Or;
 use PHPUnit_Framework_Constraint_PCREMatch;
 use PHPUnit_Framework_Constraint_SameSize;
-use PHPUnit_Framework_Constraint_StringContains;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
 use PHPUnit_Util_XML;
@@ -185,7 +184,7 @@ abstract class Assert
                 );
             }
 
-            $constraint = new PHPUnit_Framework_Constraint_StringContains(
+            $constraint = new Constraint\StringContains(
                 $needle,
                 $ignoreCase
             );
@@ -255,7 +254,7 @@ abstract class Assert
             }
 
             $constraint = new PHPUnit_Framework_Constraint_Not(
-                new PHPUnit_Framework_Constraint_StringContains(
+                new Constraint\StringContains(
                     $needle,
                     $ignoreCase
                 )
@@ -2624,16 +2623,16 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_StringContains matcher object.
+     * Returns a PhpUnit\Framework\Constraint\StringContains matcher object.
      *
      * @param  string                                      $string
      * @param  bool                                        $case
-     * @return PHPUnit_Framework_Constraint_StringContains
+     * @return \PhpUnit\Framework\Constraint\StringContains
      * @since  Method available since Release 3.0.0
      */
     public static function stringContains($string, $case = true)
     {
-        return new PHPUnit_Framework_Constraint_StringContains($string, $case);
+        return new Constraint\StringContains($string, $case);
     }
 
     /**
