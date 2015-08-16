@@ -1781,10 +1781,10 @@ function fileExists()
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_GreaterThan matcher object.
+ * Returns a PhpUnit\Framework\Constraint\GreaterThan matcher object.
  *
  * @param  mixed                                    $value
- * @return PHPUnit_Framework_Constraint_GreaterThan
+ * @return \PhpUnit\Framework\Constraint\GreaterThan
  * @since  Method available since Release 3.0.0
  */
 function greaterThan($value)
@@ -1798,7 +1798,7 @@ function greaterThan($value)
 /**
  * Returns a PhpUnit\Framework\Constraint\LogicalOr matcher object that wraps
  * a PhpUnit\Framework\Constraint\IsEqual and a
- * PHPUnit_Framework_Constraint_GreaterThan matcher object.
+ * PhpUnit\Framework\Constraint\GreaterThan matcher object.
  *
  * @param  mixed                           $value
  * @return \PhpUnit\Framework\Constraint\LogicalOr

@@ -274,9 +274,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_GreaterThan
      * @covers \PhpUnit\Framework\Assert::greaterThan
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\GreaterThan
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintGreaterThan()
@@ -307,8 +307,8 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_GreaterThan
      * @covers \PhpUnit\Framework\Assert::greaterThan
+     * @covers \PhpUnit\Framework\Constraint\GreaterThan
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintGreaterThan2()
@@ -335,9 +335,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_GreaterThan
      * @covers \PhpUnit\Framework\Assert::greaterThan
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\GreaterThan
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
@@ -370,9 +370,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_GreaterThan
      * @covers \PhpUnit\Framework\Assert::greaterThan
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\GreaterThan
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
@@ -402,8 +402,8 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_GreaterThan
      * @covers \PhpUnit\Framework\Assert::greaterThanOrEqual
+     * @covers \PhpUnit\Framework\Constraint\GreaterThan
      * @covers \PhpUnit\Framework\Constraint\IsEqual
      * @covers \PhpUnit\Framework\Constraint\LogicalOr
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
@@ -436,8 +436,8 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_GreaterThan
      * @covers \PhpUnit\Framework\Assert::greaterThanOrEqual
+     * @covers \PhpUnit\Framework\Constraint\GreaterThan
      * @covers \PhpUnit\Framework\Constraint\IsEqual
      * @covers \PhpUnit\Framework\Constraint\LogicalOr
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
@@ -466,9 +466,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_GreaterThan
      * @covers \PhpUnit\Framework\Assert::greaterThanOrEqual
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\GreaterThan
      * @covers \PhpUnit\Framework\Constraint\IsEqual
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\Constraint\LogicalOr
@@ -503,9 +503,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_GreaterThan
      * @covers \PhpUnit\Framework\Assert::greaterThanOrEqual
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\GreaterThan
      * @covers \PhpUnit\Framework\Constraint\IsEqual
      * @covers \PhpUnit\Framework\Constraint\LogicalOr
      * @covers \PhpUnit\Framework\Constraint\LogicalNot

@@ -24,7 +24,6 @@ use PHPUnit_Framework_Constraint_ClassHasAttribute;
 use PHPUnit_Framework_Constraint_ClassHasStaticAttribute;
 use PHPUnit_Framework_Constraint_Count;
 use PHPUnit_Framework_Constraint_FileExists;
-use PHPUnit_Framework_Constraint_GreaterThan;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
 use PHPUnit_Util_XML;
@@ -2420,21 +2419,21 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_GreaterThan matcher object.
+     * Returns a PhpUnit\Framework\Constraint\GreaterThan matcher object.
      *
      * @param  mixed                                    $value
-     * @return PHPUnit_Framework_Constraint_GreaterThan
+     * @return \PhpUnit\Framework\Constraint\GreaterThan
      * @since  Method available since Release 3.0.0
      */
     public static function greaterThan($value)
     {
-        return new PHPUnit_Framework_Constraint_GreaterThan($value);
+        return new Constraint\GreaterThan($value);
     }
 
     /**
      * Returns a PhpUnit\Framework\Constraint\LogicalOr matcher object that wraps
      * a PhpUnit\Framework\Constraint\IsEqual and a
-     * PHPUnit_Framework_Constraint_GreaterThan matcher object.
+     * PhpUnit\Framework\Constraint\GreaterThan matcher object.
      *
      * @param  mixed                           $value
      * @return \PhpUnit\Framework\Constraint\LogicalOr
@@ -2444,7 +2443,7 @@ abstract class Assert
     {
         return self::logicalOr(
             new Constraint\IsEqual($value),
-            new PHPUnit_Framework_Constraint_GreaterThan($value)
+            new Constraint\GreaterThan($value)
         );
     }
 
