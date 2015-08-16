@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
 use PhpUnit\Framework\Constraint;
 
 /**
@@ -18,10 +20,10 @@ use PhpUnit\Framework\Constraint;
  *
  * @since Class available since Release 4.4.0
  */
-class PHPUnit_Framework_Constraint_ArraySubset extends Constraint
+class ArraySubset extends Constraint
 {
     /**
-     * @var array|ArrayAccess
+     * @var array|\ArrayAccess
      */
     protected $subset;
 
@@ -31,7 +33,7 @@ class PHPUnit_Framework_Constraint_ArraySubset extends Constraint
     protected $strict;
 
     /**
-     * @param array|ArrayAccess $subset
+     * @param array|\ArrayAccess $subset
      * @param bool              $strict Check for object identity
      */
     public function __construct($subset, $strict = false)
@@ -45,7 +47,7 @@ class PHPUnit_Framework_Constraint_ArraySubset extends Constraint
      * Evaluates the constraint for parameter $other. Returns true if the
      * constraint is met, false otherwise.
      *
-     * @param  array|ArrayAccess $other Array or ArrayAccess object to evaluate.
+     * @param  array|\ArrayAccess $other Array or ArrayAccess object to evaluate.
      * @return bool
      */
     protected function matches($other)

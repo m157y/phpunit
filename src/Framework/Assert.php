@@ -14,11 +14,10 @@ use ArrayAccess;
 use Countable;
 use DOMDocument;
 use DOMElement;
-use PhpUnit\Framework\Constraint;
-use PHPUnit_Framework_Constraint_ArraySubset;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
 use PHPUnit_Util_XML;
+use PhpUnit\Framework\Constraint;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionObject;
@@ -91,7 +90,7 @@ abstract class Assert
             );
         }
 
-        $constraint = new PHPUnit_Framework_Constraint_ArraySubset($subset, $strict);
+        $constraint = new Constraint\ArraySubset($subset, $strict);
 
         self::assertThat($array, $constraint, $message);
     }
