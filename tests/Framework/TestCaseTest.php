@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestSuite;
+
 require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'NoArgTestCaseTest.php';
 require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPARATOR . 'Singleton.php';
 
@@ -135,7 +137,7 @@ class Framework_TestCaseTest extends PHPUnit_Framework_TestCase
     public function testNoArgTestCasePasses()
     {
         $result = new PHPUnit_Framework_TestResult;
-        $t      = new PHPUnit_Framework_TestSuite('NoArgTestCaseTest');
+        $t      = new TestSuite('NoArgTestCaseTest');
 
         $t->run($result);
 

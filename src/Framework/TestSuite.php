@@ -8,7 +8,32 @@
  * file that was distributed with this source code.
  */
 
-use PhpUnit\Framework\Warning;
+namespace PhpUnit\Framework;
+
+use Exception;
+use Iterator;
+use IteratorAggregate;
+use PHPUnit_Extensions_PhptTestCase;
+use PHPUnit_Framework_Exception;
+use PHPUnit_Framework_IncompleteTestCase;
+use PHPUnit_Framework_IncompleteTestError;
+use PHPUnit_Framework_SelfDescribing;
+use PHPUnit_Framework_SkippedTestCase;
+use PHPUnit_Framework_SkippedTestError;
+use PHPUnit_Framework_SkippedTestSuiteError;
+use PHPUnit_Framework_Test;
+use PHPUnit_Framework_TestCase;
+use PHPUnit_Framework_TestResult;
+use PHPUnit_Framework_TestSuite_DataProvider;
+use PHPUnit_Runner_BaseTestRunner;
+use PHPUnit_Runner_Filter_Factory;
+use PHPUnit_Util_Fileloader;
+use PHPUnit_Util_InvalidArgumentHelper;
+use PHPUnit_Util_Test;
+use PHPUnit_Util_TestSuiteIterator;
+use ReflectionClass;
+use ReflectionMethod;
+use Throwable;
 
 /**
  * A TestSuite is a composite of Tests. It runs a collection of test cases.
@@ -17,19 +42,19 @@ use PhpUnit\Framework\Warning;
  *
  * <code>
  * <?php
- * $suite = new PHPUnit_Framework_TestSuite;
+ * $suite = new PhpUnit\Framework\TestSuite;
  * $suite->addTest(new MathTest('testPass'));
  * ?>
  * </code>
  *
  * Alternatively, a TestSuite can extract the tests to be run automatically.
  * To do so you pass a ReflectionClass instance for your
- * PHPUnit_Framework_TestCase class to the PHPUnit_Framework_TestSuite
+ * PHPUnit_Framework_TestCase class to the PhpUnit\Framework\TestSuite
  * constructor.
  *
  * <code>
  * <?php
- * $suite = new PHPUnit_Framework_TestSuite(
+ * $suite = new PhpUnit\Framework\TestSuite(
  *   new ReflectionClass('MathTest')
  * );
  * ?>
@@ -40,7 +65,7 @@ use PhpUnit\Framework\Warning;
  *
  * @since Class available since Release 2.0.0
  */
-class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Framework_SelfDescribing, IteratorAggregate
+class TestSuite implements PHPUnit_Framework_Test, PHPUnit_Framework_SelfDescribing, IteratorAggregate
 {
     /**
      * Last count of tests in this suite.
@@ -112,30 +137,30 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
     protected $foundClasses = [];
 
     /**
-     * @var PHPUnit_Runner_Filter_Factory
+     * @var \PHPUnit_Runner_Filter_Factory
      */
     private $iteratorFilter = null;
 
     /**
      * Constructs a new TestSuite:
      *
-     *   - PHPUnit_Framework_TestSuite() constructs an empty TestSuite.
+     *   - PhpUnit\Framework\TestSuite() constructs an empty TestSuite.
      *
-     *   - PHPUnit_Framework_TestSuite(ReflectionClass) constructs a
+     *   - PhpUnit\Framework\TestSuite(ReflectionClass) constructs a
      *     TestSuite from the given class.
      *
-     *   - PHPUnit_Framework_TestSuite(ReflectionClass, String)
+     *   - PhpUnit\Framework\TestSuite(ReflectionClass, String)
      *     constructs a TestSuite from the given class with the given
      *     name.
      *
-     *   - PHPUnit_Framework_TestSuite(String) either constructs a
+     *   - PhpUnit\Framework\TestSuite(String) either constructs a
      *     TestSuite from the given class (if the passed string is the
      *     name of an existing class) or constructs an empty TestSuite
      *     with the given name.
      *
      * @param  mixed                       $theClass
      * @param  string                      $name
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PHPUnit_Framework_Exception
      */
     public function __construct($theClass = '', $name = '')
     {
@@ -223,8 +248,8 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
     /**
      * Adds a test to the suite.
      *
-     * @param PHPUnit_Framework_Test $test
-     * @param array                  $groups
+     * @param \PHPUnit_Framework_Test $test
+     * @param array                   $groups
      */
     public function addTest(PHPUnit_Framework_Test $test, $groups = [])
     {
@@ -257,7 +282,7 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
      * Adds the tests from the given class to the suite.
      *
      * @param  mixed                       $testClass
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PHPUnit_Framework_Exception
      */
     public function addTestSuite($testClass)
     {
@@ -310,7 +335,7 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
      * leaving the current test run untouched.
      *
      * @param  string                      $filename
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PHPUnit_Framework_Exception
      * @since  Method available since Release 2.3.0
      */
     public function addTestFile($filename)
@@ -387,7 +412,7 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
     /**
      * Wrapper for addTestFile() that adds multiple test files.
      *
-     * @param  array|Iterator              $filenames
+     * @param  array|\Iterator             $filenames
      * @throws PHPUnit_Framework_Exception
      * @since  Method available since Release 2.3.0
      */
@@ -609,7 +634,7 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
     /**
      * Creates a default TestResult object.
      *
-     * @return PHPUnit_Framework_TestResult
+     * @return \PHPUnit_Framework_TestResult
      */
     protected function createResult()
     {
@@ -656,8 +681,8 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
     /**
      * Runs the tests and collects their result in a TestResult.
      *
-     * @param  PHPUnit_Framework_TestResult $result
-     * @return PHPUnit_Framework_TestResult
+     * @param  \PHPUnit_Framework_TestResult $result
+     * @return \PHPUnit_Framework_TestResult
      */
     public function run(PHPUnit_Framework_TestResult $result = null)
     {
@@ -876,7 +901,7 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
     }
 
     /**
-     * @param  ReflectionMethod $method
+     * @param  \ReflectionMethod $method
      * @return bool
      */
     public static function isTestMethod(ReflectionMethod $method)
@@ -963,7 +988,7 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
     /**
      * Returns an iterator for this test suite.
      *
-     * @return RecursiveIteratorIterator
+     * @return \RecursiveIteratorIterator
      * @since  Method available since Release 3.1.0
      */
     public function getIterator()

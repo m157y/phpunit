@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestSuite;
+
 /**
  * A TestListener that generates a logfile of the
  * test execution using the Test Anything Protocol (TAP).
@@ -155,9 +157,9 @@ class PHPUnit_Util_Log_TAP extends PHPUnit_Util_Printer implements PHPUnit_Frame
     /**
      * A testsuite started.
      *
-     * @param PHPUnit_Framework_TestSuite $suite
+     * @param \PhpUnit\Framework\TestSuite $suite
      */
-    public function startTestSuite(PHPUnit_Framework_TestSuite $suite)
+    public function startTestSuite(TestSuite $suite)
     {
         $this->testSuiteLevel++;
     }
@@ -165,9 +167,9 @@ class PHPUnit_Util_Log_TAP extends PHPUnit_Util_Printer implements PHPUnit_Frame
     /**
      * A testsuite ended.
      *
-     * @param PHPUnit_Framework_TestSuite $suite
+     * @param \PhpUnit\Framework\TestSuite $suite
      */
-    public function endTestSuite(PHPUnit_Framework_TestSuite $suite)
+    public function endTestSuite(TestSuite $suite)
     {
         $this->testSuiteLevel--;
 

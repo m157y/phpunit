@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestSuite;
+
 /**
  * A TestListener that generates a logfile of the test execution in XML markup.
  *
@@ -228,10 +230,10 @@ class PHPUnit_Util_Log_JUnit extends PHPUnit_Util_Printer implements PHPUnit_Fra
     /**
      * A testsuite started.
      *
-     * @param PHPUnit_Framework_TestSuite $suite
+     * @param \PhpUnit\Framework\TestSuite $suite
      * @since  Method available since Release 2.2.0
      */
-    public function startTestSuite(PHPUnit_Framework_TestSuite $suite)
+    public function startTestSuite(TestSuite $suite)
     {
         $testSuite = $this->document->createElement('testsuite');
         $testSuite->setAttribute('name', $suite->getName());
@@ -263,10 +265,10 @@ class PHPUnit_Util_Log_JUnit extends PHPUnit_Util_Printer implements PHPUnit_Fra
     /**
      * A testsuite ended.
      *
-     * @param PHPUnit_Framework_TestSuite $suite
+     * @param \PhpUnit\Framework\TestSuite $suite
      * @since  Method available since Release 2.2.0
      */
-    public function endTestSuite(PHPUnit_Framework_TestSuite $suite)
+    public function endTestSuite(TestSuite $suite)
     {
         $this->testSuites[$this->testSuiteLevel]->setAttribute(
             'tests',

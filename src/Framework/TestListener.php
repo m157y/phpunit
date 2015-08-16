@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestSuite;
+
 /**
  * A Listener for test progress.
  *
@@ -65,18 +67,18 @@ interface PHPUnit_Framework_TestListener
     /**
      * A test suite started.
      *
-     * @param PHPUnit_Framework_TestSuite $suite
+     * @param \PhpUnit\Framework\TestSuite $suite
      * @since  Method available since Release 2.2.0
      */
-    public function startTestSuite(PHPUnit_Framework_TestSuite $suite);
+    public function startTestSuite(TestSuite $suite);
 
     /**
      * A test suite ended.
      *
-     * @param PHPUnit_Framework_TestSuite $suite
+     * @param \PhpUnit\Framework\TestSuite $suite
      * @since  Method available since Release 2.2.0
      */
-    public function endTestSuite(PHPUnit_Framework_TestSuite $suite);
+    public function endTestSuite(TestSuite $suite);
 
     /**
      * A test started.

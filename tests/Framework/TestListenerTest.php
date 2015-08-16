@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestSuite;
+
 /**
  * @since      Class available since Release 2.0.0
  * @covers     PHPUnit_Framework_TestCase
@@ -48,11 +50,11 @@ class Framework_TestListenerTest extends PHPUnit_Framework_TestCase implements P
         $this->skippedCount++;
     }
 
-    public function startTestSuite(PHPUnit_Framework_TestSuite $suite)
+    public function startTestSuite(TestSuite $suite)
     {
     }
 
-    public function endTestSuite(PHPUnit_Framework_TestSuite $suite)
+    public function endTestSuite(TestSuite $suite)
     {
     }
 

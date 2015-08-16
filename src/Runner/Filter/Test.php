@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestSuite;
+
 /**
  * @since Class available since Release 4.0.0
  */
@@ -92,7 +94,7 @@ class PHPUnit_Runner_Filter_Test extends RecursiveFilterIterator
     {
         $test = $this->getInnerIterator()->current();
 
-        if ($test instanceof PHPUnit_Framework_TestSuite) {
+        if ($test instanceof TestSuite) {
             return true;
         }
 

@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestSuite;
+
 /**
  * An empty Listener that can be extended to implement TestListener
  * with just a few lines of code.
@@ -37,11 +39,11 @@ abstract class PHPUnit_Framework_BaseTestListener implements PHPUnit_Framework_T
     {
     }
 
-    public function startTestSuite(PHPUnit_Framework_TestSuite $suite)
+    public function startTestSuite(TestSuite $suite)
     {
     }
 
-    public function endTestSuite(PHPUnit_Framework_TestSuite $suite)
+    public function endTestSuite(TestSuite $suite)
     {
     }
 

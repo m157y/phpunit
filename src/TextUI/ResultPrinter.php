@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestSuite;
 use SebastianBergmann\Environment\Console;
 
 /**
@@ -465,10 +466,10 @@ class PHPUnit_TextUI_ResultPrinter extends PHPUnit_Util_Printer implements PHPUn
     /**
      * A testsuite started.
      *
-     * @param PHPUnit_Framework_TestSuite $suite
+     * @param \PhpUnit\Framework\TestSuite $suite
      * @since  Method available since Release 2.2.0
      */
-    public function startTestSuite(PHPUnit_Framework_TestSuite $suite)
+    public function startTestSuite(TestSuite $suite)
     {
         if ($this->numTests == -1) {
             $this->numTests      = count($suite);
@@ -480,10 +481,10 @@ class PHPUnit_TextUI_ResultPrinter extends PHPUnit_Util_Printer implements PHPUn
     /**
      * A testsuite ended.
      *
-     * @param PHPUnit_Framework_TestSuite $suite
+     * @param \PhpUnit\Framework\TestSuite $suite
      * @since  Method available since Release 2.2.0
      */
-    public function endTestSuite(PHPUnit_Framework_TestSuite $suite)
+    public function endTestSuite(TestSuite $suite)
     {
     }
 

@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestSuite;
+
 /**
  * A Decorator that runs a test repeatedly.
  *
@@ -76,7 +78,7 @@ class PHPUnit_Extensions_RepeatedTest extends PHPUnit_Extensions_TestDecorator
         //@codingStandardsIgnoreStart
         for ($i = 0; $i < $this->timesRepeat && !$result->shouldStop(); $i++) {
             //@codingStandardsIgnoreEnd
-            if ($this->test instanceof PHPUnit_Framework_TestSuite) {
+            if ($this->test instanceof TestSuite) {
                 $this->test->setRunTestInSeparateProcess($this->processIsolation);
             }
             $this->test->run($result);

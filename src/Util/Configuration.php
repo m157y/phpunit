@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestSuite;
+
 /**
  * Wrapper for the PHPUnit XML configuration file.
  *
@@ -789,7 +791,7 @@ class PHPUnit_Util_Configuration
     /**
      * Returns the test suite configuration.
      *
-     * @return PHPUnit_Framework_TestSuite
+     * @return \PhpUnit\Framework\TestSuite
      * @since  Method available since Release 3.2.1
      */
     public function getTestSuiteConfiguration($testSuiteFilter = null)
@@ -805,7 +807,7 @@ class PHPUnit_Util_Configuration
         }
 
         if ($testSuiteNodes->length > 1) {
-            $suite = new PHPUnit_Framework_TestSuite;
+            $suite = new TestSuite;
 
             foreach ($testSuiteNodes as $testSuiteNode) {
                 $suite->addTestSuite(
@@ -819,17 +821,17 @@ class PHPUnit_Util_Configuration
 
     /**
      * @param  DOMElement                  $testSuiteNode
-     * @return PHPUnit_Framework_TestSuite
+     * @return \PhpUnit\Framework\TestSuite
      * @since  Method available since Release 3.4.0
      */
     protected function getTestSuite(DOMElement $testSuiteNode, $testSuiteFilter = null)
     {
         if ($testSuiteNode->hasAttribute('name')) {
-            $suite = new PHPUnit_Framework_TestSuite(
+            $suite = new TestSuite(
                 (string) $testSuiteNode->getAttribute('name')
             );
         } else {
-            $suite = new PHPUnit_Framework_TestSuite;
+            $suite = new TestSuite;
         }
 
         $exclude = [];

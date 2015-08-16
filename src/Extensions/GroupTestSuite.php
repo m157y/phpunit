@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestSuite;
+
 /**
  * We have a TestSuite object A.
  * In TestSuite object A we have Tests tagged with @group.
@@ -22,15 +24,15 @@
  *
  * @since Class available since Release 3.3.0
  */
-class PHPUnit_Extensions_GroupTestSuite extends PHPUnit_Framework_TestSuite
+class PHPUnit_Extensions_GroupTestSuite extends TestSuite
 {
-    public function __construct(PHPUnit_Framework_TestSuite $suite, array $groups)
+    public function __construct(TestSuite $suite, array $groups)
     {
         $groupSuites = [];
         $name        = $suite->getName();
 
         foreach ($groups as $group) {
-            $groupSuites[$group] = new PHPUnit_Framework_TestSuite($name . ' - ' . $group);
+            $groupSuites[$group] = new TestSuite($name . ' - ' . $group);
             $this->addTest($groupSuites[$group]);
         }
 

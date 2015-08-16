@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestSuite;
+
 /**
  * @since Class available since Release 4.0.0
  */
@@ -39,7 +41,7 @@ class PHPUnit_Runner_Filter_Factory
     /**
      * @return FilterIterator
      */
-    public function factory(Iterator $iterator, PHPUnit_Framework_TestSuite $suite)
+    public function factory(Iterator $iterator, TestSuite $suite)
     {
         foreach ($this->filters as $filter) {
             list($class, $args) = $filter;

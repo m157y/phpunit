@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestSuite;
 use SebastianBergmann\Environment\Runtime;
 
 /**
@@ -77,7 +78,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
     public static function run($test, array $arguments = [])
     {
         if ($test instanceof ReflectionClass) {
-            $test = new PHPUnit_Framework_TestSuite($test);
+            $test = new TestSuite($test);
         }
 
         if ($test instanceof PHPUnit_Framework_Test) {
@@ -102,7 +103,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
         return new PHPUnit_Framework_TestResult;
     }
 
-    private function processSuiteFilters(PHPUnit_Framework_TestSuite $suite, array $arguments)
+    private function processSuiteFilters(TestSuite $suite, array $arguments)
     {
         if (!$arguments['filter'] &&
             empty($arguments['groups']) &&
@@ -169,7 +170,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
                 $arguments['processIsolation']
             );
 
-            $suite = new PHPUnit_Framework_TestSuite();
+            $suite = new TestSuite();
             $suite->addTest($test);
         }
 
@@ -417,7 +418,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
         $result->setTimeoutForMediumTests($arguments['timeoutForMediumTests']);
         $result->setTimeoutForLargeTests($arguments['timeoutForLargeTests']);
 
-        if ($suite instanceof PHPUnit_Framework_TestSuite) {
+        if ($suite instanceof TestSuite) {
             $suite->setRunTestInSeparateProcess($arguments['processIsolation']);
         }
 
