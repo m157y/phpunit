@@ -8,13 +8,15 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
 use PhpUnit\Framework\Constraint;
 use PhpUnit\Framework\ExpectationFailedException;
 
 /**
  * @since Class available since Release 3.1.0
  */
-abstract class PHPUnit_Framework_Constraint_Composite extends Constraint
+abstract class Composite extends Constraint
 {
     /**
      * @var \PhpUnit\Framework\Constraint

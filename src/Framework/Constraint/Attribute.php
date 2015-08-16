@@ -8,13 +8,14 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint\Composite;
 use PhpUnit\Framework\Assert;
 use PhpUnit\Framework\Constraint;
 
 /**
  * @since Class available since Release 3.1.0
  */
-class PHPUnit_Framework_Constraint_Attribute extends PHPUnit_Framework_Constraint_Composite
+class PHPUnit_Framework_Constraint_Attribute extends Composite
 {
     /**
      * @var string
