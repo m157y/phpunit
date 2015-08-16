@@ -22,7 +22,6 @@ use PHPUnit_Framework_Constraint_Attribute;
 use PHPUnit_Framework_Constraint_Callback;
 use PHPUnit_Framework_Constraint_ClassHasAttribute;
 use PHPUnit_Framework_Constraint_ClassHasStaticAttribute;
-use PHPUnit_Framework_Constraint_Count;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
 use PHPUnit_Util_XML;
@@ -431,7 +430,7 @@ abstract class Assert
 
         self::assertThat(
             $haystack,
-            new PHPUnit_Framework_Constraint_Count($expectedCount),
+            new Constraint\Count($expectedCount),
             $message
         );
     }
@@ -475,7 +474,7 @@ abstract class Assert
         }
 
         $constraint = new Constraint\LogicalNot(
-            new PHPUnit_Framework_Constraint_Count($expectedCount)
+            new Constraint\Count($expectedCount)
         );
 
         self::assertThat($haystack, $constraint, $message);
@@ -2616,14 +2615,14 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_Count matcher object.
+     * Returns a PhpUnit\Framework\Constraint\Count matcher object.
      *
      * @param  int                                $count
-     * @return PHPUnit_Framework_Constraint_Count
+     * @return \PhpUnit\Framework\Constraint\Count
      */
     public static function countOf($count)
     {
-        return new PHPUnit_Framework_Constraint_Count($count);
+        return new Constraint\Count($count);
     }
     /**
      * Fails a test with the given message.

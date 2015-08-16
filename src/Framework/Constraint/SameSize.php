@@ -10,12 +10,10 @@
 
 namespace PhpUnit\Framework\Constraint;
 
-use PHPUnit_Framework_Constraint_Count;
-
 /**
  * @since Class available since Release 3.6.0
  */
-class SameSize extends PHPUnit_Framework_Constraint_Count
+class SameSize extends Count
 {
     /**
      * @var int

@@ -3277,45 +3277,45 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_Count
+     * @covers \PhpUnit\Framework\Constraint\Count
      */
     public function testConstraintCountWithAnArray()
     {
-        $constraint = new PHPUnit_Framework_Constraint_Count(5);
+        $constraint = new Constraint\Count(5);
 
         $this->assertTrue($constraint->evaluate([1, 2, 3, 4, 5], '', true));
         $this->assertFalse($constraint->evaluate([1, 2, 3, 4], '', true));
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_Count
+     * @covers \PhpUnit\Framework\Constraint\Count
      */
     public function testConstraintCountWithAnIteratorWhichDoesNotImplementCountable()
     {
-        $constraint = new PHPUnit_Framework_Constraint_Count(5);
+        $constraint = new Constraint\Count(5);
 
         $this->assertTrue($constraint->evaluate(new TestIterator([1, 2, 3, 4, 5]), '', true));
         $this->assertFalse($constraint->evaluate(new TestIterator([1, 2, 3, 4]), '', true));
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_Count
+     * @covers \PhpUnit\Framework\Constraint\Count
      */
     public function testConstraintCountWithAnObjectImplementingCountable()
     {
-        $constraint = new PHPUnit_Framework_Constraint_Count(5);
+        $constraint = new Constraint\Count(5);
 
         $this->assertTrue($constraint->evaluate(new ArrayObject([1, 2, 3, 4, 5]), '', true));
         $this->assertFalse($constraint->evaluate(new ArrayObject([1, 2, 3, 4]), '', true));
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_Count
+     * @covers \PhpUnit\Framework\Constraint\Count
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintCountFailing()
     {
-        $constraint = new PHPUnit_Framework_Constraint_Count(5);
+        $constraint = new Constraint\Count(5);
 
         try {
             $constraint->evaluate([1, 2]);
@@ -3336,15 +3336,15 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_Count
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\Count
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintNotCountFailing()
     {
         $constraint = Assert::logicalNot(
-          new PHPUnit_Framework_Constraint_Count(2)
+          new Constraint\Count(2)
         );
 
         try {

@@ -8,12 +8,17 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
+use Countable;
+use IteratorAggregate;
 use PhpUnit\Framework\Constraint;
+use Traversable;
 
 /**
  * @since Class available since Release 3.6.0
  */
-class PHPUnit_Framework_Constraint_Count extends Constraint
+class Count extends Constraint
 {
     /**
      * @var int

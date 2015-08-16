@@ -8,30 +8,31 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint\Count;
 use PhpUnit\Framework\TestCase;
 
 /**
  * @since      Class available since Release 3.7.30
- * @covers     PHPUnit_Framework_Constraint_Count
+ * @covers     \PhpUnit\Framework\Constraint\Count
  */
 class CountTest extends TestCase
 {
     public function testCount()
     {
-        $countConstraint = new PHPUnit_Framework_Constraint_Count(3);
+        $countConstraint = new Count(3);
         $this->assertTrue($countConstraint->evaluate([1, 2, 3], '', true));
 
-        $countConstraint = new PHPUnit_Framework_Constraint_Count(0);
+        $countConstraint = new Count(0);
         $this->assertTrue($countConstraint->evaluate([], '', true));
 
-        $countConstraint = new PHPUnit_Framework_Constraint_Count(2);
+        $countConstraint = new Count(2);
         $it              = new TestIterator([1, 2]);
         $this->assertTrue($countConstraint->evaluate($it, '', true));
     }
 
     public function testCountDoesNotChangeIteratorKey()
     {
-        $countConstraint = new PHPUnit_Framework_Constraint_Count(2);
+        $countConstraint = new Count(2);
 
         // test with 1st implementation of Iterator
         $it = new TestIterator([1, 2]);
@@ -50,7 +51,7 @@ class CountTest extends TestCase
         // test with 2nd implementation of Iterator
         $it = new TestIterator2([1, 2]);
 
-        $countConstraint = new PHPUnit_Framework_Constraint_Count(2);
+        $countConstraint = new Count(2);
         $countConstraint->evaluate($it, '', true);
         $this->assertEquals(1, $it->current());
 
