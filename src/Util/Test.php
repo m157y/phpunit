@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\CodeCoverageException;
 use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\InvalidCoversTargetException;
 use PhpUnit\Framework\SelfDescribing;
@@ -67,7 +68,7 @@ class PHPUnit_Util_Test
      * @param  string                                  $className
      * @param  string                                  $methodName
      * @return array|bool
-     * @throws PHPUnit_Framework_CodeCoverageException
+     * @throws \PhpUnit\Framework\CodeCoverageException
      * @since  Method available since Release 4.0.0
      */
     public static function getLinesToBeCovered($className, $methodName)
@@ -102,7 +103,7 @@ class PHPUnit_Util_Test
      * @param  string                                  $methodName
      * @param  string                                  $mode
      * @return array
-     * @throws PHPUnit_Framework_CodeCoverageException
+     * @throws \PhpUnit\Framework\CodeCoverageException
      * @since  Method available since Release 4.2.0
      */
     private static function getLinesToBeCoveredOrUsed($className, $methodName, $mode)
@@ -116,7 +117,7 @@ class PHPUnit_Util_Test
 
         if (!empty($annotations['class'][$mode . 'DefaultClass'])) {
             if (count($annotations['class'][$mode . 'DefaultClass']) > 1) {
-                throw new PHPUnit_Framework_CodeCoverageException(
+                throw new CodeCoverageException(
                     sprintf(
                         'More than one @%sClass annotation in class or interface "%s".',
                         $mode,

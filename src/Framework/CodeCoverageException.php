@@ -8,11 +8,11 @@
  * file that was distributed with this source code.
  */
 
-use PhpUnit\Framework\Exception;
+namespace PhpUnit\Framework;
 
 /**
  * @since Class available since Release 4.0.0
  */
-class PHPUnit_Framework_CodeCoverageException extends Exception
+class CodeCoverageException extends Exception
 {
 }

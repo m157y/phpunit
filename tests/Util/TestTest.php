@@ -424,7 +424,7 @@ class Util_TestTest extends TestCase
      * @covers            PHPUnit_Util_Test::getLinesToBeCovered
      * @covers            PHPUnit_Util_Test::getLinesToBeCoveredOrUsed
      * @covers            PHPUnit_Util_Test::resolveElementToReflectionObjects
-     * @expectedException PHPUnit_Framework_CodeCoverageException
+     * @expectedException \PhpUnit\Framework\CodeCoverageException
      */
     public function testGetLinesToBeCovered2()
     {
@@ -437,7 +437,7 @@ class Util_TestTest extends TestCase
      * @covers            PHPUnit_Util_Test::getLinesToBeCovered
      * @covers            PHPUnit_Util_Test::getLinesToBeCoveredOrUsed
      * @covers            PHPUnit_Util_Test::resolveElementToReflectionObjects
-     * @expectedException PHPUnit_Framework_CodeCoverageException
+     * @expectedException \PhpUnit\Framework\CodeCoverageException
      */
     public function testGetLinesToBeCovered3()
     {
@@ -450,7 +450,7 @@ class Util_TestTest extends TestCase
      * @covers            PHPUnit_Util_Test::getLinesToBeCovered
      * @covers            PHPUnit_Util_Test::getLinesToBeCoveredOrUsed
      * @covers            PHPUnit_Util_Test::resolveElementToReflectionObjects
-     * @expectedException PHPUnit_Framework_CodeCoverageException
+     * @expectedException \PhpUnit\Framework\CodeCoverageException
      */
     public function testGetLinesToBeCovered4()
     {
@@ -477,7 +477,7 @@ class Util_TestTest extends TestCase
     /**
      * @covers            PHPUnit_Util_Test::getLinesToBeCovered
      * @covers            PHPUnit_Util_Test::getLinesToBeCoveredOrUsed
-     * @expectedException PHPUnit_Framework_CodeCoverageException
+     * @expectedException \PhpUnit\Framework\CodeCoverageException
      */
     public function testTwoCoversDefaultClassAnnoationsAreNotAllowed()
     {
