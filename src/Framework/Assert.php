@@ -36,7 +36,6 @@ use PHPUnit_Framework_Constraint_IsJson;
 use PHPUnit_Framework_Constraint_IsNan;
 use PHPUnit_Framework_Constraint_IsNull;
 use PHPUnit_Framework_Constraint_IsTrue;
-use PHPUnit_Framework_Constraint_IsType;
 use PHPUnit_Framework_Constraint_GreaterThan;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
@@ -1397,7 +1396,7 @@ abstract class Assert
             throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'string');
         }
 
-        $constraint = new PHPUnit_Framework_Constraint_IsType(
+        $constraint = new Constraint\IsType(
             $expected
         );
 
@@ -1437,7 +1436,7 @@ abstract class Assert
         }
 
         $constraint = new Constraint\LogicalNot(
-            new PHPUnit_Framework_Constraint_IsType($expected)
+            new Constraint\IsType($expected)
         );
 
         self::assertThat($actual, $constraint, $message);
@@ -2529,15 +2528,15 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_IsType matcher object.
+     * Returns a PhpUnit\Framework\Constraint\IsType matcher object.
      *
      * @param  string                              $type
-     * @return PHPUnit_Framework_Constraint_IsType
+     * @return \PhpUnit\Framework\Constraint\IsType
      * @since  Method available since Release 3.0.0
      */
     public static function isType($type)
     {
-        return new PHPUnit_Framework_Constraint_IsType($type);
+        return new Constraint\IsType($type);
     }
 
     /**

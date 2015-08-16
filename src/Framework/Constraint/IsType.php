@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
 use PhpUnit\Framework\Constraint;
 use PhpUnit\Framework\Exception as FrameworkException;
 
@@ -19,7 +21,7 @@ use PhpUnit\Framework\Exception as FrameworkException;
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Framework_Constraint_IsType extends Constraint
+class IsType extends Constraint
 {
     const TYPE_ARRAY    = 'array';
     const TYPE_BOOL     = 'bool';
@@ -70,7 +72,7 @@ class PHPUnit_Framework_Constraint_IsType extends Constraint
         if (!isset($this->types[$type])) {
             throw new FrameworkException(
                 sprintf(
-                    'Type specified for PHPUnit_Framework_Constraint_IsType <%s> ' .
+                    'Type specified for PhpUnit\\Framework\\Constraint\\IsType <%s> ' .
                     'is not a valid type.',
                     $type
                 )

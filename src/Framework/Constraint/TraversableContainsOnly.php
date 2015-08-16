@@ -10,7 +10,6 @@
 
 namespace PhpUnit\Framework\Constraint;
 
-use PHPUnit_Framework_Constraint_IsType;
 use PHPUnit_Framework_Constraint_IsInstanceOf;
 use PhpUnit\Framework\Constraint;
 
@@ -41,7 +40,7 @@ class TraversableContainsOnly extends Constraint
         parent::__construct();
 
         if ($isNativeType) {
-            $this->constraint = new PHPUnit_Framework_Constraint_IsType($type);
+            $this->constraint = new IsType($type);
         } else {
             $this->constraint = new PHPUnit_Framework_Constraint_IsInstanceOf(
                 $type

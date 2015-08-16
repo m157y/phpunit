@@ -1303,9 +1303,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsType
      * @covers \PhpUnit\Framework\Assert::isType
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\IsType
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintIsType()
@@ -1335,8 +1335,8 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsType
      * @covers \PhpUnit\Framework\Assert::isType
+     * @covers \PhpUnit\Framework\Constraint\IsType
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintIsType2()
@@ -1374,8 +1374,8 @@ EOF
 
     /**
      * @dataProvider resources
-     * @covers PHPUnit_Framework_Constraint_IsType
      * @covers \PhpUnit\Framework\Assert::isType
+     * @covers \PhpUnit\Framework\Constraint\IsType
      */
     public function testConstraintIsResourceTypeEvaluatesCorrectlyWithResources($resource)
     {
@@ -1387,9 +1387,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsType
      * @covers \PhpUnit\Framework\Assert::isType
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\IsType
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
@@ -1423,9 +1423,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsType
      * @covers \PhpUnit\Framework\Assert::isType
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\IsType
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */

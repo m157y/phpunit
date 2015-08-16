@@ -1913,10 +1913,10 @@ function isTrue()
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_IsType matcher object.
+ * Returns a PhpUnit\Framework\Constraint\IsType matcher object.
  *
  * @param  string                              $type
- * @return PHPUnit_Framework_Constraint_IsType
+ * @return \PhpUnit\Framework\Constraint\IsType
  * @since  Method available since Release 3.0.0
  */
 function isType($type)
