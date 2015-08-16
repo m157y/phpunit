@@ -1974,10 +1974,10 @@ function logicalAnd()
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_Not matcher object.
+ * Returns a PhpUnit\Framework\Constraint\LogicalNot matcher object.
  *
  * @param  \PhpUnit\Framework\Constraint    $constraint
- * @return PHPUnit_Framework_Constraint_Not
+ * @return \PhpUnit\Framework\Constraint\LogicalNot
  * @since  Method available since Release 3.0.0
  */
 function logicalNot(Constraint $constraint)

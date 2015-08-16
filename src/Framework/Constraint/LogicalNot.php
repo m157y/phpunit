@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
 use PhpUnit\Framework\Constraint;
 
 /**
@@ -15,7 +17,7 @@ use PhpUnit\Framework\Constraint;
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Framework_Constraint_Not extends Constraint
+class LogicalNot extends Constraint
 {
     /**
      * @var \PhpUnit\Framework\Constraint
@@ -113,7 +115,7 @@ class PHPUnit_Framework_Constraint_Not extends Constraint
     {
         switch (get_class($this->constraint)) {
             case 'PHPUnit_Framework_Constraint_And':
-            case 'PHPUnit_Framework_Constraint_Not':
+            case 'PhpUnit\\Framework\\Constraint\\LogicalNot':
             case 'PhpUnit\\Framework\\Constraint\\LogicalOr':
                 return 'not( ' . $this->constraint->failureDescription($other) . ' )';
 
@@ -133,7 +135,7 @@ class PHPUnit_Framework_Constraint_Not extends Constraint
     {
         switch (get_class($this->constraint)) {
             case 'PHPUnit_Framework_Constraint_And':
-            case 'PHPUnit_Framework_Constraint_Not':
+            case 'PhpUnit\\Framework\\Constraint\\LogicalNot':
             case 'PhpUnit\\Framework\\Constraint\\LogicalOr':
                 return 'not( ' . $this->constraint->toString() . ' )';
 
