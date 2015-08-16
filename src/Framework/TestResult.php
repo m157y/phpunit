@@ -24,7 +24,6 @@ use PHPUnit_Framework_Exception;
 use PHPUnit_Framework_ExceptionWrapper;
 use PHPUnit_Framework_IncompleteTest;
 use PHPUnit_Framework_IncompleteTestError;
-use PHPUnit_Framework_InvalidCoversTargetError;
 use PHPUnit_Util_Blacklist;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Test;
@@ -725,7 +724,7 @@ class TestResult implements Countable
             } catch (InvalidCoversTargetException $cce) {
                 $this->addFailure(
                     $test,
-                    new PHPUnit_Framework_InvalidCoversTargetError(
+                    new InvalidCoversTargetError(
                         $cce->getMessage()
                     ),
                     $time
