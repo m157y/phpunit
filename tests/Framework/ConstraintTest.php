@@ -3455,12 +3455,12 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_Exception
+     * @covers \PhpUnit\Framework\Constraint\Exception
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintException()
     {
-        $constraint = new PHPUnit_Framework_Constraint_Exception('FoobarException');
+        $constraint = new Constraint\Exception('FoobarException');
         $exception  = new DummyException('Test');
         $stackTrace = $exception->getTraceAsString();
 

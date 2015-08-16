@@ -8,13 +8,15 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
 use Exception as PhpException;
 use PhpUnit\Framework\Constraint;
 
 /**
  * @since Class available since Release 3.6.6
  */
-class PHPUnit_Framework_Constraint_Exception extends Constraint
+class Exception extends Constraint
 {
     /**
      * @var string

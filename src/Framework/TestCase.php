@@ -14,7 +14,6 @@ use Exception as PhpException;
 use DeepCopy\DeepCopy;
 use PHPUnit_Extensions_PhptTestCase;
 use PHPUnit_Extensions_SeleniumTestCase;
-use PHPUnit_Framework_Constraint_Exception;
 use PHPUnit_Framework_MockObject_Generator;
 use PHPUnit_Framework_MockObject_Matcher_AnyInvokedCount;
 use PHPUnit_Framework_MockObject_Matcher_InvokedCount;
@@ -945,7 +944,7 @@ abstract class TestCase extends Assert implements Test, SelfDescribing
             if ($checkException) {
                 $this->assertThat(
                     $e,
-                    new PHPUnit_Framework_Constraint_Exception(
+                    new Constraint\Exception(
                         $this->expectedException
                     )
                 );
@@ -988,7 +987,7 @@ abstract class TestCase extends Assert implements Test, SelfDescribing
         if ($this->expectedException !== null) {
             $this->assertThat(
                 null,
-                new PHPUnit_Framework_Constraint_Exception(
+                new Constraint\Exception(
                     $this->expectedException
                 )
             );

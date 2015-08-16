@@ -12,7 +12,7 @@ namespace PhpUnit\Framework\Constraint;
 
 use PHPUnit_Util_Regex;
 use PhpUnit\Framework\Constraint;
-use PhpUnit\Framework\Exception;
+use PhpUnit\Framework\Exception as FrameworkException;
 
 /**
  * @since Class available since Release 4.3.0
@@ -45,7 +45,7 @@ class ExceptionMessageRegExp extends Constraint
         $match = PHPUnit_Util_Regex::pregMatchSafe($this->expectedMessageRegExp, $other->getMessage());
 
         if (false === $match) {
-            throw new Exception(
+            throw new FrameworkException(
                 "Invalid expected exception message regex given: '{$this->expectedMessageRegExp}'"
             );
         }
