@@ -1842,9 +1842,9 @@ function isEmpty()
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_IsFalse matcher object.
+ * Returns a PhpUnit\Framework\Constraint\IsFalse matcher object.
  *
- * @return PHPUnit_Framework_Constraint_IsFalse
+ * @return \PhpUnit\Framework\Constraint\IsFalse
  * @since  Method available since Release 3.3.0
  */
 function isFalse()

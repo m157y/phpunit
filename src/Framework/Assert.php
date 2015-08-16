@@ -27,7 +27,6 @@ use PHPUnit_Framework_Constraint_FileExists;
 use PHPUnit_Framework_Constraint_IsAnything;
 use PHPUnit_Framework_Constraint_IsEmpty;
 use PHPUnit_Framework_Constraint_IsEqual;
-use PHPUnit_Framework_Constraint_IsFalse;
 use PHPUnit_Framework_Constraint_GreaterThan;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
@@ -2218,14 +2217,14 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_IsFalse matcher object.
+     * Returns a PhpUnit\Framework\Constraint\IsFalse matcher object.
      *
-     * @return PHPUnit_Framework_Constraint_IsFalse
+     * @return \PhpUnit\Framework\Constraint\IsFalse
      * @since  Method available since Release 3.3.0
      */
     public static function isFalse()
     {
-        return new PHPUnit_Framework_Constraint_IsFalse;
+        return new Constraint\IsFalse;
     }
 
     /**
