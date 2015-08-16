@@ -40,10 +40,10 @@ function anything()
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_ArrayHasKey matcher object.
+ * Returns a PhpUnit\Framework\Constraint\ArrayHasKey matcher object.
  *
  * @param  mixed                                    $key
- * @return PHPUnit_Framework_Constraint_ArrayHasKey
+ * @return \PhpUnit\Framework\Constraint\ArrayHasKey
  * @since  Method available since Release 3.0.0
  */
 function arrayHasKey($key)

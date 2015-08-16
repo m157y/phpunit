@@ -16,7 +16,6 @@ use DOMDocument;
 use DOMElement;
 use PhpUnit\Framework\Constraint;
 use PHPUnit_Framework_Constraint_And;
-use PHPUnit_Framework_Constraint_ArrayHasKey;
 use PHPUnit_Framework_Constraint_ArraySubset;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
@@ -63,7 +62,7 @@ abstract class Assert
             );
         }
 
-        $constraint = new PHPUnit_Framework_Constraint_ArrayHasKey($key);
+        $constraint = new Constraint\ArrayHasKey($key);
 
         self::assertThat($array, $constraint, $message);
     }
@@ -123,7 +122,7 @@ abstract class Assert
         }
 
         $constraint = new Constraint\LogicalNot(
-            new PHPUnit_Framework_Constraint_ArrayHasKey($key)
+            new Constraint\ArrayHasKey($key)
         );
 
         self::assertThat($array, $constraint, $message);
@@ -2329,15 +2328,15 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_ArrayHasKey matcher object.
+     * Returns a PhpUnit\Framework\Constraint\ArrayHasKey matcher object.
      *
      * @param  mixed                                    $key
-     * @return PHPUnit_Framework_Constraint_ArrayHasKey
+     * @return \PhpUnit\Framework\Constraint\ArrayHasKey
      * @since  Method available since Release 3.0.0
      */
     public static function arrayHasKey($key)
     {
-        return new PHPUnit_Framework_Constraint_ArrayHasKey($key);
+        return new Constraint\ArrayHasKey($key);
     }
 
     /**

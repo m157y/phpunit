@@ -20,9 +20,9 @@ use PhpUnit\Framework\TestFailure;
 class Framework_ConstraintTest extends TestCase
 {
     /**
-     * @covers PHPUnit_Framework_Constraint_ArrayHasKey
      * @covers \PhpUnit\Framework\Assert::arrayHasKey
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\ArrayHasKey
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintArrayHasKey()
@@ -51,8 +51,8 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_ArrayHasKey
      * @covers \PhpUnit\Framework\Assert::arrayHasKey
+     * @covers \PhpUnit\Framework\Constraint\ArrayHasKey
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintArrayHasKey2()
@@ -78,9 +78,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_ArrayHasKey
      * @covers \PhpUnit\Framework\Assert::arrayHasKey
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\ArrayHasKey
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
@@ -113,9 +113,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_ArrayHasKey
      * @covers \PhpUnit\Framework\Assert::arrayHasKey
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\ArrayHasKey
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
