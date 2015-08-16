@@ -8,7 +8,8 @@
  * file that was distributed with this source code.
  */
 
-use PhpUnit\Framework\Exception;
+namespace PhpUnit\Framework;
+
 use Exception as PhpException;
 
 /**
@@ -16,7 +17,7 @@ use Exception as PhpException;
  *
  * @since Class available since Release 2.2.0
  */
-class PHPUnit_Framework_Error extends Exception
+class Error extends Exception
 {
     /**
      * Constructor.

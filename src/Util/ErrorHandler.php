@@ -40,7 +40,7 @@ class PHPUnit_Util_ErrorHandler
      * @param  string                  $errstr
      * @param  string                  $errfile
      * @param  int                     $errline
-     * @throws PHPUnit_Framework_Error
+     * @throws \PhpUnit\Framework\Error
      */
     public static function handleError($errno, $errstr, $errfile, $errline)
     {
@@ -78,7 +78,7 @@ class PHPUnit_Util_ErrorHandler
 
             $exception = 'PHPUnit_Framework_Error_Deprecated';
         } else {
-            $exception = 'PHPUnit_Framework_Error';
+            $exception = 'PhpUnit\\Framework\\Error';
         }
 
         throw new $exception($errstr, $errno, $errfile, $errline);

@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Error;
+
 /**
  * Wrapper for PHP deprecated errors.
  * You can disable deprecated-to-exception conversion by setting
@@ -18,7 +20,7 @@
  *
  * @since Class available since Release 3.3.0
  */
-class PHPUnit_Framework_Error_Deprecated extends PHPUnit_Framework_Error
+class PHPUnit_Framework_Error_Deprecated extends Error
 {
     public static $enabled = true;
 }
