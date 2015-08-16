@@ -21,7 +21,6 @@ use PHPUnit_Framework_Constraint_ExceptionCode;
 use PHPUnit_Framework_Constraint_ExceptionMessage;
 use PHPUnit_Framework_Constraint_ExceptionMessageRegExp;
 use PHPUnit_Framework_Exception;
-use PHPUnit_Framework_IncompleteTest;
 use PHPUnit_Framework_MockObject_Generator;
 use PHPUnit_Framework_MockObject_Matcher_AnyInvokedCount;
 use PHPUnit_Framework_MockObject_Matcher_InvokedCount;
@@ -790,7 +789,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
             $this->assertPostConditions();
 
             $this->status = PHPUnit_Runner_BaseTestRunner::STATUS_PASSED;
-        } catch (PHPUnit_Framework_IncompleteTest $e) {
+        } catch (IncompleteTest $e) {
             $this->status        = PHPUnit_Runner_BaseTestRunner::STATUS_INCOMPLETE;
             $this->statusMessage = $e->getMessage();
         } catch (SkippedTest $e) {

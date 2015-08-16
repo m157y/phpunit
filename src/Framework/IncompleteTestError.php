@@ -11,7 +11,6 @@
 namespace PhpUnit\Framework;
 
 use PHPUnit_Framework_AssertionFailedError;
-use PHPUnit_Framework_IncompleteTest;
 
 /**
  * Extension to PHPUnit_Framework_AssertionFailedError to mark the special
@@ -19,6 +18,6 @@ use PHPUnit_Framework_IncompleteTest;
  *
  * @since Class available since Release 2.0.0
  */
-class IncompleteTestError extends PHPUnit_Framework_AssertionFailedError implements PHPUnit_Framework_IncompleteTest
+class IncompleteTestError extends PHPUnit_Framework_AssertionFailedError implements IncompleteTest
 {
 }

@@ -22,7 +22,6 @@ use PHPUnit_Framework_Assert;
 use PHPUnit_Framework_AssertionFailedError;
 use PHPUnit_Framework_Exception;
 use PHPUnit_Framework_ExceptionWrapper;
-use PHPUnit_Framework_IncompleteTest;
 use PHPUnit_Util_Blacklist;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Test;
@@ -229,7 +228,7 @@ class TestResult implements Countable
             if ($this->stopOnRisky) {
                 $this->stop();
             }
-        } elseif ($e instanceof PHPUnit_Framework_IncompleteTest) {
+        } elseif ($e instanceof IncompleteTest) {
             $this->notImplemented[] = new TestFailure($test, $e);
             $notifyMethod           = 'addIncompleteTest';
 
@@ -278,7 +277,7 @@ class TestResult implements Countable
             if ($this->stopOnRisky) {
                 $this->stop();
             }
-        } elseif ($e instanceof PHPUnit_Framework_IncompleteTest) {
+        } elseif ($e instanceof IncompleteTest) {
             $this->notImplemented[] = new TestFailure($test, $e);
             $notifyMethod           = 'addIncompleteTest';
 
