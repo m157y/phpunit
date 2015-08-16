@@ -1871,9 +1871,9 @@ function isInstanceOf($className)
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_IsJson matcher object.
+ * Returns a PhpUnit\Framework\Constraint\IsJson matcher object.
  *
- * @return PHPUnit_Framework_Constraint_IsJson
+ * @return \PhpUnit\Framework\Constraint\IsJson
  * @since  Method available since Release 3.7.20
  */
 function isJson()

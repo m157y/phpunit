@@ -8,6 +8,9 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
+use PHPUnit_Framework_Constraint_JsonMatches_ErrorMessageProvider;
 use PhpUnit\Framework\Constraint;
 
 /**
@@ -15,7 +18,7 @@ use PhpUnit\Framework\Constraint;
  *
  * @since Class available since Release 3.7.20
  */
-class PHPUnit_Framework_Constraint_IsJson extends Constraint
+class IsJson extends Constraint
 {
     /**
      * Evaluates the constraint for parameter $other. Returns true if the

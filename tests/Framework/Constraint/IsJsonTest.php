@@ -8,19 +8,20 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint\IsJson;
 use PhpUnit\Framework\TestCase;
 
 class Framework_Constraint_IsJsonTest extends TestCase
 {
     /**
      * @dataProvider evaluateDataprovider
-     * @covers PHPUnit_Framework_Constraint_IsJson::evaluate
-     * @covers PHPUnit_Framework_Constraint_IsJson::matches
-     * @covers PHPUnit_Framework_Constraint_IsJson::__construct
+     * @covers \PhpUnit\Framework\Constraint\IsJson::__construct
+     * @covers \PhpUnit\Framework\Constraint\IsJson::evaluate
+     * @covers \PhpUnit\Framework\Constraint\IsJson::matches
      */
     public function testEvaluate($expected, $jsonOther)
     {
-        $constraint = new PHPUnit_Framework_Constraint_IsJson();
+        $constraint = new IsJson();
         $this->assertEquals($expected, $constraint->evaluate($jsonOther, '', true));
     }
 
