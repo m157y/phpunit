@@ -23,7 +23,6 @@ use PHPUnit_Framework_SkippedTestError;
 use PHPUnit_Framework_SkippedTestSuiteError;
 use PHPUnit_Framework_Test;
 use PHPUnit_Framework_TestCase;
-use PHPUnit_Framework_TestResult;
 use PHPUnit_Framework_TestSuite_DataProvider;
 use PHPUnit_Runner_BaseTestRunner;
 use PHPUnit_Runner_Filter_Factory;
@@ -634,11 +633,11 @@ class TestSuite implements PHPUnit_Framework_Test, PHPUnit_Framework_SelfDescrib
     /**
      * Creates a default TestResult object.
      *
-     * @return \PHPUnit_Framework_TestResult
+     * @return \PhpUnit\Framework\TestResult
      */
     protected function createResult()
     {
-        return new PHPUnit_Framework_TestResult;
+        return new TestResult;
     }
 
     /**
@@ -681,10 +680,10 @@ class TestSuite implements PHPUnit_Framework_Test, PHPUnit_Framework_SelfDescrib
     /**
      * Runs the tests and collects their result in a TestResult.
      *
-     * @param  \PHPUnit_Framework_TestResult $result
-     * @return \PHPUnit_Framework_TestResult
+     * @param  \PhpUnit\Framework\TestResult $result
+     * @return \PhpUnit\Framework\TestResult
      */
-    public function run(PHPUnit_Framework_TestResult $result = null)
+    public function run(TestResult $result = null)
     {
         if ($result === null) {
             $result = $this->createResult();
@@ -793,10 +792,10 @@ class TestSuite implements PHPUnit_Framework_Test, PHPUnit_Framework_SelfDescrib
      * Runs a test.
      *
      * @deprecated
-     * @param PHPUnit_Framework_Test       $test
-     * @param PHPUnit_Framework_TestResult $result
+     * @param PHPUnit_Framework_Test        $test
+     * @param \PhpUnit\Framework\TestResult $result
      */
-    public function runTest(PHPUnit_Framework_Test $test, PHPUnit_Framework_TestResult $result)
+    public function runTest(PHPUnit_Framework_Test $test, TestResult $result)
     {
         $test->run($result);
     }

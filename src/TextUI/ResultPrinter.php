@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestResult;
 use PhpUnit\Framework\TestSuite;
 use SebastianBergmann\Environment\Console;
 
@@ -172,9 +173,9 @@ class PHPUnit_TextUI_ResultPrinter extends PHPUnit_Util_Printer implements PHPUn
     }
 
     /**
-     * @param PHPUnit_Framework_TestResult $result
+     * @param \PhpUnit\Framework\TestResult $result
      */
-    public function printResult(PHPUnit_Framework_TestResult $result)
+    public function printResult(TestResult $result)
     {
         $this->printHeader();
 
@@ -289,43 +290,43 @@ class PHPUnit_TextUI_ResultPrinter extends PHPUnit_Util_Printer implements PHPUn
     }
 
     /**
-     * @param PHPUnit_Framework_TestResult $result
+     * @param \PhpUnit\Framework\TestResult $result
      */
-    protected function printErrors(PHPUnit_Framework_TestResult $result)
+    protected function printErrors(TestResult $result)
     {
         $this->printDefects($result->errors(), 'error');
     }
 
     /**
-     * @param PHPUnit_Framework_TestResult $result
+     * @param \PhpUnit\Framework\TestResult $result
      */
-    protected function printFailures(PHPUnit_Framework_TestResult $result)
+    protected function printFailures(TestResult $result)
     {
         $this->printDefects($result->failures(), 'failure');
     }
 
     /**
-     * @param PHPUnit_Framework_TestResult $result
+     * @param \PhpUnit\Framework\TestResult $result
      */
-    protected function printIncompletes(PHPUnit_Framework_TestResult $result)
+    protected function printIncompletes(TestResult $result)
     {
         $this->printDefects($result->notImplemented(), 'incomplete test');
     }
 
     /**
-     * @param PHPUnit_Framework_TestResult $result
+     * @param \PhpUnit\Framework\TestResult $result
      * @since  Method available since Release 4.0.0
      */
-    protected function printRisky(PHPUnit_Framework_TestResult $result)
+    protected function printRisky(TestResult $result)
     {
         $this->printDefects($result->risky(), 'risky test');
     }
 
     /**
-     * @param PHPUnit_Framework_TestResult $result
+     * @param \PhpUnit\Framework\TestResult $result
      * @since  Method available since Release 3.0.0
      */
-    protected function printSkipped(PHPUnit_Framework_TestResult $result)
+    protected function printSkipped(TestResult $result)
     {
         $this->printDefects($result->skipped(), 'skipped test');
     }
@@ -336,9 +337,9 @@ class PHPUnit_TextUI_ResultPrinter extends PHPUnit_Util_Printer implements PHPUn
     }
 
     /**
-     * @param PHPUnit_Framework_TestResult $result
+     * @param \PhpUnit\Framework\TestResult $result
      */
-    protected function printFooter(PHPUnit_Framework_TestResult $result)
+    protected function printFooter(TestResult $result)
     {
         if (count($result) === 0) {
             $this->writeWithColor(

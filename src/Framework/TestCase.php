@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestResult;
 use PhpUnit\Framework\Warning;
 use SebastianBergmann\GlobalState\Snapshot;
 use SebastianBergmann\GlobalState\Restorer;
@@ -212,7 +213,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
     private $numAssertions = 0;
 
     /**
-     * @var PHPUnit_Framework_TestResult
+     * @var \PhpUnit\Framework\TestResult
      */
     private $result;
 
@@ -585,11 +586,11 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
      * Runs the test case and collects the results in a TestResult object.
      * If no TestResult object is passed a new one will be created.
      *
-     * @param  PHPUnit_Framework_TestResult $result
-     * @return PHPUnit_Framework_TestResult
+     * @param  \PhpUnit\Framework\TestResult $result
+     * @return \PhpUnit\Framework\TestResult
      * @throws PHPUnit_Framework_Exception
      */
-    public function run(PHPUnit_Framework_TestResult $result = null)
+    public function run(TestResult $result = null)
     {
         if ($result === null) {
             $result = $this->createResult();
@@ -1168,7 +1169,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
     }
 
     /**
-     * @return PHPUnit_Framework_TestResult
+     * @return \PhpUnit\Framework\TestResult
      * @since  Method available since Release 3.5.7
      */
     public function getTestResultObject()
@@ -1177,10 +1178,10 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
     }
 
     /**
-     * @param PHPUnit_Framework_TestResult $result
+     * @param \PhpUnit\Framework\TestResult $result
      * @since Method available since Release 3.6.0
      */
-    public function setTestResultObject(PHPUnit_Framework_TestResult $result)
+    public function setTestResultObject(TestResult $result)
     {
         $this->result = $result;
     }
@@ -1725,11 +1726,11 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
     /**
      * Creates a default TestResult object.
      *
-     * @return PHPUnit_Framework_TestResult
+     * @return \PhpUnit\Framework\TestResult
      */
     protected function createResult()
     {
-        return new PHPUnit_Framework_TestResult;
+        return new TestResult;
     }
 
     /**

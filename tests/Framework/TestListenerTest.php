@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestResult;
 use PhpUnit\Framework\TestSuite;
 
 /**
@@ -70,7 +71,7 @@ class Framework_TestListenerTest extends PHPUnit_Framework_TestCase implements P
 
     protected function setUp()
     {
-        $this->result = new PHPUnit_Framework_TestResult;
+        $this->result = new TestResult;
         $this->result->addListener($this);
 
         $this->endCount            = 0;

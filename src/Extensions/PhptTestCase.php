@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestResult;
+
 /**
  * Runner for PHPT test cases.
  *
@@ -84,16 +86,16 @@ class PHPUnit_Extensions_PhptTestCase implements PHPUnit_Framework_Test, PHPUnit
     /**
      * Runs a test and collects its result in a TestResult instance.
      *
-     * @param  PHPUnit_Framework_TestResult $result
-     * @return PHPUnit_Framework_TestResult
+     * @param  \PhpUnit\Framework\TestResult $result
+     * @return \PhpUnit\Framework\TestResult
      */
-    public function run(PHPUnit_Framework_TestResult $result = null)
+    public function run(TestResult $result = null)
     {
         $sections = $this->parse();
         $code     = $this->render($sections['FILE']);
 
         if ($result === null) {
-            $result = new PHPUnit_Framework_TestResult;
+            $result = new TestResult;
         }
 
         $php      = PHPUnit_Util_PHP::factory();

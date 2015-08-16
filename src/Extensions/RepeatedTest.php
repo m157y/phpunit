@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestResult;
 use PhpUnit\Framework\TestSuite;
 
 /**
@@ -65,11 +66,11 @@ class PHPUnit_Extensions_RepeatedTest extends PHPUnit_Extensions_TestDecorator
      * Runs the decorated test and collects the
      * result in a TestResult.
      *
-     * @param  PHPUnit_Framework_TestResult $result
-     * @return PHPUnit_Framework_TestResult
+     * @param  \PhpUnit\Framework\TestResult $result
+     * @return \PhpUnit\Framework\TestResult
      * @throws PHPUnit_Framework_Exception
      */
-    public function run(PHPUnit_Framework_TestResult $result = null)
+    public function run(TestResult $result = null)
     {
         if ($result === null) {
             $result = $this->createResult();

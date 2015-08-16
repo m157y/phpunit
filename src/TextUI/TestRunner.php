@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestResult;
 use PhpUnit\Framework\TestSuite;
 use SebastianBergmann\Environment\Runtime;
 
@@ -72,7 +73,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
     /**
      * @param  PHPUnit_Framework_Test|ReflectionClass $test
      * @param  array                                  $arguments
-     * @return PHPUnit_Framework_TestResult
+     * @return \PhpUnit\Framework\TestResult
      * @throws PHPUnit_Framework_Exception
      */
     public static function run($test, array $arguments = [])
@@ -96,11 +97,11 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
     }
 
     /**
-     * @return PHPUnit_Framework_TestResult
+     * @return \PhpUnit\Framework\TestResult
      */
     protected function createTestResult()
     {
-        return new PHPUnit_Framework_TestResult;
+        return new TestResult;
     }
 
     private function processSuiteFilters(TestSuite $suite, array $arguments)
@@ -139,7 +140,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
     /**
      * @param  PHPUnit_Framework_Test       $suite
      * @param  array                        $arguments
-     * @return PHPUnit_Framework_TestResult
+     * @return \PhpUnit\Framework\TestResult
      */
     public function doRun(PHPUnit_Framework_Test $suite, array $arguments = [])
     {

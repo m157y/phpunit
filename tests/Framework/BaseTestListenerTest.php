@@ -8,22 +8,24 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestResult;
+
 /**
  * @since      Class available since Release 4.0.0
  */
 class Framework_BaseTestListenerTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * @var PHPUnit_Framework_TestResult
+     * @var \PhpUnit\Framework\TestResult
      */
     private $result;
 
     /**
-     * @covers PHPUnit_Framework_TestResult
+     * @covers \PhpUnit\Framework\TestResult
      */
     public function testEndEventsAreCounted()
     {
-        $this->result = new PHPUnit_Framework_TestResult;
+        $this->result = new TestResult;
         $listener     = new BaseTestListenerSample();
         $this->result->addListener($listener);
         $test = new Success;
