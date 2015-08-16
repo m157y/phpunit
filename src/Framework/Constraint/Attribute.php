@@ -43,7 +43,7 @@ class PHPUnit_Framework_Constraint_Attribute extends PHPUnit_Framework_Constrain
      * @param  string                                       $description  Additional information about the test
      * @param  bool                                         $returnResult Whether to return a result or throw an exception
      * @return mixed
-     * @throws PHPUnit_Framework_ExpectationFailedException
+     * @throws \PhpUnit\Framework\ExpectationFailedException
      */
     public function evaluate($other, $description = '', $returnResult = false)
     {

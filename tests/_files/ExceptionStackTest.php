@@ -1,5 +1,6 @@
 <?php
 
+use PhpUnit\Framework\ExpectationFailedException;
 use PhpUnit\Framework\TestCase;
 
 class ExceptionStackTest extends TestCase
@@ -8,7 +9,7 @@ class ExceptionStackTest extends TestCase
     {
         try {
             $this->assertEquals([1], [2], 'message');
-        } catch (PHPUnit_Framework_ExpectationFailedException $e) {
+        } catch (ExpectationFailedException $e) {
             $message = $e->getMessage() . $e->getComparisonFailure()->getDiff();
             throw new PHPUnit_Framework_Exception("Child exception\n$message", 101, $e);
         }

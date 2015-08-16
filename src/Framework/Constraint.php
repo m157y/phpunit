@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\ExpectationFailedException;
 use PhpUnit\Framework\SelfDescribing;
 use SebastianBergmann\Exporter\Exporter;
 
@@ -39,7 +40,7 @@ abstract class PHPUnit_Framework_Constraint implements Countable, SelfDescribing
      * @param  string                                       $description  Additional information about the test
      * @param  bool                                         $returnResult Whether to return a result or throw an exception
      * @return mixed
-     * @throws PHPUnit_Framework_ExpectationFailedException
+     * @throws \PhpUnit\Framework\ExpectationFailedException
      */
     public function evaluate($other, $description = '', $returnResult = false)
     {
@@ -88,8 +89,8 @@ abstract class PHPUnit_Framework_Constraint implements Countable, SelfDescribing
      *
      * @param  mixed                                          $other             Evaluated value or object.
      * @param  string                                         $description       Additional information about the test
-     * @param  SebastianBergmann\Comparator\ComparisonFailure $comparisonFailure
-     * @throws PHPUnit_Framework_ExpectationFailedException
+     * @param  \SebastianBergmann\Comparator\ComparisonFailure $comparisonFailure
+     * @throws \PhpUnit\Framework\ExpectationFailedException
      */
     protected function fail($other, $description, SebastianBergmann\Comparator\ComparisonFailure $comparisonFailure = null)
     {
@@ -108,7 +109,7 @@ abstract class PHPUnit_Framework_Constraint implements Countable, SelfDescribing
             $failureDescription = $description . "\n" . $failureDescription;
         }
 
-        throw new PHPUnit_Framework_ExpectationFailedException(
+        throw new ExpectationFailedException(
             $failureDescription,
             $comparisonFailure
         );

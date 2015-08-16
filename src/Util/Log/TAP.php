@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\ExpectationFailedException;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestFailure;
@@ -83,7 +84,7 @@ class PHPUnit_Util_Log_TAP extends PHPUnit_Util_Printer implements TestListener
           'severity' => 'fail'
         ];
 
-        if ($e instanceof PHPUnit_Framework_ExpectationFailedException) {
+        if ($e instanceof ExpectationFailedException) {
             $cf = $e->getComparisonFailure();
 
             if ($cf !== null) {

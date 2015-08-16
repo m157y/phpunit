@@ -8,6 +8,12 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework;
+
+use Exception;
+use PHPUnit_Framework_AssertionFailedError;
+use SebastianBergmann\Comparator\ComparisonFailure;
+
 /**
  * Exception for expectations which failed their check.
  *
@@ -17,14 +23,14 @@
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Framework_ExpectationFailedException extends PHPUnit_Framework_AssertionFailedError
+class ExpectationFailedException extends PHPUnit_Framework_AssertionFailedError
 {
     /**
-     * @var SebastianBergmann\Comparator\ComparisonFailure
+     * @var \SebastianBergmann\Comparator\ComparisonFailure
      */
     protected $comparisonFailure;
 
-    public function __construct($message, SebastianBergmann\Comparator\ComparisonFailure $comparisonFailure = null, Exception $previous = null)
+    public function __construct($message, ComparisonFailure $comparisonFailure = null, Exception $previous = null)
     {
         $this->comparisonFailure = $comparisonFailure;
 
@@ -32,7 +38,7 @@ class PHPUnit_Framework_ExpectationFailedException extends PHPUnit_Framework_Ass
     }
 
     /**
-     * @return SebastianBergmann\Comparator\ComparisonFailure
+     * @return \SebastianBergmann\Comparator\ComparisonFailure
      */
     public function getComparisonFailure()
     {

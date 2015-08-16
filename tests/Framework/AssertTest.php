@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\ExpectationFailedException;
 use PhpUnit\Framework\IncompleteTestError;
 use PhpUnit\Framework\SkippedTestError;
 use PhpUnit\Framework\TestCase;
@@ -1210,7 +1211,7 @@ class Framework_AssertTest extends TestCase
 
     /**
      * @covers            PHPUnit_Framework_Assert::assertEqualXMLStructure
-     * @expectedException PHPUnit_Framework_ExpectationFailedException
+     * @expectedException \PhpUnit\Framework\ExpectationFailedException
      */
     public function testXMLStructureWrongNumberOfAttributes()
     {
@@ -1227,7 +1228,7 @@ class Framework_AssertTest extends TestCase
 
     /**
      * @covers            PHPUnit_Framework_Assert::assertEqualXMLStructure
-     * @expectedException PHPUnit_Framework_ExpectationFailedException
+     * @expectedException \PhpUnit\Framework\ExpectationFailedException
      */
     public function testXMLStructureWrongNumberOfNodes()
     {
@@ -3837,7 +3838,7 @@ class Framework_AssertTest extends TestCase
         $message = '';
         try {
             $this->assertJsonStringEqualsJsonFile($file, $actual, $message);
-        } catch (PHPUnit_Framework_ExpectationFailedException $e) {
+        } catch (ExpectationFailedException $e) {
             $this->assertEquals(
                 'Failed asserting that \'{"Mascott":"Beastie"}\' matches JSON string "{"Mascott":"Tux"}".',
                 $e->getMessage()

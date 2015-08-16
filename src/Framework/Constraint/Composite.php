@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\ExpectationFailedException;
+
 /**
  * @since Class available since Release 3.1.0
  */
@@ -41,7 +43,7 @@ abstract class PHPUnit_Framework_Constraint_Composite extends PHPUnit_Framework_
      * @param  string                                       $description  Additional information about the test
      * @param  bool                                         $returnResult Whether to return a result or throw an exception
      * @return mixed
-     * @throws PHPUnit_Framework_ExpectationFailedException
+     * @throws \PhpUnit\Framework\ExpectationFailedException
      */
     public function evaluate($other, $description = '', $returnResult = false)
     {
@@ -51,7 +53,7 @@ abstract class PHPUnit_Framework_Constraint_Composite extends PHPUnit_Framework_
                 $description,
                 $returnResult
             );
-        } catch (PHPUnit_Framework_ExpectationFailedException $e) {
+        } catch (ExpectationFailedException $e) {
             $this->fail($other, $description);
         }
     }
