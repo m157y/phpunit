@@ -3366,45 +3366,45 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_SameSize
+     * @covers \PhpUnit\Framework\Constraint\SameSize
      */
     public function testConstraintSameSizeWithAnArray()
     {
-        $constraint = new PHPUnit_Framework_Constraint_SameSize([1, 2, 3, 4, 5]);
+        $constraint = new Constraint\SameSize([1, 2, 3, 4, 5]);
 
         $this->assertTrue($constraint->evaluate([6, 7, 8, 9, 10], '', true));
         $this->assertFalse($constraint->evaluate([1, 2, 3, 4], '', true));
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_SameSize
+     * @covers \PhpUnit\Framework\Constraint\SameSize
      */
     public function testConstraintSameSizeWithAnIteratorWhichDoesNotImplementCountable()
     {
-        $constraint = new PHPUnit_Framework_Constraint_SameSize(new TestIterator([1, 2, 3, 4, 5]));
+        $constraint = new Constraint\SameSize(new TestIterator([1, 2, 3, 4, 5]));
 
         $this->assertTrue($constraint->evaluate(new TestIterator([6, 7, 8, 9, 10]), '', true));
         $this->assertFalse($constraint->evaluate(new TestIterator([1, 2, 3, 4]), '', true));
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_SameSize
+     * @covers \PhpUnit\Framework\Constraint\SameSize
      */
     public function testConstraintSameSizeWithAnObjectImplementingCountable()
     {
-        $constraint = new PHPUnit_Framework_Constraint_SameSize(new ArrayObject([1, 2, 3, 4, 5]));
+        $constraint = new Constraint\SameSize(new ArrayObject([1, 2, 3, 4, 5]));
 
         $this->assertTrue($constraint->evaluate(new ArrayObject([6, 7, 8, 9, 10]), '', true));
         $this->assertFalse($constraint->evaluate(new ArrayObject([1, 2, 3, 4]), '', true));
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_SameSize
+     * @covers \PhpUnit\Framework\Constraint\SameSize
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintSameSizeFailing()
     {
-        $constraint = new PHPUnit_Framework_Constraint_SameSize([1, 2, 3, 4, 5]);
+        $constraint = new Constraint\SameSize([1, 2, 3, 4, 5]);
 
         try {
             $constraint->evaluate([1, 2]);
@@ -3425,15 +3425,15 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_SameSize
      * @covers PHPUnit_Framework_Constraint_Not
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\SameSize
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintNotSameSizeFailing()
     {
         $constraint = Assert::logicalNot(
-          new PHPUnit_Framework_Constraint_SameSize([1, 2])
+          new Constraint\SameSize([1, 2])
         );
 
         try {

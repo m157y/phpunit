@@ -44,7 +44,6 @@ use PHPUnit_Framework_Constraint_Not;
 use PHPUnit_Framework_Constraint_ObjectHasAttribute;
 use PHPUnit_Framework_Constraint_Or;
 use PHPUnit_Framework_Constraint_PCREMatch;
-use PHPUnit_Framework_Constraint_SameSize;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
 use PHPUnit_Util_XML;
@@ -1539,7 +1538,7 @@ abstract class Assert
 
         self::assertThat(
             $actual,
-            new PHPUnit_Framework_Constraint_SameSize($expected),
+            new Constraint\SameSize($expected),
             $message
         );
     }
@@ -1567,7 +1566,7 @@ abstract class Assert
         }
 
         $constraint = new PHPUnit_Framework_Constraint_Not(
-            new PHPUnit_Framework_Constraint_SameSize($expected)
+            new Constraint\SameSize($expected)
         );
 
         self::assertThat($actual, $constraint, $message);
