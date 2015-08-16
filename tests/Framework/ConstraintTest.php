@@ -2280,18 +2280,18 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_PCREMatch
      * @covers \PhpUnit\Framework\Assert::matchesRegularExpression
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\MatchesRegularExpression
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
-    public function testConstraintPCREMatch()
+    public function testConstraintMatchesRegularExpression()
     {
         $constraint = Assert::matchesRegularExpression('/foo/');
 
         $this->assertFalse($constraint->evaluate('barbazbar', '', true));
         $this->assertTrue($constraint->evaluate('barfoobar', '', true));
-        $this->assertEquals('matches PCRE pattern "/foo/"', $constraint->toString());
+        $this->assertEquals('matches regular expression pattern "/foo/"', $constraint->toString());
         $this->assertEquals(1, count($constraint));
 
         try {
@@ -2299,7 +2299,7 @@ EOF
         } catch (ExpectationFailedException $e) {
             $this->assertEquals(
               <<<EOF
-Failed asserting that 'barbazbar' matches PCRE pattern "/foo/".
+Failed asserting that 'barbazbar' matches regular expression pattern "/foo/".
 
 EOF
               ,
@@ -2313,11 +2313,11 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_PCREMatch
      * @covers \PhpUnit\Framework\Assert::matchesRegularExpression
+     * @covers \PhpUnit\Framework\Constraint\MatchesRegularExpression
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
-    public function testConstraintPCREMatch2()
+    public function testConstraintMatchesRegularExpression2()
     {
         $constraint = Assert::matchesRegularExpression('/foo/');
 
@@ -2326,7 +2326,7 @@ EOF
         } catch (ExpectationFailedException $e) {
             $this->assertEquals(<<<EOF
 custom message
-Failed asserting that 'barbazbar' matches PCRE pattern "/foo/".
+Failed asserting that 'barbazbar' matches regular expression pattern "/foo/".
 
 EOF
               ,
@@ -2340,13 +2340,13 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_PCREMatch
      * @covers PHPUnit_Framework_Constraint_Not
      * @covers \PhpUnit\Framework\Assert::matchesRegularExpression
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\MatchesRegularExpression
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
-    public function testConstraintPCRENotMatch()
+    public function testConstraintMatchesRegularExpression3()
     {
         $constraint = Assert::logicalNot(
             Assert::matchesRegularExpression('/foo/')
@@ -2354,7 +2354,7 @@ EOF
 
         $this->assertTrue($constraint->evaluate('barbazbar', '', true));
         $this->assertFalse($constraint->evaluate('barfoobar', '', true));
-        $this->assertEquals('does not match PCRE pattern "/foo/"', $constraint->toString());
+        $this->assertEquals('does not match regular expression pattern "/foo/"', $constraint->toString());
         $this->assertEquals(1, count($constraint));
 
         try {
@@ -2362,7 +2362,7 @@ EOF
         } catch (ExpectationFailedException $e) {
             $this->assertEquals(
               <<<EOF
-Failed asserting that 'barfoobar' does not match PCRE pattern "/foo/".
+Failed asserting that 'barfoobar' does not match regular expression pattern "/foo/".
 
 EOF
               ,
@@ -2376,13 +2376,13 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_PCREMatch
      * @covers PHPUnit_Framework_Constraint_Not
      * @covers \PhpUnit\Framework\Assert::matchesRegularExpression
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\MatchesRegularExpression
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
-    public function testConstraintPCRENotMatch2()
+    public function testConstraintMatchesRegularExpression4()
     {
         $constraint = Assert::logicalNot(
             Assert::matchesRegularExpression('/foo/')
@@ -2393,7 +2393,7 @@ EOF
         } catch (ExpectationFailedException $e) {
             $this->assertEquals(<<<EOF
 custom message
-Failed asserting that 'barfoobar' does not match PCRE pattern "/foo/".
+Failed asserting that 'barfoobar' does not match regular expression pattern "/foo/".
 
 EOF
               ,
@@ -2416,7 +2416,7 @@ EOF
         $constraint = Assert::matches('*%c*');
         $this->assertFalse($constraint->evaluate('**', '', true));
         $this->assertTrue($constraint->evaluate('***', '', true));
-        $this->assertEquals('matches PCRE pattern "/^\*.\*$/s"', $constraint->toString());
+        $this->assertEquals('matches regular expression pattern "/^\*.\*$/s"', $constraint->toString());
         $this->assertEquals(1, count($constraint));
     }
 
@@ -2430,7 +2430,7 @@ EOF
         $constraint = Assert::matches('*%s*');
         $this->assertFalse($constraint->evaluate('**', '', true));
         $this->assertTrue($constraint->evaluate('***', '', true));
-        $this->assertEquals('matches PCRE pattern "/^\*[^\r\n]+\*$/s"', $constraint->toString());
+        $this->assertEquals('matches regular expression pattern "/^\*[^\r\n]+\*$/s"', $constraint->toString());
         $this->assertEquals(1, count($constraint));
     }
 
@@ -2444,7 +2444,7 @@ EOF
         $constraint = Assert::matches('*%i*');
         $this->assertFalse($constraint->evaluate('**', '', true));
         $this->assertTrue($constraint->evaluate('*0*', '', true));
-        $this->assertEquals('matches PCRE pattern "/^\*[+-]?\d+\*$/s"', $constraint->toString());
+        $this->assertEquals('matches regular expression pattern "/^\*[+-]?\d+\*$/s"', $constraint->toString());
         $this->assertEquals(1, count($constraint));
     }
 
@@ -2458,7 +2458,7 @@ EOF
         $constraint = Assert::matches('*%d*');
         $this->assertFalse($constraint->evaluate('**', '', true));
         $this->assertTrue($constraint->evaluate('*0*', '', true));
-        $this->assertEquals('matches PCRE pattern "/^\*\d+\*$/s"', $constraint->toString());
+        $this->assertEquals('matches regular expression pattern "/^\*\d+\*$/s"', $constraint->toString());
         $this->assertEquals(1, count($constraint));
     }
 
@@ -2472,7 +2472,7 @@ EOF
         $constraint = Assert::matches('*%x*');
         $this->assertFalse($constraint->evaluate('**', '', true));
         $this->assertTrue($constraint->evaluate('*0f0f0f*', '', true));
-        $this->assertEquals('matches PCRE pattern "/^\*[0-9a-fA-F]+\*$/s"', $constraint->toString());
+        $this->assertEquals('matches regular expression pattern "/^\*[0-9a-fA-F]+\*$/s"', $constraint->toString());
         $this->assertEquals(1, count($constraint));
     }
 
@@ -2486,7 +2486,7 @@ EOF
         $constraint = Assert::matches('*%f*');
         $this->assertFalse($constraint->evaluate('**', '', true));
         $this->assertTrue($constraint->evaluate('*1.0*', '', true));
-        $this->assertEquals('matches PCRE pattern "/^\*[+-]?\.?\d+\.?\d*(?:[Ee][+-]?\d+)?\*$/s"', $constraint->toString());
+        $this->assertEquals('matches regular expression pattern "/^\*[+-]?\.?\d+\.?\d*(?:[Ee][+-]?\d+)?\*$/s"', $constraint->toString());
         $this->assertEquals(1, count($constraint));
     }
 

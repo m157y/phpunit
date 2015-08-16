@@ -10,7 +10,6 @@
 
 namespace PhpUnit\Framework\Constraint;
 
-use PHPUnit_Framework_Constraint_PCREMatch;
 use SebastianBergmann\Diff\Differ;
 
 /**
@@ -18,7 +17,7 @@ use SebastianBergmann\Diff\Differ;
  *
  * @since Class available since Release 3.5.0
  */
-class StringMatches extends PHPUnit_Framework_Constraint_PCREMatch
+class StringMatches extends MatchesRegularExpression
 {
     /**
      * @var string

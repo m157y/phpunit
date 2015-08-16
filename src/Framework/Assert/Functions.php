@@ -2032,10 +2032,10 @@ function matches($string)
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_PCREMatch matcher object.
+ * Returns a PhpUnit\Framework\Constraint\MatchesRegularExpression matcher object.
  *
  * @param  string                                 $pattern
- * @return PHPUnit_Framework_Constraint_PCREMatch
+ * @return \PhpUnit\Framework\Constraint\MatchesRegularExpression
  * @since  Method available since Release 3.0.0
  */
 function matchesRegularExpression($pattern)

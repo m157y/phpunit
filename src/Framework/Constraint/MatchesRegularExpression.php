@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
 use PhpUnit\Framework\Constraint;
 
 /**
@@ -21,7 +23,7 @@ use PhpUnit\Framework\Constraint;
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Framework_Constraint_PCREMatch extends Constraint
+class MatchesRegularExpression extends Constraint
 {
     /**
      * @var string
@@ -57,7 +59,7 @@ class PHPUnit_Framework_Constraint_PCREMatch extends Constraint
     public function toString()
     {
         return sprintf(
-            'matches PCRE pattern "%s"',
+            'matches regular expression pattern "%s"',
             $this->pattern
         );
     }

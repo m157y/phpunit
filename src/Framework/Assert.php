@@ -43,7 +43,6 @@ use PHPUnit_Framework_Constraint_LessThan;
 use PHPUnit_Framework_Constraint_Not;
 use PHPUnit_Framework_Constraint_ObjectHasAttribute;
 use PHPUnit_Framework_Constraint_Or;
-use PHPUnit_Framework_Constraint_PCREMatch;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
 use PHPUnit_Util_XML;
@@ -1484,7 +1483,7 @@ abstract class Assert
             throw PHPUnit_Util_InvalidArgumentHelper::factory(2, 'string');
         }
 
-        $constraint = new PHPUnit_Framework_Constraint_PCREMatch($pattern);
+        $constraint = new Constraint\MatchesRegularExpression($pattern);
 
         self::assertThat($string, $constraint, $message);
     }
@@ -1508,7 +1507,7 @@ abstract class Assert
         }
 
         $constraint = new PHPUnit_Framework_Constraint_Not(
-            new PHPUnit_Framework_Constraint_PCREMatch($pattern)
+            new Constraint\MatchesRegularExpression($pattern)
         );
 
         self::assertThat($string, $constraint, $message);
@@ -2586,15 +2585,15 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_PCREMatch matcher object.
+     * Returns a PhpUnit\Framework\Constraint\MatchesRegularExpression matcher object.
      *
      * @param  string                                 $pattern
-     * @return PHPUnit_Framework_Constraint_PCREMatch
+     * @return \PhpUnit\Framework\Constraint\MatchesRegularExpression
      * @since  Method available since Release 3.0.0
      */
     public static function matchesRegularExpression($pattern)
     {
-        return new PHPUnit_Framework_Constraint_PCREMatch($pattern);
+        return new Constraint\MatchesRegularExpression($pattern);
     }
 
     /**
