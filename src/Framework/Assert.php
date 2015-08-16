@@ -21,7 +21,6 @@ use PHPUnit_Framework_Constraint_ArraySubset;
 use PHPUnit_Framework_Constraint_Attribute;
 use PHPUnit_Framework_Constraint_Callback;
 use PHPUnit_Framework_Constraint_ClassHasAttribute;
-use PHPUnit_Framework_Constraint_ClassHasStaticAttribute;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
 use PHPUnit_Util_XML;
@@ -1113,7 +1112,7 @@ abstract class Assert
             throw PHPUnit_Util_InvalidArgumentHelper::factory(2, 'class name', $className);
         }
 
-        $constraint = new PHPUnit_Framework_Constraint_ClassHasStaticAttribute(
+        $constraint = new Constraint\ClassHasStaticAttribute(
             $attributeName
         );
 
@@ -1143,7 +1142,7 @@ abstract class Assert
         }
 
         $constraint = new Constraint\LogicalNot(
-            new PHPUnit_Framework_Constraint_ClassHasStaticAttribute(
+            new Constraint\ClassHasStaticAttribute(
                 $attributeName
             )
         );
@@ -2460,16 +2459,16 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_ClassHasStaticAttribute matcher
+     * Returns a PhpUnit\Framework\Constraint\ClassHasStaticAttribute matcher
      * object.
      *
      * @param  string                                               $attributeName
-     * @return PHPUnit_Framework_Constraint_ClassHasStaticAttribute
+     * @return \PhpUnit\Framework\Constraint\ClassHasStaticAttribute
      * @since  Method available since Release 3.1.0
      */
     public static function classHasStaticAttribute($attributeName)
     {
-        return new PHPUnit_Framework_Constraint_ClassHasStaticAttribute(
+        return new Constraint\ClassHasStaticAttribute(
             $attributeName
         );
     }

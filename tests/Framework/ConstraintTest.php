@@ -2026,9 +2026,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_ClassHasStaticAttribute
      * @covers \PhpUnit\Framework\Assert::classHasStaticAttribute
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\ClassHasStaticAttribute
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintClassHasStaticAttribute()
@@ -2059,8 +2059,8 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_ClassHasStaticAttribute
      * @covers \PhpUnit\Framework\Assert::classHasStaticAttribute
+     * @covers \PhpUnit\Framework\Constraint\ClassHasStaticAttribute
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintClassHasStaticAttribute2()
@@ -2086,9 +2086,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_ClassHasStaticAttribute
      * @covers \PhpUnit\Framework\Assert::classHasStaticAttribute
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\ClassHasStaticAttribute
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
@@ -2122,9 +2122,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_ClassHasStaticAttribute
      * @covers \PhpUnit\Framework\Assert::classHasStaticAttribute
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\ClassHasStaticAttribute
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */

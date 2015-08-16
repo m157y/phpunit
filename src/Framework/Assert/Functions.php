@@ -1667,11 +1667,11 @@ function classHasAttribute($attributeName)
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_ClassHasStaticAttribute matcher
+ * Returns a PhpUnit\Framework\Constraint\ClassHasStaticAttribute matcher
  * object.
  *
  * @param  string                                               $attributeName
- * @return PHPUnit_Framework_Constraint_ClassHasStaticAttribute
+ * @return \PhpUnit\Framework\Constraint\ClassHasStaticAttribute
  * @since  Method available since Release 3.1.0
  */
 function classHasStaticAttribute($attributeName)

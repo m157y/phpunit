@@ -8,6 +8,11 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
+use PHPUnit_Framework_Constraint_ClassHasAttribute;
+use ReflectionClass;
+
 /**
  * Constraint that asserts that the class it is evaluated for has a given
  * static attribute.
@@ -16,7 +21,7 @@
  *
  * @since Class available since Release 3.1.0
  */
-class PHPUnit_Framework_Constraint_ClassHasStaticAttribute extends PHPUnit_Framework_Constraint_ClassHasAttribute
+class ClassHasStaticAttribute extends PHPUnit_Framework_Constraint_ClassHasAttribute
 {
     /**
      * Evaluates the constraint for parameter $other. Returns true if the
