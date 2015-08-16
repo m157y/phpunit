@@ -29,7 +29,6 @@ use PHPUnit_Framework_InvalidCoversTargetException;
 use PHPUnit_Framework_OutputError;
 use PHPUnit_Framework_RiskyTest;
 use PHPUnit_Framework_RiskyTestError;
-use PHPUnit_Framework_SkippedTest;
 use PHPUnit_Util_Blacklist;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Test;
@@ -243,7 +242,7 @@ class TestResult implements Countable
             if ($this->stopOnIncomplete) {
                 $this->stop();
             }
-        } elseif ($e instanceof PHPUnit_Framework_SkippedTest) {
+        } elseif ($e instanceof SkippedTest) {
             $this->skipped[] = new TestFailure($test, $e);
             $notifyMethod    = 'addSkippedTest';
 
@@ -292,7 +291,7 @@ class TestResult implements Countable
             if ($this->stopOnIncomplete) {
                 $this->stop();
             }
-        } elseif ($e instanceof PHPUnit_Framework_SkippedTest) {
+        } elseif ($e instanceof SkippedTest) {
             $this->skipped[] = new TestFailure($test, $e);
             $notifyMethod    = 'addSkippedTest';
 

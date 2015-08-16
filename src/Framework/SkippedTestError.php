@@ -11,7 +11,6 @@
 namespace PhpUnit\Framework;
 
 use PHPUnit_Framework_AssertionFailedError;
-use PHPUnit_Framework_SkippedTest;
 
 /**
  * Extension to PHPUnit_Framework_AssertionFailedError to mark the special
@@ -19,6 +18,6 @@ use PHPUnit_Framework_SkippedTest;
  *
  * @since Class available since Release 3.0.0
  */
-class SkippedTestError extends PHPUnit_Framework_AssertionFailedError implements PHPUnit_Framework_SkippedTest
+class SkippedTestError extends PHPUnit_Framework_AssertionFailedError implements SkippedTest
 {
 }

@@ -40,7 +40,6 @@ use PHPUnit_Framework_MockObject_Stub_ReturnSelf;
 use PHPUnit_Framework_MockObject_Stub_ReturnValueMap;
 use PHPUnit_Framework_RiskyTestError;
 use PHPUnit_Framework_SelfDescribing;
-use PHPUnit_Framework_SkippedTest;
 use PHPUnit_Runner_BaseTestRunner;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_GlobalState;
@@ -796,7 +795,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, PHPUni
         } catch (PHPUnit_Framework_IncompleteTest $e) {
             $this->status        = PHPUnit_Runner_BaseTestRunner::STATUS_INCOMPLETE;
             $this->statusMessage = $e->getMessage();
-        } catch (PHPUnit_Framework_SkippedTest $e) {
+        } catch (SkippedTest $e) {
             $this->status        = PHPUnit_Runner_BaseTestRunner::STATUS_SKIPPED;
             $this->statusMessage = $e->getMessage();
         } catch (PHPUnit_Framework_AssertionFailedError $e) {
