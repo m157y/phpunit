@@ -9,6 +9,7 @@
  */
 
 use PhpUnit\Framework\Error\Notice as NoticeError;
+use PhpUnit\Framework\Error\Warning as WarningError;
 use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestListener;
@@ -190,7 +191,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
         }
 
         if (!$arguments['convertWarningsToExceptions']) {
-            PHPUnit_Framework_Error_Warning::$enabled = false;
+            WarningError::$enabled = false;
         }
 
         if ($arguments['stopOnError']) {
