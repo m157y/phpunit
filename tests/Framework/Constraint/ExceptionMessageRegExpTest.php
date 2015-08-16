@@ -13,7 +13,7 @@ use PhpUnit\Framework\TestCase;
 
 /**
  * @since      Class available since Release 4.3.0
- * @covers     PHPUnit_Framework_Constraint_ExceptionMessageRegExp
+ * @covers     \PhpUnit\Framework\Constraint\ExceptionMessageRegExp
  */
 class ExceptionMessageRegExpTest extends TestCase
 {

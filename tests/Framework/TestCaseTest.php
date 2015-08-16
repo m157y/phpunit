@@ -220,7 +220,7 @@ class Framework_TestCaseTest extends TestCase
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_ExceptionMessageRegExp
+     * @covers \PhpUnit\Framework\Constraint\ExceptionMessageRegExp
      */
     public function testExceptionWithInvalidRegexpMessage()
     {

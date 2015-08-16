@@ -8,13 +8,16 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
+use PHPUnit_Util_Regex;
 use PhpUnit\Framework\Constraint;
 use PhpUnit\Framework\Exception;
 
 /**
  * @since Class available since Release 4.3.0
  */
-class PHPUnit_Framework_Constraint_ExceptionMessageRegExp extends Constraint
+class ExceptionMessageRegExp extends Constraint
 {
     /**
      * @var int
