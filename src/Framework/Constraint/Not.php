@@ -114,7 +114,7 @@ class PHPUnit_Framework_Constraint_Not extends Constraint
         switch (get_class($this->constraint)) {
             case 'PHPUnit_Framework_Constraint_And':
             case 'PHPUnit_Framework_Constraint_Not':
-            case 'PHPUnit_Framework_Constraint_Or':
+            case 'PhpUnit\\Framework\\Constraint\\LogicalOr':
                 return 'not( ' . $this->constraint->failureDescription($other) . ' )';
 
             default:
@@ -134,7 +134,7 @@ class PHPUnit_Framework_Constraint_Not extends Constraint
         switch (get_class($this->constraint)) {
             case 'PHPUnit_Framework_Constraint_And':
             case 'PHPUnit_Framework_Constraint_Not':
-            case 'PHPUnit_Framework_Constraint_Or':
+            case 'PhpUnit\\Framework\\Constraint\\LogicalOr':
                 return 'not( ' . $this->constraint->toString() . ' )';
 
             default:

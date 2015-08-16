@@ -1796,12 +1796,12 @@ function greaterThan($value)
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_Or matcher object that wraps
+ * Returns a PhpUnit\Framework\Constraint\LogicalOr matcher object that wraps
  * a PHPUnit_Framework_Constraint_IsEqual and a
  * PHPUnit_Framework_Constraint_GreaterThan matcher object.
  *
  * @param  mixed                           $value
- * @return PHPUnit_Framework_Constraint_Or
+ * @return \PhpUnit\Framework\Constraint\LogicalOr
  * @since  Method available since Release 3.1.0
  */
 function greaterThanOrEqual($value)
@@ -1943,12 +1943,12 @@ function lessThan($value)
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_Or matcher object that wraps
+ * Returns a PhpUnit\Framework\Constraint\LogicalOr matcher object that wraps
  * a PHPUnit_Framework_Constraint_IsEqual and a
  * PHPUnit_Framework_Constraint_LessThan matcher object.
  *
  * @param  mixed                           $value
- * @return PHPUnit_Framework_Constraint_Or
+ * @return \PhpUnit\Framework\Constraint\LogicalOr
  * @since  Method available since Release 3.1.0
  */
 function lessThanOrEqual($value)
@@ -1989,9 +1989,9 @@ function logicalNot(Constraint $constraint)
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_Or matcher object.
+ * Returns a PhpUnit\Framework\Constraint\LogicalOr matcher object.
  *
- * @return PHPUnit_Framework_Constraint_Or
+ * @return \PhpUnit\Framework\Constraint\LogicalOr
  * @since  Method available since Release 3.0.0
  */
 function logicalOr()

@@ -42,7 +42,6 @@ use PHPUnit_Framework_Constraint_GreaterThan;
 use PHPUnit_Framework_Constraint_LessThan;
 use PHPUnit_Framework_Constraint_Not;
 use PHPUnit_Framework_Constraint_ObjectHasAttribute;
-use PHPUnit_Framework_Constraint_Or;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
 use PHPUnit_Util_XML;
@@ -2165,16 +2164,16 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_Or matcher object.
+     * Returns a PhpUnit\Framework\Constraint\LogicalOr matcher object.
      *
-     * @return PHPUnit_Framework_Constraint_Or
+     * @return \PhpUnit\Framework\Constraint\LogicalOr
      * @since  Method available since Release 3.0.0
      */
     public static function logicalOr()
     {
         $constraints = func_get_args();
 
-        $constraint = new PHPUnit_Framework_Constraint_Or;
+        $constraint = new Constraint\LogicalOr;
         $constraint->setConstraints($constraints);
 
         return $constraint;
@@ -2460,12 +2459,12 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_Or matcher object that wraps
+     * Returns a PhpUnit\Framework\Constraint\LogicalOr matcher object that wraps
      * a PHPUnit_Framework_Constraint_IsEqual and a
      * PHPUnit_Framework_Constraint_GreaterThan matcher object.
      *
      * @param  mixed                           $value
-     * @return PHPUnit_Framework_Constraint_Or
+     * @return \PhpUnit\Framework\Constraint\LogicalOr
      * @since  Method available since Release 3.1.0
      */
     public static function greaterThanOrEqual($value)
@@ -2568,12 +2567,12 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_Or matcher object that wraps
+     * Returns a PhpUnit\Framework\Constraint\LogicalOr matcher object that wraps
      * a PHPUnit_Framework_Constraint_IsEqual and a
      * PHPUnit_Framework_Constraint_LessThan matcher object.
      *
      * @param  mixed                           $value
-     * @return PHPUnit_Framework_Constraint_Or
+     * @return \PhpUnit\Framework\Constraint\LogicalOr
      * @since  Method available since Release 3.1.0
      */
     public static function lessThanOrEqual($value)
