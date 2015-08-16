@@ -14,13 +14,13 @@ use Exception as PhpException;
 use Iterator;
 use IteratorAggregate;
 use PHPUnit_Extensions_PhptTestCase;
-use PHPUnit_Framework_TestSuite_DataProvider;
 use PHPUnit_Runner_BaseTestRunner;
 use PHPUnit_Runner_Filter_Factory;
 use PHPUnit_Util_Fileloader;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Test;
 use PHPUnit_Util_TestSuiteIterator;
+use PhpUnit\Framework\TestSuite\DataProvider;
 use ReflectionClass;
 use ReflectionMethod;
 use Throwable;
@@ -540,7 +540,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
 
                 // Test method with @dataProvider.
                 if (isset($data)) {
-                    $test = new PHPUnit_Framework_TestSuite_DataProvider(
+                    $test = new DataProvider(
                         $className . '::' . $name
                     );
 
@@ -878,7 +878,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
         $test = self::createTest($class, $name);
 
         if ($test instanceof TestCase ||
-            $test instanceof PHPUnit_Framework_TestSuite_DataProvider) {
+            $test instanceof DataProvider) {
             $test->setDependencies(
                 PHPUnit_Util_Test::getDependencies($class->getName(), $name)
             );

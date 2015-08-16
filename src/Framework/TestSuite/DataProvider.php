@@ -8,12 +8,14 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\TestSuite;
+
 use PhpUnit\Framework\TestSuite;
 
 /**
  * @since Class available since Release 3.4.0
  */
-class PHPUnit_Framework_TestSuite_DataProvider extends TestSuite
+class DataProvider extends TestSuite
 {
     /**
      * Sets the dependencies of a TestCase.
