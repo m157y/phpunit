@@ -8,12 +8,16 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework;
+
+use PHPUnit_Framework_RiskyTestError;
+
 /**
  * Extension to PHPUnit_Framework_AssertionFailedError to mark the special
  * case of a test test that unintentionally covers code.
  *
  * @since Class available since Release 4.0.0
  */
-class PHPUnit_Framework_UnintentionallyCoveredCodeError extends PHPUnit_Framework_RiskyTestError
+class UnintentionallyCoveredCodeError extends PHPUnit_Framework_RiskyTestError
 {
 }

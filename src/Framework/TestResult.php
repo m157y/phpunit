@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\UnintentionallyCoveredCodeError;
 use PhpUnit\Framework\Warning;
 use SebastianBergmann\ResourceOperations\ResourceOperations;
 
@@ -694,7 +695,7 @@ class PHPUnit_Framework_TestResult implements Countable
             } catch (PHP_CodeCoverage_Exception_UnintentionallyCoveredCode $cce) {
                 $this->addFailure(
                     $test,
-                    new PHPUnit_Framework_UnintentionallyCoveredCodeError(
+                    new UnintentionallyCoveredCodeError(
                         'This test executed code that is not listed as code to be covered or used:' .
                         PHP_EOL . $cce->getMessage()
                     ),
