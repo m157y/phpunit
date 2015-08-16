@@ -1885,9 +1885,9 @@ function isJson()
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_IsNull matcher object.
+ * Returns a PhpUnit\Framework\Constraint\IsNull matcher object.
  *
- * @return PHPUnit_Framework_Constraint_IsNull
+ * @return \PhpUnit\Framework\Constraint\IsNull
  * @since  Method available since Release 3.3.0
  */
 function isNull()

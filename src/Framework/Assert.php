@@ -34,7 +34,6 @@ use PHPUnit_Framework_Constraint_IsInfinite;
 use PHPUnit_Framework_Constraint_IsInstanceOf;
 use PHPUnit_Framework_Constraint_IsJson;
 use PHPUnit_Framework_Constraint_IsNan;
-use PHPUnit_Framework_Constraint_IsNull;
 use PHPUnit_Framework_Constraint_GreaterThan;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
@@ -2247,14 +2246,14 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_IsNull matcher object.
+     * Returns a PhpUnit\Framework\Constraint\IsNull matcher object.
      *
-     * @return PHPUnit_Framework_Constraint_IsNull
+     * @return \PhpUnit\Framework\Constraint\IsNull
      * @since  Method available since Release 3.3.0
      */
     public static function isNull()
     {
-        return new PHPUnit_Framework_Constraint_IsNull;
+        return new Constraint\IsNull;
     }
 
     /**

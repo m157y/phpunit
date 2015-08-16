@@ -1454,9 +1454,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsNull
      * @covers \PhpUnit\Framework\Assert::isNull
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\IsNull
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintIsNull()
@@ -1486,8 +1486,8 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsNull
      * @covers \PhpUnit\Framework\Assert::isNull
+     * @covers \PhpUnit\Framework\Constraint\IsNull
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintIsNull2()
@@ -1513,10 +1513,10 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsNull
      * @covers \PhpUnit\Framework\Assert::isNull
      * @covers \PhpUnit\Framework\Assert::logicalNot
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\IsNull
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
@@ -1549,9 +1549,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsNull
      * @covers \PhpUnit\Framework\Assert::isNull
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\IsNull
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
