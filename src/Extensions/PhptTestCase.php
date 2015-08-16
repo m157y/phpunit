@@ -9,6 +9,8 @@
  */
 
 use Exception as PhpException;
+use PhpUnit\Framework\Assert;
+use PhpUnit\Framework\AssertionFailedError;
 use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\SelfDescribing;
 use PhpUnit\Framework\SkippedTestError;
@@ -147,8 +149,8 @@ class PHPUnit_Extensions_PhptTestCase implements Test, SelfDescribing
             $expected = preg_replace('/\r\n/', "\n", trim($expected));
 
             try {
-                PHPUnit_Framework_Assert::$assertion($expected, $output);
-            } catch (PHPUnit_Framework_AssertionFailedError $e) {
+                Assert::$assertion($expected, $output);
+            } catch (AssertionFailedError $e) {
                 $result->addFailure($this, $e, $time);
             } catch (Throwable $t) {
                 $result->addError($this, $t, $time);

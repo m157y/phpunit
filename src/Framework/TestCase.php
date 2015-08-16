@@ -14,7 +14,6 @@ use Exception as PhpException;
 use DeepCopy\DeepCopy;
 use PHPUnit_Extensions_PhptTestCase;
 use PHPUnit_Extensions_SeleniumTestCase;
-use PHPUnit_Framework_Assert;
 use PHPUnit_Framework_Constraint_Exception;
 use PHPUnit_Framework_Constraint_ExceptionCode;
 use PHPUnit_Framework_Constraint_ExceptionMessage;
@@ -99,7 +98,7 @@ use Throwable;
  *
  * @since Class available since Release 2.0.0
  */
-abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDescribing
+abstract class TestCase extends Assert implements Test, SelfDescribing
 {
     /**
      * Enable or disable the backup and restoration of the $GLOBALS array.

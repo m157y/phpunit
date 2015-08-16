@@ -8,18 +8,64 @@
  * file that was distributed with this source code.
  */
 
-use PhpUnit\Framework\AssertionFailedError;
-use PhpUnit\Framework\Constraint;
-use PhpUnit\Framework\Exception;
-use PhpUnit\Framework\IncompleteTestError;
-use PhpUnit\Framework\SkippedTestError;
+namespace PhpUnit\Framework;
+
+use ArrayAccess;
+use Countable;
+use DOMDocument;
+use DOMElement;
+use PHPUnit_Framework_Constraint_And;
+use PHPUnit_Framework_Constraint_ArrayHasKey;
+use PHPUnit_Framework_Constraint_ArraySubset;
+use PHPUnit_Framework_Constraint_Attribute;
+use PHPUnit_Framework_Constraint_Callback;
+use PHPUnit_Framework_Constraint_ClassHasAttribute;
+use PHPUnit_Framework_Constraint_ClassHasStaticAttribute;
+use PHPUnit_Framework_Constraint_Count;
+use PHPUnit_Framework_Constraint_FileExists;
+use PHPUnit_Framework_Constraint_IsAnything;
+use PHPUnit_Framework_Constraint_IsEmpty;
+use PHPUnit_Framework_Constraint_IsEqual;
+use PHPUnit_Framework_Constraint_IsFalse;
+use PHPUnit_Framework_Constraint_IsFinite;
+use PHPUnit_Framework_Constraint_IsIdentical;
+use PHPUnit_Framework_Constraint_IsInfinite;
+use PHPUnit_Framework_Constraint_IsInstanceOf;
+use PHPUnit_Framework_Constraint_IsJson;
+use PHPUnit_Framework_Constraint_IsNan;
+use PHPUnit_Framework_Constraint_IsNull;
+use PHPUnit_Framework_Constraint_IsTrue;
+use PHPUnit_Framework_Constraint_IsType;
+use PHPUnit_Framework_Constraint_JsonMatches;
+use PHPUnit_Framework_Constraint_GreaterThan;
+use PHPUnit_Framework_Constraint_LessThan;
+use PHPUnit_Framework_Constraint_Not;
+use PHPUnit_Framework_Constraint_ObjectHasAttribute;
+use PHPUnit_Framework_Constraint_Or;
+use PHPUnit_Framework_Constraint_PCREMatch;
+use PHPUnit_Framework_Constraint_SameSize;
+use PHPUnit_Framework_Constraint_StringContains;
+use PHPUnit_Framework_Constraint_StringEndsWith;
+use PHPUnit_Framework_Constraint_StringMatches;
+use PHPUnit_Framework_Constraint_StringStartsWith;
+use PHPUnit_Framework_Constraint_TraversableContains;
+use PHPUnit_Framework_Constraint_TraversableContainsOnly;
+use PHPUnit_Framework_Constraint_Xor;
+use PHPUnit_Util_InvalidArgumentHelper;
+use PHPUnit_Util_Type;
+use PHPUnit_Util_XML;
+use ReflectionClass;
+use ReflectionException;
+use ReflectionObject;
+use ReflectionProperty;
+use Traversable;
 
 /**
  * A set of assert methods.
  *
  * @since Class available since Release 2.0.0
  */
-abstract class PHPUnit_Framework_Assert
+abstract class Assert
 {
     /**
      * @var int
@@ -30,7 +76,7 @@ abstract class PHPUnit_Framework_Assert
      * Asserts that an array has a specified key.
      *
      * @param mixed             $key
-     * @param array|ArrayAccess $array
+     * @param array|\ArrayAccess $array
      * @param string            $message
      * @since Method available since Release 3.0.0
      */

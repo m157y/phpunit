@@ -18,7 +18,6 @@ use PHP_CodeCoverage_Exception_UnintentionallyCoveredCode;
 use PHP_Invoker;
 use PHP_Timer;
 use PHPUnit_Extensions_SeleniumTestCase;
-use PHPUnit_Framework_Assert;
 use PHPUnit_Util_Blacklist;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Test;
@@ -554,7 +553,7 @@ class TestResult implements Countable
      */
     public function run(Test $test)
     {
-        PHPUnit_Framework_Assert::resetCount();
+        Assert::resetCount();
 
         $error      = false;
         $failure    = false;
@@ -654,7 +653,7 @@ class TestResult implements Countable
         }
 
         $time = PHP_Timer::stop();
-        $test->addToAssertionCount(PHPUnit_Framework_Assert::getCount());
+        $test->addToAssertionCount(Assert::getCount());
 
         if ($monitorFunctions) {
             $blacklist = new PHPUnit_Util_Blacklist;
