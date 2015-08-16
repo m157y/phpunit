@@ -8,7 +8,9 @@
  * file that was distributed with this source code.
  */
 
-class Extensions_PhptTestCaseTest extends \PHPUnit_Framework_TestCase
+use PhpUnit\Framework\TestCase;
+
+class Extensions_PhptTestCaseTest extends TestCase
 {
     public function testParseIniSection()
     {

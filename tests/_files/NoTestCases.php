@@ -1,5 +1,8 @@
 <?php
-class NoTestCases extends PHPUnit_Framework_TestCase
+
+use PhpUnit\Framework\TestCase;
+
+class NoTestCases extends TestCase
 {
     public function noTestCase()
     {

@@ -1,5 +1,8 @@
 <?php
-class NamespaceCoverageMethodTest extends PHPUnit_Framework_TestCase
+
+use PhpUnit\Framework\TestCase;
+
+class NamespaceCoverageMethodTest extends TestCase
 {
     /**
      * @covers Foo\CoveredClass::publicMethod

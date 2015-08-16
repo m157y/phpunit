@@ -1,5 +1,8 @@
 <?php
-class Success extends PHPUnit_Framework_TestCase
+
+use PhpUnit\Framework\TestCase;
+
+class Success extends TestCase
 {
     protected function runTest()
     {

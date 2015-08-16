@@ -1,8 +1,11 @@
 <?php
+
+use PhpUnit\Framework\TestCase;
+
 /**
  * @coversDefaultClass \Foo\CoveredClass
  */
-class NamespaceCoverageCoversClassPublicTest extends PHPUnit_Framework_TestCase
+class NamespaceCoverageCoversClassPublicTest extends TestCase
 {
     /**
      * @covers ::publicMethod

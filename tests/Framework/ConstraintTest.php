@@ -8,12 +8,13 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestFailure;
 
 /**
  * @since      Class available since Release 3.0.0
  */
-class Framework_ConstraintTest extends PHPUnit_Framework_TestCase
+class Framework_ConstraintTest extends TestCase
 {
     /**
      * @covers PHPUnit_Framework_Constraint_ArrayHasKey

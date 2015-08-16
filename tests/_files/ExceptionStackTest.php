@@ -1,5 +1,8 @@
 <?php
-class ExceptionStackTest extends PHPUnit_Framework_TestCase
+
+use PhpUnit\Framework\TestCase;
+
+class ExceptionStackTest extends TestCase
 {
     public function testPrintingChildException()
     {

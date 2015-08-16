@@ -1,5 +1,8 @@
 <?php
-class IsolationTest extends PHPUnit_Framework_TestCase
+
+use PhpUnit\Framework\TestCase;
+
+class IsolationTest extends TestCase
 {
     public function testIsInIsolationReturnsFalse()
     {

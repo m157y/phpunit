@@ -8,23 +8,64 @@
  * file that was distributed with this source code.
  */
 
-use PhpUnit\Framework\TestResult;
-use PhpUnit\Framework\Warning;
+namespace PhpUnit\Framework;
+
+use Exception;
+use DeepCopy\DeepCopy;
+use PHPUnit_Extensions_PhptTestCase;
+use PHPUnit_Extensions_SeleniumTestCase;
+use PHPUnit_Framework_Assert;
+use PHPUnit_Framework_AssertionFailedError;
+use PHPUnit_Framework_Constraint_Exception;
+use PHPUnit_Framework_Constraint_ExceptionCode;
+use PHPUnit_Framework_Constraint_ExceptionMessage;
+use PHPUnit_Framework_Constraint_ExceptionMessageRegExp;
+use PHPUnit_Framework_Exception;
+use PHPUnit_Framework_IncompleteTest;
+use PHPUnit_Framework_MockObject_Generator;
+use PHPUnit_Framework_MockObject_Matcher_AnyInvokedCount;
+use PHPUnit_Framework_MockObject_Matcher_InvokedCount;
+use PHPUnit_Framework_MockObject_Matcher_InvokedAtLeastCount;
+use PHPUnit_Framework_MockObject_Matcher_InvokedAtLeastOnce;
+use PHPUnit_Framework_MockObject_Matcher_InvokedAtIndex;
+use PHPUnit_Framework_MockObject_Matcher_InvokedAtMostCount;
+use PHPUnit_Framework_MockObject_MockBuilder;
+use PHPUnit_Framework_MockObject_MockObject;
+use PHPUnit_Framework_MockObject_Stub_ConsecutiveCalls;
+use PHPUnit_Framework_MockObject_Stub_Exception;
+use PHPUnit_Framework_MockObject_Stub_Return;
+use PHPUnit_Framework_MockObject_Stub_ReturnArgument;
+use PHPUnit_Framework_MockObject_Stub_ReturnCallback;
+use PHPUnit_Framework_MockObject_Stub_ReturnSelf;
+use PHPUnit_Framework_MockObject_Stub_ReturnValueMap;
+use PHPUnit_Framework_RiskyTestError;
+use PHPUnit_Framework_SelfDescribing;
+use PHPUnit_Framework_SkippedTest;
+use PHPUnit_Framework_SkippedTestError;
+use PHPUnit_Framework_Test;
+use PHPUnit_Runner_BaseTestRunner;
+use PHPUnit_Util_InvalidArgumentHelper;
+use PHPUnit_Util_GlobalState;
+use PHPUnit_Util_PHP;
+use PHPUnit_Util_Test;
+use Prophecy\Exception\Prediction\PredictionException;
+use Prophecy\Prophet;
+use ReflectionClass;
+use ReflectionException;
 use SebastianBergmann\GlobalState\Snapshot;
 use SebastianBergmann\GlobalState\Restorer;
 use SebastianBergmann\GlobalState\Blacklist;
 use SebastianBergmann\Diff\Differ;
 use SebastianBergmann\Exporter\Exporter;
-use Prophecy\Exception\Prediction\PredictionException;
-use Prophecy\Prophet;
-use DeepCopy\DeepCopy;
+use Text_Template;
+use Throwable;
 
 /**
  * A TestCase defines the fixture to run multiple tests.
  *
  * To define a TestCase
  *
- *   1) Implement a subclass of PHPUnit_Framework_TestCase.
+ *   1) Implement a subclass of PhpUnit\Framework\TestCase.
  *   2) Define instance variables that store the state of the fixture.
  *   3) Initialize the fixture state by overriding setUp().
  *   4) Clean-up after a test by overriding tearDown().
@@ -36,7 +77,8 @@ use DeepCopy\DeepCopy;
  *
  * <code>
  * <?php
- * class MathTest extends PHPUnit_Framework_TestCase
+ * use PhpUnit\Framework\TestCase;
+ * class MathTest extends TestCase
  * {
  *     public $value1;
  *     public $value2;
@@ -65,7 +107,7 @@ use DeepCopy\DeepCopy;
  *
  * @since Class available since Release 2.0.0
  */
-abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert implements PHPUnit_Framework_Test, PHPUnit_Framework_SelfDescribing
+abstract class TestCase extends PHPUnit_Framework_Assert implements PHPUnit_Framework_Test, PHPUnit_Framework_SelfDescribing
 {
     /**
      * Enable or disable the backup and restoration of the $GLOBALS array.
@@ -253,12 +295,12 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
     private $outputBufferingLevel;
 
     /**
-     * @var SebastianBergmann\GlobalState\Snapshot
+     * @var \SebastianBergmann\GlobalState\Snapshot
      */
     private $snapshot;
 
     /**
-     * @var Prophecy\Prophet
+     * @var \Prophecy\Prophet
      */
     private $prophet;
 
@@ -388,7 +430,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
     /**
      * @param string $expectedRegex
      * @since Method available since Release 3.6.0
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PHPUnit_Framework_Exception
      */
     public function expectOutputRegex($expectedRegex)
     {
@@ -588,7 +630,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
      *
      * @param  \PhpUnit\Framework\TestResult $result
      * @return \PhpUnit\Framework\TestResult
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PHPUnit_Framework_Exception
      */
     public function run(TestResult $result = null)
     {
@@ -861,14 +903,14 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
      * Override to run the test and assert its state.
      *
      * @return mixed
-     * @throws Exception|PHPUnit_Framework_Exception
-     * @throws PHPUnit_Framework_Exception
+     * @throws \Exception|\PHPUnit_Framework_Exception
+     * @throws \PHPUnit_Framework_Exception
      */
     protected function runTest()
     {
         if ($this->name === null) {
             throw new PHPUnit_Framework_Exception(
-                'PHPUnit_Framework_TestCase::$name must not be null.'
+                'PhpUnit\\Framework\\TestCase::$name must not be null.'
             );
         }
 
@@ -1085,7 +1127,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
 
     /**
      * @param  bool                        $runTestInSeparateProcess
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PHPUnit_Framework_Exception
      * @since  Method available since Release 3.4.0
      */
     public function setRunTestInSeparateProcess($runTestInSeparateProcess)
@@ -1101,7 +1143,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
 
     /**
      * @param  bool                        $preserveGlobalState
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PHPUnit_Framework_Exception
      * @since  Method available since Release 3.4.0
      */
     public function setPreserveGlobalState($preserveGlobalState)
@@ -1115,7 +1157,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
 
     /**
      * @param  bool                        $inIsolation
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PHPUnit_Framework_Exception
      * @since  Method available since Release 3.4.0
      */
     public function setInIsolation($inIsolation)
@@ -1156,7 +1198,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
 
     /**
      * @param  callable                    $callback
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PHPUnit_Framework_Exception
      * @since Method available since Release 3.6.0
      */
     public function setOutputCallback($callback)
@@ -1193,7 +1235,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
      *
      * @param  string                      $varName
      * @param  string                      $newValue
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PHPUnit_Framework_Exception
      * @since  Method available since Release 3.0.0
      */
     protected function iniSet($varName, $newValue)
@@ -1223,7 +1265,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
      *
      * @param  int                         $category
      * @param  string                      $locale
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PHPUnit_Framework_Exception
      * @since  Method available since Release 3.1.0
      */
     protected function setLocale()
@@ -1281,8 +1323,8 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
      * @param  bool                                    $callAutoload            Can be used to disable __autoload() during the generation of the test double class.
      * @param  bool                                    $cloneArguments
      * @param  bool                                    $callOriginalMethods
-     * @return PHPUnit_Framework_MockObject_MockObject
-     * @throws PHPUnit_Framework_Exception
+     * @return \PHPUnit_Framework_MockObject_MockObject
+     * @throws \PHPUnit_Framework_Exception
      * @since  Method available since Release 3.0.0
      */
     public function getMock($originalClassName, $methods = [], array $arguments = [], $mockClassName = '', $callOriginalConstructor = true, $callOriginalClone = true, $callAutoload = true, $cloneArguments = false, $callOriginalMethods = false)
@@ -1308,7 +1350,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
      * Returns a builder object to create mock objects using a fluent interface.
      *
      * @param  string                                   $className
-     * @return PHPUnit_Framework_MockObject_MockBuilder
+     * @return \PHPUnit_Framework_MockObject_MockBuilder
      * @since  Method available since Release 3.5.0
      */
     public function getMockBuilder($className)
@@ -1328,7 +1370,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
      * @param  bool                        $callAutoload
      * @param  bool                        $cloneArguments
      * @return string
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PHPUnit_Framework_Exception
      * @since  Method available since Release 3.5.0
      */
     protected function getMockClass($originalClassName, $methods = [], array $arguments = [], $mockClassName = '', $callOriginalConstructor = false, $callOriginalClone = true, $callAutoload = true, $cloneArguments = false)
@@ -1360,9 +1402,9 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
      * @param  bool                                    $callAutoload
      * @param  array                                   $mockedMethods
      * @param  bool                                    $cloneArguments
-     * @return PHPUnit_Framework_MockObject_MockObject
+     * @return \PHPUnit_Framework_MockObject_MockObject
      * @since  Method available since Release 3.4.0
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PHPUnit_Framework_Exception
      */
     public function getMockForAbstractClass($originalClassName, array $arguments = [], $mockClassName = '', $callOriginalConstructor = true, $callOriginalClone = true, $callAutoload = true, $mockedMethods = [], $cloneArguments = false)
     {
@@ -1391,7 +1433,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
      * @param  array                                   $methods
      * @param  bool                                    $callOriginalConstructor
      * @param  array                                   $options                 An array of options passed to SOAPClient::_construct
-     * @return PHPUnit_Framework_MockObject_MockObject
+     * @return \PHPUnit_Framework_MockObject_MockObject
      * @since  Method available since Release 3.4.0
      */
     protected function getMockFromWsdl($wsdlFile, $originalClassName = '', $mockClassName = '', array $methods = [], $callOriginalConstructor = true, array $options = [])
@@ -1435,9 +1477,9 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
      * @param  bool                                    $callAutoload
      * @param  array                                   $mockedMethods
      * @param  bool                                    $cloneArguments
-     * @return PHPUnit_Framework_MockObject_MockObject
+     * @return \PHPUnit_Framework_MockObject_MockObject
      * @since  Method available since Release 4.0.0
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PHPUnit_Framework_Exception
      */
     public function getMockForTrait($traitName, array $arguments = [], $mockClassName = '', $callOriginalConstructor = true, $callOriginalClone = true, $callAutoload = true, $mockedMethods = [], $cloneArguments = false)
     {
@@ -1469,7 +1511,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
      * @param  bool   $cloneArguments
      * @return object
      * @since  Method available since Release 3.6.0
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PHPUnit_Framework_Exception
      */
     protected function getObjectForTrait($traitName, array $arguments = [], $traitClassName = '', $callOriginalConstructor = true, $callOriginalClone = true, $callAutoload = true, $cloneArguments = false)
     {
@@ -1521,7 +1563,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
      * Returns a matcher that matches when the method is executed
      * zero or more times.
      *
-     * @return PHPUnit_Framework_MockObject_Matcher_AnyInvokedCount
+     * @return \PHPUnit_Framework_MockObject_Matcher_AnyInvokedCount
      * @since  Method available since Release 3.0.0
      */
     public static function any()
@@ -1532,7 +1574,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
     /**
      * Returns a matcher that matches when the method is never executed.
      *
-     * @return PHPUnit_Framework_MockObject_Matcher_InvokedCount
+     * @return \PHPUnit_Framework_MockObject_Matcher_InvokedCount
      * @since  Method available since Release 3.0.0
      */
     public static function never()
@@ -1545,7 +1587,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
      * at least N times.
      *
      * @param  int                                                      $requiredInvocations
-     * @return PHPUnit_Framework_MockObject_Matcher_InvokedAtLeastCount
+     * @return \PHPUnit_Framework_MockObject_Matcher_InvokedAtLeastCount
      * @since  Method available since Release 4.2.0
      */
     public static function atLeast($requiredInvocations)
@@ -1558,7 +1600,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
     /**
      * Returns a matcher that matches when the method is executed at least once.
      *
-     * @return PHPUnit_Framework_MockObject_Matcher_InvokedAtLeastOnce
+     * @return \PHPUnit_Framework_MockObject_Matcher_InvokedAtLeastOnce
      * @since  Method available since Release 3.0.0
      */
     public static function atLeastOnce()
@@ -1569,7 +1611,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
     /**
      * Returns a matcher that matches when the method is executed exactly once.
      *
-     * @return PHPUnit_Framework_MockObject_Matcher_InvokedCount
+     * @return \PHPUnit_Framework_MockObject_Matcher_InvokedCount
      * @since  Method available since Release 3.0.0
      */
     public static function once()
@@ -1582,7 +1624,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
      * exactly $count times.
      *
      * @param  int                                               $count
-     * @return PHPUnit_Framework_MockObject_Matcher_InvokedCount
+     * @return \PHPUnit_Framework_MockObject_Matcher_InvokedCount
      * @since  Method available since Release 3.0.0
      */
     public static function exactly($count)
@@ -1595,7 +1637,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
      * at most N times.
      *
      * @param  int                                                     $allowedInvocations
-     * @return PHPUnit_Framework_MockObject_Matcher_InvokedAtMostCount
+     * @return \PHPUnit_Framework_MockObject_Matcher_InvokedAtMostCount
      * @since  Method available since Release 4.2.0
      */
     public static function atMost($allowedInvocations)
@@ -1610,7 +1652,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
      * at the given index.
      *
      * @param  int                                                 $index
-     * @return PHPUnit_Framework_MockObject_Matcher_InvokedAtIndex
+     * @return \PHPUnit_Framework_MockObject_Matcher_InvokedAtIndex
      * @since  Method available since Release 3.0.0
      */
     public static function at($index)
@@ -1620,7 +1662,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
 
     /**
      * @param  mixed                                    $value
-     * @return PHPUnit_Framework_MockObject_Stub_Return
+     * @return \PHPUnit_Framework_MockObject_Stub_Return
      * @since  Method available since Release 3.0.0
      */
     public static function returnValue($value)
@@ -1630,7 +1672,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
 
     /**
      * @param  array                                            $valueMap
-     * @return PHPUnit_Framework_MockObject_Stub_ReturnValueMap
+     * @return \PHPUnit_Framework_MockObject_Stub_ReturnValueMap
      * @since  Method available since Release 3.6.0
      */
     public static function returnValueMap(array $valueMap)
@@ -1640,7 +1682,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
 
     /**
      * @param  int                                              $argumentIndex
-     * @return PHPUnit_Framework_MockObject_Stub_ReturnArgument
+     * @return \PHPUnit_Framework_MockObject_Stub_ReturnArgument
      * @since  Method available since Release 3.3.0
      */
     public static function returnArgument($argumentIndex)
@@ -1652,7 +1694,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
 
     /**
      * @param  mixed                                            $callback
-     * @return PHPUnit_Framework_MockObject_Stub_ReturnCallback
+     * @return \PHPUnit_Framework_MockObject_Stub_ReturnCallback
      * @since  Method available since Release 3.3.0
      */
     public static function returnCallback($callback)
@@ -1665,7 +1707,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
      *
      * This method is useful when mocking a fluent interface.
      *
-     * @return PHPUnit_Framework_MockObject_Stub_ReturnSelf
+     * @return \PHPUnit_Framework_MockObject_Stub_ReturnSelf
      * @since  Method available since Release 3.6.0
      */
     public static function returnSelf()
@@ -1674,8 +1716,8 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
     }
 
     /**
-     * @param  Exception                                   $exception
-     * @return PHPUnit_Framework_MockObject_Stub_Exception
+     * @param  \Exception                                   $exception
+     * @return \PHPUnit_Framework_MockObject_Stub_Exception
      * @since  Method available since Release 3.1.0
      */
     public static function throwException(Exception $exception)
@@ -1685,7 +1727,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
 
     /**
      * @param  mixed                                              $value, ...
-     * @return PHPUnit_Framework_MockObject_Stub_ConsecutiveCalls
+     * @return \PHPUnit_Framework_MockObject_Stub_ConsecutiveCalls
      * @since  Method available since Release 3.0.0
      */
     public static function onConsecutiveCalls()
@@ -1877,9 +1919,9 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
     /**
      * This method is called when a test method did not execute successfully.
      *
-     * @param Exception|Throwable $e
+     * @param \Exception|\Throwable $e
      * @since Method available since Release 3.4.0
-     * @throws Exception|Throwable
+     * @throws \Exception|\Throwable
      */
     protected function onNotSuccessfulTest($e)
     {
@@ -1898,7 +1940,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
     /**
      * Performs custom preparations on the process isolation template.
      *
-     * @param Text_Template $template
+     * @param \Text_Template $template
      * @since Method available since Release 3.4.0
      */
     protected function prepareTemplate(Text_Template $template)
@@ -1908,7 +1950,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
     /**
      * Get the mock object generator, creating it if it doesn't exist.
      *
-     * @return PHPUnit_Framework_MockObject_Generator
+     * @return \PHPUnit_Framework_MockObject_Generator
      */
     protected function getMockObjectGenerator()
     {
@@ -2008,7 +2050,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
 
     /**
      * @param  bool     $backupGlobals
-     * @return Snapshot
+     * @return \SebastianBergmann\GlobalState\Snapshot
      */
     private function createGlobalStateSnapshot($backupGlobals)
     {
@@ -2051,9 +2093,9 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
     }
 
     /**
-     * @param  Snapshot                         $before
-     * @param  Snapshot                         $after
-     * @throws PHPUnit_Framework_RiskyTestError
+     * @param \SebastianBergmann\GlobalState\Snapshot $before
+     * @param \SebastianBergmann\GlobalState\Snapshot $after
+     * @throws \PHPUnit_Framework_RiskyTestError
      */
     private function compareGlobalStateSnapshots(Snapshot $before, Snapshot $after)
     {
@@ -2086,7 +2128,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
      * @param  array                            $before
      * @param  array                            $after
      * @param  string                           $header
-     * @throws PHPUnit_Framework_RiskyTestError
+     * @throws \PHPUnit_Framework_RiskyTestError
      */
     private function compareGlobalStateSnapshotPart(array $before, array $after, $header)
     {
@@ -2106,7 +2148,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
     }
 
     /**
-     * @return Prophecy\Prophet
+     * @return \Prophecy\Prophet
      * @since Method available since Release 4.5.0
      */
     private function getProphet()
@@ -2119,7 +2161,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
     }
 
     /**
-     * @param  PHPUnit_Framework_MockObject_MockObject $mock
+     * @param  \PHPUnit_Framework_MockObject_MockObject $mock
      * @return bool
      * @since  Method available since Release 5.0.0
      */

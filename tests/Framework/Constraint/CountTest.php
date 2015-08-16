@@ -8,11 +8,13 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestCase;
+
 /**
  * @since      Class available since Release 3.7.30
  * @covers     PHPUnit_Framework_Constraint_Count
  */
-class CountTest extends PHPUnit_Framework_TestCase
+class CountTest extends TestCase
 {
     public function testCount()
     {

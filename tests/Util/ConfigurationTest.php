@@ -8,10 +8,12 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestCase;
+
 /**
  * @since      Class available since Release 3.3.0
  */
-class Util_ConfigurationTest extends PHPUnit_Framework_TestCase
+class Util_ConfigurationTest extends TestCase
 {
     protected $configuration;
 

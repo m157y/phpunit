@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestSuite;
 
 /**
@@ -42,7 +43,7 @@ class PHPUnit_Extensions_GroupTestSuite extends TestSuite
         );
 
         foreach ($tests as $test) {
-            if ($test instanceof PHPUnit_Framework_TestCase) {
+            if ($test instanceof TestCase) {
                 $testGroups = PHPUnit_Util_Test::getGroups(
                     get_class($test),
                     $test->getName(false)

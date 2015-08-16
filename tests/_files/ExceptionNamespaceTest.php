@@ -2,7 +2,9 @@
 
 namespace My\Space;
 
-class ExceptionNamespaceTest extends \PHPUnit_Framework_TestCase
+use PhpUnit\Framework\TestCase;
+
+class ExceptionNamespaceTest extends TestCase
 {
     /**
      * Exception message

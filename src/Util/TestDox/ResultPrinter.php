@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
 
@@ -333,6 +334,6 @@ abstract class PHPUnit_Util_TestDox_ResultPrinter extends PHPUnit_Util_Printer i
 
     private function isOfInterest(PHPUnit_Framework_Test $test)
     {
-        return $test instanceof PHPUnit_Framework_TestCase && get_class($test) != 'PhpUnit\\Framework\\Warning';
+        return $test instanceof TestCase && get_class($test) != 'PhpUnit\\Framework\\Warning';
     }
 }

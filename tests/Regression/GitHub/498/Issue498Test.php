@@ -1,6 +1,8 @@
 <?php
 
-class Issue498Test extends PHPUnit_Framework_TestCase
+use PhpUnit\Framework\TestCase;
+
+class Issue498Test extends TestCase
 {
     /**
      * @test

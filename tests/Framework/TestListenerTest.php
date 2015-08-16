@@ -8,15 +8,16 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestResult;
 use PhpUnit\Framework\TestSuite;
 
 /**
  * @since      Class available since Release 2.0.0
- * @covers     PHPUnit_Framework_TestCase
+ * @covers     \PhpUnit\Framework\TestCase
  */
-class Framework_TestListenerTest extends PHPUnit_Framework_TestCase implements TestListener
+class Framework_TestListenerTest extends TestCase implements TestListener
 {
     protected $endCount;
     protected $errorCount;

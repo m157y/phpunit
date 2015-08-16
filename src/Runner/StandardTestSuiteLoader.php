@@ -55,7 +55,7 @@ class PHPUnit_Runner_StandardTestSuiteLoader implements PHPUnit_Runner_TestSuite
         }
 
         if (!class_exists($suiteClassName, false) && !empty($loadedClasses)) {
-            $testCaseClass = 'PHPUnit_Framework_TestCase';
+            $testCaseClass = 'PhpUnit\\Framework\\TestCase';
 
             foreach ($loadedClasses as $loadedClass) {
                 $class     = new ReflectionClass($loadedClass);

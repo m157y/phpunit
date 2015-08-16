@@ -1,5 +1,8 @@
 <?php
-class MultiDependencyTest extends PHPUnit_Framework_TestCase
+
+use PhpUnit\Framework\TestCase;
+
+class MultiDependencyTest extends TestCase
 {
     public function testOne()
     {

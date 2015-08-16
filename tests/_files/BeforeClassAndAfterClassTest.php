@@ -1,5 +1,8 @@
 <?php
-class BeforeClassAndAfterClassTest extends PHPUnit_Framework_TestCase
+
+use PhpUnit\Framework\TestCase;
+
+class BeforeClassAndAfterClassTest extends TestCase
 {
     public static $beforeClassWasRun = 0;
     public static $afterClassWasRun  = 0;

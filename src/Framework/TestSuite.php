@@ -22,7 +22,6 @@ use PHPUnit_Framework_SkippedTestCase;
 use PHPUnit_Framework_SkippedTestError;
 use PHPUnit_Framework_SkippedTestSuiteError;
 use PHPUnit_Framework_Test;
-use PHPUnit_Framework_TestCase;
 use PHPUnit_Framework_TestSuite_DataProvider;
 use PHPUnit_Runner_BaseTestRunner;
 use PHPUnit_Runner_Filter_Factory;
@@ -48,7 +47,7 @@ use Throwable;
  *
  * Alternatively, a TestSuite can extract the tests to be run automatically.
  * To do so you pass a ReflectionClass instance for your
- * PHPUnit_Framework_TestCase class to the PhpUnit\Framework\TestSuite
+ * PhpUnit\Framework\TestCase class to the PhpUnit\Framework\TestSuite
  * constructor.
  *
  * <code>
@@ -188,9 +187,9 @@ class TestSuite implements PHPUnit_Framework_Test, PHPUnit_Framework_SelfDescrib
             throw new PHPUnit_Framework_Exception;
         }
 
-        if (!$theClass->isSubclassOf('PHPUnit_Framework_TestCase')) {
+        if (!$theClass->isSubclassOf('PhpUnit\\Framework\\TestCase')) {
             throw new PHPUnit_Framework_Exception(
-                'Class "' . $theClass->name . '" does not extend PHPUnit_Framework_TestCase.'
+                'Class "' . $theClass->name . '" does not extend PhpUnit\\Framework\\TestCase.'
             );
         }
 
@@ -605,7 +604,7 @@ class TestSuite implements PHPUnit_Framework_Test, PHPUnit_Framework_SelfDescrib
             throw new PHPUnit_Framework_Exception('No valid test provided.');
         }
 
-        if ($test instanceof PHPUnit_Framework_TestCase) {
+        if ($test instanceof TestCase) {
             $test->setName($name);
 
             if ($runTestInSeparateProcess) {
@@ -750,7 +749,7 @@ class TestSuite implements PHPUnit_Framework_Test, PHPUnit_Framework_SelfDescrib
                 break;
             }
 
-            if ($test instanceof PHPUnit_Framework_TestCase ||
+            if ($test instanceof TestCase ||
                 $test instanceof self) {
                 $test->setbeStrictAboutChangesToGlobalState($this->beStrictAboutChangesToGlobalState);
                 $test->setBackupGlobals($this->backupGlobals);
@@ -886,7 +885,7 @@ class TestSuite implements PHPUnit_Framework_Test, PHPUnit_Framework_SelfDescrib
 
         $test = self::createTest($class, $name);
 
-        if ($test instanceof PHPUnit_Framework_TestCase ||
+        if ($test instanceof TestCase ||
             $test instanceof PHPUnit_Framework_TestSuite_DataProvider) {
             $test->setDependencies(
                 PHPUnit_Util_Test::getDependencies($class->getName(), $name)

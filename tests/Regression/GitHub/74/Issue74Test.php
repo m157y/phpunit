@@ -1,9 +1,12 @@
 <?php
-class Issue74Test extends PHPUnit_Framework_TestCase
+
+use PhpUnit\Framework\TestCase;
+
+class Issue74Test extends TestCase
 {
     public function testCreateAndThrowNewExceptionInProcessIsolation()
     {
         require_once __DIR__ . '/NewException.php';
-        throw new NewException('Testing GH-74');
+        throw new \NewException('Testing GH-74');
     }
 }

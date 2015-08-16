@@ -8,11 +8,13 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestCase;
+
 /**
  * @since      Class available since Release 2.0.0
  * @covers     PHPUnit_Runner_BaseTestRunner
  */
-class Runner_BaseTestRunnerTest extends PHPUnit_Framework_TestCase
+class Runner_BaseTestRunnerTest extends TestCase
 {
     public function testInvokeNonStaticSuite()
     {

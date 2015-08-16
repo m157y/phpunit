@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestCase;
+
 /**
  * Test helpers.
  *
@@ -45,7 +47,7 @@ class PHPUnit_Util_Test
                 return get_class($test);
             }
         } else {
-            if ($test instanceof PHPUnit_Framework_TestCase) {
+            if ($test instanceof TestCase) {
                 return [
                   get_class($test), $test->getName()
                 ];

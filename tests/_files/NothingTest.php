@@ -1,5 +1,8 @@
 <?php
-class NothingTest extends PHPUnit_Framework_TestCase
+
+use PhpUnit\Framework\TestCase;
+
+class NothingTest extends TestCase
 {
     public function testNothing()
     {

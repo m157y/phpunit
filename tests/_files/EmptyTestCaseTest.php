@@ -1,4 +1,7 @@
 <?php
-class EmptyTestCaseTest extends PHPUnit_Framework_TestCase
+
+use PhpUnit\Framework\TestCase;
+
+class EmptyTestCaseTest extends TestCase
 {
 }

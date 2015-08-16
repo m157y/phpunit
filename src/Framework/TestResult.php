@@ -32,7 +32,6 @@ use PHPUnit_Framework_RiskyTestError;
 use PHPUnit_Framework_SkippedTest;
 use PHPUnit_Framework_SkippedTestError;
 use PHPUnit_Framework_Test;
-use PHPUnit_Framework_TestCase;
 use PHPUnit_Util_Blacklist;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Test;
@@ -376,7 +375,7 @@ class TestResult implements Countable
             $listener->endTest($test, $time);
         }
 
-        if (!$this->lastTestFailed && $test instanceof PHPUnit_Framework_TestCase) {
+        if (!$this->lastTestFailed && $test instanceof TestCase) {
             $class  = get_class($test);
             $key    = $class . '::' . $test->getName();
 
@@ -703,7 +702,7 @@ class TestResult implements Countable
             $linesToBeCovered = [];
             $linesToBeUsed    = [];
 
-            if ($append && $test instanceof PHPUnit_Framework_TestCase) {
+            if ($append && $test instanceof TestCase) {
                 $linesToBeCovered = PHPUnit_Util_Test::getLinesToBeCovered(
                     get_class($test),
                     $test->getName(false)
@@ -775,7 +774,7 @@ class TestResult implements Countable
                 ),
                 $time
             );
-        } elseif ($this->beStrictAboutTodoAnnotatedTests && $test instanceof PHPUnit_Framework_TestCase) {
+        } elseif ($this->beStrictAboutTodoAnnotatedTests && $test instanceof TestCase) {
             $annotations = $test->getAnnotations();
 
             if (isset($annotations['method']['todo'])) {

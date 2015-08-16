@@ -1,5 +1,8 @@
 <?php
-class CoverageMethodTest extends PHPUnit_Framework_TestCase
+
+use PhpUnit\Framework\TestCase;
+
+class CoverageMethodTest extends TestCase
 {
     /**
      * @covers CoveredClass::publicMethod

@@ -18,7 +18,7 @@
 function any()
 {
     return call_user_func_array(
-        'PHPUnit_Framework_TestCase::any',
+        'PhpUnit\\Framework\\TestCase::any',
         func_get_args()
     );
 }
@@ -1578,7 +1578,7 @@ function assertXmlStringNotEqualsXmlString($expectedXml, $actualXml, $message = 
 function at($index)
 {
     return call_user_func_array(
-        'PHPUnit_Framework_TestCase::at',
+        'PhpUnit\\Framework\\TestCase::at',
         func_get_args()
     );
 }
@@ -1592,7 +1592,7 @@ function at($index)
 function atLeastOnce()
 {
     return call_user_func_array(
-        'PHPUnit_Framework_TestCase::atLeastOnce',
+        'PhpUnit\\Framework\\TestCase::atLeastOnce',
         func_get_args()
     );
 }
@@ -1759,7 +1759,7 @@ function equalTo($value, $delta = 0.0, $maxDepth = 10, $canonicalize = false, $i
 function exactly($count)
 {
     return call_user_func_array(
-        'PHPUnit_Framework_TestCase::exactly',
+        'PhpUnit\\Framework\\TestCase::exactly',
         func_get_args()
     );
 }
@@ -2053,7 +2053,7 @@ function matchesRegularExpression($pattern)
 function never()
 {
     return call_user_func_array(
-        'PHPUnit_Framework_TestCase::never',
+        'PhpUnit\\Framework\\TestCase::never',
         func_get_args()
     );
 }
@@ -2081,7 +2081,7 @@ function objectHasAttribute($attributeName)
 function onConsecutiveCalls()
 {
     return call_user_func_array(
-        'PHPUnit_Framework_TestCase::onConsecutiveCalls',
+        'PhpUnit\\Framework\\TestCase::onConsecutiveCalls',
         func_get_args()
     );
 }
@@ -2095,7 +2095,7 @@ function onConsecutiveCalls()
 function once()
 {
     return call_user_func_array(
-        'PHPUnit_Framework_TestCase::once',
+        'PhpUnit\\Framework\\TestCase::once',
         func_get_args()
     );
 }
@@ -2108,7 +2108,7 @@ function once()
 function returnArgument($argumentIndex)
 {
     return call_user_func_array(
-        'PHPUnit_Framework_TestCase::returnArgument',
+        'PhpUnit\\Framework\\TestCase::returnArgument',
         func_get_args()
     );
 }
@@ -2121,7 +2121,7 @@ function returnArgument($argumentIndex)
 function returnCallback($callback)
 {
     return call_user_func_array(
-        'PHPUnit_Framework_TestCase::returnCallback',
+        'PhpUnit\\Framework\\TestCase::returnCallback',
         func_get_args()
     );
 }
@@ -2137,7 +2137,7 @@ function returnCallback($callback)
 function returnSelf()
 {
     return call_user_func_array(
-        'PHPUnit_Framework_TestCase::returnSelf',
+        'PhpUnit\\Framework\\TestCase::returnSelf',
         func_get_args()
     );
 }
@@ -2150,7 +2150,7 @@ function returnSelf()
 function returnValue($value)
 {
     return call_user_func_array(
-        'PHPUnit_Framework_TestCase::returnValue',
+        'PhpUnit\\Framework\\TestCase::returnValue',
         func_get_args()
     );
 }
@@ -2163,7 +2163,7 @@ function returnValue($value)
 function returnValueMap(array $valueMap)
 {
     return call_user_func_array(
-        'PHPUnit_Framework_TestCase::returnValueMap',
+        'PhpUnit\\Framework\\TestCase::returnValueMap',
         func_get_args()
     );
 }
@@ -2222,7 +2222,7 @@ function stringStartsWith($prefix)
 function throwException(Exception $exception)
 {
     return call_user_func_array(
-        'PHPUnit_Framework_TestCase::throwException',
+        'PhpUnit\\Framework\\TestCase::throwException',
         func_get_args()
     );
 }

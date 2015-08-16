@@ -1,5 +1,8 @@
 <?php
-class FailureTest extends PHPUnit_Framework_TestCase
+
+use PhpUnit\Framework\TestCase;
+
+class FailureTest extends TestCase
 {
     public function testAssertArrayEqualsArray()
     {

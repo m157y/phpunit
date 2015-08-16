@@ -117,7 +117,7 @@ Failed asserting that two objects are equal.
 +    'bar' => 'foo'
  )
 
-%s:22
+%s:25
 
 12) FailureTest::testAssertIntegerEqualsInteger
 message

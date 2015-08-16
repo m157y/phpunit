@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestResult;
 use PhpUnit\Framework\TestSuite;
 
@@ -26,9 +27,9 @@ $GLOBALS['i']  = 'i';
 
 /**
  * @since      Class available since Release 2.0.0
- * @covers     PHPUnit_Framework_TestCase
+ * @covers     \PhpUnit\Framework\TestCase
  */
-class Framework_TestCaseTest extends PHPUnit_Framework_TestCase
+class Framework_TestCaseTest extends TestCase
 {
     protected $backupGlobalsBlacklist = ['i', 'singleton'];
 

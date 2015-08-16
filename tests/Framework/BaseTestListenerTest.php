@@ -8,12 +8,13 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestResult;
 
 /**
  * @since      Class available since Release 4.0.0
  */
-class Framework_BaseTestListenerTest extends PHPUnit_Framework_TestCase
+class Framework_BaseTestListenerTest extends TestCase
 {
     /**
      * @var \PhpUnit\Framework\TestResult

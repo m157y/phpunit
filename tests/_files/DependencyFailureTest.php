@@ -1,5 +1,8 @@
 <?php
-class DependencyFailureTest extends PHPUnit_Framework_TestCase
+
+use PhpUnit\Framework\TestCase;
+
+class DependencyFailureTest extends TestCase
 {
     public function testOne()
     {

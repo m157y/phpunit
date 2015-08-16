@@ -1,5 +1,8 @@
 <?php
-class ExceptionTest extends PHPUnit_Framework_TestCase
+
+use PhpUnit\Framework\TestCase;
+
+class ExceptionTest extends TestCase
 {
     /**
      * Exception message

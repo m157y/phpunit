@@ -1,5 +1,8 @@
 <?php
-class ExceptionInAssertPostConditionsTest extends PHPUnit_Framework_TestCase
+
+use PhpUnit\Framework\TestCase;
+
+class ExceptionInAssertPostConditionsTest extends TestCase
 {
     public $setUp                = false;
     public $assertPreConditions  = false;

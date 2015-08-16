@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestFailure;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
@@ -318,7 +319,7 @@ class PHPUnit_Util_Log_JUnit extends PHPUnit_Util_Printer implements TestListene
         $testCase = $this->document->createElement('testcase');
         $testCase->setAttribute('name', $test->getName());
 
-        if ($test instanceof PHPUnit_Framework_TestCase) {
+        if ($test instanceof TestCase) {
             $class      = new ReflectionClass($test);
             $methodName = $test->getName();
 
@@ -343,7 +344,7 @@ class PHPUnit_Util_Log_JUnit extends PHPUnit_Util_Printer implements TestListene
     public function endTest(PHPUnit_Framework_Test $test, $time)
     {
         if ($this->attachCurrentTestCase) {
-            if ($test instanceof PHPUnit_Framework_TestCase) {
+            if ($test instanceof TestCase) {
                 $numAssertions = $test->getNumAssertions();
                 $this->testSuiteAssertions[$this->testSuiteLevel] += $numAssertions;
 

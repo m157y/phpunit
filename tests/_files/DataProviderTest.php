@@ -1,5 +1,8 @@
 <?php
-class DataProviderTest extends PHPUnit_Framework_TestCase
+
+use PhpUnit\Framework\TestCase;
+
+class DataProviderTest extends TestCase
 {
     /**
      * @dataProvider providerMethod

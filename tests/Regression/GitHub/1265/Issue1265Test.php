@@ -1,5 +1,8 @@
 <?php
-class Issue1265Test extends PHPUnit_Framework_TestCase
+
+use PhpUnit\Framework\TestCase;
+
+class Issue1265Test extends TestCase
 {
     public function testTrue()
     {

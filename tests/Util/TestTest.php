@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestCase;
+
 if (!defined('TEST_FILES_PATH')) {
     define(
         'TEST_FILES_PATH',
@@ -19,7 +21,7 @@ if (!defined('TEST_FILES_PATH')) {
 /**
  * @since      Class available since Release 3.3.6
  */
-class Util_TestTest extends PHPUnit_Framework_TestCase
+class Util_TestTest extends TestCase
 {
     /**
      * @covers PHPUnit_Util_Test::getExpectedException

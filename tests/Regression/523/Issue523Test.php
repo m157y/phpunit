@@ -1,5 +1,8 @@
 <?php
-class Issue523Test extends PHPUnit_Framework_TestCase
+
+use PhpUnit\Framework\TestCase;
+
+class Issue523Test extends TestCase
 {
     public function testAttributeEquals()
     {

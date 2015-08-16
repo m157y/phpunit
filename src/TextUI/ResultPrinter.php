@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestFailure;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestResult;
@@ -520,7 +521,7 @@ class PHPUnit_TextUI_ResultPrinter extends PHPUnit_Util_Printer implements TestL
             $this->writeProgress('.');
         }
 
-        if ($test instanceof PHPUnit_Framework_TestCase) {
+        if ($test instanceof TestCase) {
             $this->numAssertions += $test->getNumAssertions();
         } elseif ($test instanceof PHPUnit_Extensions_PhptTestCase) {
             $this->numAssertions++;
@@ -528,7 +529,7 @@ class PHPUnit_TextUI_ResultPrinter extends PHPUnit_Util_Printer implements TestL
 
         $this->lastTestFailed = false;
 
-        if ($test instanceof PHPUnit_Framework_TestCase) {
+        if ($test instanceof TestCase) {
             if (!$test->hasExpectationOnOutput()) {
                 $this->write($test->getActualOutput());
             }

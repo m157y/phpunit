@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestResult;
 use PhpUnit\Framework\TestSuite;
 
@@ -26,9 +27,9 @@ require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . '_files' . DIRECTORY_SEPAR
 
 /**
  * @since      Class available since Release 2.0.0
- * @covers     PHPUnit_Framework_TestSuite
+ * @covers     \PhpUnit\Framework\TestSuite
  */
-class Framework_SuiteTest extends PHPUnit_Framework_TestCase
+class Framework_SuiteTest extends TestCase
 {
     protected $result;
 

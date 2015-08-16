@@ -22,7 +22,7 @@ There was 1 failure:
 1) Issue1471Test::testFailure
 Failed asserting that false is true.
 
-%s/Issue1471Test.php:10
+%s/Issue1471Test.php:13
 
 FAILURES!
 Tests: 1, Assertions: 1, Failures: 1.

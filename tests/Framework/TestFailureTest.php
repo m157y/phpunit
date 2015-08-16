@@ -8,12 +8,13 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestFailure;
 
 /**
  * @since      File available since Release 3.7.20
  */
-class Framework_TestFailureTest extends PHPUnit_Framework_TestCase
+class Framework_TestFailureTest extends TestCase
 {
     /**
      * @covers \PhpUnit\Framework\TestFailure::toString

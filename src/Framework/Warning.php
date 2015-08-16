@@ -10,14 +10,12 @@
 
 namespace PhpUnit\Framework;
 
-use PHPUnit_Framework_TestCase;
-
 /**
  * A warning.
  *
  * @since Class available since Release 2.0.0
  */
-class Warning extends PHPUnit_Framework_TestCase
+class Warning extends TestCase
 {
     /**
      * @var string

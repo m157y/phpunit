@@ -8,10 +8,12 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestCase;
+
 /**
  * @since      Class available since Release 2.1.0
  */
-class Util_TestDox_NamePrettifierTest extends PHPUnit_Framework_TestCase
+class Util_TestDox_NamePrettifierTest extends TestCase
 {
     protected $namePrettifier;
 

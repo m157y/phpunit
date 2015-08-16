@@ -8,12 +8,14 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestCase;
+
 /**
  * Tests for the BankAccount class.
  *
  * @since      Class available since Release 2.3.0
  */
-class BankAccountWithCustomExtensionTest extends PHPUnit_Framework_TestCase
+class BankAccountWithCustomExtensionTest extends TestCase
 {
     protected $ba;
 

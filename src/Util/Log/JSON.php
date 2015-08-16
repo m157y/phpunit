@@ -197,11 +197,11 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements TestListener
     }
 
     /**
-     * @param string                          $status
-     * @param float                           $time
-     * @param array                           $trace
-     * @param string                          $message
-     * @param PHPUnit_Framework_TestCase|null $test
+     * @param string                           $status
+     * @param float                            $time
+     * @param array                            $trace
+     * @param string                           $message
+     * @param \PhpUnit\Framework\TestCase|null $test
      */
     protected function writeCase($status, $time, array $trace = [], $message = '', $test = null)
     {

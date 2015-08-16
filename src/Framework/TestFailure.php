@@ -18,7 +18,6 @@ use PHPUnit_Framework_ExceptionWrapper;
 use PHPUnit_Framework_ExpectationFailedException;
 use PHPUnit_Framework_SelfDescribing;
 use PHPUnit_Framework_Test;
-use PHPUnit_Framework_TestCase;
 
 /**
  * A TestFailure collects a failed test together with the caught exception.
@@ -55,7 +54,7 @@ class TestFailure
         } else {
             $this->testName = get_class($failedTest);
         }
-        if (!$failedTest instanceof PHPUnit_Framework_TestCase || !$failedTest->isInIsolation()) {
+        if (!$failedTest instanceof TestCase || !$failedTest->isInIsolation()) {
             $this->failedTest = $failedTest;
         }
         $this->thrownException = $thrownException;

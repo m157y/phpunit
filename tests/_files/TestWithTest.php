@@ -1,5 +1,8 @@
 <?php
-class TestWithTest extends PHPUnit_Framework_TestCase
+
+use PhpUnit\Framework\TestCase;
+
+class TestWithTest extends TestCase
 {
     /**
      * @testWith [0, 0, 0]
