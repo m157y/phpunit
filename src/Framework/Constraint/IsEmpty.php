@@ -8,6 +8,9 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
+use Countable;
 use PhpUnit\Framework\Constraint;
 
 /**
@@ -15,7 +18,7 @@ use PhpUnit\Framework\Constraint;
  *
  * @since Class available since Release 3.5.0
  */
-class PHPUnit_Framework_Constraint_IsEmpty extends Constraint
+class IsEmpty extends Constraint
 {
     /**
      * Evaluates the constraint for parameter $other. Returns true if the

@@ -25,7 +25,6 @@ use PHPUnit_Framework_Constraint_ClassHasStaticAttribute;
 use PHPUnit_Framework_Constraint_Count;
 use PHPUnit_Framework_Constraint_FileExists;
 use PHPUnit_Framework_Constraint_IsAnything;
-use PHPUnit_Framework_Constraint_IsEmpty;
 use PHPUnit_Framework_Constraint_GreaterThan;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
@@ -2400,14 +2399,14 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_IsEmpty matcher object.
+     * Returns a PhpUnit\Framework\Constraint\IsEmpty matcher object.
      *
-     * @return PHPUnit_Framework_Constraint_IsEmpty
+     * @return \PhpUnit\Framework\Constraint\IsEmpty
      * @since  Method available since Release 3.5.0
      */
     public static function isEmpty()
     {
-        return new PHPUnit_Framework_Constraint_IsEmpty;
+        return new Constraint\IsEmpty;
     }
 
     /**

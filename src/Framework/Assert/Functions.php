@@ -1828,9 +1828,9 @@ function identicalTo($value)
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_IsEmpty matcher object.
+ * Returns a PhpUnit\Framework\Constraint\IsEmpty matcher object.
  *
- * @return PHPUnit_Framework_Constraint_IsEmpty
+ * @return \PhpUnit\Framework\Constraint\IsEmpty
  * @since  Method available since Release 3.5.0
  */
 function isEmpty()

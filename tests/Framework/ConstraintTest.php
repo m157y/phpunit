@@ -3217,13 +3217,13 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsEmpty
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\IsEmpty
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintIsEmpty()
     {
-        $constraint = new PHPUnit_Framework_Constraint_IsEmpty;
+        $constraint = new Constraint\IsEmpty;
 
         $this->assertFalse($constraint->evaluate(['foo'], '', true));
         $this->assertTrue($constraint->evaluate([], '', true));
@@ -3251,12 +3251,12 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsEmpty
+     * @covers \PhpUnit\Framework\Constraint\IsEmpty
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintIsEmpty2()
     {
-        $constraint = new PHPUnit_Framework_Constraint_IsEmpty;
+        $constraint = new Constraint\IsEmpty;
 
         try {
             $constraint->evaluate(['foo'], 'custom message');
