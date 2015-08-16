@@ -11,7 +11,6 @@
 namespace PhpUnit\Framework;
 
 use Exception as PhpException;
-use PHPUnit_Framework_AssertionFailedError;
 
 /**
  * An empty Listener that can be extended to implement TestListener
@@ -26,7 +25,7 @@ abstract class BaseTestListener implements TestListener
     {
     }
 
-    public function addFailure(Test $test, PHPUnit_Framework_AssertionFailedError $e, $time)
+    public function addFailure(Test $test, AssertionFailedError $e, $time)
     {
     }
 

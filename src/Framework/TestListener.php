@@ -11,7 +11,6 @@
 namespace PhpUnit\Framework;
 
 use Exception as PhpException;
-use PHPUnit_Framework_AssertionFailedError;
 
 /**
  * A Listener for test progress.
@@ -33,10 +32,10 @@ interface TestListener
      * A failure occurred.
      *
      * @param \PhpUnit\Framework\Test                 $test
-     * @param \PHPUnit_Framework_AssertionFailedError $e
+     * @param \PhpUnit\Framework\AssertionFailedError $e
      * @param float                                   $time
      */
-    public function addFailure(Test $test, PHPUnit_Framework_AssertionFailedError $e, $time);
+    public function addFailure(Test $test, AssertionFailedError $e, $time);
 
     /**
      * Incomplete test.

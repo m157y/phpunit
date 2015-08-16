@@ -19,7 +19,6 @@ use PHP_Invoker;
 use PHP_Timer;
 use PHPUnit_Extensions_SeleniumTestCase;
 use PHPUnit_Framework_Assert;
-use PHPUnit_Framework_AssertionFailedError;
 use PHPUnit_Util_Blacklist;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Test;
@@ -262,10 +261,10 @@ class TestResult implements Countable
      * The passed in exception caused the failure.
      *
      * @param \PhpUnit\Framework\Test                 $test
-     * @param \PHPUnit_Framework_AssertionFailedError $e
+     * @param \PhpUnit\Framework\AssertionFailedError $e
      * @param float                                   $time
      */
-    public function addFailure(Test $test, PHPUnit_Framework_AssertionFailedError $e, $time)
+    public function addFailure(Test $test, AssertionFailedError $e, $time)
     {
         if ($e instanceof RiskyTest ||
             $e instanceof OutputError) {
@@ -634,7 +633,7 @@ class TestResult implements Countable
             } else {
                 $test->runBare();
             }
-        } catch (PHPUnit_Framework_AssertionFailedError $e) {
+        } catch (AssertionFailedError $e) {
             $failure = true;
 
             if ($e instanceof RiskyTestError) {

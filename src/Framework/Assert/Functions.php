@@ -599,7 +599,7 @@ function assertCount($expectedCount, $haystack, $message = '')
  *
  * @param  mixed                                  $actual
  * @param  string                                 $message
- * @throws PHPUnit_Framework_AssertionFailedError
+ * @throws \PhpUnit\Framework\AssertionFailedError
  */
 function assertEmpty($actual, $message = '')
 {
@@ -650,7 +650,7 @@ function assertEquals($expected, $actual, $message = '', $delta = 0.0, $maxDepth
  *
  * @param  bool                                   $condition
  * @param  string                                 $message
- * @throws PHPUnit_Framework_AssertionFailedError
+ * @throws \PhpUnit\Framework\AssertionFailedError
  */
 function assertNotTrue($condition, $message = '')
 {
@@ -665,7 +665,7 @@ function assertNotTrue($condition, $message = '')
  *
  * @param  bool                                   $condition
  * @param  string                                 $message
- * @throws PHPUnit_Framework_AssertionFailedError
+ * @throws \PhpUnit\Framework\AssertionFailedError
  */
 function assertFalse($condition, $message = '')
 {
@@ -1042,7 +1042,7 @@ function assertNotCount($expectedCount, $haystack, $message = '')
  *
  * @param  mixed                                  $actual
  * @param  string                                 $message
- * @throws PHPUnit_Framework_AssertionFailedError
+ * @throws \PhpUnit\Framework\AssertionFailedError
  */
 function assertNotEmpty($actual, $message = '')
 {
@@ -1109,7 +1109,7 @@ function assertNotInternalType($expected, $actual, $message = '')
  *
  * @param  bool                                   $condition
  * @param  string                                 $message
- * @throws PHPUnit_Framework_AssertionFailedError
+ * @throws \PhpUnit\Framework\AssertionFailedError
  */
 function assertNotFalse($condition, $message = '')
 {
@@ -1463,7 +1463,7 @@ function assertThat($value, Constraint $constraint, $message = '')
  *
  * @param  bool                                   $condition
  * @param  string                                 $message
- * @throws PHPUnit_Framework_AssertionFailedError
+ * @throws \PhpUnit\Framework\AssertionFailedError
  */
 function assertTrue($condition, $message = '')
 {

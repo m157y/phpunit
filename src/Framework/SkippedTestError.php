@@ -10,14 +10,12 @@
 
 namespace PhpUnit\Framework;
 
-use PHPUnit_Framework_AssertionFailedError;
-
 /**
- * Extension to PHPUnit_Framework_AssertionFailedError to mark the special
+ * Extension to PhpUnit\Framework\AssertionFailedError to mark the special
  * case of a skipped test.
  *
  * @since Class available since Release 3.0.0
  */
-class SkippedTestError extends PHPUnit_Framework_AssertionFailedError implements SkippedTest
+class SkippedTestError extends AssertionFailedError implements SkippedTest
 {
 }

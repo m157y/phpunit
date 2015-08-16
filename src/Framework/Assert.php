@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\AssertionFailedError;
 use PhpUnit\Framework\Constraint;
 use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\IncompleteTestError;
@@ -587,7 +588,7 @@ abstract class PHPUnit_Framework_Assert
      *
      * @param  mixed                                  $actual
      * @param  string                                 $message
-     * @throws PHPUnit_Framework_AssertionFailedError
+     * @throws \PhpUnit\Framework\AssertionFailedError
      */
     public static function assertEmpty($actual, $message = '')
     {
@@ -616,7 +617,7 @@ abstract class PHPUnit_Framework_Assert
      *
      * @param  mixed                                  $actual
      * @param  string                                 $message
-     * @throws PHPUnit_Framework_AssertionFailedError
+     * @throws \PhpUnit\Framework\AssertionFailedError
      */
     public static function assertNotEmpty($actual, $message = '')
     {
@@ -917,7 +918,7 @@ abstract class PHPUnit_Framework_Assert
      *
      * @param  bool                                   $condition
      * @param  string                                 $message
-     * @throws PHPUnit_Framework_AssertionFailedError
+     * @throws \PhpUnit\Framework\AssertionFailedError
      */
     public static function assertTrue($condition, $message = '')
     {
@@ -929,7 +930,7 @@ abstract class PHPUnit_Framework_Assert
      *
      * @param  bool                                   $condition
      * @param  string                                 $message
-     * @throws PHPUnit_Framework_AssertionFailedError
+     * @throws \PhpUnit\Framework\AssertionFailedError
      */
     public static function assertNotTrue($condition, $message = '')
     {
@@ -941,7 +942,7 @@ abstract class PHPUnit_Framework_Assert
      *
      * @param  bool                                   $condition
      * @param  string                                 $message
-     * @throws PHPUnit_Framework_AssertionFailedError
+     * @throws \PhpUnit\Framework\AssertionFailedError
      */
     public static function assertFalse($condition, $message = '')
     {
@@ -953,7 +954,7 @@ abstract class PHPUnit_Framework_Assert
      *
      * @param  bool                                   $condition
      * @param  string                                 $message
-     * @throws PHPUnit_Framework_AssertionFailedError
+     * @throws \PhpUnit\Framework\AssertionFailedError
      */
     public static function assertNotFalse($condition, $message = '')
     {
@@ -2620,11 +2621,11 @@ abstract class PHPUnit_Framework_Assert
      * Fails a test with the given message.
      *
      * @param  string                                 $message
-     * @throws PHPUnit_Framework_AssertionFailedError
+     * @throws \PhpUnit\Framework\AssertionFailedError
      */
     public static function fail($message = '')
     {
-        throw new PHPUnit_Framework_AssertionFailedError($message);
+        throw new AssertionFailedError($message);
     }
 
     /**

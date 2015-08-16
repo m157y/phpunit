@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\AssertionFailedError;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestListener;
@@ -34,7 +35,7 @@ class Framework_TestListenerTest extends TestCase implements TestListener
         $this->errorCount++;
     }
 
-    public function addFailure(Test $test, PHPUnit_Framework_AssertionFailedError $e, $time)
+    public function addFailure(Test $test, AssertionFailedError $e, $time)
     {
         $this->failureCount++;
     }

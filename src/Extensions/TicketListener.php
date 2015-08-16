@@ -9,6 +9,7 @@
  */
 
 use Exception as PhpException;
+use PhpUnit\Framework\AssertionFailedError;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
@@ -45,11 +46,11 @@ abstract class PHPUnit_Extensions_TicketListener implements TestListener
     /**
      * A failure occurred.
      *
-     * @param \PhpUnit\Framework\Test                $test
-     * @param PHPUnit_Framework_AssertionFailedError $e
-     * @param float                                  $time
+     * @param \PhpUnit\Framework\Test                 $test
+     * @param \PhpUnit\Framework\AssertionFailedError $e
+     * @param float                                   $time
      */
-    public function addFailure(Test $test, PHPUnit_Framework_AssertionFailedError $e, $time)
+    public function addFailure(Test $test, AssertionFailedError $e, $time)
     {
     }
 

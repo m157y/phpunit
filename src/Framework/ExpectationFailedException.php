@@ -11,7 +11,6 @@
 namespace PhpUnit\Framework;
 
 use Exception as PhpException;
-use PHPUnit_Framework_AssertionFailedError;
 use SebastianBergmann\Comparator\ComparisonFailure;
 
 /**
@@ -23,7 +22,7 @@ use SebastianBergmann\Comparator\ComparisonFailure;
  *
  * @since Class available since Release 3.0.0
  */
-class ExpectationFailedException extends PHPUnit_Framework_AssertionFailedError
+class ExpectationFailedException extends AssertionFailedError
 {
     /**
      * @var \SebastianBergmann\Comparator\ComparisonFailure

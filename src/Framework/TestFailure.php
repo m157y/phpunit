@@ -11,7 +11,6 @@
 namespace PhpUnit\Framework;
 
 use Exception as PhpException;
-use PHPUnit_Framework_AssertionFailedError;
 
 /**
  * A TestFailure collects a failed test together with the caught exception.
@@ -163,6 +162,6 @@ class TestFailure
      */
     public function isFailure()
     {
-        return ($this->thrownException() instanceof PHPUnit_Framework_AssertionFailedError);
+        return ($this->thrownException() instanceof AssertionFailedError);
     }
 }

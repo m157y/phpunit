@@ -9,6 +9,7 @@
  */
 
 use Exception as PhpException;
+use PhpUnit\Framework\AssertionFailedError;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestFailure;
@@ -419,10 +420,10 @@ class PHPUnit_TextUI_ResultPrinter extends PHPUnit_Util_Printer implements TestL
      * A failure occurred.
      *
      * @param \PhpUnit\Framework\Test                $test
-     * @param PHPUnit_Framework_AssertionFailedError $e
+     * @param \PhpUnit\Framework\AssertionFailedError $e
      * @param float                                  $time
      */
-    public function addFailure(Test $test, PHPUnit_Framework_AssertionFailedError $e, $time)
+    public function addFailure(Test $test, AssertionFailedError $e, $time)
     {
         $this->writeProgressWithColor('bg-red, fg-white', 'F');
         $this->lastTestFailed = true;

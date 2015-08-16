@@ -15,7 +15,6 @@ use DeepCopy\DeepCopy;
 use PHPUnit_Extensions_PhptTestCase;
 use PHPUnit_Extensions_SeleniumTestCase;
 use PHPUnit_Framework_Assert;
-use PHPUnit_Framework_AssertionFailedError;
 use PHPUnit_Framework_Constraint_Exception;
 use PHPUnit_Framework_Constraint_ExceptionCode;
 use PHPUnit_Framework_Constraint_ExceptionMessage;
@@ -797,7 +796,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
         } catch (SkippedTest $e) {
             $this->status        = PHPUnit_Runner_BaseTestRunner::STATUS_SKIPPED;
             $this->statusMessage = $e->getMessage();
-        } catch (PHPUnit_Framework_AssertionFailedError $e) {
+        } catch (AssertionFailedError $e) {
             $this->status        = PHPUnit_Runner_BaseTestRunner::STATUS_FAILURE;
             $this->statusMessage = $e->getMessage();
         } catch (PredictionException $e) {
@@ -888,7 +887,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
         // Workaround for missing "finally".
         if (isset($e)) {
             if ($e instanceof PredictionException) {
-                $e = new PHPUnit_Framework_AssertionFailedError($e->getMessage());
+                $e = new AssertionFailedError($e->getMessage());
             }
 
             $this->onNotSuccessfulTest($e);

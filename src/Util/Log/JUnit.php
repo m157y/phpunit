@@ -9,6 +9,7 @@
  */
 
 use Exception as PhpException;
+use PhpUnit\Framework\AssertionFailedError;
 use PhpUnit\Framework\SelfDescribing;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestCase;
@@ -138,10 +139,10 @@ class PHPUnit_Util_Log_JUnit extends PHPUnit_Util_Printer implements TestListene
      * A failure occurred.
      *
      * @param \PhpUnit\Framework\Test                $test
-     * @param PHPUnit_Framework_AssertionFailedError $e
+     * @param \PhpUnit\Framework\AssertionFailedError $e
      * @param float                                  $time
      */
-    public function addFailure(Test $test, PHPUnit_Framework_AssertionFailedError $e, $time)
+    public function addFailure(Test $test, AssertionFailedError $e, $time)
     {
         $this->doAddFault($test, $e, $time, 'failure');
         $this->testSuiteFailures[$this->testSuiteLevel]++;

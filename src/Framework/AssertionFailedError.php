@@ -8,15 +8,14 @@
  * file that was distributed with this source code.
  */
 
-use PhpUnit\Framework\Exception;
-use PhpUnit\Framework\SelfDescribing;
+namespace PhpUnit\Framework;
 
 /**
  * Thrown when an assertion failed.
  *
  * @since Class available since Release 2.0.0
  */
-class PHPUnit_Framework_AssertionFailedError extends Exception implements SelfDescribing
+class AssertionFailedError extends Exception implements SelfDescribing
 {
     /**
      * Wrapper for getMessage() which is declared as final.

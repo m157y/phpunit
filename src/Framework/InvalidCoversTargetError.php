@@ -11,11 +11,11 @@
 namespace PhpUnit\Framework;
 
 /**
- * Extension to PHPUnit_Framework_AssertionFailedError to mark the special
+ * Extension to PhpUnit\Framework\AssertionFailedError to mark the special
  * case of a test that is skipped because of an invalid @covers annotation.
  *
  * @since Class available since Release 4.0.0
  */
-class InvalidCoversTargetError extends PHPUnit_Framework_AssertionFailedError implements SkippedTest
+class InvalidCoversTargetError extends AssertionFailedError implements SkippedTest
 {
 }
