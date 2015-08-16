@@ -39,7 +39,6 @@ use PHPUnit_Framework_Constraint_IsTrue;
 use PHPUnit_Framework_Constraint_IsType;
 use PHPUnit_Framework_Constraint_JsonMatches;
 use PHPUnit_Framework_Constraint_GreaterThan;
-use PHPUnit_Framework_Constraint_LessThan;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
 use PHPUnit_Util_XML;
@@ -2553,21 +2552,21 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_LessThan matcher object.
+     * Returns a PhpUnit\Framework\Constraint\LessThan matcher object.
      *
      * @param  mixed                                 $value
-     * @return PHPUnit_Framework_Constraint_LessThan
+     * @return \PhpUnit\Framework\Constraint\LessThan
      * @since  Method available since Release 3.0.0
      */
     public static function lessThan($value)
     {
-        return new PHPUnit_Framework_Constraint_LessThan($value);
+        return new Constraint\LessThan($value);
     }
 
     /**
      * Returns a PhpUnit\Framework\Constraint\LogicalOr matcher object that wraps
      * a PHPUnit_Framework_Constraint_IsEqual and a
-     * PHPUnit_Framework_Constraint_LessThan matcher object.
+     * PhpUnit\Framework\Constraint\LessThan matcher object.
      *
      * @param  mixed                           $value
      * @return \PhpUnit\Framework\Constraint\LogicalOr
@@ -2577,7 +2576,7 @@ abstract class Assert
     {
         return self::logicalOr(
             new PHPUnit_Framework_Constraint_IsEqual($value),
-            new PHPUnit_Framework_Constraint_LessThan($value)
+            new Constraint\LessThan($value)
         );
     }
 

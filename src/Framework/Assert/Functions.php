@@ -1928,10 +1928,10 @@ function isType($type)
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_LessThan matcher object.
+ * Returns a PhpUnit\Framework\Constraint\LessThan matcher object.
  *
  * @param  mixed                                 $value
- * @return PHPUnit_Framework_Constraint_LessThan
+ * @return \PhpUnit\Framework\Constraint\LessThan
  * @since  Method available since Release 3.0.0
  */
 function lessThan($value)
@@ -1945,7 +1945,7 @@ function lessThan($value)
 /**
  * Returns a PhpUnit\Framework\Constraint\LogicalOr matcher object that wraps
  * a PHPUnit_Framework_Constraint_IsEqual and a
- * PHPUnit_Framework_Constraint_LessThan matcher object.
+ * PhpUnit\Framework\Constraint\LessThan matcher object.
  *
  * @param  mixed                           $value
  * @return \PhpUnit\Framework\Constraint\LogicalOr
