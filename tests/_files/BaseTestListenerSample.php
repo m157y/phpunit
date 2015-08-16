@@ -1,8 +1,9 @@
 <?php
 
+use PhpUnit\Framework\BaseTestListener;
 use PhpUnit\Framework\Test;
 
-class BaseTestListenerSample extends PHPUnit_Framework_BaseTestListener
+class BaseTestListenerSample extends BaseTestListener
 {
     public $endCount = 0;
 

@@ -8,10 +8,10 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework;
+
 use Exception as PhpException;
-use PhpUnit\Framework\Test;
-use PhpUnit\Framework\TestListener;
-use PhpUnit\Framework\TestSuite;
+use PHPUnit_Framework_AssertionFailedError;
 
 /**
  * An empty Listener that can be extended to implement TestListener
@@ -20,7 +20,7 @@ use PhpUnit\Framework\TestSuite;
  *
  * @since Class available since Release 4.0.0
  */
-abstract class PHPUnit_Framework_BaseTestListener implements TestListener
+abstract class BaseTestListener implements TestListener
 {
     public function addError(Test $test, PhpException $e, $time)
     {
