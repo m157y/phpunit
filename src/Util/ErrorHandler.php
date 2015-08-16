@@ -9,6 +9,7 @@
  */
 
 use PhpUnit\Framework\Error\Deprecated as DeprecatedError;
+use PhpUnit\Framework\Error\Notice as NoticeError;
 
 // Workaround for http://bugs.php.net/bug.php?id=47987,
 // see https://github.com/sebastianbergmann/phpunit/issues#issue/125 for details
@@ -62,11 +63,11 @@ class PHPUnit_Util_ErrorHandler
         }
 
         if ($errno == E_NOTICE || $errno == E_USER_NOTICE || $errno == E_STRICT) {
-            if (PHPUnit_Framework_Error_Notice::$enabled !== true) {
+            if (NoticeError::$enabled !== true) {
                 return false;
             }
 
-            $exception = 'PHPUnit_Framework_Error_Notice';
+            $exception = 'PhpUnit\\Framework\\Error\\Notice';
         } elseif ($errno == E_WARNING || $errno == E_USER_WARNING) {
             if (PHPUnit_Framework_Error_Warning::$enabled !== true) {
                 return false;

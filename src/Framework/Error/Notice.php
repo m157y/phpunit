@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Error;
+
 use PhpUnit\Framework\Error;
 
 /**
@@ -15,12 +17,12 @@ use PhpUnit\Framework\Error;
  * You can disable notice-to-exception conversion by setting
  *
  * <code>
- * PHPUnit_Framework_Error_Notice::$enabled = false;
+ * PhpUnit\Framework\Error\Notice::$enabled = false;
  * </code>
  *
  * @since Class available since Release 3.3.0
  */
-class PHPUnit_Framework_Error_Notice extends Error
+class Notice extends Error
 {
     public static $enabled = true;
 }
