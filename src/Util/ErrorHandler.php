@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Error\Deprecated as DeprecatedError;
+
 // Workaround for http://bugs.php.net/bug.php?id=47987,
 // see https://github.com/sebastianbergmann/phpunit/issues#issue/125 for details
 // Use dirname(__DIR__) instead of using /../ because of https://github.com/facebook/hhvm/issues/5215
@@ -72,11 +74,11 @@ class PHPUnit_Util_ErrorHandler
 
             $exception = 'PHPUnit_Framework_Error_Warning';
         } elseif ($errno == E_DEPRECATED || $errno == E_USER_DEPRECATED) {
-            if (PHPUnit_Framework_Error_Deprecated::$enabled !== true) {
+            if (DeprecatedError::$enabled !== true) {
                 return false;
             }
 
-            $exception = 'PHPUnit_Framework_Error_Deprecated';
+            $exception = 'PhpUnit\\Framework\\Error\\Deprecated';
         } else {
             $exception = 'PhpUnit\\Framework\\Error';
         }
