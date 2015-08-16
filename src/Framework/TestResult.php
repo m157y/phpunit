@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Warning;
 use SebastianBergmann\ResourceOperations\ResourceOperations;
 
 /**
@@ -564,7 +565,7 @@ class PHPUnit_Framework_TestResult implements Countable
 
         $collectCodeCoverage = $this->codeCoverage !== null &&
                                !$test instanceof PHPUnit_Extensions_SeleniumTestCase &&
-                               !$test instanceof PHPUnit_Framework_Warning;
+                               !$test instanceof Warning;
 
         if ($collectCodeCoverage) {
             // We need to blacklist test source files when no whitelist is used.
@@ -582,7 +583,7 @@ class PHPUnit_Framework_TestResult implements Countable
         }
 
         $monitorFunctions = $this->beStrictAboutResourceUsageDuringSmallTests &&
-                            !$test instanceof PHPUnit_Framework_Warning &&
+                            !$test instanceof Warning &&
                             $test->getSize() == PHPUnit_Util_Test::SMALL &&
                             function_exists('xdebug_start_function_monitor');
 
@@ -593,7 +594,7 @@ class PHPUnit_Framework_TestResult implements Countable
         PHP_Timer::start();
 
         try {
-            if (!$test instanceof PHPUnit_Framework_Warning &&
+            if (!$test instanceof Warning &&
                 $test->getSize() != PHPUnit_Util_Test::UNKNOWN &&
                 $this->enforceTimeLimit &&
                 extension_loaded('pcntl') && class_exists('PHP_Invoker')) {

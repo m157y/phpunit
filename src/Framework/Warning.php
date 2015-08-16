@@ -8,12 +8,16 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework;
+
+use PHPUnit_Framework_TestCase;
+
 /**
  * A warning.
  *
  * @since Class available since Release 2.0.0
  */
-class PHPUnit_Framework_Warning extends PHPUnit_Framework_TestCase
+class Warning extends PHPUnit_Framework_TestCase
 {
     /**
      * @var string
@@ -50,7 +54,7 @@ class PHPUnit_Framework_Warning extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PHPUnit_Framework_Exception
      */
     protected function runTest()
     {

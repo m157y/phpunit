@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Warning;
+
 /**
  * Base class for test listeners that interact with an issue tracker.
  *
@@ -109,7 +111,7 @@ abstract class PHPUnit_Extensions_TicketListener implements PHPUnit_Framework_Te
      */
     public function startTest(PHPUnit_Framework_Test $test)
     {
-        if (!$test instanceof PHPUnit_Framework_Warning) {
+        if (!$test instanceof Warning) {
             if ($this->ran) {
                 return;
             }
@@ -133,7 +135,7 @@ abstract class PHPUnit_Extensions_TicketListener implements PHPUnit_Framework_Te
      */
     public function endTest(PHPUnit_Framework_Test $test, $time)
     {
-        if (!$test instanceof PHPUnit_Framework_Warning) {
+        if (!$test instanceof Warning) {
             if ($test->getStatus() == PHPUnit_Runner_BaseTestRunner::STATUS_PASSED) {
                 $ifStatus   = ['assigned', 'new', 'reopened'];
                 $newStatus  = 'closed';

@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Warning;
+
 /**
  * A TestSuite is a composite of Tests. It runs a collection of test cases.
  *
@@ -304,7 +306,7 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
      * as well as the separate import statements for the user's convenience.
      *
      * If the named file cannot be read or there are no new tests that can be
-     * added, a <code>PHPUnit_Framework_Warning</code> will be created instead,
+     * added, a <code>PhpUnit\Framework\Warning</code> will be created instead,
      * leaving the current test run untouched.
      *
      * @param  string                      $filename
@@ -538,7 +540,7 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
 
                     $groups = PHPUnit_Util_Test::getGroups($className, $name);
 
-                    if ($data instanceof PHPUnit_Framework_Warning ||
+                    if ($data instanceof Warning ||
                         $data instanceof PHPUnit_Framework_SkippedTestCase ||
                         $data instanceof PHPUnit_Framework_IncompleteTestCase) {
                         $test->addTest($data, $groups);
@@ -893,11 +895,11 @@ class PHPUnit_Framework_TestSuite implements PHPUnit_Framework_Test, PHPUnit_Fra
 
     /**
      * @param  string                    $message
-     * @return PHPUnit_Framework_Warning
+     * @return \PhpUnit\Framework\Warning
      */
     protected static function warning($message)
     {
-        return new PHPUnit_Framework_Warning($message);
+        return new Warning($message);
     }
 
     /**

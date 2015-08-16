@@ -330,6 +330,6 @@ abstract class PHPUnit_Util_TestDox_ResultPrinter extends PHPUnit_Util_Printer i
 
     private function isOfInterest(PHPUnit_Framework_Test $test)
     {
-        return $test instanceof PHPUnit_Framework_TestCase && get_class($test) != 'PHPUnit_Framework_Warning';
+        return $test instanceof PHPUnit_Framework_TestCase && get_class($test) != 'PhpUnit\\Framework\\Warning';
     }
 }

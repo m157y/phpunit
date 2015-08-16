@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Warning;
 use SebastianBergmann\GlobalState\Snapshot;
 use SebastianBergmann\GlobalState\Restorer;
 use SebastianBergmann\GlobalState\Blacklist;
@@ -594,7 +595,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
             $result = $this->createResult();
         }
 
-        if (!$this instanceof PHPUnit_Framework_Warning) {
+        if (!$this instanceof Warning) {
             $this->setTestResultObject($result);
             $this->setUseErrorHandlerFromAnnotation();
         }
@@ -604,7 +605,7 @@ abstract class PHPUnit_Framework_TestCase extends PHPUnit_Framework_Assert imple
             $result->convertErrorsToExceptions($this->useErrorHandler);
         }
 
-        if (!$this instanceof PHPUnit_Framework_Warning && !$this->handleDependencies()) {
+        if (!$this instanceof Warning && !$this->handleDependencies()) {
             return;
         }
 
