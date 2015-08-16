@@ -30,7 +30,6 @@ use PHPUnit_Framework_Constraint_IsEqual;
 use PHPUnit_Framework_Constraint_IsFalse;
 use PHPUnit_Framework_Constraint_IsFinite;
 use PHPUnit_Framework_Constraint_IsIdentical;
-use PHPUnit_Framework_Constraint_IsInfinite;
 use PHPUnit_Framework_Constraint_GreaterThan;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
@@ -2265,14 +2264,14 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_IsInfinite matcher object.
+     * Returns a PhpUnit\Framework\Constraint\IsInfinite matcher object.
      *
-     * @return PHPUnit_Framework_Constraint_IsInfinite
+     * @return \PhpUnit\Framework\Constraint\IsInfinite
      * @since  Method available since Release 5.0.0
      */
     public static function isInfinite()
     {
-        return new PHPUnit_Framework_Constraint_IsInfinite;
+        return new Constraint\IsInfinite;
     }
 
     /**
