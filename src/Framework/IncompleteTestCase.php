@@ -8,14 +8,14 @@
  * file that was distributed with this source code.
  */
 
-use PhpUnit\Framework\TestCase;
+namespace PhpUnit\Framework;
 
 /**
  * An incomplete test case
  *
  * @since Class available since Release 4.3.0
  */
-class PHPUnit_Framework_IncompleteTestCase extends TestCase
+class IncompleteTestCase extends TestCase
 {
     /**
      * @var string

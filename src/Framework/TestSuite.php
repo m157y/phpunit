@@ -15,7 +15,6 @@ use Iterator;
 use IteratorAggregate;
 use PHPUnit_Extensions_PhptTestCase;
 use PHPUnit_Framework_Exception;
-use PHPUnit_Framework_IncompleteTestCase;
 use PHPUnit_Framework_TestSuite_DataProvider;
 use PHPUnit_Runner_BaseTestRunner;
 use PHPUnit_Runner_Filter_Factory;
@@ -559,7 +558,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
 
                     if ($data instanceof Warning ||
                         $data instanceof SkippedTestCase ||
-                        $data instanceof PHPUnit_Framework_IncompleteTestCase) {
+                        $data instanceof IncompleteTestCase) {
                         $test->addTest($data, $groups);
                     } else {
                         foreach ($data as $_dataName => $_data) {
@@ -935,12 +934,12 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
      * @param  string                               $class
      * @param  string                               $methodName
      * @param  string                               $message
-     * @return PHPUnit_Framework_IncompleteTestCase
+     * @return \PhpUnit\Framework\IncompleteTestCase
      * @since  Method available since Release 4.3.0
      */
     protected static function incompleteTest($class, $methodName, $message)
     {
-        return new PHPUnit_Framework_IncompleteTestCase($class, $methodName, $message);
+        return new IncompleteTestCase($class, $methodName, $message);
     }
 
     /**
