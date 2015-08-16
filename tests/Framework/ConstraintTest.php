@@ -145,9 +145,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_FileExists
      * @covers \PhpUnit\Framework\Assert::fileExists
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\FileExists
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintFileExists()
@@ -177,8 +177,8 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_FileExists
      * @covers \PhpUnit\Framework\Assert::fileExists
+     * @covers \PhpUnit\Framework\Constraint\FileExists
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintFileExists2()
@@ -204,9 +204,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_FileExists
-     * @covers \PhpUnit\Framework\Assert::logicalNot
      * @covers \PhpUnit\Framework\Assert::fileExists
+     * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\FileExists
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
@@ -241,9 +241,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_FileExists
-     * @covers \PhpUnit\Framework\Assert::logicalNot
      * @covers \PhpUnit\Framework\Assert::fileExists
+     * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\FileExists
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */

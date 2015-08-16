@@ -1767,9 +1767,9 @@ function exactly($count)
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_FileExists matcher object.
+ * Returns a PhpUnit\Framework\Constraint\FileExists matcher object.
  *
- * @return PHPUnit_Framework_Constraint_FileExists
+ * @return \PhpUnit\Framework\Constraint\FileExists
  * @since  Method available since Release 3.0.0
  */
 function fileExists()

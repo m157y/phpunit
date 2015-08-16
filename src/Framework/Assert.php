@@ -23,7 +23,6 @@ use PHPUnit_Framework_Constraint_Callback;
 use PHPUnit_Framework_Constraint_ClassHasAttribute;
 use PHPUnit_Framework_Constraint_ClassHasStaticAttribute;
 use PHPUnit_Framework_Constraint_Count;
-use PHPUnit_Framework_Constraint_FileExists;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
 use PHPUnit_Util_XML;
@@ -907,7 +906,7 @@ abstract class Assert
             throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'string');
         }
 
-        $constraint = new PHPUnit_Framework_Constraint_FileExists;
+        $constraint = new Constraint\FileExists;
 
         self::assertThat($filename, $constraint, $message);
     }
@@ -926,7 +925,7 @@ abstract class Assert
         }
 
         $constraint = new Constraint\LogicalNot(
-            new PHPUnit_Framework_Constraint_FileExists
+            new Constraint\FileExists
         );
 
         self::assertThat($filename, $constraint, $message);
@@ -2408,14 +2407,14 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_FileExists matcher object.
+     * Returns a PhpUnit\Framework\Constraint\FileExists matcher object.
      *
-     * @return PHPUnit_Framework_Constraint_FileExists
+     * @return \PhpUnit\Framework\Constraint\FileExists
      * @since  Method available since Release 3.0.0
      */
     public static function fileExists()
     {
-        return new PHPUnit_Framework_Constraint_FileExists;
+        return new Constraint\FileExists;
     }
 
     /**
