@@ -8,8 +8,13 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
+use PHPUnit_Util_InvalidArgumentHelper;
 use PhpUnit\Framework\Constraint;
 use PhpUnit\Framework\ExpectationFailedException;
+use SebastianBergmann\Comparator\Factory as ComparatorFactory;
+use SebastianBergmann\Comparator\ComparisonFailure;
 
 /**
  * Constraint that checks if one value is equal to another.
@@ -22,7 +27,7 @@ use PhpUnit\Framework\ExpectationFailedException;
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Framework_Constraint_IsEqual extends Constraint
+class IsEqual extends Constraint
 {
     /**
      * @var mixed
@@ -50,7 +55,7 @@ class PHPUnit_Framework_Constraint_IsEqual extends Constraint
     protected $ignoreCase = false;
 
     /**
-     * @var SebastianBergmann\Comparator\ComparisonFailure
+     * @var \SebastianBergmann\Comparator\ComparisonFailure
      */
     protected $lastFailure;
 
@@ -114,7 +119,7 @@ class PHPUnit_Framework_Constraint_IsEqual extends Constraint
             return true;
         }
 
-        $comparatorFactory = SebastianBergmann\Comparator\Factory::getInstance();
+        $comparatorFactory = ComparatorFactory::getInstance();
 
         try {
             $comparator = $comparatorFactory->getComparatorFor(
@@ -129,7 +134,7 @@ class PHPUnit_Framework_Constraint_IsEqual extends Constraint
                 $this->canonicalize,
                 $this->ignoreCase
             );
-        } catch (SebastianBergmann\Comparator\ComparisonFailure $f) {
+        } catch (ComparisonFailure $f) {
             if ($returnResult) {
                 return false;
             }

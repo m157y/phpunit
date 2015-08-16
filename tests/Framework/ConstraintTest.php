@@ -402,9 +402,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsEqual
      * @covers PHPUnit_Framework_Constraint_GreaterThan
      * @covers \PhpUnit\Framework\Assert::greaterThanOrEqual
+     * @covers \PhpUnit\Framework\Constraint\IsEqual
      * @covers \PhpUnit\Framework\Constraint\LogicalOr
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
@@ -436,9 +436,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsEqual
      * @covers PHPUnit_Framework_Constraint_GreaterThan
      * @covers \PhpUnit\Framework\Assert::greaterThanOrEqual
+     * @covers \PhpUnit\Framework\Constraint\IsEqual
      * @covers \PhpUnit\Framework\Constraint\LogicalOr
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
@@ -466,10 +466,10 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsEqual
      * @covers PHPUnit_Framework_Constraint_GreaterThan
      * @covers \PhpUnit\Framework\Assert::greaterThanOrEqual
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\IsEqual
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\Constraint\LogicalOr
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
@@ -503,10 +503,10 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsEqual
      * @covers PHPUnit_Framework_Constraint_GreaterThan
      * @covers \PhpUnit\Framework\Assert::greaterThanOrEqual
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\IsEqual
      * @covers \PhpUnit\Framework\Constraint\LogicalOr
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
@@ -588,9 +588,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsEqual
      * @covers \PhpUnit\Framework\Assert::equalTo
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\IsEqual
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintIsEqual()
@@ -881,8 +881,8 @@ EOF
 
     /**
      * @dataProvider isEqualProvider
-     * @covers PHPUnit_Framework_Constraint_IsEqual
      * @covers \PhpUnit\Framework\Assert::equalTo
+     * @covers \PhpUnit\Framework\Constraint\IsEqual
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintIsEqual2($expected, $actual, $message)
@@ -904,9 +904,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsEqual
      * @covers \PhpUnit\Framework\Assert::equalTo
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\IsEqual
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
@@ -940,9 +940,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsEqual
      * @covers \PhpUnit\Framework\Assert::equalTo
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\IsEqual
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
@@ -1709,8 +1709,8 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsEqual
      * @covers \PhpUnit\Framework\Assert::lessThanOrEqual
+     * @covers \PhpUnit\Framework\Constraint\IsEqual
      * @covers \PhpUnit\Framework\Constraint\LessThan
      * @covers \PhpUnit\Framework\Constraint\LogicalOr
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
@@ -1797,8 +1797,8 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsEqual
      * @covers \PhpUnit\Framework\Assert::lessThanOrEqual
+     * @covers \PhpUnit\Framework\Constraint\IsEqual
      * @covers \PhpUnit\Framework\Constraint\LessThan
      * @covers \PhpUnit\Framework\Constraint\LogicalOr
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
@@ -1827,9 +1827,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsEqual
      * @covers \PhpUnit\Framework\Assert::lessThanOrEqual
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\IsEqual
      * @covers \PhpUnit\Framework\Constraint\LessThan
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\Constraint\LogicalOr
@@ -1865,9 +1865,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_IsEqual
      * @covers \PhpUnit\Framework\Assert::lessThanOrEqual
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\IsEqual
      * @covers \PhpUnit\Framework\Constraint\LessThan
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\Constraint\LogicalOr

@@ -32,7 +32,7 @@ class LogicalNot extends Constraint
         parent::__construct();
 
         if (!($constraint instanceof Constraint)) {
-            $constraint = new PHPUnit_Framework_Constraint_IsEqual($constraint);
+            $constraint = new IsEqual($constraint);
         }
 
         $this->constraint = $constraint;

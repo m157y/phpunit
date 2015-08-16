@@ -10,7 +10,6 @@
 
 namespace PhpUnit\Framework\Constraint;
 
-use PHPUnit_Framework_Constraint_IsEqual;
 use PhpUnit\Framework\Constraint;
 
 /**
@@ -34,9 +33,7 @@ class LogicalOr extends Constraint
 
         foreach ($constraints as $constraint) {
             if (!($constraint instanceof Constraint)) {
-                $constraint = new PHPUnit_Framework_Constraint_IsEqual(
-                    $constraint
-                );
+                $constraint = new IsEqual($constraint);
             }
 
             $this->constraints[] = $constraint;

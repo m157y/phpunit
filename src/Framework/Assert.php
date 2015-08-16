@@ -26,7 +26,6 @@ use PHPUnit_Framework_Constraint_Count;
 use PHPUnit_Framework_Constraint_FileExists;
 use PHPUnit_Framework_Constraint_IsAnything;
 use PHPUnit_Framework_Constraint_IsEmpty;
-use PHPUnit_Framework_Constraint_IsEqual;
 use PHPUnit_Framework_Constraint_GreaterThan;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
@@ -518,7 +517,7 @@ abstract class Assert
      */
     public static function assertEquals($expected, $actual, $message = '', $delta = 0.0, $maxDepth = 10, $canonicalize = false, $ignoreCase = false)
     {
-        $constraint = new PHPUnit_Framework_Constraint_IsEqual(
+        $constraint = new Constraint\IsEqual(
             $expected,
             $delta,
             $maxDepth,
@@ -569,7 +568,7 @@ abstract class Assert
     public static function assertNotEquals($expected, $actual, $message = '', $delta = 0.0, $maxDepth = 10, $canonicalize = false, $ignoreCase = false)
     {
         $constraint = new Constraint\LogicalNot(
-            new PHPUnit_Framework_Constraint_IsEqual(
+            new Constraint\IsEqual(
                 $expected,
                 $delta,
                 $maxDepth,
@@ -2351,19 +2350,19 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_IsEqual matcher object.
+     * Returns a PhpUnit\Framework\Constraint\IsEqual matcher object.
      *
      * @param  mixed                                $value
      * @param  float                                $delta
      * @param  int                                  $maxDepth
      * @param  bool                                 $canonicalize
      * @param  bool                                 $ignoreCase
-     * @return PHPUnit_Framework_Constraint_IsEqual
+     * @return \PhpUnit\Framework\Constraint\IsEqual
      * @since  Method available since Release 3.0.0
      */
     public static function equalTo($value, $delta = 0.0, $maxDepth = 10, $canonicalize = false, $ignoreCase = false)
     {
-        return new PHPUnit_Framework_Constraint_IsEqual(
+        return new Constraint\IsEqual(
             $value,
             $delta,
             $maxDepth,
@@ -2373,7 +2372,7 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_IsEqual matcher object
+     * Returns a PhpUnit\Framework\Constraint\IsEqual matcher object
      * that is wrapped in a PHPUnit_Framework_Constraint_Attribute matcher
      * object.
      *
@@ -2436,7 +2435,7 @@ abstract class Assert
 
     /**
      * Returns a PhpUnit\Framework\Constraint\LogicalOr matcher object that wraps
-     * a PHPUnit_Framework_Constraint_IsEqual and a
+     * a PhpUnit\Framework\Constraint\IsEqual and a
      * PHPUnit_Framework_Constraint_GreaterThan matcher object.
      *
      * @param  mixed                           $value
@@ -2446,7 +2445,7 @@ abstract class Assert
     public static function greaterThanOrEqual($value)
     {
         return self::logicalOr(
-            new PHPUnit_Framework_Constraint_IsEqual($value),
+            new Constraint\IsEqual($value),
             new PHPUnit_Framework_Constraint_GreaterThan($value)
         );
     }
@@ -2544,7 +2543,7 @@ abstract class Assert
 
     /**
      * Returns a PhpUnit\Framework\Constraint\LogicalOr matcher object that wraps
-     * a PHPUnit_Framework_Constraint_IsEqual and a
+     * a PhpUnit\Framework\Constraint\IsEqual and a
      * PhpUnit\Framework\Constraint\LessThan matcher object.
      *
      * @param  mixed                           $value
@@ -2554,7 +2553,7 @@ abstract class Assert
     public static function lessThanOrEqual($value)
     {
         return self::logicalOr(
-            new PHPUnit_Framework_Constraint_IsEqual($value),
+            new Constraint\IsEqual($value),
             new Constraint\LessThan($value)
         );
     }

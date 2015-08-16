@@ -1616,7 +1616,7 @@ function attribute(Constraint $constraint, $attributeName)
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_IsEqual matcher object
+ * Returns a PhpUnit\Framework\Constraint\IsEqual matcher object
  * that is wrapped in a PHPUnit_Framework_Constraint_Attribute matcher
  * object.
  *
@@ -1732,14 +1732,14 @@ function containsOnlyInstancesOf($classname)
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_IsEqual matcher object.
+ * Returns a PhpUnit\Framework\Constraint\IsEqual matcher object.
  *
  * @param  mixed                                $value
  * @param  float                                $delta
  * @param  int                                  $maxDepth
  * @param  bool                                 $canonicalize
  * @param  bool                                 $ignoreCase
- * @return PHPUnit_Framework_Constraint_IsEqual
+ * @return \PhpUnit\Framework\Constraint\IsEqual
  * @since  Method available since Release 3.0.0
  */
 function equalTo($value, $delta = 0.0, $maxDepth = 10, $canonicalize = false, $ignoreCase = false)
@@ -1797,7 +1797,7 @@ function greaterThan($value)
 
 /**
  * Returns a PhpUnit\Framework\Constraint\LogicalOr matcher object that wraps
- * a PHPUnit_Framework_Constraint_IsEqual and a
+ * a PhpUnit\Framework\Constraint\IsEqual and a
  * PHPUnit_Framework_Constraint_GreaterThan matcher object.
  *
  * @param  mixed                           $value
@@ -1944,7 +1944,7 @@ function lessThan($value)
 
 /**
  * Returns a PhpUnit\Framework\Constraint\LogicalOr matcher object that wraps
- * a PHPUnit_Framework_Constraint_IsEqual and a
+ * a PhpUnit\Framework\Constraint\IsEqual and a
  * PhpUnit\Framework\Constraint\LessThan matcher object.
  *
  * @param  mixed                           $value
