@@ -2407,9 +2407,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_StringMatches
      * @covers \PhpUnit\Framework\Assert::matches
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\StringMatches
      */
     public function testConstraintStringMatches()
     {
@@ -2421,9 +2421,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_StringMatches
      * @covers \PhpUnit\Framework\Assert::matches
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\StringMatches
      */
     public function testConstraintStringMatches2()
     {
@@ -2435,9 +2435,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_StringMatches
      * @covers \PhpUnit\Framework\Assert::matches
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\StringMatches
      */
     public function testConstraintStringMatches3()
     {
@@ -2449,9 +2449,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_StringMatches
      * @covers \PhpUnit\Framework\Assert::matches
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\StringMatches
      */
     public function testConstraintStringMatches4()
     {
@@ -2463,9 +2463,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_StringMatches
      * @covers \PhpUnit\Framework\Assert::matches
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\StringMatches
      */
     public function testConstraintStringMatches5()
     {
@@ -2477,9 +2477,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_StringMatches
      * @covers \PhpUnit\Framework\Assert::matches
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\StringMatches
      */
     public function testConstraintStringMatches6()
     {

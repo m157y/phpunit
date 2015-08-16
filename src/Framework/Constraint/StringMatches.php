@@ -8,6 +8,9 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
+use PHPUnit_Framework_Constraint_PCREMatch;
 use SebastianBergmann\Diff\Differ;
 
 /**
@@ -15,7 +18,7 @@ use SebastianBergmann\Diff\Differ;
  *
  * @since Class available since Release 3.5.0
  */
-class PHPUnit_Framework_Constraint_StringMatches extends PHPUnit_Framework_Constraint_PCREMatch
+class StringMatches extends PHPUnit_Framework_Constraint_PCREMatch
 {
     /**
      * @var string

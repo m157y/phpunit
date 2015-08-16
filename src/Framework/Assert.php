@@ -47,7 +47,6 @@ use PHPUnit_Framework_Constraint_PCREMatch;
 use PHPUnit_Framework_Constraint_SameSize;
 use PHPUnit_Framework_Constraint_StringContains;
 use PHPUnit_Framework_Constraint_StringEndsWith;
-use PHPUnit_Framework_Constraint_StringMatches;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
 use PHPUnit_Util_XML;
@@ -1594,7 +1593,7 @@ abstract class Assert
             throw PHPUnit_Util_InvalidArgumentHelper::factory(2, 'string');
         }
 
-        $constraint = new PHPUnit_Framework_Constraint_StringMatches($format);
+        $constraint = new Constraint\StringMatches($format);
 
         self::assertThat($string, $constraint, $message);
     }
@@ -1618,7 +1617,7 @@ abstract class Assert
         }
 
         $constraint = new PHPUnit_Framework_Constraint_Not(
-            new PHPUnit_Framework_Constraint_StringMatches($format)
+            new Constraint\StringMatches($format)
         );
 
         self::assertThat($string, $constraint, $message);
@@ -1640,7 +1639,7 @@ abstract class Assert
             throw PHPUnit_Util_InvalidArgumentHelper::factory(2, 'string');
         }
 
-        $constraint = new PHPUnit_Framework_Constraint_StringMatches(
+        $constraint = new Constraint\StringMatches(
             file_get_contents($formatFile)
         );
 
@@ -1664,7 +1663,7 @@ abstract class Assert
         }
 
         $constraint = new PHPUnit_Framework_Constraint_Not(
-            new PHPUnit_Framework_Constraint_StringMatches(
+            new Constraint\StringMatches(
                 file_get_contents($formatFile)
             )
         );
@@ -2602,15 +2601,15 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_StringMatches matcher object.
+     * Returns a PhpUnit\Framework\Constraint\StringMatches matcher object.
      *
      * @param  string                                     $string
-     * @return PHPUnit_Framework_Constraint_StringMatches
+     * @return \PhpUnit\Framework\Constraint\StringMatches
      * @since  Method available since Release 3.5.0
      */
     public static function matches($string)
     {
-        return new PHPUnit_Framework_Constraint_StringMatches($string);
+        return new Constraint\StringMatches($string);
     }
 
     /**

@@ -2017,10 +2017,10 @@ function logicalXor()
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_StringMatches matcher object.
+ * Returns a PhpUnit\Framework\Constraint\StringMatches matcher object.
  *
  * @param  string                                     $string
- * @return PHPUnit_Framework_Constraint_StringMatches
+ * @return \PhpUnit\Framework\Constraint\StringMatches
  * @since  Method available since Release 3.5.0
  */
 function matches($string)
