@@ -10,7 +10,6 @@
 
 namespace PhpUnit\Framework\Constraint;
 
-use PHPUnit_Framework_Constraint_ClassHasAttribute;
 use ReflectionClass;
 
 /**
@@ -21,7 +20,7 @@ use ReflectionClass;
  *
  * @since Class available since Release 3.1.0
  */
-class ClassHasStaticAttribute extends PHPUnit_Framework_Constraint_ClassHasAttribute
+class ClassHasStaticAttribute extends ClassHasAttribute
 {
     /**
      * Evaluates the constraint for parameter $other. Returns true if the

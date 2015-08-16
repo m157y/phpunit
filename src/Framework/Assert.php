@@ -20,7 +20,6 @@ use PHPUnit_Framework_Constraint_ArrayHasKey;
 use PHPUnit_Framework_Constraint_ArraySubset;
 use PHPUnit_Framework_Constraint_Attribute;
 use PHPUnit_Framework_Constraint_Callback;
-use PHPUnit_Framework_Constraint_ClassHasAttribute;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
 use PHPUnit_Util_XML;
@@ -1054,7 +1053,7 @@ abstract class Assert
             throw PHPUnit_Util_InvalidArgumentHelper::factory(2, 'class name', $className);
         }
 
-        $constraint = new PHPUnit_Framework_Constraint_ClassHasAttribute(
+        $constraint = new Constraint\ClassHasAttribute(
             $attributeName
         );
 
@@ -1084,7 +1083,7 @@ abstract class Assert
         }
 
         $constraint = new Constraint\LogicalNot(
-            new PHPUnit_Framework_Constraint_ClassHasAttribute($attributeName)
+            new Constraint\ClassHasAttribute($attributeName)
         );
 
         self::assertThat($className, $constraint, $message);
@@ -2445,15 +2444,15 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_ClassHasAttribute matcher object.
+     * Returns a PhpUnit\Framework\Constraint\ClassHasAttribute matcher object.
      *
      * @param  string                                         $attributeName
-     * @return PHPUnit_Framework_Constraint_ClassHasAttribute
+     * @return \PhpUnit\Framework\Constraint\ClassHasAttribute
      * @since  Method available since Release 3.1.0
      */
     public static function classHasAttribute($attributeName)
     {
-        return new PHPUnit_Framework_Constraint_ClassHasAttribute(
+        return new Constraint\ClassHasAttribute(
             $attributeName
         );
     }

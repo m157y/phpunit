@@ -1899,9 +1899,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_ClassHasAttribute
      * @covers \PhpUnit\Framework\Assert::classHasAttribute
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\ClassHasAttribute
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintClassHasAttribute()
@@ -1932,8 +1932,8 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_ClassHasAttribute
      * @covers \PhpUnit\Framework\Assert::classHasAttribute
+     * @covers \PhpUnit\Framework\Constraint\ClassHasAttribute
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintClassHasAttribute2()
@@ -1959,9 +1959,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_ClassHasAttribute
      * @covers \PhpUnit\Framework\Assert::classHasAttribute
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\ClassHasAttribute
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
@@ -1995,9 +1995,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_ClassHasAttribute
      * @covers \PhpUnit\Framework\Assert::classHasAttribute
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\ClassHasAttribute
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */

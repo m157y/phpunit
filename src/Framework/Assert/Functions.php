@@ -1652,10 +1652,10 @@ function callback($callback)
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_ClassHasAttribute matcher object.
+ * Returns a PhpUnit\Framework\Constraint\ClassHasAttribute matcher object.
  *
  * @param  string                                         $attributeName
- * @return PHPUnit_Framework_Constraint_ClassHasAttribute
+ * @return \PhpUnit\Framework\Constraint\ClassHasAttribute
  * @since  Method available since Release 3.1.0
  */
 function classHasAttribute($attributeName)
