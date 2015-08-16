@@ -1813,10 +1813,10 @@ function greaterThanOrEqual($value)
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_IsIdentical matcher object.
+ * Returns a PhpUnit\Framework\Constraint\IsIdentical matcher object.
  *
  * @param  mixed                                    $value
- * @return PHPUnit_Framework_Constraint_IsIdentical
+ * @return \PhpUnit\Framework\Constraint\IsIdentical
  * @since  Method available since Release 3.0.0
  */
 function identicalTo($value)

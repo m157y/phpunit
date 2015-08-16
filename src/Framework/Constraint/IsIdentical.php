@@ -8,7 +8,10 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
 use PhpUnit\Framework\Constraint;
+use SebastianBergmann\Comparator\ComparisonFailure;
 
 /**
  * Constraint that asserts that one value is identical to another.
@@ -23,7 +26,7 @@ use PhpUnit\Framework\Constraint;
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Framework_Constraint_IsIdentical extends Constraint
+class IsIdentical extends Constraint
 {
     /**
      * @var float
@@ -79,7 +82,7 @@ class PHPUnit_Framework_Constraint_IsIdentical extends Constraint
 
             // if both values are strings, make sure a diff is generated
             if (is_string($this->value) && is_string($other)) {
-                $f = new SebastianBergmann\Comparator\ComparisonFailure(
+                $f = new ComparisonFailure(
                     $this->value,
                     $other,
                     $this->value,

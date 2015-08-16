@@ -29,7 +29,6 @@ use PHPUnit_Framework_Constraint_IsEmpty;
 use PHPUnit_Framework_Constraint_IsEqual;
 use PHPUnit_Framework_Constraint_IsFalse;
 use PHPUnit_Framework_Constraint_IsFinite;
-use PHPUnit_Framework_Constraint_IsIdentical;
 use PHPUnit_Framework_Constraint_GreaterThan;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
@@ -1232,7 +1231,7 @@ abstract class Assert
         if (is_bool($expected) && is_bool($actual)) {
             self::assertEquals($expected, $actual, $message);
         } else {
-            $constraint = new PHPUnit_Framework_Constraint_IsIdentical(
+            $constraint = new Constraint\IsIdentical(
                 $expected
             );
 
@@ -1273,7 +1272,7 @@ abstract class Assert
             self::assertNotEquals($expected, $actual, $message);
         } else {
             $constraint = new Constraint\LogicalNot(
-                new PHPUnit_Framework_Constraint_IsIdentical($expected)
+                new Constraint\IsIdentical($expected)
             );
 
             self::assertThat($actual, $constraint, $message);
@@ -2498,15 +2497,15 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_IsIdentical matcher object.
+     * Returns a PhpUnit\Framework\Constraint\IsIdentical matcher object.
      *
      * @param  mixed                                    $value
-     * @return PHPUnit_Framework_Constraint_IsIdentical
+     * @return \PhpUnit\Framework\Constraint\IsIdentical
      * @since  Method available since Release 3.0.0
      */
     public static function identicalTo($value)
     {
-        return new PHPUnit_Framework_Constraint_IsIdentical($value);
+        return new Constraint\IsIdentical($value);
     }
 
     /**
