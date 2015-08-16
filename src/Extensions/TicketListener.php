@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
 use PhpUnit\Framework\Warning;
 
@@ -16,7 +17,7 @@ use PhpUnit\Framework\Warning;
  *
  * @since Class available since Release 3.4.0
  */
-abstract class PHPUnit_Extensions_TicketListener implements PHPUnit_Framework_TestListener
+abstract class PHPUnit_Extensions_TicketListener implements TestListener
 {
     /**
      * @var array

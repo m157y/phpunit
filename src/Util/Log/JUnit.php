@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
 
 /**
@@ -17,7 +18,7 @@ use PhpUnit\Framework\TestSuite;
  *
  * @since Class available since Release 2.1.0
  */
-class PHPUnit_Util_Log_JUnit extends PHPUnit_Util_Printer implements PHPUnit_Framework_TestListener
+class PHPUnit_Util_Log_JUnit extends PHPUnit_Util_Printer implements TestListener
 {
     /**
      * @var DOMDocument

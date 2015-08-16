@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestResult;
 use PhpUnit\Framework\TestSuite;
 use SebastianBergmann\Environment\Runtime;
@@ -776,7 +777,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
                         );
                     }
 
-                    if ($listener instanceof PHPUnit_Framework_TestListener) {
+                    if ($listener instanceof TestListener) {
                         $arguments['listeners'][] = $listener;
                     }
                 }

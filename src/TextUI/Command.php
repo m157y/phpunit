@@ -725,7 +725,7 @@ class PHPUnit_TextUI_Command
         if (class_exists($printerClass)) {
             $class = new ReflectionClass($printerClass);
 
-            if ($class->implementsInterface('PHPUnit_Framework_TestListener') &&
+            if ($class->implementsInterface('PhpUnit\\Framework\\TestListener') &&
                 $class->isSubclassOf('PHPUnit_Util_Printer') &&
                 $class->isInstantiable()) {
                 if ($class->isSubclassOf('PHPUnit_TextUI_ResultPrinter')) {

@@ -34,7 +34,6 @@ use PHPUnit_Framework_SkippedTestError;
 use PHPUnit_Framework_Test;
 use PHPUnit_Framework_TestCase;
 use PHPUnit_Framework_TestFailure;
-use PHPUnit_Framework_TestListener;
 use PHPUnit_Util_Blacklist;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Test;
@@ -190,9 +189,9 @@ class TestResult implements Countable
     /**
      * Registers a TestListener.
      *
-     * @param \PHPUnit_Framework_TestListener
+     * @param \PhpUnit\Framework\TestListener
      */
-    public function addListener(PHPUnit_Framework_TestListener $listener)
+    public function addListener(TestListener $listener)
     {
         $this->listeners[] = $listener;
     }
@@ -200,9 +199,9 @@ class TestResult implements Countable
     /**
      * Unregisters a TestListener.
      *
-     * @param \PHPUnit_Framework_TestListener $listener
+     * @param \PhpUnit\Framework\TestListener $listener
      */
-    public function removeListener(PHPUnit_Framework_TestListener $listener)
+    public function removeListener(TestListener $listener)
     {
         foreach ($this->listeners as $key => $_listener) {
             if ($listener === $_listener) {
