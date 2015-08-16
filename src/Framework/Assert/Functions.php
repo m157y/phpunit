@@ -1683,13 +1683,13 @@ function classHasStaticAttribute($attributeName)
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_TraversableContains matcher
+ * Returns a PhpUnit\Framework\Constraint\TraversableContains matcher
  * object.
  *
  * @param  mixed                                            $value
  * @param  bool                                             $checkForObjectIdentity
  * @param  bool                                             $checkForNonObjectIdentity
- * @return PHPUnit_Framework_Constraint_TraversableContains
+ * @return \PhpUnit\Framework\Constraint\TraversableContains
  * @since  Method available since Release 3.0.0
  */
 function contains($value, $checkForObjectIdentity = true, $checkForNonObjectIdentity = false)

@@ -49,7 +49,6 @@ use PHPUnit_Framework_Constraint_StringContains;
 use PHPUnit_Framework_Constraint_StringEndsWith;
 use PHPUnit_Framework_Constraint_StringMatches;
 use PHPUnit_Framework_Constraint_StringStartsWith;
-use PHPUnit_Framework_Constraint_TraversableContains;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
 use PHPUnit_Util_XML;
@@ -176,7 +175,7 @@ abstract class Assert
     {
         if (is_array($haystack) ||
             is_object($haystack) && $haystack instanceof Traversable) {
-            $constraint = new PHPUnit_Framework_Constraint_TraversableContains(
+            $constraint = new Constraint\TraversableContains(
                 $needle,
                 $checkForObjectIdentity,
                 $checkForNonObjectIdentity
@@ -244,7 +243,7 @@ abstract class Assert
         if (is_array($haystack) ||
             is_object($haystack) && $haystack instanceof Traversable) {
             $constraint = new PHPUnit_Framework_Constraint_Not(
-                new PHPUnit_Framework_Constraint_TraversableContains(
+                new Constraint\TraversableContains(
                     $needle,
                     $checkForObjectIdentity,
                     $checkForNonObjectIdentity
@@ -2331,18 +2330,18 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_TraversableContains matcher
+     * Returns a PhpUnit\Framework\Constraint\TraversableContains matcher
      * object.
      *
      * @param  mixed                                            $value
      * @param  bool                                             $checkForObjectIdentity
      * @param  bool                                             $checkForNonObjectIdentity
-     * @return PHPUnit_Framework_Constraint_TraversableContains
+     * @return \PhpUnit\Framework\Constraint\TraversableContains
      * @since  Method available since Release 3.0.0
      */
     public static function contains($value, $checkForObjectIdentity = true, $checkForNonObjectIdentity = false)
     {
-        return new PHPUnit_Framework_Constraint_TraversableContains($value, $checkForObjectIdentity, $checkForNonObjectIdentity);
+        return new Constraint\TraversableContains($value, $checkForObjectIdentity, $checkForNonObjectIdentity);
     }
 
     /**

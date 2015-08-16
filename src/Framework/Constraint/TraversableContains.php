@@ -8,7 +8,11 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
+use PHPUnit_Util_InvalidArgumentHelper;
 use PhpUnit\Framework\Constraint;
+use SplObjectStorage;
 
 /**
  * Constraint that asserts that the Traversable it is applied to contains
@@ -16,7 +20,7 @@ use PhpUnit\Framework\Constraint;
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Framework_Constraint_TraversableContains extends Constraint
+class TraversableContains extends Constraint
 {
     /**
      * @var bool
