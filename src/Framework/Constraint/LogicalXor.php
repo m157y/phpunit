@@ -8,6 +8,9 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
+use PHPUnit_Framework_Constraint_IsEqual;
 use PhpUnit\Framework\Constraint;
 
 /**
@@ -15,7 +18,7 @@ use PhpUnit\Framework\Constraint;
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Framework_Constraint_Xor extends Constraint
+class LogicalXor extends Constraint
 {
     /**
      * @var \PhpUnit\Framework\Constraint[]

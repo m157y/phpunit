@@ -2003,9 +2003,9 @@ function logicalOr()
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_Xor matcher object.
+ * Returns a PhpUnit\Framework\Constraint\LogicalXor matcher object.
  *
- * @return PHPUnit_Framework_Constraint_Xor
+ * @return \PhpUnit\Framework\Constraint\LogicalXor
  * @since  Method available since Release 3.0.0
  */
 function logicalXor()

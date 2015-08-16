@@ -14,6 +14,7 @@ use ArrayAccess;
 use Countable;
 use DOMDocument;
 use DOMElement;
+use PhpUnit\Framework\Constraint;
 use PHPUnit_Framework_Constraint_And;
 use PHPUnit_Framework_Constraint_ArrayHasKey;
 use PHPUnit_Framework_Constraint_ArraySubset;
@@ -50,7 +51,6 @@ use PHPUnit_Framework_Constraint_StringMatches;
 use PHPUnit_Framework_Constraint_StringStartsWith;
 use PHPUnit_Framework_Constraint_TraversableContains;
 use PHPUnit_Framework_Constraint_TraversableContainsOnly;
-use PHPUnit_Framework_Constraint_Xor;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
 use PHPUnit_Util_XML;
@@ -2201,16 +2201,16 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_Xor matcher object.
+     * Returns a PhpUnit\Framework\Constraint\LogicalXor matcher object.
      *
-     * @return PHPUnit_Framework_Constraint_Xor
+     * @return \PhpUnit\Framework\Constraint\LogicalXor
      * @since  Method available since Release 3.0.0
      */
     public static function logicalXor()
     {
         $constraints = func_get_args();
 
-        $constraint = new PHPUnit_Framework_Constraint_Xor;
+        $constraint = new Constraint\LogicalXor;
         $constraint->setConstraints($constraints);
 
         return $constraint;
