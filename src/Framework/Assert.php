@@ -50,7 +50,6 @@ use PHPUnit_Framework_Constraint_StringEndsWith;
 use PHPUnit_Framework_Constraint_StringMatches;
 use PHPUnit_Framework_Constraint_StringStartsWith;
 use PHPUnit_Framework_Constraint_TraversableContains;
-use PHPUnit_Framework_Constraint_TraversableContainsOnly;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
 use PHPUnit_Util_XML;
@@ -325,7 +324,7 @@ abstract class Assert
 
         self::assertThat(
             $haystack,
-            new PHPUnit_Framework_Constraint_TraversableContainsOnly(
+            new Constraint\TraversableContainsOnly(
                 $type,
                 $isNativeType
             ),
@@ -352,7 +351,7 @@ abstract class Assert
 
         self::assertThat(
             $haystack,
-            new PHPUnit_Framework_Constraint_TraversableContainsOnly(
+            new Constraint\TraversableContainsOnly(
                 $classname,
                 false
             ),
@@ -407,7 +406,7 @@ abstract class Assert
         self::assertThat(
             $haystack,
             new PHPUnit_Framework_Constraint_Not(
-                new PHPUnit_Framework_Constraint_TraversableContainsOnly(
+                new Constraint\TraversableContainsOnly(
                     $type,
                     $isNativeType
                 )
@@ -2347,28 +2346,28 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_TraversableContainsOnly matcher
+     * Returns a PhpUnit\Framework\Constraint\TraversableContainsOnly matcher
      * object.
      *
      * @param  string                                               $type
-     * @return PHPUnit_Framework_Constraint_TraversableContainsOnly
+     * @return \PhpUnit\Framework\Constraint\TraversableContainsOnly
      * @since  Method available since Release 3.1.4
      */
     public static function containsOnly($type)
     {
-        return new PHPUnit_Framework_Constraint_TraversableContainsOnly($type);
+        return new Constraint\TraversableContainsOnly($type);
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_TraversableContainsOnly matcher
+     * Returns a PhpUnit\Framework\Constraint\TraversableContainsOnly matcher
      * object.
      *
      * @param  string                                               $classname
-     * @return PHPUnit_Framework_Constraint_TraversableContainsOnly
+     * @return \PhpUnit\Framework\Constraint\TraversableContainsOnly
      */
     public static function containsOnlyInstancesOf($classname)
     {
-        return new PHPUnit_Framework_Constraint_TraversableContainsOnly($classname, false);
+        return new Constraint\TraversableContainsOnly($classname, false);
     }
 
     /**

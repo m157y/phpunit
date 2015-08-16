@@ -1701,11 +1701,11 @@ function contains($value, $checkForObjectIdentity = true, $checkForNonObjectIden
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_TraversableContainsOnly matcher
+ * Returns a PhpUnit\Framework\Constraint\TraversableContainsOnly matcher
  * object.
  *
  * @param  string                                               $type
- * @return PHPUnit_Framework_Constraint_TraversableContainsOnly
+ * @return \PhpUnit\Framework\Constraint\TraversableContainsOnly
  * @since  Method available since Release 3.1.4
  */
 function containsOnly($type)
@@ -1717,11 +1717,11 @@ function containsOnly($type)
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_TraversableContainsOnly matcher
+ * Returns a PhpUnit\Framework\Constraint\TraversableContainsOnly matcher
  * object.
  *
  * @param  string                                               $classname
- * @return PHPUnit_Framework_Constraint_TraversableContainsOnly
+ * @return \PhpUnit\Framework\Constraint\TraversableContainsOnly
  */
 function containsOnlyInstancesOf($classname)
 {
