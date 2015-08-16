@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\SelfDescribing;
 use SebastianBergmann\Exporter\Exporter;
 
 /**
@@ -15,7 +16,7 @@ use SebastianBergmann\Exporter\Exporter;
  *
  * @since      Interface available since Release 3.0.0
  */
-abstract class PHPUnit_Framework_Constraint implements Countable, PHPUnit_Framework_SelfDescribing
+abstract class PHPUnit_Framework_Constraint implements Countable, SelfDescribing
 {
     protected $exporter;
 

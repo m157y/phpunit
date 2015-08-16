@@ -39,7 +39,6 @@ use PHPUnit_Framework_MockObject_Stub_ReturnCallback;
 use PHPUnit_Framework_MockObject_Stub_ReturnSelf;
 use PHPUnit_Framework_MockObject_Stub_ReturnValueMap;
 use PHPUnit_Framework_RiskyTestError;
-use PHPUnit_Framework_SelfDescribing;
 use PHPUnit_Runner_BaseTestRunner;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_GlobalState;
@@ -104,7 +103,7 @@ use Throwable;
  *
  * @since Class available since Release 2.0.0
  */
-abstract class TestCase extends PHPUnit_Framework_Assert implements Test, PHPUnit_Framework_SelfDescribing
+abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDescribing
 {
     /**
      * Enable or disable the backup and restoration of the $GLOBALS array.

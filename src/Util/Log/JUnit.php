@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\SelfDescribing;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestFailure;
@@ -422,7 +423,7 @@ class PHPUnit_Util_Log_JUnit extends PHPUnit_Util_Printer implements TestListene
             return;
         }
 
-        if ($test instanceof PHPUnit_Framework_SelfDescribing) {
+        if ($test instanceof SelfDescribing) {
             $buffer = $test->toString() . "\n";
         } else {
             $buffer = '';

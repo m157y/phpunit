@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\SelfDescribing;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestResult;
 
@@ -20,7 +21,7 @@ use PhpUnit\Framework\TestResult;
  *
  * @since Class available since Release 2.0.0
  */
-class PHPUnit_Extensions_TestDecorator extends PHPUnit_Framework_Assert implements Test, PHPUnit_Framework_SelfDescribing
+class PHPUnit_Extensions_TestDecorator extends PHPUnit_Framework_Assert implements Test, SelfDescribing
 {
     /**
      * The Test to be decorated.

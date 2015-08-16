@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\SelfDescribing;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestCase;
 
@@ -42,7 +43,7 @@ class PHPUnit_Util_Test
     public static function describe(Test $test, $asString = true)
     {
         if ($asString) {
-            if ($test instanceof PHPUnit_Framework_SelfDescribing) {
+            if ($test instanceof SelfDescribing) {
                 return $test->toString();
             } else {
                 return get_class($test);
@@ -52,7 +53,7 @@ class PHPUnit_Util_Test
                 return [
                   get_class($test), $test->getName()
                 ];
-            } elseif ($test instanceof PHPUnit_Framework_SelfDescribing) {
+            } elseif ($test instanceof SelfDescribing) {
                 return ['', $test->toString()];
             } else {
                 return ['', get_class($test)];

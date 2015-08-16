@@ -17,7 +17,6 @@ use PHPUnit_Extensions_PhptTestCase;
 use PHPUnit_Framework_Exception;
 use PHPUnit_Framework_IncompleteTestCase;
 use PHPUnit_Framework_IncompleteTestError;
-use PHPUnit_Framework_SelfDescribing;
 use PHPUnit_Framework_TestSuite_DataProvider;
 use PHPUnit_Runner_BaseTestRunner;
 use PHPUnit_Runner_Filter_Factory;
@@ -59,7 +58,7 @@ use Throwable;
  *
  * @since Class available since Release 2.0.0
  */
-class TestSuite implements Test, PHPUnit_Framework_SelfDescribing, IteratorAggregate
+class TestSuite implements Test, SelfDescribing, IteratorAggregate
 {
     /**
      * Last count of tests in this suite.
