@@ -8,7 +8,10 @@
  * file that was distributed with this source code.
  */
 
-use PhpUnit\Framework\TestFailure;
+namespace PhpUnit\Framework;
+
+use PHPUnit_Framework_Exception;
+use PHPUnit_Util_Filter;
 
 /**
  * Wraps Exceptions thrown by code under test.
@@ -21,7 +24,7 @@ use PhpUnit\Framework\TestFailure;
  *
  * @since Class available since Release 4.3.0
  */
-class PHPUnit_Framework_ExceptionWrapper extends PHPUnit_Framework_Exception
+class ExceptionWrapper extends PHPUnit_Framework_Exception
 {
     /**
      * @var string
@@ -29,12 +32,12 @@ class PHPUnit_Framework_ExceptionWrapper extends PHPUnit_Framework_Exception
     protected $classname;
 
     /**
-     * @var PHPUnit_Framework_ExceptionWrapper|null
+     * @var \PhpUnit\Framework\ExceptionWrapper|null
      */
     protected $previous;
 
     /**
-     * @param Throwable|Exception $e
+     * @param \Throwable|\Exception $e
      */
     public function __construct($e)
     {
@@ -66,7 +69,7 @@ class PHPUnit_Framework_ExceptionWrapper extends PHPUnit_Framework_Exception
     }
 
     /**
-     * @return PHPUnit_Framework_ExceptionWrapper
+     * @return \PhpUnit\Framework\ExceptionWrapper
      */
     public function getPreviousWrapped()
     {

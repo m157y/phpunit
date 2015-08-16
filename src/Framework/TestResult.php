@@ -21,7 +21,6 @@ use PHPUnit_Extensions_SeleniumTestCase;
 use PHPUnit_Framework_Assert;
 use PHPUnit_Framework_AssertionFailedError;
 use PHPUnit_Framework_Exception;
-use PHPUnit_Framework_ExceptionWrapper;
 use PHPUnit_Util_Blacklist;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Test;
@@ -649,10 +648,10 @@ class TestResult implements Countable
         } catch (PHPUnit_Framework_Exception $e) {
             $error = true;
         } catch (Throwable $e) {
-            $e     = new PHPUnit_Framework_ExceptionWrapper($e);
+            $e     = new ExceptionWrapper($e);
             $error = true;
         } catch (Exception $e) {
-            $e     = new PHPUnit_Framework_ExceptionWrapper($e);
+            $e     = new ExceptionWrapper($e);
             $error = true;
         }
 
