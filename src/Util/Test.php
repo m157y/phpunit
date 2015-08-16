@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\InvalidCoversTargetException;
 use PhpUnit\Framework\SelfDescribing;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestCase;
@@ -836,7 +837,7 @@ class PHPUnit_Util_Test
     /**
      * @param  string                                         $element
      * @return array
-     * @throws PHPUnit_Framework_InvalidCoversTargetException
+     * @throws \PhpUnit\Framework\InvalidCoversTargetException
      * @since  Method available since Release 4.0.0
      */
     private static function resolveElementToReflectionObjects($element)
@@ -852,7 +853,7 @@ class PHPUnit_Util_Test
                 foreach ($classes as $className) {
                     if (!class_exists($className) &&
                         !interface_exists($className)) {
-                        throw new PHPUnit_Framework_InvalidCoversTargetException(
+                        throw new InvalidCoversTargetException(
                             sprintf(
                                 'Trying to @cover or @use not existing class or ' .
                                 'interface "%s".',
@@ -894,7 +895,7 @@ class PHPUnit_Util_Test
                                interface_exists($className) ||
                                trait_exists($className)) &&
                               method_exists($className, $methodName))) {
-                            throw new PHPUnit_Framework_InvalidCoversTargetException(
+                            throw new InvalidCoversTargetException(
                                 sprintf(
                                     'Trying to @cover or @use not existing method "%s::%s".',
                                     $className,
@@ -932,7 +933,7 @@ class PHPUnit_Util_Test
                 if (!class_exists($className) &&
                     !interface_exists($className) &&
                     !trait_exists($className)) {
-                    throw new PHPUnit_Framework_InvalidCoversTargetException(
+                    throw new InvalidCoversTargetException(
                         sprintf(
                             'Trying to @cover or @use not existing class or ' .
                             'interface "%s".',

@@ -8,9 +8,13 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework;
+
+use PHPUnit_Framework_CodeCoverageException;
+
 /**
  * @since Class available since Release 4.0.0
  */
-class PHPUnit_Framework_InvalidCoversTargetException extends PHPUnit_Framework_CodeCoverageException
+class InvalidCoversTargetException extends PHPUnit_Framework_CodeCoverageException
 {
 }
