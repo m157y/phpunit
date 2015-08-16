@@ -48,7 +48,6 @@ use PHPUnit_Framework_Constraint_SameSize;
 use PHPUnit_Framework_Constraint_StringContains;
 use PHPUnit_Framework_Constraint_StringEndsWith;
 use PHPUnit_Framework_Constraint_StringMatches;
-use PHPUnit_Framework_Constraint_StringStartsWith;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
 use PHPUnit_Util_XML;
@@ -1691,7 +1690,7 @@ abstract class Assert
             throw PHPUnit_Util_InvalidArgumentHelper::factory(2, 'string');
         }
 
-        $constraint = new PHPUnit_Framework_Constraint_StringStartsWith(
+        $constraint = new Constraint\StringStartsWith(
             $prefix
         );
 
@@ -1717,7 +1716,7 @@ abstract class Assert
         }
 
         $constraint = new PHPUnit_Framework_Constraint_Not(
-            new PHPUnit_Framework_Constraint_StringStartsWith($prefix)
+            new Constraint\StringStartsWith($prefix)
         );
 
         self::assertThat($string, $constraint, $message);
@@ -2615,15 +2614,15 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_StringStartsWith matcher object.
+     * Returns a PhpUnit\Framework\Constraint\StringStartsWith matcher object.
      *
      * @param  mixed                                         $prefix
-     * @return PHPUnit_Framework_Constraint_StringStartsWith
+     * @return \PhpUnit\Framework\Constraint\StringStartsWith
      * @since  Method available since Release 3.4.0
      */
     public static function stringStartsWith($prefix)
     {
-        return new PHPUnit_Framework_Constraint_StringStartsWith($prefix);
+        return new Constraint\StringStartsWith($prefix);
     }
 
     /**

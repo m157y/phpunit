@@ -2202,10 +2202,10 @@ function stringEndsWith($suffix)
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_StringStartsWith matcher object.
+ * Returns a PhpUnit\Framework\Constraint\StringStartsWith matcher object.
  *
  * @param  mixed                                         $prefix
- * @return PHPUnit_Framework_Constraint_StringStartsWith
+ * @return \PhpUnit\Framework\Constraint\StringStartsWith
  * @since  Method available since Release 3.4.0
  */
 function stringStartsWith($prefix)

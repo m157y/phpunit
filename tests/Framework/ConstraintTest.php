@@ -2491,9 +2491,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_StringStartsWith
      * @covers \PhpUnit\Framework\Assert::stringStartsWith
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\StringStartsWith
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintStringStartsWith()
@@ -2524,8 +2524,8 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_StringStartsWith
      * @covers \PhpUnit\Framework\Assert::stringStartsWith
+     * @covers \PhpUnit\Framework\Constraint\StringStartsWith
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintStringStartsWith2()
@@ -2551,10 +2551,10 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_StringStartsWith
      * @covers PHPUnit_Framework_Constraint_Not
      * @covers \PhpUnit\Framework\Assert::stringStartsWith
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\StringStartsWith
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintStringStartsNotWith()
@@ -2587,8 +2587,8 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_StringStartsWith
      * @covers \PhpUnit\Framework\Assert::stringStartsWith
+     * @covers \PhpUnit\Framework\Constraint\StringStartsWith
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintStringStartsNotWith2()

@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
 use PhpUnit\Framework\Constraint;
 
 /**
@@ -16,7 +18,7 @@ use PhpUnit\Framework\Constraint;
  *
  * @since Class available since Release 3.4.0
  */
-class PHPUnit_Framework_Constraint_StringStartsWith extends Constraint
+class StringStartsWith extends Constraint
 {
     /**
      * @var string
