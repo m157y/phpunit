@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
 use PhpUnit\Framework\Constraint;
 use PhpUnit\Framework\Exception as FrameworkException;
 
@@ -16,7 +18,7 @@ use PhpUnit\Framework\Exception as FrameworkException;
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Framework_Constraint_And extends Constraint
+class LogicalAnd extends Constraint
 {
     /**
      * @var \PhpUnit\Framework\Constraint[]

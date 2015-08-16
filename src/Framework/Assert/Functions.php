@@ -1960,9 +1960,9 @@ function lessThanOrEqual($value)
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_And matcher object.
+ * Returns a PhpUnit\Framework\Constraint\LogicalAnd matcher object.
  *
- * @return PHPUnit_Framework_Constraint_And
+ * @return \PhpUnit\Framework\Constraint\LogicalAnd
  * @since  Method available since Release 3.0.0
  */
 function logicalAnd()

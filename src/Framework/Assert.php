@@ -15,7 +15,6 @@ use Countable;
 use DOMDocument;
 use DOMElement;
 use PhpUnit\Framework\Constraint;
-use PHPUnit_Framework_Constraint_And;
 use PHPUnit_Framework_Constraint_ArraySubset;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
@@ -2113,16 +2112,16 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_And matcher object.
+     * Returns a PhpUnit\Framework\Constraint\LogicalAnd matcher object.
      *
-     * @return PHPUnit_Framework_Constraint_And
+     * @return \PhpUnit\Framework\Constraint\LogicalAnd
      * @since  Method available since Release 3.0.0
      */
     public static function logicalAnd()
     {
         $constraints = func_get_args();
 
-        $constraint = new PHPUnit_Framework_Constraint_And;
+        $constraint = new Constraint\LogicalAnd;
         $constraint->setConstraints($constraints);
 
         return $constraint;
