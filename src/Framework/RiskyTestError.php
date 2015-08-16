@@ -11,7 +11,6 @@
 namespace PhpUnit\Framework;
 
 use PHPUnit_Framework_AssertionFailedError;
-use PHPUnit_Framework_RiskyTest;
 
 /**
  * Extension to PHPUnit_Framework_AssertionFailedError to mark the special
@@ -19,6 +18,6 @@ use PHPUnit_Framework_RiskyTest;
  *
  * @since Class available since Release 4.0.0
  */
-class RiskyTestError extends PHPUnit_Framework_AssertionFailedError implements PHPUnit_Framework_RiskyTest
+class RiskyTestError extends PHPUnit_Framework_AssertionFailedError implements RiskyTest
 {
 }

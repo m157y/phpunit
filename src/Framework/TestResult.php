@@ -27,7 +27,6 @@ use PHPUnit_Framework_IncompleteTestError;
 use PHPUnit_Framework_InvalidCoversTargetError;
 use PHPUnit_Framework_InvalidCoversTargetException;
 use PHPUnit_Framework_OutputError;
-use PHPUnit_Framework_RiskyTest;
 use PHPUnit_Util_Blacklist;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Test;
@@ -227,7 +226,7 @@ class TestResult implements Countable
      */
     public function addError(Test $test, Exception $e, $time)
     {
-        if ($e instanceof PHPUnit_Framework_RiskyTest) {
+        if ($e instanceof RiskyTest) {
             $this->risky[] = new TestFailure($test, $e);
             $notifyMethod  = 'addRiskyTest';
 
@@ -275,7 +274,7 @@ class TestResult implements Countable
      */
     public function addFailure(Test $test, PHPUnit_Framework_AssertionFailedError $e, $time)
     {
-        if ($e instanceof PHPUnit_Framework_RiskyTest ||
+        if ($e instanceof RiskyTest ||
             $e instanceof PHPUnit_Framework_OutputError) {
             $this->risky[] = new TestFailure($test, $e);
             $notifyMethod  = 'addRiskyTest';
