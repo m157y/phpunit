@@ -28,7 +28,6 @@ use PHPUnit_Framework_InvalidCoversTargetError;
 use PHPUnit_Framework_InvalidCoversTargetException;
 use PHPUnit_Framework_OutputError;
 use PHPUnit_Framework_RiskyTest;
-use PHPUnit_Framework_RiskyTestError;
 use PHPUnit_Util_Blacklist;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Test;
@@ -646,7 +645,7 @@ class TestResult implements Countable
         } catch (PHPUnit_Framework_AssertionFailedError $e) {
             $failure = true;
 
-            if ($e instanceof PHPUnit_Framework_RiskyTestError) {
+            if ($e instanceof RiskyTestError) {
                 $risky = true;
             } elseif ($e instanceof PHPUnit_Framework_IncompleteTestError) {
                 $incomplete = true;
@@ -675,7 +674,7 @@ class TestResult implements Countable
                 if (!$blacklist->isBlacklisted($function['filename'])) {
                     $this->addFailure(
                         $test,
-                        new PHPUnit_Framework_RiskyTestError(
+                        new RiskyTestError(
                             sprintf(
                                 '%s() used in %s:%s',
                                 $function['function'],
@@ -755,7 +754,7 @@ class TestResult implements Countable
                  $test->getNumAssertions() == 0) {
             $this->addFailure(
                 $test,
-                new PHPUnit_Framework_RiskyTestError(
+                new RiskyTestError(
                     'This test did not perform any assertions'
                 ),
                 $time
@@ -777,7 +776,7 @@ class TestResult implements Countable
             if (isset($annotations['method']['todo'])) {
                 $this->addFailure(
                     $test,
-                    new PHPUnit_Framework_RiskyTestError(
+                    new RiskyTestError(
                         'Test method is annotated with @todo'
                     ),
                     $time

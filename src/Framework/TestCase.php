@@ -38,7 +38,6 @@ use PHPUnit_Framework_MockObject_Stub_ReturnArgument;
 use PHPUnit_Framework_MockObject_Stub_ReturnCallback;
 use PHPUnit_Framework_MockObject_Stub_ReturnSelf;
 use PHPUnit_Framework_MockObject_Stub_ReturnValueMap;
-use PHPUnit_Framework_RiskyTestError;
 use PHPUnit_Runner_BaseTestRunner;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_GlobalState;
@@ -844,7 +843,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
 
         try {
             $this->stopOutputBuffering();
-        } catch (PHPUnit_Framework_RiskyTestError $_e) {
+        } catch (RiskyTestError $_e) {
             if (!isset($e)) {
                 $e = $_e;
             }
@@ -1982,7 +1981,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
                 ob_end_clean();
             }
 
-            throw new PHPUnit_Framework_RiskyTestError(
+            throw new RiskyTestError(
                 'Test code or tested code did not (only) close its own output buffers'
             );
         }
@@ -2091,7 +2090,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
     /**
      * @param \SebastianBergmann\GlobalState\Snapshot $before
      * @param \SebastianBergmann\GlobalState\Snapshot $after
-     * @throws \PHPUnit_Framework_RiskyTestError
+     * @throws \PhpUnit\Framework\RiskyTestError
      */
     private function compareGlobalStateSnapshots(Snapshot $before, Snapshot $after)
     {
@@ -2124,7 +2123,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
      * @param  array                            $before
      * @param  array                            $after
      * @param  string                           $header
-     * @throws \PHPUnit_Framework_RiskyTestError
+     * @throws \PhpUnit\Framework\RiskyTestError
      */
     private function compareGlobalStateSnapshotPart(array $before, array $after, $header)
     {
@@ -2137,7 +2136,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
                 $exporter->export($after)
             );
 
-            throw new PHPUnit_Framework_RiskyTestError(
+            throw new RiskyTestError(
                 $diff
             );
         }
