@@ -1,5 +1,6 @@
 <?php
 
+use Exception as PhpException;
 use PhpUnit\Framework\TestCase;
 
 class ExceptionInAssertPreConditionsTest extends TestCase
@@ -18,7 +19,7 @@ class ExceptionInAssertPreConditionsTest extends TestCase
     protected function assertPreConditions()
     {
         $this->assertPreConditions = true;
-        throw new Exception;
+        throw new PhpException;
     }
 
     public function testSomething()

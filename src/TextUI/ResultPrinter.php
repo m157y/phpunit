@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use Exception as PhpException;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestFailure;
@@ -125,7 +126,7 @@ class PHPUnit_TextUI_ResultPrinter extends PHPUnit_Util_Printer implements TestL
      * @param  bool                        $debug
      * @param  int|string                  $numberOfColumns
      * @param  bool                        $reverse
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 3.0.0
      */
     public function __construct($out = null, $verbose = false, $colors = self::COLOR_DEFAULT, $debug = false, $numberOfColumns = 80, $reverse = false)
@@ -405,10 +406,10 @@ class PHPUnit_TextUI_ResultPrinter extends PHPUnit_Util_Printer implements TestL
      * An error occurred.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      */
-    public function addError(Test $test, Exception $e, $time)
+    public function addError(Test $test, PhpException $e, $time)
     {
         $this->writeProgressWithColor('fg-red, bold', 'E');
         $this->lastTestFailed = true;
@@ -431,10 +432,10 @@ class PHPUnit_TextUI_ResultPrinter extends PHPUnit_Util_Printer implements TestL
      * Incomplete test.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      */
-    public function addIncompleteTest(Test $test, Exception $e, $time)
+    public function addIncompleteTest(Test $test, PhpException $e, $time)
     {
         $this->writeProgressWithColor('fg-yellow, bold', 'I');
         $this->lastTestFailed = true;
@@ -444,11 +445,11 @@ class PHPUnit_TextUI_ResultPrinter extends PHPUnit_Util_Printer implements TestL
      * Risky test.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      * @since  Method available since Release 4.0.0
      */
-    public function addRiskyTest(Test $test, Exception $e, $time)
+    public function addRiskyTest(Test $test, PhpException $e, $time)
     {
         $this->writeProgressWithColor('fg-yellow, bold', 'R');
         $this->lastTestFailed = true;
@@ -458,11 +459,11 @@ class PHPUnit_TextUI_ResultPrinter extends PHPUnit_Util_Printer implements TestL
      * Skipped test.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      * @since  Method available since Release 3.0.0
      */
-    public function addSkippedTest(Test $test, Exception $e, $time)
+    public function addSkippedTest(Test $test, PhpException $e, $time)
     {
         $this->writeProgressWithColor('fg-cyan, bold', 'S');
         $this->lastTestFailed = true;

@@ -10,7 +10,7 @@
 
 namespace PhpUnit\Framework;
 
-use Exception;
+use Exception as PhpException;
 use PHPUnit_Framework_AssertionFailedError;
 
 /**
@@ -27,7 +27,7 @@ interface TestListener
      * @param \Exception              $e
      * @param float                   $time
      */
-    public function addError(Test $test, Exception $e, $time);
+    public function addError(Test $test, PhpException $e, $time);
 
     /**
      * A failure occurred.
@@ -45,7 +45,7 @@ interface TestListener
      * @param \Exception              $e
      * @param float                   $time
      */
-    public function addIncompleteTest(Test $test, Exception $e, $time);
+    public function addIncompleteTest(Test $test, PhpException $e, $time);
 
     /**
      * Risky test.
@@ -55,7 +55,7 @@ interface TestListener
      * @param float                   $time
      * @since  Method available since Release 4.0.0
      */
-    public function addRiskyTest(Test $test, Exception $e, $time);
+    public function addRiskyTest(Test $test, PhpException $e, $time);
 
     /**
      * Skipped test.
@@ -65,7 +65,7 @@ interface TestListener
      * @param float                   $time
      * @since  Method available since Release 3.0.0
      */
-    public function addSkippedTest(Test $test, Exception $e, $time);
+    public function addSkippedTest(Test $test, PhpException $e, $time);
 
     /**
      * A test suite started.

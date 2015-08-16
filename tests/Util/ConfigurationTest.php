@@ -26,7 +26,7 @@ class Util_ConfigurationTest extends TestCase
 
     /**
      * @covers PHPUnit_Util_Configuration::getInstance
-     * @expectedException PHPUnit_Framework_Exception
+     * @expectedException \PhpUnit\Framework\Exception
      */
     public function testExceptionIsThrownForNotExistingConfigurationFile()
     {

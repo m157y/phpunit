@@ -21,7 +21,7 @@ class PHPUnit_Extensions_PhptTestSuite extends TestSuite
      * Constructs a new TestSuite for .phpt test cases.
      *
      * @param  string                      $directory
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     public function __construct($directory)
     {

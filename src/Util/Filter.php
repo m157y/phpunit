@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use Exception as PhpException;
+use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\SyntheticError;
 
 /**
@@ -20,11 +22,11 @@ class PHPUnit_Util_Filter
     /**
      * Filters stack frames from PHPUnit classes.
      *
-     * @param  Exception $e
-     * @param  bool      $asString
+     * @param  \Exception $e
+     * @param  bool       $asString
      * @return string
      */
-    public static function getFilteredStacktrace(Exception $e, $asString = true)
+    public static function getFilteredStacktrace(PhpException $e, $asString = true)
     {
         $prefix = false;
         $script = realpath($GLOBALS['_SERVER']['SCRIPT_NAME']);
@@ -43,7 +45,7 @@ class PHPUnit_Util_Filter
             $eTrace = $e->getSyntheticTrace();
             $eFile  = $e->getSyntheticFile();
             $eLine  = $e->getSyntheticLine();
-        } elseif ($e instanceof PHPUnit_Framework_Exception) {
+        } elseif ($e instanceof Exception) {
             $eTrace = $e->getSerializableTrace();
             $eFile  = $e->getFile();
             $eLine  = $e->getLine();

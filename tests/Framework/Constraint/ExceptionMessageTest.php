@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use Exception as PhpException;
 use PhpUnit\Framework\TestCase;
 
 /**
@@ -22,7 +23,7 @@ class ExceptionMessageTest extends TestCase
      */
     public function testLiteralMessage()
     {
-        throw new Exception('A literal exception message');
+        throw new PhpException('A literal exception message');
     }
 
     /**
@@ -31,7 +32,7 @@ class ExceptionMessageTest extends TestCase
      */
     public function testPatialMessageBegin()
     {
-        throw new Exception('A partial exception message');
+        throw new PhpException('A partial exception message');
     }
 
     /**
@@ -40,7 +41,7 @@ class ExceptionMessageTest extends TestCase
      */
     public function testPatialMessageMiddle()
     {
-        throw new Exception('A partial exception message');
+        throw new PhpException('A partial exception message');
     }
 
     /**
@@ -49,6 +50,6 @@ class ExceptionMessageTest extends TestCase
      */
     public function testPatialMessageEnd()
     {
-        throw new Exception('A partial exception message');
+        throw new PhpException('A partial exception message');
     }
 }

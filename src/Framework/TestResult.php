@@ -11,7 +11,7 @@
 namespace PhpUnit\Framework;
 
 use Countable;
-use Exception;
+use Exception as PhpException;
 use PHP_CodeCoverage;
 use PHP_CodeCoverage_Exception;
 use PHP_CodeCoverage_Exception_UnintentionallyCoveredCode;
@@ -20,7 +20,6 @@ use PHP_Timer;
 use PHPUnit_Extensions_SeleniumTestCase;
 use PHPUnit_Framework_Assert;
 use PHPUnit_Framework_AssertionFailedError;
-use PHPUnit_Framework_Exception;
 use PHPUnit_Util_Blacklist;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Test;
@@ -218,7 +217,7 @@ class TestResult implements Countable
      * @param \Exception              $e
      * @param float                   $time
      */
-    public function addError(Test $test, Exception $e, $time)
+    public function addError(Test $test, PhpException $e, $time)
     {
         if ($e instanceof RiskyTest) {
             $this->risky[] = new TestFailure($test, $e);
@@ -645,12 +644,12 @@ class TestResult implements Countable
             } elseif ($e instanceof SkippedTestError) {
                 $skipped = true;
             }
-        } catch (PHPUnit_Framework_Exception $e) {
+        } catch (Exception $e) {
             $error = true;
         } catch (Throwable $e) {
             $e     = new ExceptionWrapper($e);
             $error = true;
-        } catch (Exception $e) {
+        } catch (PhpException $e) {
             $e     = new ExceptionWrapper($e);
             $error = true;
         }
@@ -740,6 +739,7 @@ class TestResult implements Countable
         }
 
         if ($error === true) {
+//            var_dump($e->getMessage());
             $this->addError($test, $e, $time);
         } elseif ($failure === true) {
             $this->addFailure($test, $e, $time);
@@ -834,7 +834,7 @@ class TestResult implements Countable
      * Enables or disables the error-to-exception conversion.
      *
      * @param  bool                        $flag
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 3.2.14
      */
     public function convertErrorsToExceptions($flag)
@@ -861,7 +861,7 @@ class TestResult implements Countable
      * Enables or disables the stopping when an error occurs.
      *
      * @param  bool                        $flag
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 3.5.0
      */
     public function stopOnError($flag)
@@ -877,7 +877,7 @@ class TestResult implements Countable
      * Enables or disables the stopping when a failure occurs.
      *
      * @param  bool                        $flag
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 3.1.0
      */
     public function stopOnFailure($flag)
@@ -891,7 +891,7 @@ class TestResult implements Countable
 
     /**
      * @param  bool                        $flag
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 4.0.0
      */
     public function beStrictAboutTestsThatDoNotTestAnything($flag)
@@ -914,7 +914,7 @@ class TestResult implements Countable
 
     /**
      * @param  bool                        $flag
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 4.0.0
      */
     public function beStrictAboutOutputDuringTests($flag)
@@ -937,7 +937,7 @@ class TestResult implements Countable
 
     /**
      * @param  bool                        $flag
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 5.0.0
      */
     public function beStrictAboutResourceUsageDuringSmallTests($flag)
@@ -960,7 +960,7 @@ class TestResult implements Countable
 
     /**
      * @param  bool                        $flag
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 5.0.0
      */
     public function enforceTimeLimit($flag)
@@ -983,7 +983,7 @@ class TestResult implements Countable
 
     /**
      * @param  bool                        $flag
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 4.2.0
      */
     public function beStrictAboutTodoAnnotatedTests($flag)
@@ -1008,7 +1008,7 @@ class TestResult implements Countable
      * Enables or disables the stopping for risky tests.
      *
      * @param  bool                        $flag
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 4.0.0
      */
     public function stopOnRisky($flag)
@@ -1024,7 +1024,7 @@ class TestResult implements Countable
      * Enables or disables the stopping for incomplete tests.
      *
      * @param  bool                        $flag
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 3.5.0
      */
     public function stopOnIncomplete($flag)
@@ -1040,7 +1040,7 @@ class TestResult implements Countable
      * Enables or disables the stopping for skipped tests.
      *
      * @param  bool                        $flag
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 3.1.0
      */
     public function stopOnSkipped($flag)
@@ -1076,7 +1076,7 @@ class TestResult implements Countable
      * Sets the timeout for small tests.
      *
      * @param  int                         $timeout
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 3.6.0
      */
     public function setTimeoutForSmallTests($timeout)
@@ -1092,7 +1092,7 @@ class TestResult implements Countable
      * Sets the timeout for medium tests.
      *
      * @param  int                         $timeout
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 3.6.0
      */
     public function setTimeoutForMediumTests($timeout)
@@ -1108,7 +1108,7 @@ class TestResult implements Countable
      * Sets the timeout for large tests.
      *
      * @param  int                         $timeout
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 3.6.0
      */
     public function setTimeoutForLargeTests($timeout)

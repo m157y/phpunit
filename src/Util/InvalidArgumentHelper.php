@@ -8,8 +8,10 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Exception;
+
 /**
- * Factory for PHPUnit_Framework_Exception objects that are used to describe
+ * Factory for PhpUnit\Framework\Exception objects that are used to describe
  * invalid arguments passed to a function or method.
  *
  * @since Class available since Release 3.4.0
@@ -20,13 +22,13 @@ class PHPUnit_Util_InvalidArgumentHelper
      * @param  int                         $argument
      * @param  string                      $type
      * @param  mixed                       $value
-     * @return PHPUnit_Framework_Exception
+     * @return \PhpUnit\Framework\Exception
      */
     public static function factory($argument, $type, $value = null)
     {
         $stack = debug_backtrace(false);
 
-        return new PHPUnit_Framework_Exception(
+        return new Exception(
             sprintf(
                 'Argument #%d%sof %s::%s() must be a %s',
                 $argument,

@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Exception;
+
 /**
  * XML helpers.
  *
@@ -83,7 +85,7 @@ class PHPUnit_Util_XML
 
         if ($loaded === false || ($strict && $message !== '')) {
             if ($filename !== '') {
-                throw new PHPUnit_Framework_Exception(
+                throw new Exception(
                     sprintf(
                         'Could not load "%s".%s',
                         $filename,
@@ -91,7 +93,7 @@ class PHPUnit_Util_XML
                     )
                 );
             } else {
-                throw new PHPUnit_Framework_Exception($message);
+                throw new Exception($message);
             }
         }
 
@@ -115,7 +117,7 @@ class PHPUnit_Util_XML
         error_reporting($reporting);
 
         if ($contents === false) {
-            throw new PHPUnit_Framework_Exception(
+            throw new Exception(
                 sprintf(
                     'Could not read "%s".',
                     $filename

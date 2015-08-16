@@ -342,7 +342,7 @@ class Util_TestTest extends TestCase
     public function testTestWithThrowsProperExceptionIfDatasetCannotBeParsed()
     {
         $this->setExpectedExceptionRegExp(
-            'PHPUnit_Framework_Exception',
+            'PhpUnit\\Framework\\Exception',
             '/^The dataset for the @testWith annotation cannot be parsed.$/'
         );
         PHPUnit_Util_Test::getDataFromTestWithAnnotation('/**

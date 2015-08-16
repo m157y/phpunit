@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestResult;
@@ -76,7 +77,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
      * @param  \PhpUnit\Framework\Test|ReflectionClass $test
      * @param  array                                  $arguments
      * @return \PhpUnit\Framework\TestResult
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     public static function run($test, array $arguments = [])
     {
@@ -92,7 +93,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
                 $arguments
             );
         } else {
-            throw new PHPUnit_Framework_Exception(
+            throw new Exception(
                 'No test case or test suite found.'
             );
         }

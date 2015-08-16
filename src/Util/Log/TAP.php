@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use Exception as PhpException;
 use PhpUnit\Framework\ExpectationFailedException;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestCase;
@@ -42,7 +43,7 @@ class PHPUnit_Util_Log_TAP extends PHPUnit_Util_Printer implements TestListener
      * Constructor.
      *
      * @param  mixed                       $out
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 3.3.4
      */
     public function __construct($out = null)
@@ -55,10 +56,10 @@ class PHPUnit_Util_Log_TAP extends PHPUnit_Util_Printer implements TestListener
      * An error occurred.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      */
-    public function addError(Test $test, Exception $e, $time)
+    public function addError(Test $test, PhpException $e, $time)
     {
         $this->writeNotOk($test, 'Error');
     }
@@ -109,10 +110,10 @@ class PHPUnit_Util_Log_TAP extends PHPUnit_Util_Printer implements TestListener
      * Incomplete test.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      */
-    public function addIncompleteTest(Test $test, Exception $e, $time)
+    public function addIncompleteTest(Test $test, PhpException $e, $time)
     {
         $this->writeNotOk($test, '', 'TODO Incomplete Test');
     }
@@ -121,11 +122,11 @@ class PHPUnit_Util_Log_TAP extends PHPUnit_Util_Printer implements TestListener
      * Risky test.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      * @since  Method available since Release 4.0.0
      */
-    public function addRiskyTest(Test $test, Exception $e, $time)
+    public function addRiskyTest(Test $test, PhpException $e, $time)
     {
         $this->write(
             sprintf(
@@ -142,11 +143,11 @@ class PHPUnit_Util_Log_TAP extends PHPUnit_Util_Printer implements TestListener
      * Skipped test.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      * @since  Method available since Release 3.0.0
      */
-    public function addSkippedTest(Test $test, Exception $e, $time)
+    public function addSkippedTest(Test $test, PhpException $e, $time)
     {
         $this->write(
             sprintf(

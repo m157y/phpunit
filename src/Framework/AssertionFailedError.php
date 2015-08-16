@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\SelfDescribing;
 
 /**
@@ -15,7 +16,7 @@ use PhpUnit\Framework\SelfDescribing;
  *
  * @since Class available since Release 2.0.0
  */
-class PHPUnit_Framework_AssertionFailedError extends PHPUnit_Framework_Exception implements SelfDescribing
+class PHPUnit_Framework_AssertionFailedError extends Exception implements SelfDescribing
 {
     /**
      * Wrapper for getMessage() which is declared as final.

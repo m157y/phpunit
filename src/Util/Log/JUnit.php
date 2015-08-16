@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use Exception as PhpException;
 use PhpUnit\Framework\SelfDescribing;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestCase;
@@ -124,10 +125,10 @@ class PHPUnit_Util_Log_JUnit extends PHPUnit_Util_Printer implements TestListene
      * An error occurred.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      */
-    public function addError(Test $test, Exception $e, $time)
+    public function addError(Test $test, PhpException $e, $time)
     {
         $this->doAddFault($test, $e, $time, 'error');
         $this->testSuiteErrors[$this->testSuiteLevel]++;
@@ -150,10 +151,10 @@ class PHPUnit_Util_Log_JUnit extends PHPUnit_Util_Printer implements TestListene
      * Incomplete test.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      */
-    public function addIncompleteTest(Test $test, Exception $e, $time)
+    public function addIncompleteTest(Test $test, PhpException $e, $time)
     {
         if ($this->logIncompleteSkipped && $this->currentTestCase !== null) {
             $error = $this->document->createElement(
@@ -178,11 +179,11 @@ class PHPUnit_Util_Log_JUnit extends PHPUnit_Util_Printer implements TestListene
      * Risky test.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      * @since  Method available since Release 4.0.0
      */
-    public function addRiskyTest(Test $test, Exception $e, $time)
+    public function addRiskyTest(Test $test, PhpException $e, $time)
     {
         if ($this->logIncompleteSkipped && $this->currentTestCase !== null) {
             $error = $this->document->createElement(
@@ -207,11 +208,11 @@ class PHPUnit_Util_Log_JUnit extends PHPUnit_Util_Printer implements TestListene
      * Skipped test.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      * @since  Method available since Release 3.0.0
      */
-    public function addSkippedTest(Test $test, Exception $e, $time)
+    public function addSkippedTest(Test $test, PhpException $e, $time)
     {
         if ($this->logIncompleteSkipped && $this->currentTestCase !== null) {
             $error = $this->document->createElement(
@@ -413,11 +414,11 @@ class PHPUnit_Util_Log_JUnit extends PHPUnit_Util_Printer implements TestListene
      * Method which generalizes addError() and addFailure()
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      * @param string                  $type
      */
-    private function doAddFault(Test $test, Exception $e, $time, $type)
+    private function doAddFault(Test $test, PhpException $e, $time, $type)
     {
         if ($this->currentTestCase === null) {
             return;

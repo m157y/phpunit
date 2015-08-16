@@ -99,7 +99,7 @@ class Framework_SuiteTest extends TestCase
     }
 
     /**
-     * @expectedException PHPUnit_Framework_Exception
+     * @expectedException \PhpUnit\Framework\Exception
      */
     public function testNoTestCaseClass()
     {

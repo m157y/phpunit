@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\SyntheticError;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestFailure;
@@ -39,7 +40,7 @@ abstract class PHPUnit_Util_PHP
      * @param  string                        $job
      * @param  \PhpUnit\Framework\Test       $test
      * @param  \PhpUnit\Framework\TestResult $result
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     public function runTestJob($job, Test $test, TestResult $result)
     {
@@ -61,7 +62,7 @@ abstract class PHPUnit_Util_PHP
      * @param  string                      $job
      * @param  array                       $settings
      * @return array
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     abstract public function runJob($job, array $settings = []);
 
@@ -97,7 +98,7 @@ abstract class PHPUnit_Util_PHP
         if (!empty($stderr)) {
             $result->addError(
                 $test,
-                new PHPUnit_Framework_Exception(trim($stderr)),
+                new Exception(trim($stderr)),
                 $time
             );
         } else {
@@ -117,7 +118,7 @@ abstract class PHPUnit_Util_PHP
 
                 $result->addError(
                     $test,
-                    new PHPUnit_Framework_Exception(trim($stdout), 0, $e),
+                    new Exception(trim($stdout), 0, $e),
                     $time
                 );
             }
@@ -190,7 +191,7 @@ abstract class PHPUnit_Util_PHP
      * Gets the thrown exception from a PhpUnit\Framework\TestFailure.
      *
      * @param  \PhpUnit\Framework\TestFailure $error
-     * @return Exception
+     * @return \Exception
      * @since  Method available since Release 3.6.0
      * @see    https://github.com/sebastianbergmann/phpunit/issues/74
      */

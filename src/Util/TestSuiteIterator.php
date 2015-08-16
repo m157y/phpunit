@@ -23,7 +23,7 @@ class PHPUnit_Util_TestSuiteIterator implements RecursiveIterator
     protected $position;
 
     /**
-     * @var PHPUnit_Framework_Test[]
+     * @var \PhpUnit\Framework\Test[]
      */
     protected $tests;
 

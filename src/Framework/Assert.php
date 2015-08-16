@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\IncompleteTestError;
 use PhpUnit\Framework\SkippedTestError;
 
@@ -2632,7 +2633,7 @@ abstract class PHPUnit_Framework_Assert
      * @param  mixed                       $classOrObject
      * @param  string                      $attributeName
      * @return mixed
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     public static function readAttribute($classOrObject, $attributeName)
     {
@@ -2676,7 +2677,7 @@ abstract class PHPUnit_Framework_Assert
      * @param  string                      $className
      * @param  string                      $attributeName
      * @return mixed
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 4.0.0
      */
     public static function getStaticAttribute($className, $attributeName)
@@ -2709,7 +2710,7 @@ abstract class PHPUnit_Framework_Assert
             $class = $class->getParentClass();
         }
 
-        throw new PHPUnit_Framework_Exception(
+        throw new Exception(
             sprintf(
                 'Attribute "%s" not found in class.',
                 $attributeName
@@ -2724,7 +2725,7 @@ abstract class PHPUnit_Framework_Assert
      * @param  object                      $object
      * @param  string                      $attributeName
      * @return mixed
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 4.0.0
      */
     public static function getObjectAttribute($object, $attributeName)
@@ -2767,7 +2768,7 @@ abstract class PHPUnit_Framework_Assert
             return $value;
         }
 
-        throw new PHPUnit_Framework_Exception(
+        throw new Exception(
             sprintf(
                 'Attribute "%s" not found in object.',
                 $attributeName

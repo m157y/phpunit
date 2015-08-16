@@ -19,7 +19,7 @@ Time: %s, Memory: %sMb
 There were 2 errors:
 
 1) ExceptionStackTest::testPrintingChildException
-PHPUnit_Framework_Exception: Child exception
+PhpUnit\Framework\Exception: Child exception
 message
 Failed asserting that two arrays are equal.
 --- Expected

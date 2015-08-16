@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use Exception as PhpException;
+use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\SelfDescribing;
 use PhpUnit\Framework\SkippedTestError;
 use PhpUnit\Framework\Test;
@@ -56,7 +58,7 @@ class PHPUnit_Extensions_PhptTestCase implements Test, SelfDescribing
      * Constructs a test case with the given filename.
      *
      * @param  string                      $filename
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     public function __construct($filename)
     {
@@ -65,7 +67,7 @@ class PHPUnit_Extensions_PhptTestCase implements Test, SelfDescribing
         }
 
         if (!is_file($filename)) {
-            throw new PHPUnit_Framework_Exception(
+            throw new Exception(
                 sprintf(
                     'File "%s" does not exist.',
                     $filename
@@ -150,7 +152,7 @@ class PHPUnit_Extensions_PhptTestCase implements Test, SelfDescribing
                 $result->addFailure($this, $e, $time);
             } catch (Throwable $t) {
                 $result->addError($this, $t, $time);
-            } catch (Exception $e) {
+            } catch (PhpException $e) {
                 $result->addError($this, $e, $time);
             }
         }
@@ -182,7 +184,7 @@ class PHPUnit_Extensions_PhptTestCase implements Test, SelfDescribing
 
     /**
      * @return array
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     private function parse()
     {
@@ -195,7 +197,7 @@ class PHPUnit_Extensions_PhptTestCase implements Test, SelfDescribing
                 $sections[$section] = '';
                 continue;
             } elseif (empty($section)) {
-                throw new PHPUnit_Framework_Exception('Invalid PHPT file');
+                throw new Exception('Invalid PHPT file');
             }
 
             $sections[$section] .= $line;
@@ -203,7 +205,7 @@ class PHPUnit_Extensions_PhptTestCase implements Test, SelfDescribing
 
         if (!isset($sections['FILE']) ||
             (!isset($sections['EXPECT']) && !isset($sections['EXPECTF']))) {
-            throw new PHPUnit_Framework_Exception('Invalid PHPT file');
+            throw new Exception('Invalid PHPT file');
         }
 
         return $sections;

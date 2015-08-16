@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use Exception as PhpException;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
@@ -21,7 +22,7 @@ use PhpUnit\Framework\TestSuite;
  */
 abstract class PHPUnit_Framework_BaseTestListener implements TestListener
 {
-    public function addError(Test $test, Exception $e, $time)
+    public function addError(Test $test, PhpException $e, $time)
     {
     }
 
@@ -29,15 +30,15 @@ abstract class PHPUnit_Framework_BaseTestListener implements TestListener
     {
     }
 
-    public function addIncompleteTest(Test $test, Exception $e, $time)
+    public function addIncompleteTest(Test $test, PhpException $e, $time)
     {
     }
 
-    public function addRiskyTest(Test $test, Exception $e, $time)
+    public function addRiskyTest(Test $test, PhpException $e, $time)
     {
     }
 
-    public function addSkippedTest(Test $test, Exception $e, $time)
+    public function addSkippedTest(Test $test, PhpException $e, $time)
     {
     }
 

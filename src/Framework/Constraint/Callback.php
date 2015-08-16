@@ -17,7 +17,7 @@ class PHPUnit_Framework_Constraint_Callback extends PHPUnit_Framework_Constraint
 
     /**
      * @param  callable                    $callback
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     public function __construct($callback)
     {

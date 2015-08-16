@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use Exception as PhpException;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestListener;
@@ -103,10 +104,10 @@ abstract class PHPUnit_Util_TestDox_ResultPrinter extends PHPUnit_Util_Printer i
      * An error occurred.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      */
-    public function addError(Test $test, Exception $e, $time)
+    public function addError(Test $test, PhpException $e, $time)
     {
         if (!$this->isOfInterest($test)) {
             return;
@@ -137,10 +138,10 @@ abstract class PHPUnit_Util_TestDox_ResultPrinter extends PHPUnit_Util_Printer i
      * Incomplete test.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      */
-    public function addIncompleteTest(Test $test, Exception $e, $time)
+    public function addIncompleteTest(Test $test, PhpException $e, $time)
     {
         if (!$this->isOfInterest($test)) {
             return;
@@ -154,11 +155,11 @@ abstract class PHPUnit_Util_TestDox_ResultPrinter extends PHPUnit_Util_Printer i
      * Risky test.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      * @since  Method available since Release 4.0.0
      */
-    public function addRiskyTest(Test $test, Exception $e, $time)
+    public function addRiskyTest(Test $test, PhpException $e, $time)
     {
         if (!$this->isOfInterest($test)) {
             return;
@@ -172,11 +173,11 @@ abstract class PHPUnit_Util_TestDox_ResultPrinter extends PHPUnit_Util_Printer i
      * Skipped test.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      * @since  Method available since Release 3.0.0
      */
-    public function addSkippedTest(Test $test, Exception $e, $time)
+    public function addSkippedTest(Test $test, PhpException $e, $time)
     {
         if (!$this->isOfInterest($test)) {
             return;

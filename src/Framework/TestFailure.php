@@ -10,10 +10,9 @@
 
 namespace PhpUnit\Framework;
 
-use Exception;
+use Exception as PhpException;
 use PHPUnit_Framework_AssertionFailedError;
 use PHPUnit_Framework_Error;
-use PHPUnit_Framework_Exception;
 
 /**
  * A TestFailure collects a failed test together with the caught exception.
@@ -43,7 +42,7 @@ class TestFailure
      * @param \PhpUnit\Framework\Test $failedTest
      * @param \Exception              $thrownException
      */
-    public function __construct(Test $failedTest, Exception $thrownException)
+    public function __construct(Test $failedTest, PhpException $thrownException)
     {
         if ($failedTest instanceof SelfDescribing) {
             $this->testName = $failedTest->toString();
@@ -88,7 +87,7 @@ class TestFailure
      * @return string
      * @since  Method available since Release 3.2.0
      */
-    public static function exceptionToString(Exception $e)
+    public static function exceptionToString(PhpException $e)
     {
         if ($e instanceof SelfDescribing) {
             $buffer = $e->toString();
@@ -128,7 +127,7 @@ class TestFailure
      * Note: The test object is not set when the test is executed in process
      * isolation.
      *
-     * @see \PHPUnit_Framework_Exception
+     * @see \PhpUnit\Framework\Exception
      *
      * @return \PhpUnit\Framework\Test|null
      */

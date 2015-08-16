@@ -10,7 +10,7 @@
 
 namespace PhpUnit\Framework;
 
-use Exception;
+use Exception as PhpException;
 use DeepCopy\DeepCopy;
 use PHPUnit_Extensions_PhptTestCase;
 use PHPUnit_Extensions_SeleniumTestCase;
@@ -20,7 +20,6 @@ use PHPUnit_Framework_Constraint_Exception;
 use PHPUnit_Framework_Constraint_ExceptionCode;
 use PHPUnit_Framework_Constraint_ExceptionMessage;
 use PHPUnit_Framework_Constraint_ExceptionMessageRegExp;
-use PHPUnit_Framework_Exception;
 use PHPUnit_Framework_MockObject_Generator;
 use PHPUnit_Framework_MockObject_Matcher_AnyInvokedCount;
 use PHPUnit_Framework_MockObject_Matcher_InvokedCount;
@@ -424,12 +423,12 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
     /**
      * @param string $expectedRegex
      * @since Method available since Release 3.6.0
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     public function expectOutputRegex($expectedRegex)
     {
         if ($this->outputExpectedString !== null) {
-            throw new PHPUnit_Framework_Exception;
+            throw new Exception;
         }
 
         if (is_string($expectedRegex) || is_null($expectedRegex)) {
@@ -444,7 +443,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
     public function expectOutputString($expectedString)
     {
         if ($this->outputExpectedRegex !== null) {
-            throw new PHPUnit_Framework_Exception;
+            throw new Exception;
         }
 
         if (is_string($expectedString) || is_null($expectedString)) {
@@ -488,6 +487,9 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
      */
     public function setExpectedException($exceptionName, $exceptionMessage = '', $exceptionCode = null)
     {
+        if ($exceptionName{0} === '\\') {
+            $exceptionName = mb_substr($exceptionName, 1);
+        }
         $this->expectedException        = $exceptionName;
         $this->expectedExceptionMessage = $exceptionMessage;
         $this->expectedExceptionCode    = $exceptionCode;
@@ -624,7 +626,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
      *
      * @param  \PhpUnit\Framework\TestResult $result
      * @return \PhpUnit\Framework\TestResult
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     public function run(TestResult $result = null)
     {
@@ -803,7 +805,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
             $this->statusMessage = $e->getMessage();
         } catch (Throwable $_e) {
             $e = $_e;
-        } catch (Exception $_e) {
+        } catch (PhpException $_e) {
             $e = $_e;
         }
 
@@ -834,7 +836,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
             if (!isset($e)) {
                 $e = $_e;
             }
-        } catch (Exception $_e) {
+        } catch (PhpException $_e) {
             if (!isset($e)) {
                 $e = $_e;
             }
@@ -878,7 +880,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
                 }
             } catch (Throwable $_e) {
                 $e = $_e;
-            } catch (Exception $_e) {
+            } catch (PhpException $_e) {
                 $e = $_e;
             }
         }
@@ -897,13 +899,13 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
      * Override to run the test and assert its state.
      *
      * @return mixed
-     * @throws \Exception|\PHPUnit_Framework_Exception
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \Exception|\PhpUnit\Framework\Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     protected function runTest()
     {
         if ($this->name === null) {
-            throw new PHPUnit_Framework_Exception(
+            throw new Exception(
                 'PhpUnit\\Framework\\TestCase::$name must not be null.'
             );
         }
@@ -923,7 +925,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
             $testResult = $method->invokeArgs($this, $testArguments);
         } catch (Throwable $_e) {
             $e = $_e;
-        } catch (Exception $_e) {
+        } catch (PhpException $_e) {
             $e = $_e;
         }
 
@@ -933,14 +935,14 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
             if (is_string($this->expectedException)) {
                 $checkException = true;
 
-                if ($e instanceof PHPUnit_Framework_Exception) {
+                if ($e instanceof Exception) {
                     $checkException = false;
                 }
 
                 $reflector = new ReflectionClass($this->expectedException);
 
-                if ($this->expectedException == 'PHPUnit_Framework_Exception' ||
-                    $reflector->isSubclassOf('PHPUnit_Framework_Exception')) {
+                if ($this->expectedException == 'PhpUnit\\Framework\\Exception' ||
+                    $reflector->isSubclassOf('PhpUnit\\Framework\\Exception')) {
                     $checkException = true;
                 }
             }
@@ -1022,7 +1024,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
                 $this->prophet->checkPredictions();
             } catch (Throwable $t) {
                 /* Intentionally left empty */
-            } catch (Exception $e) {
+            } catch (PhpException $e) {
                 /* Intentionally left empty */
             }
 
@@ -1121,7 +1123,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
 
     /**
      * @param  bool                        $runTestInSeparateProcess
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 3.4.0
      */
     public function setRunTestInSeparateProcess($runTestInSeparateProcess)
@@ -1137,7 +1139,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
 
     /**
      * @param  bool                        $preserveGlobalState
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 3.4.0
      */
     public function setPreserveGlobalState($preserveGlobalState)
@@ -1151,7 +1153,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
 
     /**
      * @param  bool                        $inIsolation
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 3.4.0
      */
     public function setInIsolation($inIsolation)
@@ -1192,7 +1194,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
 
     /**
      * @param  callable                    $callback
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since Method available since Release 3.6.0
      */
     public function setOutputCallback($callback)
@@ -1229,7 +1231,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
      *
      * @param  string                      $varName
      * @param  string                      $newValue
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 3.0.0
      */
     protected function iniSet($varName, $newValue)
@@ -1243,7 +1245,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
         if ($currentValue !== false) {
             $this->iniSettings[$varName] = $currentValue;
         } else {
-            throw new PHPUnit_Framework_Exception(
+            throw new Exception(
                 sprintf(
                     'INI setting "%s" could not be set to "%s".',
                     $varName,
@@ -1259,7 +1261,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
      *
      * @param  int                         $category
      * @param  string                      $locale
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 3.1.0
      */
     protected function setLocale()
@@ -1267,7 +1269,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
         $args = func_get_args();
 
         if (count($args) < 2) {
-            throw new PHPUnit_Framework_Exception;
+            throw new Exception;
         }
 
         $category = $args[0];
@@ -1282,11 +1284,11 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
         }
 
         if (!in_array($category, $categories)) {
-            throw new PHPUnit_Framework_Exception;
+            throw new Exception;
         }
 
         if (!is_array($locale) && !is_string($locale)) {
-            throw new PHPUnit_Framework_Exception;
+            throw new Exception;
         }
 
         $this->locale[$category] = setlocale($category, null);
@@ -1294,7 +1296,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
         $result = call_user_func_array('setlocale', $args);
 
         if ($result === false) {
-            throw new PHPUnit_Framework_Exception(
+            throw new Exception(
                 'The locale functionality is not implemented on your platform, ' .
                 'the specified locale does not exist or the category name is ' .
                 'invalid.'
@@ -1318,7 +1320,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
      * @param  bool                                    $cloneArguments
      * @param  bool                                    $callOriginalMethods
      * @return \PHPUnit_Framework_MockObject_MockObject
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 3.0.0
      */
     public function getMock($originalClassName, $methods = [], array $arguments = [], $mockClassName = '', $callOriginalConstructor = true, $callOriginalClone = true, $callAutoload = true, $cloneArguments = false, $callOriginalMethods = false)
@@ -1364,7 +1366,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
      * @param  bool                        $callAutoload
      * @param  bool                        $cloneArguments
      * @return string
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 3.5.0
      */
     protected function getMockClass($originalClassName, $methods = [], array $arguments = [], $mockClassName = '', $callOriginalConstructor = false, $callOriginalClone = true, $callAutoload = true, $cloneArguments = false)
@@ -1398,7 +1400,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
      * @param  bool                                    $cloneArguments
      * @return \PHPUnit_Framework_MockObject_MockObject
      * @since  Method available since Release 3.4.0
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     public function getMockForAbstractClass($originalClassName, array $arguments = [], $mockClassName = '', $callOriginalConstructor = true, $callOriginalClone = true, $callAutoload = true, $mockedMethods = [], $cloneArguments = false)
     {
@@ -1473,7 +1475,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
      * @param  bool                                    $cloneArguments
      * @return \PHPUnit_Framework_MockObject_MockObject
      * @since  Method available since Release 4.0.0
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     public function getMockForTrait($traitName, array $arguments = [], $mockClassName = '', $callOriginalConstructor = true, $callOriginalClone = true, $callAutoload = true, $mockedMethods = [], $cloneArguments = false)
     {
@@ -1505,7 +1507,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
      * @param  bool   $cloneArguments
      * @return object
      * @since  Method available since Release 3.6.0
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     protected function getObjectForTrait($traitName, array $arguments = [], $traitClassName = '', $callOriginalConstructor = true, $callOriginalClone = true, $callAutoload = true, $cloneArguments = false)
     {
@@ -1714,7 +1716,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, SelfDe
      * @return \PHPUnit_Framework_MockObject_Stub_Exception
      * @since  Method available since Release 3.1.0
      */
-    public static function throwException(Exception $exception)
+    public static function throwException(PhpException $exception)
     {
         return new PHPUnit_Framework_MockObject_Stub_Exception($exception);
     }

@@ -1,5 +1,6 @@
 <?php
 
+use Exception as PhpException;
 use PhpUnit\Framework\TestCase;
 
 class TemplateMethodsTest extends TestCase
@@ -46,7 +47,7 @@ class TemplateMethodsTest extends TestCase
         print __METHOD__ . "\n";
     }
 
-    protected function onNotSuccessfulTest(Exception $e)
+    protected function onNotSuccessfulTest(PhpException $e)
     {
         print __METHOD__ . "\n";
         throw $e;

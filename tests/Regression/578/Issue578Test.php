@@ -1,5 +1,6 @@
 <?php
 
+use Exception as PhpException;
 use PhpUnit\Framework\TestCase;
 
 class Issue578Test extends TestCase
@@ -18,6 +19,6 @@ class Issue578Test extends TestCase
 
     public function testUnexpectedExceptionsPrintsCorrectly()
     {
-        throw new Exception('Double printed exception');
+        throw new PhpException('Double printed exception');
     }
 }

@@ -8,7 +8,12 @@
  * file that was distributed with this source code.
  */
 
-use PhpUnit\Framework\TestFailure;
+namespace PhpUnit\Framework;
+
+use Exception as PhpException;
+use PHPUnit_Exception;
+use PHPUnit_Util_Filter;
+use RuntimeException;
 
 /**
  * Base class for all PHPUnit Framework exceptions.
@@ -32,14 +37,14 @@ use PhpUnit\Framework\TestFailure;
  *
  * @since Class available since Release 3.4.0
  */
-class PHPUnit_Framework_Exception extends RuntimeException implements PHPUnit_Exception
+class Exception extends RuntimeException implements PHPUnit_Exception
 {
     /**
      * @var array
      */
     protected $serializableTrace;
 
-    public function __construct($message = '', $code = 0, Exception $previous = null)
+    public function __construct($message = '', $code = 0, PhpException $previous = null)
     {
         parent::__construct($message, $code, $previous);
 

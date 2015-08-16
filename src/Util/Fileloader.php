@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Exception;
+
 /**
  * Utility methods to load PHP sourcefiles.
  *
@@ -21,14 +23,14 @@ class PHPUnit_Util_Fileloader
      *
      * @param  string                      $filename
      * @return string
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     public static function checkAndLoad($filename)
     {
         $includePathFilename = stream_resolve_include_path($filename);
 
         if (!$includePathFilename || !is_readable($includePathFilename)) {
-            throw new PHPUnit_Framework_Exception(
+            throw new Exception(
                 sprintf('Cannot open file "%s".' . "\n", $filename)
             );
         }

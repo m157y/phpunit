@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Exception;
+
 /**
  * Utility class that can print to STDOUT or write to a file.
  *
@@ -41,7 +43,7 @@ class PHPUnit_Util_Printer
      * Constructor.
      *
      * @param  mixed                       $out
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     public function __construct($out = null)
     {
@@ -51,7 +53,7 @@ class PHPUnit_Util_Printer
                     $out = explode(':', str_replace('socket://', '', $out));
 
                     if (sizeof($out) != 2) {
-                        throw new PHPUnit_Framework_Exception;
+                        throw new Exception;
                     }
 
                     $this->out = fsockopen($out[0], $out[1]);

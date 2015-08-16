@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\TestSuite;
 
 /**
@@ -174,7 +175,7 @@ class PHPUnit_Util_Configuration
         $realpath = realpath($filename);
 
         if ($realpath === false) {
-            throw new PHPUnit_Framework_Exception(
+            throw new Exception(
                 sprintf(
                     'Could not read "%s".',
                     $filename

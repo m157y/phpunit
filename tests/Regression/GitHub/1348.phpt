@@ -29,7 +29,7 @@ Time: %s, Memory: %sMb
 There was 1 error:
 
 1) Issue1348Test::testSTDERR
-PHPUnit_Framework_Exception: STDERR works as usual.
+PhpUnit\Framework\Exception: STDERR works as usual.
 
 FAILURES!
 Tests: 2, Assertions: 1, Errors: 1.

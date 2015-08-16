@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use Exception as PhpException;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
@@ -34,10 +35,10 @@ abstract class PHPUnit_Extensions_TicketListener implements TestListener
      * An error occurred.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      */
-    public function addError(Test $test, Exception $e, $time)
+    public function addError(Test $test, PhpException $e, $time)
     {
     }
 
@@ -56,10 +57,10 @@ abstract class PHPUnit_Extensions_TicketListener implements TestListener
      * Incomplete test.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      */
-    public function addIncompleteTest(Test $test, Exception $e, $time)
+    public function addIncompleteTest(Test $test, PhpException $e, $time)
     {
     }
 
@@ -67,11 +68,11 @@ abstract class PHPUnit_Extensions_TicketListener implements TestListener
      * Risky test.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      * @since  Method available since Release 4.0.0
      */
-    public function addRiskyTest(Test $test, Exception $e, $time)
+    public function addRiskyTest(Test $test, PhpException $e, $time)
     {
     }
 
@@ -79,11 +80,11 @@ abstract class PHPUnit_Extensions_TicketListener implements TestListener
      * Skipped test.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      * @since  Method available since Release 3.0.0
      */
-    public function addSkippedTest(Test $test, Exception $e, $time)
+    public function addSkippedTest(Test $test, PhpException $e, $time)
     {
     }
 

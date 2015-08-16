@@ -35,7 +35,7 @@ class PHPUnit_Framework_Constraint_TraversableContains extends PHPUnit_Framework
      * @param  mixed                       $value
      * @param  bool                        $checkForObjectIdentity
      * @param  bool                        $checkForNonObjectIdentity
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     public function __construct($value, $checkForObjectIdentity = true, $checkForNonObjectIdentity = false)
     {

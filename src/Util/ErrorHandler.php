@@ -88,7 +88,7 @@ class PHPUnit_Util_ErrorHandler
      * Registers an error handler and returns a function that will restore
      * the previous handler when invoked
      * @param  int       $severity PHP predefined error constant
-     * @throws Exception if event of specified severity is emitted
+     * @throws \Exception if event of specified severity is emitted
      */
     public static function handleErrorOnce($severity = E_WARNING)
     {

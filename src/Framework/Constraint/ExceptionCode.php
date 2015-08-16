@@ -31,7 +31,7 @@ class PHPUnit_Framework_Constraint_ExceptionCode extends PHPUnit_Framework_Const
      * Evaluates the constraint for parameter $other. Returns true if the
      * constraint is met, false otherwise.
      *
-     * @param  Exception $other
+     * @param  \Exception $other
      * @return bool
      */
     protected function matches($other)

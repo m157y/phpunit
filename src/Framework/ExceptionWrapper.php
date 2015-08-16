@@ -10,7 +10,6 @@
 
 namespace PhpUnit\Framework;
 
-use PHPUnit_Framework_Exception;
 use PHPUnit_Util_Filter;
 
 /**
@@ -19,12 +18,12 @@ use PHPUnit_Util_Filter;
  * Re-instantiates Exceptions thrown by user-space code to retain their original
  * class names, properties, and stack traces (but without arguments).
  *
- * Unlike PHPUnit_Framework_Exception, the complete stack of previous Exceptions
+ * Unlike PhpUnit\Framework\Exception, the complete stack of previous Exceptions
  * is processed.
  *
  * @since Class available since Release 4.3.0
  */
-class ExceptionWrapper extends PHPUnit_Framework_Exception
+class ExceptionWrapper extends Exception
 {
     /**
      * @var string

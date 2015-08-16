@@ -1,5 +1,6 @@
 <?php
 
+use Exception as PhpException;
 use PhpUnit\Framework\TestCase;
 
 class ExceptionInTearDownTest extends TestCase
@@ -33,6 +34,6 @@ class ExceptionInTearDownTest extends TestCase
     protected function tearDown()
     {
         $this->tearDown = true;
-        throw new Exception;
+        throw new PhpException;
     }
 }

@@ -57,7 +57,7 @@ class SkippedTestCase extends TestCase
     }
 
     /**
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     protected function runTest()
     {

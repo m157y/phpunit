@@ -33,7 +33,7 @@ class PHPUnit_Extensions_RepeatedTest extends PHPUnit_Extensions_TestDecorator
      * @param  \PhpUnit\Framework\Test     $test
      * @param  int                         $timesRepeat
      * @param  bool                        $processIsolation
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     public function __construct(Test $test, $timesRepeat = 1, $processIsolation = false)
     {
@@ -69,7 +69,7 @@ class PHPUnit_Extensions_RepeatedTest extends PHPUnit_Extensions_TestDecorator
      *
      * @param  \PhpUnit\Framework\TestResult $result
      * @return \PhpUnit\Framework\TestResult
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     public function run(TestResult $result = null)
     {

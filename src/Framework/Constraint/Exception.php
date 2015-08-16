@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use Exception as PhpException;
+
 /**
  * @since Class available since Release 3.6.6
  */
@@ -52,7 +54,7 @@ class PHPUnit_Framework_Constraint_Exception extends PHPUnit_Framework_Constrain
     {
         if ($other !== null) {
             $message = '';
-            if ($other instanceof Exception) {
+            if ($other instanceof PhpException) {
                 $message = '. Message was: "' . $other->getMessage() . '" at'
                         . "\n" . $other->getTraceAsString();
             }

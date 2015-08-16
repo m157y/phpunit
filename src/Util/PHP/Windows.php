@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Exception;
 use SebastianBergmann\Environment\Runtime;
 
 /**
@@ -35,7 +36,7 @@ class PHPUnit_Util_PHP_Windows extends PHPUnit_Util_PHP_Default
         $runtime = new Runtime;
 
         if (false === $stdout_handle = tmpfile()) {
-            throw new PHPUnit_Framework_Exception(
+            throw new Exception(
                 'A temporary file could not be created; verify that your TEMP environment variable is writable'
             );
         }
@@ -51,7 +52,7 @@ class PHPUnit_Util_PHP_Windows extends PHPUnit_Util_PHP_Default
         );
 
         if (!is_resource($process)) {
-            throw new PHPUnit_Framework_Exception(
+            throw new Exception(
                 'Unable to spawn worker process'
             );
         }
@@ -76,14 +77,14 @@ class PHPUnit_Util_PHP_Windows extends PHPUnit_Util_PHP_Default
     /**
      * @param  resource                    $pipe
      * @param  string                      $job
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 3.5.12
      */
     protected function process($pipe, $job)
     {
         if (!($this->tempFile = tempnam(sys_get_temp_dir(), 'PHPUnit')) ||
             file_put_contents($this->tempFile, $job) === false) {
-            throw new PHPUnit_Framework_Exception(
+            throw new Exception(
                 'Unable to write temporary file'
             );
         }

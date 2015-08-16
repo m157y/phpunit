@@ -10,11 +10,10 @@
 
 namespace PhpUnit\Framework;
 
-use Exception;
+use Exception as PhpException;
 use Iterator;
 use IteratorAggregate;
 use PHPUnit_Extensions_PhptTestCase;
-use PHPUnit_Framework_Exception;
 use PHPUnit_Framework_TestSuite_DataProvider;
 use PHPUnit_Runner_BaseTestRunner;
 use PHPUnit_Runner_Filter_Factory;
@@ -151,7 +150,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
      *
      * @param  mixed                       $theClass
      * @param  string                      $name
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     public function __construct($theClass = '', $name = '')
     {
@@ -177,11 +176,11 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
         }
 
         if (!$argumentsValid) {
-            throw new PHPUnit_Framework_Exception;
+            throw new Exception;
         }
 
         if (!$theClass->isSubclassOf('PhpUnit\\Framework\\TestCase')) {
-            throw new PHPUnit_Framework_Exception(
+            throw new Exception(
                 'Class "' . $theClass->name . '" does not extend PhpUnit\\Framework\\TestCase.'
             );
         }
@@ -273,7 +272,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
      * Adds the tests from the given class to the suite.
      *
      * @param  mixed                       $testClass
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     public function addTestSuite($testClass)
     {
@@ -313,7 +312,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
                 $this->addTest(new self($testClass));
             }
         } else {
-            throw new PHPUnit_Framework_Exception;
+            throw new Exception;
         }
     }
 
@@ -326,7 +325,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
      * leaving the current test run untouched.
      *
      * @param  string                      $filename
-     * @throws \PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 2.3.0
      */
     public function addTestFile($filename)
@@ -404,7 +403,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
      * Wrapper for addTestFile() that adds multiple test files.
      *
      * @param  array|\Iterator             $filenames
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 2.3.0
      */
     public function addTestFiles($filenames)
@@ -447,7 +446,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
      * @param  ReflectionClass             $theClass
      * @param  string                      $name
      * @return \PhpUnit\Framework\Test
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     public static function createTest(ReflectionClass $theClass, $name)
     {
@@ -519,7 +518,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
                     $data = self::skipTest($className, $name, $message);
                 } catch (Throwable $_t) {
                     $t = $_t;
-                } catch (Exception $_t) {
+                } catch (PhpException $_t) {
                     $t = $_t;
                 }
 
@@ -594,7 +593,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
         }
 
         if (!isset($test)) {
-            throw new PHPUnit_Framework_Exception('No valid test provided.');
+            throw new Exception('No valid test provided.');
         }
 
         if ($test instanceof TestCase) {
@@ -718,7 +717,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
             return $result;
         } catch (Throwable $_t) {
             $t = $_t;
-        } catch (Exception $_t) {
+        } catch (PhpException $_t) {
             $t = $_t;
         }
 
@@ -768,7 +767,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
 
     /**
      * @param  bool                        $runTestInSeparateProcess
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 3.7.0
      */
     public function setRunTestInSeparateProcess($runTestInSeparateProcess)

@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Exception;
+
 /**
  * The standard test suite loader.
  *
@@ -19,7 +21,7 @@ class PHPUnit_Runner_StandardTestSuiteLoader implements PHPUnit_Runner_TestSuite
      * @param  string                      $suiteClassName
      * @param  string                      $suiteClassFile
      * @return ReflectionClass
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     public function load($suiteClassName, $suiteClassFile = '')
     {
@@ -95,7 +97,7 @@ class PHPUnit_Runner_StandardTestSuiteLoader implements PHPUnit_Runner_TestSuite
             }
         }
 
-        throw new PHPUnit_Framework_Exception(
+        throw new Exception(
             sprintf(
                 "Class '%s' could not be found in '%s'.",
                 $suiteClassName,

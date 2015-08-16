@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Exception;
 use SebastianBergmann\Environment\Runtime;
 
 /**
@@ -23,7 +24,7 @@ class PHPUnit_Util_PHP_Default extends PHPUnit_Util_PHP
      * @param  string                      $job
      * @param  array                       $settings
      * @return array
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      */
     public function runJob($job, array $settings = [])
     {
@@ -40,7 +41,7 @@ class PHPUnit_Util_PHP_Default extends PHPUnit_Util_PHP
         );
 
         if (!is_resource($process)) {
-            throw new PHPUnit_Framework_Exception(
+            throw new Exception(
                 'Unable to spawn worker process'
             );
         }
@@ -63,7 +64,7 @@ class PHPUnit_Util_PHP_Default extends PHPUnit_Util_PHP
     /**
      * @param  resource                    $pipe
      * @param  string                      $job
-     * @throws PHPUnit_Framework_Exception
+     * @throws \PhpUnit\Framework\Exception
      * @since Method available since Release 3.5.12
      */
     protected function process($pipe, $job)

@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use Exception as PhpException;
+use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestSuite;
 
@@ -150,7 +152,7 @@ class PHPUnit_TextUI_Command
 
         try {
             $result = $runner->doRun($suite, $this->arguments);
-        } catch (PHPUnit_Framework_Exception $e) {
+        } catch (Exception $e) {
             print $e->getMessage() . "\n";
         }
 
@@ -239,7 +241,7 @@ class PHPUnit_TextUI_Command
                 'd:c:hv',
                 array_keys($this->longOptions)
             );
-        } catch (PHPUnit_Framework_Exception $e) {
+        } catch (Exception $e) {
             $this->showError($e->getMessage());
         }
 
@@ -570,7 +572,7 @@ class PHPUnit_TextUI_Command
             } catch (Throwable $e) {
                 print $e->getMessage() . "\n";
                 exit(PHPUnit_TextUI_TestRunner::FAILURE_EXIT);
-            } catch (Exception $e) {
+            } catch (PhpException $e) {
                 print $e->getMessage() . "\n";
                 exit(PHPUnit_TextUI_TestRunner::FAILURE_EXIT);
             }
@@ -756,7 +758,7 @@ class PHPUnit_TextUI_Command
     {
         try {
             PHPUnit_Util_Fileloader::checkAndLoad($filename);
-        } catch (PHPUnit_Framework_Exception $e) {
+        } catch (Exception $e) {
             $this->showError($e->getMessage());
         }
     }
@@ -819,7 +821,7 @@ class PHPUnit_TextUI_Command
             unlink($caFile);
         } catch (Throwable $_e) {
             $e = $_e;
-        } catch (Exception $_e) {
+        } catch (PhpException $_e) {
             $e = $_e;
         }
 

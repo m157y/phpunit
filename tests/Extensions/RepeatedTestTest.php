@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use Exception as PhpException;
 use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestSuite;
 
@@ -58,7 +59,7 @@ class Extensions_RepeatedTestTest extends TestCase
     {
         try {
             $test = new PHPUnit_Extensions_RepeatedTest($this->suite, -1);
-        } catch (Exception $e) {
+        } catch (PhpException $e) {
             return;
         }
 

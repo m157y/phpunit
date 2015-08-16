@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use Exception as PhpException;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
@@ -38,10 +39,10 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements TestListener
      * An error occurred.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      */
-    public function addError(Test $test, Exception $e, $time)
+    public function addError(Test $test, PhpException $e, $time)
     {
         $this->writeCase(
             'error',
@@ -78,10 +79,10 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements TestListener
      * Incomplete test.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      */
-    public function addIncompleteTest(Test $test, Exception $e, $time)
+    public function addIncompleteTest(Test $test, PhpException $e, $time)
     {
         $this->writeCase(
             'error',
@@ -98,11 +99,11 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements TestListener
      * Risky test.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      * @since  Method available since Release 4.0.0
      */
-    public function addRiskyTest(Test $test, Exception $e, $time)
+    public function addRiskyTest(Test $test, PhpException $e, $time)
     {
         $this->writeCase(
             'error',
@@ -119,10 +120,10 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements TestListener
      * Skipped test.
      *
      * @param \PhpUnit\Framework\Test $test
-     * @param Exception               $e
+     * @param \Exception              $e
      * @param float                   $time
      */
-    public function addSkippedTest(Test $test, Exception $e, $time)
+    public function addSkippedTest(Test $test, PhpException $e, $time)
     {
         $this->writeCase(
             'error',
