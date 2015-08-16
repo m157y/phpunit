@@ -19,7 +19,6 @@ use PHPUnit_Framework_IncompleteTestCase;
 use PHPUnit_Framework_IncompleteTestError;
 use PHPUnit_Framework_SelfDescribing;
 use PHPUnit_Framework_SkippedTestCase;
-use PHPUnit_Framework_SkippedTestError;
 use PHPUnit_Framework_TestSuite_DataProvider;
 use PHPUnit_Runner_BaseTestRunner;
 use PHPUnit_Runner_Filter_Factory;
@@ -508,7 +507,7 @@ class TestSuite implements Test, PHPUnit_Framework_SelfDescribing, IteratorAggre
                     }
 
                     $data = self::incompleteTest($className, $name, $message);
-                } catch (PHPUnit_Framework_SkippedTestError $e) {
+                } catch (SkippedTestError $e) {
                     $message = sprintf(
                         'Test for %s::%s skipped by data provider',
                         $className,

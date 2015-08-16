@@ -30,7 +30,6 @@ use PHPUnit_Framework_OutputError;
 use PHPUnit_Framework_RiskyTest;
 use PHPUnit_Framework_RiskyTestError;
 use PHPUnit_Framework_SkippedTest;
-use PHPUnit_Framework_SkippedTestError;
 use PHPUnit_Util_Blacklist;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Test;
@@ -652,7 +651,7 @@ class TestResult implements Countable
                 $risky = true;
             } elseif ($e instanceof PHPUnit_Framework_IncompleteTestError) {
                 $incomplete = true;
-            } elseif ($e instanceof PHPUnit_Framework_SkippedTestError) {
+            } elseif ($e instanceof SkippedTestError) {
                 $skipped = true;
             }
         } catch (PHPUnit_Framework_Exception $e) {

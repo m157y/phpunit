@@ -41,7 +41,6 @@ use PHPUnit_Framework_MockObject_Stub_ReturnValueMap;
 use PHPUnit_Framework_RiskyTestError;
 use PHPUnit_Framework_SelfDescribing;
 use PHPUnit_Framework_SkippedTest;
-use PHPUnit_Framework_SkippedTestError;
 use PHPUnit_Runner_BaseTestRunner;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_GlobalState;
@@ -1813,7 +1812,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, PHPUni
                 if (!isset($passedKeys[$dependency])) {
                     $this->result->addError(
                         $this,
-                        new PHPUnit_Framework_SkippedTestError(
+                        new SkippedTestError(
                             sprintf(
                                 'This test depends on "%s" to pass.',
                                 $dependency
@@ -1831,7 +1830,7 @@ abstract class TestCase extends PHPUnit_Framework_Assert implements Test, PHPUni
                         $passed[$dependency]['size'] > $this->getSize()) {
                         $this->result->addError(
                             $this,
-                            new PHPUnit_Framework_SkippedTestError(
+                            new SkippedTestError(
                                 'This test depends on a test that is larger than itself.'
                             ),
                             0

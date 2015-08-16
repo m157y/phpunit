@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\SkippedTestError;
 use PhpUnit\Framework\TestCase;
 
 /**
@@ -3534,7 +3535,7 @@ class Framework_AssertTest extends TestCase
     {
         try {
             $this->markTestSkipped('skipped');
-        } catch (PHPUnit_Framework_SkippedTestError $e) {
+        } catch (SkippedTestError $e) {
             $this->assertEquals('skipped', $e->getMessage());
 
             return;

@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\SkippedTestError;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestResult;
 
@@ -120,7 +121,7 @@ class PHPUnit_Extensions_PhptTestCase implements Test, PHPUnit_Framework_SelfDes
                     $message = '';
                 }
 
-                $result->addFailure($this, new PHPUnit_Framework_SkippedTestError($message), 0);
+                $result->addFailure($this, new SkippedTestError($message), 0);
 
                 $skip = true;
             }

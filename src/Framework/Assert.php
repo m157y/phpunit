@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\SkippedTestError;
+
 /**
  * A set of assert methods.
  *
@@ -2788,12 +2790,12 @@ abstract class PHPUnit_Framework_Assert
      * Mark the test as skipped.
      *
      * @param  string                             $message
-     * @throws PHPUnit_Framework_SkippedTestError
+     * @throws \PhpUnit\Framework\SkippedTestError
      * @since  Method available since Release 3.0.0
      */
     public static function markTestSkipped($message = '')
     {
-        throw new PHPUnit_Framework_SkippedTestError($message);
+        throw new SkippedTestError($message);
     }
 
     /**
