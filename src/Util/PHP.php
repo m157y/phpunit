@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestFailure;
 use PhpUnit\Framework\TestResult;
 
 /**
@@ -184,14 +185,14 @@ abstract class PHPUnit_Util_PHP
     }
 
     /**
-     * Gets the thrown exception from a PHPUnit_Framework_TestFailure.
+     * Gets the thrown exception from a PhpUnit\Framework\TestFailure.
      *
-     * @param  PHPUnit_Framework_TestFailure $error
+     * @param  \PhpUnit\Framework\TestFailure $error
      * @return Exception
      * @since  Method available since Release 3.6.0
      * @see    https://github.com/sebastianbergmann/phpunit/issues/74
      */
-    private function getException(PHPUnit_Framework_TestFailure $error)
+    private function getException(TestFailure $error)
     {
         $exception = $error->thrownException();
 

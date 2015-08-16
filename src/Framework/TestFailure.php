@@ -8,12 +8,24 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework;
+
+use Exception;
+use PHPUnit_Framework_AssertionFailedError;
+use PHPUnit_Framework_Error;
+use PHPUnit_Framework_Exception;
+use PHPUnit_Framework_ExceptionWrapper;
+use PHPUnit_Framework_ExpectationFailedException;
+use PHPUnit_Framework_SelfDescribing;
+use PHPUnit_Framework_Test;
+use PHPUnit_Framework_TestCase;
+
 /**
  * A TestFailure collects a failed test together with the caught exception.
  *
  * @since Class available since Release 2.0.0
  */
-class PHPUnit_Framework_TestFailure
+class TestFailure
 {
     /**
      * @var string
@@ -21,20 +33,20 @@ class PHPUnit_Framework_TestFailure
     private $testName;
 
     /**
-     * @var PHPUnit_Framework_Test|null
+     * @var \PHPUnit_Framework_Test|null
      */
     protected $failedTest;
 
     /**
-     * @var Exception
+     * @var \Exception
      */
     protected $thrownException;
 
     /**
      * Constructs a TestFailure with the given test and exception.
      *
-     * @param PHPUnit_Framework_Test $failedTest
-     * @param Exception              $thrownException
+     * @param \PHPUnit_Framework_Test $failedTest
+     * @param \Exception              $thrownException
      */
     public function __construct(PHPUnit_Framework_Test $failedTest, Exception $thrownException)
     {
@@ -77,7 +89,7 @@ class PHPUnit_Framework_TestFailure
     /**
      * Returns a description for an exception.
      *
-     * @param  Exception $e
+     * @param  \Exception $e
      * @return string
      * @since  Method available since Release 3.2.0
      */
@@ -121,9 +133,9 @@ class PHPUnit_Framework_TestFailure
      * Note: The test object is not set when the test is executed in process
      * isolation.
      *
-     * @see PHPUnit_Framework_Exception
+     * @see \PHPUnit_Framework_Exception
      *
-     * @return PHPUnit_Framework_Test|null
+     * @return \PHPUnit_Framework_Test|null
      */
     public function failedTest()
     {
@@ -133,7 +145,7 @@ class PHPUnit_Framework_TestFailure
     /**
      * Gets the thrown exception.
      *
-     * @return Exception
+     * @return \Exception
      */
     public function thrownException()
     {

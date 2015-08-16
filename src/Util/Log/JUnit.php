@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestFailure;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
 
@@ -425,7 +426,7 @@ class PHPUnit_Util_Log_JUnit extends PHPUnit_Util_Printer implements TestListene
             $buffer = '';
         }
 
-        $buffer .= PHPUnit_Framework_TestFailure::exceptionToString($e) .
+        $buffer .= TestFailure::exceptionToString($e) .
                    "\n" .
                    PHPUnit_Util_Filter::getFilteredStacktrace($e);
 

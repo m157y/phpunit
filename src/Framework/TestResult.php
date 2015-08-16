@@ -33,7 +33,6 @@ use PHPUnit_Framework_SkippedTest;
 use PHPUnit_Framework_SkippedTestError;
 use PHPUnit_Framework_Test;
 use PHPUnit_Framework_TestCase;
-use PHPUnit_Framework_TestFailure;
 use PHPUnit_Util_Blacklist;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Test;
@@ -234,28 +233,28 @@ class TestResult implements Countable
     public function addError(PHPUnit_Framework_Test $test, Exception $e, $time)
     {
         if ($e instanceof PHPUnit_Framework_RiskyTest) {
-            $this->risky[] = new PHPUnit_Framework_TestFailure($test, $e);
+            $this->risky[] = new TestFailure($test, $e);
             $notifyMethod  = 'addRiskyTest';
 
             if ($this->stopOnRisky) {
                 $this->stop();
             }
         } elseif ($e instanceof PHPUnit_Framework_IncompleteTest) {
-            $this->notImplemented[] = new PHPUnit_Framework_TestFailure($test, $e);
+            $this->notImplemented[] = new TestFailure($test, $e);
             $notifyMethod           = 'addIncompleteTest';
 
             if ($this->stopOnIncomplete) {
                 $this->stop();
             }
         } elseif ($e instanceof PHPUnit_Framework_SkippedTest) {
-            $this->skipped[] = new PHPUnit_Framework_TestFailure($test, $e);
+            $this->skipped[] = new TestFailure($test, $e);
             $notifyMethod    = 'addSkippedTest';
 
             if ($this->stopOnSkipped) {
                 $this->stop();
             }
         } else {
-            $this->errors[] = new PHPUnit_Framework_TestFailure($test, $e);
+            $this->errors[] = new TestFailure($test, $e);
             $notifyMethod   = 'addError';
 
             if ($this->stopOnError || $this->stopOnFailure) {
@@ -283,28 +282,28 @@ class TestResult implements Countable
     {
         if ($e instanceof PHPUnit_Framework_RiskyTest ||
             $e instanceof PHPUnit_Framework_OutputError) {
-            $this->risky[] = new PHPUnit_Framework_TestFailure($test, $e);
+            $this->risky[] = new TestFailure($test, $e);
             $notifyMethod  = 'addRiskyTest';
 
             if ($this->stopOnRisky) {
                 $this->stop();
             }
         } elseif ($e instanceof PHPUnit_Framework_IncompleteTest) {
-            $this->notImplemented[] = new PHPUnit_Framework_TestFailure($test, $e);
+            $this->notImplemented[] = new TestFailure($test, $e);
             $notifyMethod           = 'addIncompleteTest';
 
             if ($this->stopOnIncomplete) {
                 $this->stop();
             }
         } elseif ($e instanceof PHPUnit_Framework_SkippedTest) {
-            $this->skipped[] = new PHPUnit_Framework_TestFailure($test, $e);
+            $this->skipped[] = new TestFailure($test, $e);
             $notifyMethod    = 'addSkippedTest';
 
             if ($this->stopOnSkipped) {
                 $this->stop();
             }
         } else {
-            $this->failures[] = new PHPUnit_Framework_TestFailure($test, $e);
+            $this->failures[] = new TestFailure($test, $e);
             $notifyMethod     = 'addFailure';
 
             if ($this->stopOnFailure) {

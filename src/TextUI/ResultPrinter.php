@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\TestFailure;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestResult;
 use PhpUnit\Framework\TestSuite;
@@ -253,20 +254,20 @@ class PHPUnit_TextUI_ResultPrinter extends PHPUnit_Util_Printer implements TestL
     }
 
     /**
-     * @param PHPUnit_Framework_TestFailure $defect
+     * @param \PhpUnit\Framework\TestFailure $defect
      * @param int                           $count
      */
-    protected function printDefect(PHPUnit_Framework_TestFailure $defect, $count)
+    protected function printDefect(TestFailure $defect, $count)
     {
         $this->printDefectHeader($defect, $count);
         $this->printDefectTrace($defect);
     }
 
     /**
-     * @param PHPUnit_Framework_TestFailure $defect
+     * @param \PhpUnit\Framework\TestFailure $defect
      * @param int                           $count
      */
-    protected function printDefectHeader(PHPUnit_Framework_TestFailure $defect, $count)
+    protected function printDefectHeader(TestFailure $defect, $count)
     {
         $this->write(
             sprintf(
@@ -278,9 +279,9 @@ class PHPUnit_TextUI_ResultPrinter extends PHPUnit_Util_Printer implements TestL
     }
 
     /**
-     * @param PHPUnit_Framework_TestFailure $defect
+     * @param \PhpUnit\Framework\TestFailure $defect
      */
-    protected function printDefectTrace(PHPUnit_Framework_TestFailure $defect)
+    protected function printDefectTrace(TestFailure $defect)
     {
         $e = $defect->thrownException();
         $this->write((string) $e);
