@@ -18,7 +18,6 @@ use PHPUnit_Framework_Exception;
 use PHPUnit_Framework_IncompleteTestCase;
 use PHPUnit_Framework_IncompleteTestError;
 use PHPUnit_Framework_SelfDescribing;
-use PHPUnit_Framework_SkippedTestCase;
 use PHPUnit_Framework_TestSuite_DataProvider;
 use PHPUnit_Runner_BaseTestRunner;
 use PHPUnit_Runner_Filter_Factory;
@@ -561,7 +560,7 @@ class TestSuite implements Test, PHPUnit_Framework_SelfDescribing, IteratorAggre
                     $groups = PHPUnit_Util_Test::getGroups($className, $name);
 
                     if ($data instanceof Warning ||
-                        $data instanceof PHPUnit_Framework_SkippedTestCase ||
+                        $data instanceof SkippedTestCase ||
                         $data instanceof PHPUnit_Framework_IncompleteTestCase) {
                         $test->addTest($data, $groups);
                     } else {
@@ -926,12 +925,12 @@ class TestSuite implements Test, PHPUnit_Framework_SelfDescribing, IteratorAggre
      * @param  string                            $class
      * @param  string                            $methodName
      * @param  string                            $message
-     * @return PHPUnit_Framework_SkippedTestCase
+     * @return \PhpUnit\Framework\SkippedTestCase
      * @since  Method available since Release 4.3.0
      */
     protected static function skipTest($class, $methodName, $message)
     {
-        return new PHPUnit_Framework_SkippedTestCase($class, $methodName, $message);
+        return new SkippedTestCase($class, $methodName, $message);
     }
 
     /**

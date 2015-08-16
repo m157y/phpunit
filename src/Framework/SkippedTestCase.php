@@ -8,14 +8,14 @@
  * file that was distributed with this source code.
  */
 
-use PhpUnit\Framework\TestCase;
+namespace PhpUnit\Framework;
 
 /**
  * A skipped test case
  *
  * @since Class available since Release 4.3.0
  */
-class PHPUnit_Framework_SkippedTestCase extends TestCase
+class SkippedTestCase extends TestCase
 {
     /**
      * @var string
