@@ -26,7 +26,6 @@ use PHPUnit_Framework_IncompleteTest;
 use PHPUnit_Framework_IncompleteTestError;
 use PHPUnit_Framework_InvalidCoversTargetError;
 use PHPUnit_Framework_InvalidCoversTargetException;
-use PHPUnit_Framework_OutputError;
 use PHPUnit_Util_Blacklist;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Test;
@@ -275,7 +274,7 @@ class TestResult implements Countable
     public function addFailure(Test $test, PHPUnit_Framework_AssertionFailedError $e, $time)
     {
         if ($e instanceof RiskyTest ||
-            $e instanceof PHPUnit_Framework_OutputError) {
+            $e instanceof OutputError) {
             $this->risky[] = new TestFailure($test, $e);
             $notifyMethod  = 'addRiskyTest';
 
@@ -761,7 +760,7 @@ class TestResult implements Countable
         } elseif ($this->beStrictAboutOutputDuringTests && $test->hasOutput()) {
             $this->addFailure(
                 $test,
-                new PHPUnit_Framework_OutputError(
+                new OutputError(
                     sprintf(
                         'This test printed output: %s',
                         $test->getActualOutput()
