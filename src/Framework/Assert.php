@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\IncompleteTestError;
 use PhpUnit\Framework\SkippedTestError;
 
 /**
@@ -2778,12 +2779,12 @@ abstract class PHPUnit_Framework_Assert
      * Mark the test as incomplete.
      *
      * @param  string                                $message
-     * @throws PHPUnit_Framework_IncompleteTestError
+     * @throws \PhpUnit\Framework\IncompleteTestError
      * @since  Method available since Release 3.0.0
      */
     public static function markTestIncomplete($message = '')
     {
-        throw new PHPUnit_Framework_IncompleteTestError($message);
+        throw new IncompleteTestError($message);
     }
 
     /**

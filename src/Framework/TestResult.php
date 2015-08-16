@@ -23,7 +23,6 @@ use PHPUnit_Framework_AssertionFailedError;
 use PHPUnit_Framework_Exception;
 use PHPUnit_Framework_ExceptionWrapper;
 use PHPUnit_Framework_IncompleteTest;
-use PHPUnit_Framework_IncompleteTestError;
 use PHPUnit_Util_Blacklist;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Test;
@@ -643,7 +642,7 @@ class TestResult implements Countable
 
             if ($e instanceof RiskyTestError) {
                 $risky = true;
-            } elseif ($e instanceof PHPUnit_Framework_IncompleteTestError) {
+            } elseif ($e instanceof IncompleteTestError) {
                 $incomplete = true;
             } elseif ($e instanceof SkippedTestError) {
                 $skipped = true;

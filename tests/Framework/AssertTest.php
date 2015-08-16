@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\IncompleteTestError;
 use PhpUnit\Framework\SkippedTestError;
 use PhpUnit\Framework\TestCase;
 
@@ -3519,7 +3520,7 @@ class Framework_AssertTest extends TestCase
     {
         try {
             $this->markTestIncomplete('incomplete');
-        } catch (PHPUnit_Framework_IncompleteTestError $e) {
+        } catch (IncompleteTestError $e) {
             $this->assertEquals('incomplete', $e->getMessage());
 
             return;

@@ -16,7 +16,6 @@ use IteratorAggregate;
 use PHPUnit_Extensions_PhptTestCase;
 use PHPUnit_Framework_Exception;
 use PHPUnit_Framework_IncompleteTestCase;
-use PHPUnit_Framework_IncompleteTestError;
 use PHPUnit_Framework_TestSuite_DataProvider;
 use PHPUnit_Runner_BaseTestRunner;
 use PHPUnit_Runner_Filter_Factory;
@@ -491,7 +490,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
                         $className,
                         $name
                     );
-                } catch (PHPUnit_Framework_IncompleteTestError $e) {
+                } catch (IncompleteTestError $e) {
                     $message = sprintf(
                         'Test for %s::%s marked incomplete by data provider',
                         $className,
