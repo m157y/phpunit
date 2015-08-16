@@ -19,7 +19,6 @@ use PHPUnit_Framework_Constraint_And;
 use PHPUnit_Framework_Constraint_ArrayHasKey;
 use PHPUnit_Framework_Constraint_ArraySubset;
 use PHPUnit_Framework_Constraint_Attribute;
-use PHPUnit_Framework_Constraint_Callback;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
 use PHPUnit_Util_XML;
@@ -2198,14 +2197,14 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_Callback matcher object.
+     * Returns a PhpUnit\Framework\Constraint\Callback matcher object.
      *
      * @param  callable                              $callback
-     * @return PHPUnit_Framework_Constraint_Callback
+     * @return \PhpUnit\Framework\Constraint\Callback
      */
     public static function callback($callback)
     {
-        return new PHPUnit_Framework_Constraint_Callback($callback);
+        return new Constraint\Callback($callback);
     }
 
     /**

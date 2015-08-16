@@ -1638,10 +1638,10 @@ function attributeEqualTo($attributeName, $value, $delta = 0.0, $maxDepth = 10, 
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_Callback matcher object.
+ * Returns a PhpUnit\Framework\Constraint\Callback matcher object.
  *
  * @param  callable                              $callback
- * @return PHPUnit_Framework_Constraint_Callback
+ * @return \PhpUnit\Framework\Constraint\Callback
  */
 function callback($callback)
 {

@@ -1743,7 +1743,7 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_Callback
+     * @covers \PhpUnit\Framework\Constraint\Callback
      */
     public function testConstraintCallback()
     {
@@ -1774,7 +1774,7 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_Callback
+     * @covers \PhpUnit\Framework\Constraint\Callback
      * @expectedException \PhpUnit\Framework\ExpectationFailedException
      * @expectedExceptionMessage Failed asserting that 'This fails' is accepted by specified callback.
      */

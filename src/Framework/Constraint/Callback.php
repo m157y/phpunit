@@ -8,12 +8,15 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
+use PHPUnit_Util_InvalidArgumentHelper;
 use PhpUnit\Framework\Constraint;
 
 /**
  * Constraint that evaluates against a specified closure.
  */
-class PHPUnit_Framework_Constraint_Callback extends Constraint
+class Callback extends Constraint
 {
     private $callback;
 
