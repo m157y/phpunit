@@ -37,7 +37,6 @@ use PHPUnit_Framework_Constraint_IsNan;
 use PHPUnit_Framework_Constraint_IsNull;
 use PHPUnit_Framework_Constraint_IsTrue;
 use PHPUnit_Framework_Constraint_IsType;
-use PHPUnit_Framework_Constraint_JsonMatches;
 use PHPUnit_Framework_Constraint_GreaterThan;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
@@ -2056,9 +2055,7 @@ abstract class Assert
         self::assertJson($actualJson, $message);
 
         // call constraint
-        $constraint = new PHPUnit_Framework_Constraint_JsonMatches(
-            $expectedJson
-        );
+        $constraint = new Constraint\JsonMatches($expectedJson);
 
         self::assertThat($actualJson, $constraint, $message);
     }
@@ -2079,9 +2076,7 @@ abstract class Assert
         self::assertJson($actualJson, $message);
 
         // call constraint
-        $constraint = new PHPUnit_Framework_Constraint_JsonMatches(
-            $expectedJson
-        );
+        $constraint = new Constraint\JsonMatches($expectedJson);
 
         self::assertThat($actualJson, new Constraint\LogicalNot($constraint), $message);
     }
@@ -2105,11 +2100,8 @@ abstract class Assert
         self::assertJson($actualJson, $message);
 
         // call constraint
-        $constraintExpected = new PHPUnit_Framework_Constraint_JsonMatches(
-            $expectedJson
-        );
-
-        $constraintActual = new PHPUnit_Framework_Constraint_JsonMatches($actualJson);
+        $constraintExpected = new Constraint\JsonMatches($expectedJson);
+        $constraintActual = new Constraint\JsonMatches($actualJson);
 
         self::assertThat($expectedJson, new Constraint\LogicalNot($constraintActual), $message);
         self::assertThat($actualJson, new Constraint\LogicalNot($constraintExpected), $message);
@@ -2134,11 +2126,8 @@ abstract class Assert
         self::assertJson($actualJson, $message);
 
         // call constraint
-        $constraintExpected = new PHPUnit_Framework_Constraint_JsonMatches(
-            $expectedJson
-        );
-
-        $constraintActual = new PHPUnit_Framework_Constraint_JsonMatches($actualJson);
+        $constraintExpected = new Constraint\JsonMatches($expectedJson);
+        $constraintActual = new Constraint\JsonMatches($actualJson);
 
         self::assertThat($expectedJson, $constraintActual, $message);
         self::assertThat($actualJson, $constraintExpected, $message);

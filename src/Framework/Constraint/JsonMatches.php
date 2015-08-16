@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Framework\Constraint;
+
 use PhpUnit\Framework\Constraint;
 
 /**
@@ -15,7 +17,7 @@ use PhpUnit\Framework\Constraint;
  *
  * @since Class available since Release 3.7.0
  */
-class PHPUnit_Framework_Constraint_JsonMatches extends Constraint
+class JsonMatches extends Constraint
 {
     /**
      * @var string

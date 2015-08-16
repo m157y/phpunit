@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Framework\Constraint\JsonMatches;
 use PhpUnit\Framework\TestCase;
 
 /**
@@ -17,23 +18,23 @@ class Framework_Constraint_JsonMatchesTest extends TestCase
 {
     /**
      * @dataProvider evaluateDataprovider
-     * @covers PHPUnit_Framework_Constraint_JsonMatches::evaluate
-     * @covers PHPUnit_Framework_Constraint_JsonMatches::matches
-     * @covers PHPUnit_Framework_Constraint_JsonMatches::__construct
+     * @covers \PhpUnit\Framework\Constraint\JsonMatches::__construct
+     * @covers \PhpUnit\Framework\Constraint\JsonMatches::evaluate
+     * @covers \PhpUnit\Framework\Constraint\JsonMatches::matches
      */
     public function testEvaluate($expected, $jsonOther, $jsonValue)
     {
-        $constraint = new PHPUnit_Framework_Constraint_JsonMatches($jsonValue);
+        $constraint = new JsonMatches($jsonValue);
         $this->assertEquals($expected, $constraint->evaluate($jsonOther, '', true));
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_JsonMatches::toString
+     * @covers \PhpUnit\Framework\Constraint\JsonMatches::toString
      */
     public function testToString()
     {
         $jsonValue  = json_encode(['Mascott' => 'Tux']);
-        $constraint = new PHPUnit_Framework_Constraint_JsonMatches($jsonValue);
+        $constraint = new JsonMatches($jsonValue);
 
         $this->assertEquals('matches JSON string "' . $jsonValue . '"', $constraint->toString());
     }
