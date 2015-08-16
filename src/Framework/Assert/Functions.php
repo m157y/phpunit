@@ -2187,10 +2187,10 @@ function stringContains($string, $case = true)
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_StringEndsWith matcher object.
+ * Returns a PhpUnit\Framework\Constraint\StringEndsWith matcher object.
  *
  * @param  mixed                                       $suffix
- * @return PHPUnit_Framework_Constraint_StringEndsWith
+ * @return \PhpUnit\Framework\Constraint\StringEndsWith
  * @since  Method available since Release 3.4.0
  */
 function stringEndsWith($suffix)

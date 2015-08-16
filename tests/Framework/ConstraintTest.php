@@ -2746,9 +2746,9 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_StringEndsWith
      * @covers \PhpUnit\Framework\Assert::stringEndsWith
      * @covers \PhpUnit\Framework\Constraint::count
+     * @covers \PhpUnit\Framework\Constraint\StringEndsWith
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintStringEndsWith()
@@ -2779,8 +2779,8 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_StringEndsWith
      * @covers \PhpUnit\Framework\Assert::stringEndsWith
+     * @covers \PhpUnit\Framework\Constraint\StringEndsWith
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintStringEndsWith2()
@@ -2807,10 +2807,10 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_StringEndsWith
      * @covers PHPUnit_Framework_Constraint_Not
      * @covers \PhpUnit\Framework\Assert::stringEndsWith
      * @covers \PhpUnit\Framework\Assert::logicalNot
+     * @covers \PhpUnit\Framework\Constraint\StringEndsWith
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintStringEndsNotWith()
@@ -2843,8 +2843,8 @@ EOF
     }
 
     /**
-     * @covers PHPUnit_Framework_Constraint_StringEndsWith
      * @covers \PhpUnit\Framework\Assert::stringEndsWith
+     * @covers \PhpUnit\Framework\Constraint\StringEndsWith
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testConstraintStringEndsNotWith2()

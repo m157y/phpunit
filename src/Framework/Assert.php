@@ -46,7 +46,6 @@ use PHPUnit_Framework_Constraint_Or;
 use PHPUnit_Framework_Constraint_PCREMatch;
 use PHPUnit_Framework_Constraint_SameSize;
 use PHPUnit_Framework_Constraint_StringContains;
-use PHPUnit_Framework_Constraint_StringEndsWith;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
 use PHPUnit_Util_XML;
@@ -1739,7 +1738,7 @@ abstract class Assert
             throw PHPUnit_Util_InvalidArgumentHelper::factory(2, 'string');
         }
 
-        $constraint = new PHPUnit_Framework_Constraint_StringEndsWith($suffix);
+        $constraint = new Constraint\StringEndsWith($suffix);
 
         self::assertThat($string, $constraint, $message);
     }
@@ -1763,7 +1762,7 @@ abstract class Assert
         }
 
         $constraint = new PHPUnit_Framework_Constraint_Not(
-            new PHPUnit_Framework_Constraint_StringEndsWith($suffix)
+            new Constraint\StringEndsWith($suffix)
         );
 
         self::assertThat($string, $constraint, $message);
@@ -2638,15 +2637,15 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_StringEndsWith matcher object.
+     * Returns a PhpUnit\Framework\Constraint\StringEndsWith matcher object.
      *
      * @param  mixed                                       $suffix
-     * @return PHPUnit_Framework_Constraint_StringEndsWith
+     * @return \PhpUnit\Framework\Constraint\StringEndsWith
      * @since  Method available since Release 3.4.0
      */
     public static function stringEndsWith($suffix)
     {
-        return new PHPUnit_Framework_Constraint_StringEndsWith($suffix);
+        return new Constraint\StringEndsWith($suffix);
     }
 
     /**
