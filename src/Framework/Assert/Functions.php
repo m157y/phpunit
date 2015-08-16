@@ -1600,11 +1600,11 @@ function atLeastOnce()
 }
 
 /**
- * Returns a PHPUnit_Framework_Constraint_Attribute matcher object.
+ * Returns a PhpUnit\Framework\Constraint\Attribute matcher object.
  *
  * @param  \PhpUnit\Framework\Constraint          $constraint
  * @param  string                                 $attributeName
- * @return PHPUnit_Framework_Constraint_Attribute
+ * @return \PhpUnit\Framework\Constraint\Attribute
  * @since  Method available since Release 3.1.0
  */
 function attribute(Constraint $constraint, $attributeName)
@@ -1617,7 +1617,7 @@ function attribute(Constraint $constraint, $attributeName)
 
 /**
  * Returns a PhpUnit\Framework\Constraint\IsEqual matcher object
- * that is wrapped in a PHPUnit_Framework_Constraint_Attribute matcher
+ * that is wrapped in a PhpUnit\Framework\Constraint\Attribute matcher
  * object.
  *
  * @param  string                                 $attributeName
@@ -1626,7 +1626,7 @@ function attribute(Constraint $constraint, $attributeName)
  * @param  int                                    $maxDepth
  * @param  bool                                   $canonicalize
  * @param  bool                                   $ignoreCase
- * @return PHPUnit_Framework_Constraint_Attribute
+ * @return \PhpUnit\Framework\Constraint\Attribute
  * @since  Method available since Release 3.1.0
  */
 function attributeEqualTo($attributeName, $value, $delta = 0.0, $maxDepth = 10, $canonicalize = false, $ignoreCase = false)

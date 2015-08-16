@@ -18,7 +18,6 @@ use PhpUnit\Framework\Constraint;
 use PHPUnit_Framework_Constraint_And;
 use PHPUnit_Framework_Constraint_ArrayHasKey;
 use PHPUnit_Framework_Constraint_ArraySubset;
-use PHPUnit_Framework_Constraint_Attribute;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
 use PHPUnit_Util_XML;
@@ -2274,16 +2273,16 @@ abstract class Assert
     }
 
     /**
-     * Returns a PHPUnit_Framework_Constraint_Attribute matcher object.
+     * Returns a PhpUnit\Framework\Constraint\Attribute matcher object.
      *
      * @param  \PhpUnit\Framework\Constraint          $constraint
      * @param  string                                 $attributeName
-     * @return PHPUnit_Framework_Constraint_Attribute
+     * @return \PhpUnit\Framework\Constraint\Attribute
      * @since  Method available since Release 3.1.0
      */
     public static function attribute(Constraint $constraint, $attributeName)
     {
-        return new PHPUnit_Framework_Constraint_Attribute(
+        return new Constraint\Attribute(
             $constraint,
             $attributeName
         );
@@ -2365,7 +2364,7 @@ abstract class Assert
 
     /**
      * Returns a PhpUnit\Framework\Constraint\IsEqual matcher object
-     * that is wrapped in a PHPUnit_Framework_Constraint_Attribute matcher
+     * that is wrapped in a PhpUnit\Framework\Constraint\Attribute matcher
      * object.
      *
      * @param  string                                 $attributeName
@@ -2374,7 +2373,7 @@ abstract class Assert
      * @param  int                                    $maxDepth
      * @param  bool                                   $canonicalize
      * @param  bool                                   $ignoreCase
-     * @return PHPUnit_Framework_Constraint_Attribute
+     * @return \PhpUnit\Framework\Constraint\Attribute
      * @since  Method available since Release 3.1.0
      */
     public static function attributeEqualTo($attributeName, $value, $delta = 0.0, $maxDepth = 10, $canonicalize = false, $ignoreCase = false)

@@ -3080,7 +3080,7 @@ EOF
 
     /**
      * @covers \PhpUnit\Framework\Assert::attributeEqualTo
-     * @covers PHPUnit_Framework_Constraint_Attribute
+     * @covers \PhpUnit\Framework\Constraint\Attribute
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testAttributeEqualTo()
@@ -3116,7 +3116,7 @@ EOF
 
     /**
      * @covers \PhpUnit\Framework\Assert::attributeEqualTo
-     * @covers PHPUnit_Framework_Constraint_Attribute
+     * @covers \PhpUnit\Framework\Constraint\Attribute
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
     public function testAttributeEqualTo2()
@@ -3145,7 +3145,7 @@ EOF
     /**
      * @covers \PhpUnit\Framework\Assert::attributeEqualTo
      * @covers \PhpUnit\Framework\Assert::logicalNot
-     * @covers PHPUnit_Framework_Constraint_Attribute
+     * @covers \PhpUnit\Framework\Constraint\Attribute
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
@@ -3187,7 +3187,7 @@ EOF
     /**
      * @covers \PhpUnit\Framework\Assert::attributeEqualTo
      * @covers \PhpUnit\Framework\Assert::logicalNot
-     * @covers PHPUnit_Framework_Constraint_Attribute
+     * @covers \PhpUnit\Framework\Constraint\Attribute
      * @covers \PhpUnit\Framework\Constraint\LogicalNot
      * @covers \PhpUnit\Framework\TestFailure::exceptionToString
      */
