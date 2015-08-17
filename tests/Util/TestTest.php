@@ -9,6 +9,7 @@
  */
 
 use PhpUnit\Framework\TestCase;
+use PhpUnit\Util\Test as TestUtil;
 
 if (!defined('TEST_FILES_PATH')) {
     define(
@@ -24,108 +25,108 @@ if (!defined('TEST_FILES_PATH')) {
 class Util_TestTest extends TestCase
 {
     /**
-     * @covers PHPUnit_Util_Test::getExpectedException
+     * @covers \PhpUnit\Util\Test::getExpectedException
      * @todo   Split up in separate tests
      */
     public function testGetExpectedException()
     {
         $this->assertArraySubset(
-          ['class' => 'FooBarBaz', 'code' => null, 'message' => ''],
-          PHPUnit_Util_Test::getExpectedException('ExceptionTest', 'testOne')
+            ['class' => 'FooBarBaz', 'code' => null, 'message' => ''],
+            TestUtil::getExpectedException('ExceptionTest', 'testOne')
         );
 
         $this->assertArraySubset(
-          ['class' => 'Foo_Bar_Baz', 'code' => null, 'message' => ''],
-          PHPUnit_Util_Test::getExpectedException('ExceptionTest', 'testTwo')
+            ['class' => 'Foo_Bar_Baz', 'code' => null, 'message' => ''],
+            TestUtil::getExpectedException('ExceptionTest', 'testTwo')
         );
 
         $this->assertArraySubset(
-          ['class' => 'Foo\Bar\Baz', 'code' => null, 'message' => ''],
-          PHPUnit_Util_Test::getExpectedException('ExceptionTest', 'testThree')
+            ['class' => 'Foo\Bar\Baz', 'code' => null, 'message' => ''],
+            TestUtil::getExpectedException('ExceptionTest', 'testThree')
         );
 
         $this->assertArraySubset(
-          ['class' => 'ほげ', 'code' => null, 'message' => ''],
-          PHPUnit_Util_Test::getExpectedException('ExceptionTest', 'testFour')
+            ['class' => 'ほげ', 'code' => null, 'message' => ''],
+            TestUtil::getExpectedException('ExceptionTest', 'testFour')
         );
 
         $this->assertArraySubset(
-          ['class' => 'Class', 'code' => 1234, 'message' => 'Message'],
-          PHPUnit_Util_Test::getExpectedException('ExceptionTest', 'testFive')
+            ['class' => 'Class', 'code' => 1234, 'message' => 'Message'],
+            TestUtil::getExpectedException('ExceptionTest', 'testFive')
         );
 
         $this->assertArraySubset(
-          ['class' => 'Class', 'code' => 1234, 'message' => 'Message'],
-          PHPUnit_Util_Test::getExpectedException('ExceptionTest', 'testSix')
+            ['class' => 'Class', 'code' => 1234, 'message' => 'Message'],
+            TestUtil::getExpectedException('ExceptionTest', 'testSix')
         );
 
         $this->assertArraySubset(
-          ['class' => 'Class', 'code' => 'ExceptionCode', 'message' => 'Message'],
-          PHPUnit_Util_Test::getExpectedException('ExceptionTest', 'testSeven')
+            ['class' => 'Class', 'code' => 'ExceptionCode', 'message' => 'Message'],
+            TestUtil::getExpectedException('ExceptionTest', 'testSeven')
         );
 
         $this->assertArraySubset(
-          ['class' => 'Class', 'code' => 0, 'message' => 'Message'],
-          PHPUnit_Util_Test::getExpectedException('ExceptionTest', 'testEight')
+            ['class' => 'Class', 'code' => 0, 'message' => 'Message'],
+            TestUtil::getExpectedException('ExceptionTest', 'testEight')
         );
 
         $this->assertArraySubset(
-          ['class' => 'Class', 'code' => ExceptionTest::ERROR_CODE, 'message' => ExceptionTest::ERROR_MESSAGE],
-          PHPUnit_Util_Test::getExpectedException('ExceptionTest', 'testNine')
+            ['class' => 'Class', 'code' => ExceptionTest::ERROR_CODE, 'message' => ExceptionTest::ERROR_MESSAGE],
+            TestUtil::getExpectedException('ExceptionTest', 'testNine')
         );
 
         $this->assertArraySubset(
-          ['class' => 'Class', 'code' => null, 'message' => ''],
-          PHPUnit_Util_Test::getExpectedException('ExceptionTest', 'testSingleLine')
+            ['class' => 'Class', 'code' => null, 'message' => ''],
+            TestUtil::getExpectedException('ExceptionTest', 'testSingleLine')
         );
 
         $this->assertArraySubset(
-          ['class' => 'Class', 'code' => My\Space\ExceptionNamespaceTest::ERROR_CODE, 'message' => My\Space\ExceptionNamespaceTest::ERROR_MESSAGE],
-          PHPUnit_Util_Test::getExpectedException('My\Space\ExceptionNamespaceTest', 'testConstants')
+            ['class' => 'Class', 'code' => My\Space\ExceptionNamespaceTest::ERROR_CODE, 'message' => My\Space\ExceptionNamespaceTest::ERROR_MESSAGE],
+            TestUtil::getExpectedException('My\Space\ExceptionNamespaceTest', 'testConstants')
         );
 
         // Ensure the Class::CONST expression is only evaluated when the constant really exists
         $this->assertArraySubset(
-          ['class' => 'Class', 'code' => 'ExceptionTest::UNKNOWN_CODE_CONSTANT', 'message' => 'ExceptionTest::UNKNOWN_MESSAGE_CONSTANT'],
-          PHPUnit_Util_Test::getExpectedException('ExceptionTest', 'testUnknownConstants')
+            ['class' => 'Class', 'code' => 'ExceptionTest::UNKNOWN_CODE_CONSTANT', 'message' => 'ExceptionTest::UNKNOWN_MESSAGE_CONSTANT'],
+            TestUtil::getExpectedException('ExceptionTest', 'testUnknownConstants')
         );
 
         $this->assertArraySubset(
-          ['class' => 'Class', 'code' => 'My\Space\ExceptionNamespaceTest::UNKNOWN_CODE_CONSTANT', 'message' => 'My\Space\ExceptionNamespaceTest::UNKNOWN_MESSAGE_CONSTANT'],
-          PHPUnit_Util_Test::getExpectedException('My\Space\ExceptionNamespaceTest', 'testUnknownConstants')
+            ['class' => 'Class', 'code' => 'My\Space\ExceptionNamespaceTest::UNKNOWN_CODE_CONSTANT', 'message' => 'My\Space\ExceptionNamespaceTest::UNKNOWN_MESSAGE_CONSTANT'],
+            TestUtil::getExpectedException('My\Space\ExceptionNamespaceTest', 'testUnknownConstants')
         );
     }
 
     /**
-     * @covers PHPUnit_Util_Test::getExpectedException
+     * @covers \PhpUnit\Util\Test::getExpectedException
      */
     public function testGetExpectedRegExp()
     {
         $this->assertArraySubset(
-          ['message_regex' => '#regex#'],
-          PHPUnit_Util_Test::getExpectedException('ExceptionTest', 'testWithRegexMessage')
+            ['message_regex' => '#regex#'],
+            TestUtil::getExpectedException('ExceptionTest', 'testWithRegexMessage')
         );
 
         $this->assertArraySubset(
-          ['message_regex' => '#regex#'],
-          PHPUnit_Util_Test::getExpectedException('ExceptionTest', 'testWithRegexMessageFromClassConstant')
+            ['message_regex' => '#regex#'],
+            TestUtil::getExpectedException('ExceptionTest', 'testWithRegexMessageFromClassConstant')
         );
 
         $this->assertArraySubset(
-          ['message_regex' => 'ExceptionTest::UNKNOWN_MESSAGE_REGEX_CONSTANT'],
-          PHPUnit_Util_Test::getExpectedException('ExceptionTest', 'testWithUnknowRegexMessageFromClassConstant')
+            ['message_regex' => 'ExceptionTest::UNKNOWN_MESSAGE_REGEX_CONSTANT'],
+            TestUtil::getExpectedException('ExceptionTest', 'testWithUnknowRegexMessageFromClassConstant')
         );
     }
 
     /**
-     * @covers       PHPUnit_Util_Test::getRequirements
+     * @covers       \PhpUnit\Util\Test::getRequirements
      * @dataProvider requirementsProvider
      */
     public function testGetRequirements($test, $result)
     {
         $this->assertEquals(
             $result,
-            PHPUnit_Util_Test::getRequirements('RequirementsTest', $test)
+            TestUtil::getRequirements('RequirementsTest', $test)
         );
     }
 
@@ -170,7 +171,7 @@ class Util_TestTest extends TestCase
     }
 
     /**
-     * @covers PHPUnit_Util_Test::getRequirements
+     * @covers \PhpUnit\Util\Test::getRequirements
      */
     public function testGetRequirementsMergesClassAndMethodDocBlocks()
     {
@@ -190,19 +191,19 @@ class Util_TestTest extends TestCase
 
         $this->assertEquals(
             $expectedAnnotations,
-            PHPUnit_Util_Test::getRequirements('RequirementsClassDocBlockTest', 'testMethod')
+            TestUtil::getRequirements('RequirementsClassDocBlockTest', 'testMethod')
         );
     }
 
     /**
-     * @covers       PHPUnit_Util_Test::getMissingRequirements
+     * @covers       \PhpUnit\Util\Test::getMissingRequirements
      * @dataProvider missingRequirementsProvider
      */
     public function testGetMissingRequirements($test, $result)
     {
         $this->assertEquals(
             $result,
-            PHPUnit_Util_Test::getMissingRequirements('RequirementsTest', $test)
+            TestUtil::getMissingRequirements('RequirementsTest', $test)
         );
     }
 
@@ -229,57 +230,57 @@ class Util_TestTest extends TestCase
 
     /**
      * @coversNothing
-     * @todo   This test does not really test functionality of PHPUnit_Util_Test
+     * @todo   This test does not really test functionality of PhpUnit\Util\Test
      */
     public function testGetProvidedDataRegEx()
     {
-        $result = preg_match(PHPUnit_Util_Test::REGEX_DATA_PROVIDER, '@dataProvider method', $matches);
+        $result = preg_match(TestUtil::REGEX_DATA_PROVIDER, '@dataProvider method', $matches);
         $this->assertEquals(1, $result);
         $this->assertEquals('method', $matches[1]);
 
-        $result = preg_match(PHPUnit_Util_Test::REGEX_DATA_PROVIDER, '@dataProvider class::method', $matches);
+        $result = preg_match(TestUtil::REGEX_DATA_PROVIDER, '@dataProvider class::method', $matches);
         $this->assertEquals(1, $result);
         $this->assertEquals('class::method', $matches[1]);
 
-        $result = preg_match(PHPUnit_Util_Test::REGEX_DATA_PROVIDER, '@dataProvider namespace\class::method', $matches);
+        $result = preg_match(TestUtil::REGEX_DATA_PROVIDER, '@dataProvider namespace\class::method', $matches);
         $this->assertEquals(1, $result);
         $this->assertEquals('namespace\class::method', $matches[1]);
 
-        $result = preg_match(PHPUnit_Util_Test::REGEX_DATA_PROVIDER, '@dataProvider namespace\namespace\class::method', $matches);
+        $result = preg_match(TestUtil::REGEX_DATA_PROVIDER, '@dataProvider namespace\namespace\class::method', $matches);
         $this->assertEquals(1, $result);
         $this->assertEquals('namespace\namespace\class::method', $matches[1]);
 
-        $result = preg_match(PHPUnit_Util_Test::REGEX_DATA_PROVIDER, '@dataProvider メソッド', $matches);
+        $result = preg_match(TestUtil::REGEX_DATA_PROVIDER, '@dataProvider メソッド', $matches);
         $this->assertEquals(1, $result);
         $this->assertEquals('メソッド', $matches[1]);
     }
 
     /**
-     * @covers PHPUnit_Util_Test::getDataFromTestWithAnnotation
+     * @covers \PhpUnit\Util\Test::getDataFromTestWithAnnotation
      */
     public function testTestWithEmptyAnnotation()
     {
-        $result = PHPUnit_Util_Test::getDataFromTestWithAnnotation("/**\n * @anotherAnnotation\n */");
+        $result = TestUtil::getDataFromTestWithAnnotation("/**\n * @anotherAnnotation\n */");
         $this->assertNull($result);
     }
 
     /**
-     * @covers PHPUnit_Util_Test::getDataFromTestWithAnnotation
+     * @covers \PhpUnit\Util\Test::getDataFromTestWithAnnotation
      */
     public function testTestWithSimpleCase()
     {
-        $result = PHPUnit_Util_Test::getDataFromTestWithAnnotation('/**
+        $result = TestUtil::getDataFromTestWithAnnotation('/**
                                                                      * @testWith [1]
                                                                      */');
         $this->assertEquals([[1]], $result);
     }
 
     /**
-     * @covers PHPUnit_Util_Test::getDataFromTestWithAnnotation
+     * @covers \PhpUnit\Util\Test::getDataFromTestWithAnnotation
      */
     public function testTestWithMultiLineMultiParameterCase()
     {
-        $result = PHPUnit_Util_Test::getDataFromTestWithAnnotation('/**
+        $result = TestUtil::getDataFromTestWithAnnotation('/**
                                                                      * @testWith [1, 2]
                                                                      * [3, 4]
                                                                      */');
@@ -287,11 +288,11 @@ class Util_TestTest extends TestCase
     }
 
     /**
-     * @covers PHPUnit_Util_Test::getDataFromTestWithAnnotation
+     * @covers \PhpUnit\Util\Test::getDataFromTestWithAnnotation
      */
     public function testTestWithVariousTypes()
     {
-        $result = PHPUnit_Util_Test::getDataFromTestWithAnnotation('/**
+        $result = TestUtil::getDataFromTestWithAnnotation('/**
             * @testWith ["ab"]
             *           [true]
             *           [null]
@@ -300,44 +301,44 @@ class Util_TestTest extends TestCase
     }
 
     /**
-     * @covers PHPUnit_Util_Test::getDataFromTestWithAnnotation
+     * @covers \PhpUnit\Util\Test::getDataFromTestWithAnnotation
      */
     public function testTestWithAnnotationAfter()
     {
-        $result = PHPUnit_Util_Test::getDataFromTestWithAnnotation('/**
-                                                                     * @testWith [1]
-                                                                     *           [2]
-                                                                     * @annotation
-                                                                     */');
+        $result = TestUtil::getDataFromTestWithAnnotation('/**
+                                                            * @testWith [1]
+                                                            *           [2]
+                                                            * @annotation
+                                                            */');
         $this->assertEquals([[1], [2]], $result);
     }
 
     /**
-     * @covers PHPUnit_Util_Test::getDataFromTestWithAnnotation
+     * @covers \PhpUnit\Util\Test::getDataFromTestWithAnnotation
      */
     public function testTestWithSimpleTextAfter()
     {
-        $result = PHPUnit_Util_Test::getDataFromTestWithAnnotation('/**
-                                                                     * @testWith [1]
-                                                                     *           [2]
-                                                                     * blah blah
-                                                                     */');
+        $result = TestUtil::getDataFromTestWithAnnotation('/**
+                                                            * @testWith [1]
+                                                            *           [2]
+                                                            * blah blah
+                                                            */');
         $this->assertEquals([[1], [2]], $result);
     }
 
     /**
-     * @covers PHPUnit_Util_Test::getDataFromTestWithAnnotation
+     * @covers \PhpUnit\Util\Test::getDataFromTestWithAnnotation
      */
     public function testTestWithCharacterEscape()
     {
-        $result = PHPUnit_Util_Test::getDataFromTestWithAnnotation('/**
-                                                                     * @testWith ["\"", "\""]
-                                                                     */');
+        $result = TestUtil::getDataFromTestWithAnnotation('/**
+                                                            * @testWith ["\"", "\""]
+                                                            */');
         $this->assertEquals([['"', '"']], $result);
     }
 
     /**
-     * @covers PHPUnit_Util_Test::getDataFromTestWithAnnotation
+     * @covers \PhpUnit\Util\Test::getDataFromTestWithAnnotation
      */
     public function testTestWithThrowsProperExceptionIfDatasetCannotBeParsed()
     {
@@ -345,20 +346,20 @@ class Util_TestTest extends TestCase
             'PhpUnit\\Framework\\Exception',
             '/^The dataset for the @testWith annotation cannot be parsed.$/'
         );
-        PHPUnit_Util_Test::getDataFromTestWithAnnotation('/**
-                                                           * @testWith [s]
-                                                           */');
+        TestUtil::getDataFromTestWithAnnotation('/**
+                                                  * @testWith [s]
+                                                  */');
     }
 
     /**
-     * @covers PHPUnit_Util_Test::getDependencies
+     * @covers \PhpUnit\Util\Test::getDependencies
      * @todo   Not sure what this test tests (name is misleading at least)
      */
     public function testParseAnnotation()
     {
         $this->assertEquals(
             ['Foo', 'ほげ'],
-            PHPUnit_Util_Test::getDependencies(get_class($this), 'methodForTestParseAnnotation')
+            TestUtil::getDependencies(get_class($this), 'methodForTestParseAnnotation')
         );
     }
 
@@ -372,13 +373,13 @@ class Util_TestTest extends TestCase
     }
 
     /**
-     * @covers PHPUnit_Util_Test::getDependencies
+     * @covers \PhpUnit\Util\Test::getDependencies
      */
     public function testParseAnnotationThatIsOnlyOneLine()
     {
         $this->assertEquals(
             ['Bar'],
-            PHPUnit_Util_Test::getDependencies(get_class($this), 'methodForTestParseAnnotationThatIsOnlyOneLine')
+            TestUtil::getDependencies(get_class($this), 'methodForTestParseAnnotationThatIsOnlyOneLine')
         );
     }
 
@@ -389,9 +390,9 @@ class Util_TestTest extends TestCase
     }
 
     /**
-     * @covers       PHPUnit_Util_Test::getLinesToBeCovered
-     * @covers       PHPUnit_Util_Test::getLinesToBeCoveredOrUsed
-     * @covers       PHPUnit_Util_Test::resolveElementToReflectionObjects
+     * @covers       \PhpUnit\Util\Test::getLinesToBeCovered
+     * @covers       \PhpUnit\Util\Test::getLinesToBeCoveredOrUsed
+     * @covers       \PhpUnit\Util\Test::resolveElementToReflectionObjects
      * @dataProvider getLinesToBeCoveredProvider
      */
     public function testGetLinesToBeCovered($test, $lines)
@@ -414,60 +415,60 @@ class Util_TestTest extends TestCase
 
         $this->assertEquals(
             $expected,
-            PHPUnit_Util_Test::getLinesToBeCovered(
+            TestUtil::getLinesToBeCovered(
                 $test, 'testSomething'
             )
         );
     }
 
     /**
-     * @covers            PHPUnit_Util_Test::getLinesToBeCovered
-     * @covers            PHPUnit_Util_Test::getLinesToBeCoveredOrUsed
-     * @covers            PHPUnit_Util_Test::resolveElementToReflectionObjects
+     * @covers            \PhpUnit\Util\Test::getLinesToBeCovered
+     * @covers            \PhpUnit\Util\Test::getLinesToBeCoveredOrUsed
+     * @covers            \PhpUnit\Util\Test::resolveElementToReflectionObjects
      * @expectedException \PhpUnit\Framework\CodeCoverageException
      */
     public function testGetLinesToBeCovered2()
     {
-        PHPUnit_Util_Test::getLinesToBeCovered(
+        TestUtil::getLinesToBeCovered(
             'NotExistingCoveredElementTest', 'testOne'
         );
     }
 
     /**
-     * @covers            PHPUnit_Util_Test::getLinesToBeCovered
-     * @covers            PHPUnit_Util_Test::getLinesToBeCoveredOrUsed
-     * @covers            PHPUnit_Util_Test::resolveElementToReflectionObjects
+     * @covers            \PhpUnit\Util\Test::getLinesToBeCovered
+     * @covers            \PhpUnit\Util\Test::getLinesToBeCoveredOrUsed
+     * @covers            \PhpUnit\Util\Test::resolveElementToReflectionObjects
      * @expectedException \PhpUnit\Framework\CodeCoverageException
      */
     public function testGetLinesToBeCovered3()
     {
-        PHPUnit_Util_Test::getLinesToBeCovered(
+        TestUtil::getLinesToBeCovered(
             'NotExistingCoveredElementTest', 'testTwo'
         );
     }
 
     /**
-     * @covers            PHPUnit_Util_Test::getLinesToBeCovered
-     * @covers            PHPUnit_Util_Test::getLinesToBeCoveredOrUsed
-     * @covers            PHPUnit_Util_Test::resolveElementToReflectionObjects
+     * @covers            \PhpUnit\Util\Test::getLinesToBeCovered
+     * @covers            \PhpUnit\Util\Test::getLinesToBeCoveredOrUsed
+     * @covers            \PhpUnit\Util\Test::resolveElementToReflectionObjects
      * @expectedException \PhpUnit\Framework\CodeCoverageException
      */
     public function testGetLinesToBeCovered4()
     {
-        PHPUnit_Util_Test::getLinesToBeCovered(
+        TestUtil::getLinesToBeCovered(
             'NotExistingCoveredElementTest', 'testThree'
         );
     }
 
     /**
-     * @covers PHPUnit_Util_Test::getLinesToBeCovered
-     * @covers PHPUnit_Util_Test::getLinesToBeCoveredOrUsed
+     * @covers \PhpUnit\Util\Test::getLinesToBeCovered
+     * @covers \PhpUnit\Util\Test::getLinesToBeCoveredOrUsed
      */
     public function testGetLinesToBeCoveredSkipsNonExistentMethods()
     {
         $this->assertSame(
             [],
-            PHPUnit_Util_Test::getLinesToBeCovered(
+            TestUtil::getLinesToBeCovered(
                 'NotExistingCoveredElementTest',
                 'methodDoesNotExist'
             )
@@ -475,27 +476,27 @@ class Util_TestTest extends TestCase
     }
 
     /**
-     * @covers            PHPUnit_Util_Test::getLinesToBeCovered
-     * @covers            PHPUnit_Util_Test::getLinesToBeCoveredOrUsed
+     * @covers            \PhpUnit\Util\Test::getLinesToBeCovered
+     * @covers            \PhpUnit\Util\Test::getLinesToBeCoveredOrUsed
      * @expectedException \PhpUnit\Framework\CodeCoverageException
      */
     public function testTwoCoversDefaultClassAnnoationsAreNotAllowed()
     {
-        PHPUnit_Util_Test::getLinesToBeCovered(
+        TestUtil::getLinesToBeCovered(
             'CoverageTwoDefaultClassAnnotations',
             'testSomething'
         );
     }
 
     /**
-     * @covers PHPUnit_Util_Test::getLinesToBeCovered
-     * @covers PHPUnit_Util_Test::getLinesToBeCoveredOrUsed
+     * @covers \PhpUnit\Util\Test::getLinesToBeCovered
+     * @covers \PhpUnit\Util\Test::getLinesToBeCoveredOrUsed
      */
     public function testFunctionParenthesesAreAllowed()
     {
         $this->assertSame(
             [TEST_FILES_PATH . 'CoveredFunction.php' => range(2, 4)],
-            PHPUnit_Util_Test::getLinesToBeCovered(
+            TestUtil::getLinesToBeCovered(
                 'CoverageFunctionParenthesesTest',
                 'testSomething'
             )
@@ -503,14 +504,14 @@ class Util_TestTest extends TestCase
     }
 
     /**
-     * @covers PHPUnit_Util_Test::getLinesToBeCovered
-     * @covers PHPUnit_Util_Test::getLinesToBeCoveredOrUsed
+     * @covers \PhpUnit\Util\Test::getLinesToBeCovered
+     * @covers \PhpUnit\Util\Test::getLinesToBeCoveredOrUsed
      */
     public function testFunctionParenthesesAreAllowedWithWhitespace()
     {
         $this->assertSame(
             [TEST_FILES_PATH . 'CoveredFunction.php' => range(2, 4)],
-            PHPUnit_Util_Test::getLinesToBeCovered(
+            TestUtil::getLinesToBeCovered(
                 'CoverageFunctionParenthesesWhitespaceTest',
                 'testSomething'
             )
@@ -518,14 +519,14 @@ class Util_TestTest extends TestCase
     }
 
     /**
-     * @covers PHPUnit_Util_Test::getLinesToBeCovered
-     * @covers PHPUnit_Util_Test::getLinesToBeCoveredOrUsed
+     * @covers \PhpUnit\Util\Test::getLinesToBeCovered
+     * @covers \PhpUnit\Util\Test::getLinesToBeCoveredOrUsed
      */
     public function testMethodParenthesesAreAllowed()
     {
         $this->assertSame(
             [TEST_FILES_PATH . 'CoveredClass.php' => range(31, 35)],
-            PHPUnit_Util_Test::getLinesToBeCovered(
+            TestUtil::getLinesToBeCovered(
                 'CoverageMethodParenthesesTest',
                 'testSomething'
             )
@@ -533,14 +534,14 @@ class Util_TestTest extends TestCase
     }
 
     /**
-     * @covers PHPUnit_Util_Test::getLinesToBeCovered
-     * @covers PHPUnit_Util_Test::getLinesToBeCoveredOrUsed
+     * @covers \PhpUnit\Util\Test::getLinesToBeCovered
+     * @covers \PhpUnit\Util\Test::getLinesToBeCoveredOrUsed
      */
     public function testMethodParenthesesAreAllowedWithWhitespace()
     {
         $this->assertSame(
             [TEST_FILES_PATH . 'CoveredClass.php' => range(31, 35)],
-            PHPUnit_Util_Test::getLinesToBeCovered(
+            TestUtil::getLinesToBeCovered(
                 'CoverageMethodParenthesesWhitespaceTest',
                 'testSomething'
             )

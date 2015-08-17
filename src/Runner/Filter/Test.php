@@ -9,6 +9,7 @@
  */
 
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Util\Test as TestUtil;
 
 /**
  * @since Class available since Release 4.0.0
@@ -98,7 +99,7 @@ class PHPUnit_Runner_Filter_Test extends RecursiveFilterIterator
             return true;
         }
 
-        $tmp = PHPUnit_Util_Test::describe($test, false);
+        $tmp = TestUtil::describe($test, false);
 
         if ($tmp[0] != '') {
             $name = implode('::', $tmp);

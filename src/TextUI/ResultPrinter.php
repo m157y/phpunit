@@ -16,6 +16,7 @@ use PhpUnit\Framework\TestFailure;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestResult;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Util\Test as TestUtil;
 use SebastianBergmann\Environment\Console;
 
 /**
@@ -506,7 +507,7 @@ class PHPUnit_TextUI_ResultPrinter extends PHPUnit_Util_Printer implements TestL
             $this->write(
                 sprintf(
                     "\nStarting test '%s'.\n",
-                    PHPUnit_Util_Test::describe($test)
+                    TestUtil::describe($test)
                 )
             );
         }

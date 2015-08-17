@@ -14,6 +14,7 @@ use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
 use PhpUnit\Framework\Warning;
+use PhpUnit\Util\Test as TestUtil;
 
 /**
  * Base class for test listeners that interact with an issue tracker.
@@ -122,7 +123,7 @@ abstract class PHPUnit_Extensions_TicketListener implements TestListener
             }
 
             $name    = $test->getName(false);
-            $tickets = PHPUnit_Util_Test::getTickets(get_class($test), $name);
+            $tickets = TestUtil::getTickets(get_class($test), $name);
 
             foreach ($tickets as $ticket) {
                 $this->ticketCounts[$ticket][$name] = 1;
@@ -158,7 +159,7 @@ abstract class PHPUnit_Extensions_TicketListener implements TestListener
             }
 
             $name    = $test->getName(false);
-            $tickets = PHPUnit_Util_Test::getTickets(get_class($test), $name);
+            $tickets = TestUtil::getTickets(get_class($test), $name);
 
             foreach ($tickets as $ticket) {
                 // Remove this test from the totals (if it passed).

@@ -10,6 +10,7 @@
 
 use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Util\Test as TestUtil;
 use PhpUnit\Util\TestSuiteIterator;
 
 /**
@@ -45,7 +46,7 @@ class PHPUnit_Extensions_GroupTestSuite extends TestSuite
 
         foreach ($tests as $test) {
             if ($test instanceof TestCase) {
-                $testGroups = PHPUnit_Util_Test::getGroups(
+                $testGroups = TestUtil::getGroups(
                     get_class($test),
                     $test->getName(false)
                 );

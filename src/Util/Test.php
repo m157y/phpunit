@@ -8,19 +8,26 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Util;
+
+use PHPUnit_Runner_Version;
 use PhpUnit\Framework\CodeCoverageException;
 use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\InvalidCoversTargetException;
 use PhpUnit\Framework\SelfDescribing;
-use PhpUnit\Framework\Test;
+use PhpUnit\Framework\Test as TestInterface;
 use PhpUnit\Framework\TestCase;
+use ReflectionClass;
+use ReflectionException;
+use ReflectionFunction;
+use ReflectionMethod;
 
 /**
  * Test helpers.
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Util_Test
+class Test
 {
     const REGEX_DATA_PROVIDER      = '/@dataProvider\s+([a-zA-Z0-9._:-\\\\x7f-\xff]+)/';
     const REGEX_TEST_WITH          = '/@testWith\s+/';
@@ -43,7 +50,7 @@ class PHPUnit_Util_Test
      * @param  bool                    $asString
      * @return mixed
      */
-    public static function describe(Test $test, $asString = true)
+    public static function describe(TestInterface $test, $asString = true)
     {
         if ($asString) {
             if ($test instanceof SelfDescribing) {
@@ -340,7 +347,7 @@ class PHPUnit_Util_Test
      *
      * @param  string                      $className
      * @param  string                      $methodName
-     * @return array|Iterator              when a data provider is specified and exists
+     * @return array|\Iterator             when a data provider is specified and exists
      *                                                null           when no data provider is specified
      * @throws \PhpUnit\Framework\Exception
      * @since  Method available since Release 3.2.0
@@ -385,7 +392,7 @@ class PHPUnit_Util_Test
      * @param  string                      $docComment
      * @param  string                      $className
      * @param  string                      $methodName
-     * @return array|Iterator              when a data provider is specified and exists
+     * @return array|\Iterator             when a data provider is specified and exists
      *                                                null           when no data provider is specified
      * @throws \PhpUnit\Framework\Exception
      */
@@ -473,7 +480,7 @@ class PHPUnit_Util_Test
      * @param  string              $className
      * @param  string              $methodName
      * @return array
-     * @throws ReflectionException
+     * @throws \ReflectionException
      * @since  Method available since Release 3.4.0
      */
     public static function parseTestMethodAnnotations($className, $methodName = '')

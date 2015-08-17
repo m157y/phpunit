@@ -16,6 +16,7 @@ use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestFailure;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Util\Test as TestUtil;
 
 /**
  * A TestListener that generates a logfile of the
@@ -209,7 +210,7 @@ class PHPUnit_Util_Log_TAP extends PHPUnit_Util_Printer implements TestListener
                 sprintf(
                     "ok %d - %s\n",
                     $this->testNumber,
-                    PHPUnit_Util_Test::describe($test)
+                    TestUtil::describe($test)
                 )
             );
         }
@@ -229,7 +230,7 @@ class PHPUnit_Util_Log_TAP extends PHPUnit_Util_Printer implements TestListener
                 "not ok %d - %s%s%s\n",
                 $this->testNumber,
                 $prefix != '' ? $prefix . ': ' : '',
-                PHPUnit_Util_Test::describe($test),
+                TestUtil::describe($test),
                 $directive != '' ? ' # ' . $directive : ''
             )
         );

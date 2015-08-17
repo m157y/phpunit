@@ -13,6 +13,7 @@ use PhpUnit\Framework\AssertionFailedError;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Util\Test as TestUtil;
 
 /**
  * A TestListener that generates JSON messages.
@@ -174,7 +175,7 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements TestListener
      */
     public function startTest(Test $test)
     {
-        $this->currentTestName = PHPUnit_Util_Test::describe($test);
+        $this->currentTestName = TestUtil::describe($test);
         $this->currentTestPass = true;
 
         $this->write(

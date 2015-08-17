@@ -18,8 +18,8 @@ use PHPUnit_Runner_BaseTestRunner;
 use PHPUnit_Runner_Filter_Factory;
 use PHPUnit_Util_Fileloader;
 use PHPUnit_Util_InvalidArgumentHelper;
-use PHPUnit_Util_Test;
 use PhpUnit\Framework\TestSuite\DataProvider;
+use PhpUnit\Util\Test as TestUtil;
 use PhpUnit\Util\TestSuiteIterator;
 use ReflectionClass;
 use ReflectionMethod;
@@ -458,17 +458,17 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
             );
         }
 
-        $backupSettings = PHPUnit_Util_Test::getBackupSettings(
+        $backupSettings = TestUtil::getBackupSettings(
             $className,
             $name
         );
 
-        $preserveGlobalState = PHPUnit_Util_Test::getPreserveGlobalStateSettings(
+        $preserveGlobalState = TestUtil::getPreserveGlobalStateSettings(
             $className,
             $name
         );
 
-        $runTestInSeparateProcess = PHPUnit_Util_Test::getProcessIsolationSettings(
+        $runTestInSeparateProcess = TestUtil::getProcessIsolationSettings(
             $className,
             $name
         );
@@ -484,7 +484,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
             } // TestCase($name, $data)
             else {
                 try {
-                    $data = PHPUnit_Util_Test::getProvidedData(
+                    $data = TestUtil::getProvidedData(
                         $className,
                         $name
                     );
@@ -553,7 +553,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
                         );
                     }
 
-                    $groups = PHPUnit_Util_Test::getGroups($className, $name);
+                    $groups = TestUtil::getGroups($className, $name);
 
                     if ($data instanceof Warning ||
                         $data instanceof SkippedTestCase ||
@@ -684,7 +684,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
             return $result;
         }
 
-        $hookMethods = PHPUnit_Util_Test::getHookMethods($this->name);
+        $hookMethods = TestUtil::getHookMethods($this->name);
 
         $result->startTestSuite($this);
 
@@ -695,7 +695,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
                 if ($this->testCase === true &&
                     class_exists($this->name, false) &&
                     method_exists($this->name, $beforeClassMethod)) {
-                    if ($missingRequirements = PHPUnit_Util_Test::getMissingRequirements($this->name, $beforeClassMethod)) {
+                    if ($missingRequirements = TestUtil::getMissingRequirements($this->name, $beforeClassMethod)) {
                         $this->markTestSuiteSkipped(implode(PHP_EOL, $missingRequirements));
                     }
 
@@ -880,13 +880,13 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
         if ($test instanceof TestCase ||
             $test instanceof DataProvider) {
             $test->setDependencies(
-                PHPUnit_Util_Test::getDependencies($class->getName(), $name)
+                TestUtil::getDependencies($class->getName(), $name)
             );
         }
 
         $this->addTest(
             $test,
-            PHPUnit_Util_Test::getGroups($class->getName(), $name)
+            TestUtil::getGroups($class->getName(), $name)
         );
     }
 

@@ -34,7 +34,7 @@ use PHPUnit_Runner_BaseTestRunner;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_GlobalState;
 use PHPUnit_Util_PHP;
-use PHPUnit_Util_Test;
+use PhpUnit\Util\Test as TestUtil;
 use Prophecy\Exception\Prediction\PredictionException;
 use Prophecy\Prophet;
 use ReflectionClass;
@@ -349,7 +349,7 @@ abstract class TestCase extends Assert implements Test, SelfDescribing
      */
     public function getAnnotations()
     {
-        return PHPUnit_Util_Test::parseTestMethodAnnotations(
+        return TestUtil::parseTestMethodAnnotations(
             get_class($this),
             $this->name
         );
@@ -378,7 +378,7 @@ abstract class TestCase extends Assert implements Test, SelfDescribing
      */
     public function getSize()
     {
-        return PHPUnit_Util_Test::getSize(
+        return TestUtil::getSize(
             get_class($this),
             $this->getName(false)
         );
@@ -508,7 +508,7 @@ abstract class TestCase extends Assert implements Test, SelfDescribing
     protected function setExpectedExceptionFromAnnotation()
     {
         try {
-            $expectedException = PHPUnit_Util_Test::getExpectedException(
+            $expectedException = TestUtil::getExpectedException(
                 get_class($this),
                 $this->name
             );
@@ -547,7 +547,7 @@ abstract class TestCase extends Assert implements Test, SelfDescribing
     protected function setUseErrorHandlerFromAnnotation()
     {
         try {
-            $useErrorHandler = PHPUnit_Util_Test::getErrorHandlerSettings(
+            $useErrorHandler = TestUtil::getErrorHandlerSettings(
                 get_class($this),
                 $this->name
             );
@@ -568,7 +568,7 @@ abstract class TestCase extends Assert implements Test, SelfDescribing
             return;
         }
 
-        $missingRequirements = PHPUnit_Util_Test::getMissingRequirements(
+        $missingRequirements = TestUtil::getMissingRequirements(
             get_class($this),
             $this->name
         );
@@ -760,7 +760,7 @@ abstract class TestCase extends Assert implements Test, SelfDescribing
         clearstatcache();
         $currentWorkingDirectory = getcwd();
 
-        $hookMethods = PHPUnit_Util_Test::getHookMethods(get_class($this));
+        $hookMethods = TestUtil::getHookMethods(get_class($this));
 
         try {
             $hasMetRequirements = false;
@@ -1817,8 +1817,8 @@ abstract class TestCase extends Assert implements Test, SelfDescribing
                 }
 
                 if (isset($passed[$dependency])) {
-                    if ($passed[$dependency]['size'] != PHPUnit_Util_Test::UNKNOWN &&
-                        $this->getSize() != PHPUnit_Util_Test::UNKNOWN &&
+                    if ($passed[$dependency]['size'] != TestUtil::UNKNOWN &&
+                        $this->getSize() != TestUtil::UNKNOWN &&
                         $passed[$dependency]['size'] > $this->getSize()) {
                         $this->result->addError(
                             $this,
