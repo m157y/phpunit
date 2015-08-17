@@ -15,8 +15,8 @@ use Countable;
 use DOMDocument;
 use DOMElement;
 use PHPUnit_Util_InvalidArgumentHelper;
-use PHPUnit_Util_Type;
 use PhpUnit\Framework\Constraint;
+use PhpUnit\Util\Type as TypeUtil;
 use PhpUnit\Util\Xml as XmlUtil;
 use ReflectionClass;
 use ReflectionException;
@@ -284,7 +284,7 @@ abstract class Assert
         }
 
         if ($isNativeType == null) {
-            $isNativeType = PHPUnit_Util_Type::isType($type);
+            $isNativeType = TypeUtil::isType($type);
         }
 
         self::assertThat(
@@ -365,7 +365,7 @@ abstract class Assert
         }
 
         if ($isNativeType == null) {
-            $isNativeType = PHPUnit_Util_Type::isType($type);
+            $isNativeType = TypeUtil::isType($type);
         }
 
         self::assertThat(
