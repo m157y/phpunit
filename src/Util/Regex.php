@@ -8,12 +8,16 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Util;
+
+use PHPUnit_Util_ErrorHandler;
+
 /**
  * Error handler that converts PHP errors and warnings to exceptions.
  *
  * @since Class available since Release 4.2.0
  */
-class PHPUnit_Util_Regex
+class Regex
 {
     public static function pregMatchSafe($pattern, $subject, $matches = null, $flags = 0, $offset = 0)
     {

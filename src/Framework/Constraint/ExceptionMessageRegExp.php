@@ -10,9 +10,9 @@
 
 namespace PhpUnit\Framework\Constraint;
 
-use PHPUnit_Util_Regex;
 use PhpUnit\Framework\Constraint;
 use PhpUnit\Framework\Exception as FrameworkException;
+use PhpUnit\Util\Regex as RegexUtil;
 
 /**
  * @since Class available since Release 4.3.0
@@ -42,7 +42,7 @@ class ExceptionMessageRegExp extends Constraint
      */
     protected function matches($other)
     {
-        $match = PHPUnit_Util_Regex::pregMatchSafe($this->expectedMessageRegExp, $other->getMessage());
+        $match = RegexUtil::pregMatchSafe($this->expectedMessageRegExp, $other->getMessage());
 
         if (false === $match) {
             throw new FrameworkException(

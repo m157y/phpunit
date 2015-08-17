@@ -9,6 +9,7 @@
  */
 
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Util\Regex as RegexUtil;
 use PhpUnit\Util\Test as TestUtil;
 
 /**
@@ -45,7 +46,7 @@ class PHPUnit_Runner_Filter_Test extends RecursiveFilterIterator
      */
     protected function setFilter($filter)
     {
-        if (PHPUnit_Util_Regex::pregMatchSafe($filter, '') === false) {
+        if (RegexUtil::pregMatchSafe($filter, '') === false) {
             // Handles:
             //  * testAssertEqualsSucceeds#4
             //  * testAssertEqualsSucceeds#4-8

@@ -9,6 +9,7 @@
  */
 
 use PhpUnit\Framework\TestCase;
+use PhpUnit\Util\Regex as RegexUtil;
 
 /**
  * @since      Class available since Release 4.2.0
@@ -36,19 +37,19 @@ class Util_RegexTest extends TestCase
 
     /**
      * @dataProvider validRegexpProvider
-     * @covers       PHPUnit_Util_Regex::pregMatchSafe
+     * @covers       \PhpUnit\Util\Regex::pregMatchSafe
      */
     public function testValidRegex($pattern, $subject, $return)
     {
-        $this->assertEquals($return, PHPUnit_Util_Regex::pregMatchSafe($pattern, $subject));
+        $this->assertEquals($return, RegexUtil::pregMatchSafe($pattern, $subject));
     }
 
     /**
      * @dataProvider invalidRegexpProvider
-     * @covers       PHPUnit_Util_Regex::pregMatchSafe
+     * @covers       \PhpUnit\Util\Regex::pregMatchSafe
      */
     public function testInvalidRegex($pattern, $subject)
     {
-        $this->assertFalse(PHPUnit_Util_Regex::pregMatchSafe($pattern, $subject));
+        $this->assertFalse(RegexUtil::pregMatchSafe($pattern, $subject));
     }
 }
