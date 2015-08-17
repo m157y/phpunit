@@ -8,14 +8,22 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Util;
+
+use DOMCharacterData;
+use DOMDocument;
+use DOMElement;
+use DOMNode;
+use PHPUnit_Util_String;
 use PhpUnit\Framework\Exception;
+use ReflectionClass;
 
 /**
  * XML helpers.
  *
  * @since Class available since Release 3.2.0
  */
-class PHPUnit_Util_XML
+class Xml
 {
     /**
      * Load an $actual document into a DOMDocument.  This is called
@@ -31,7 +39,7 @@ class PHPUnit_Util_XML
      * not a string as it currently does.  To load a file into a
      * DOMDocument, use loadFile() instead.
      *
-     * @param  string|DOMDocument $actual
+     * @param  string|\DOMDocument $actual
      * @param  bool               $isHtml
      * @param  string             $filename
      * @param  bool               $xinclude
@@ -129,7 +137,7 @@ class PHPUnit_Util_XML
     }
 
     /**
-     * @param DOMNode $node
+     * @param \DOMNode $node
      * @since  Method available since Release 3.3.0
      */
     public static function removeCharacterDataNodes(DOMNode $node)
@@ -169,7 +177,7 @@ class PHPUnit_Util_XML
     /**
      * "Convert" a DOMElement object into a PHP variable.
      *
-     * @param  DOMElement $element
+     * @param  \DOMElement $element
      * @return mixed
      * @since  Method available since Release 3.4.0
      */

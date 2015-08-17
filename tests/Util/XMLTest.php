@@ -9,10 +9,11 @@
  */
 
 use PhpUnit\Framework\TestCase;
+use PhpUnit\Util\Xml as XmlUtil;
 
 /**
  * @since      Class available since Release 3.3.0
- * @covers     PHPUnit_Util_XML
+ * @covers     \PhpUnit\Util\Xml
  */
 class Util_XMLTest extends TestCase
 {
@@ -23,7 +24,7 @@ class Util_XMLTest extends TestCase
     {
         $e = null;
 
-        $escapedString = PHPUnit_Util_XML::prepareString($char);
+        $escapedString = XmlUtil::prepareString($char);
         $xml           = "<?xml version='1.0' encoding='UTF-8' ?><tag>$escapedString</tag>";
         $dom           = new DomDocument('1.0', 'UTF-8');
 
@@ -33,7 +34,7 @@ class Util_XMLTest extends TestCase
         }
 
         $this->assertNull($e, sprintf(
-            'PHPUnit_Util_XML::prepareString("\x%02x") should not crash DomDocument',
+            'PhpUnit\\Util\\Xml::prepareString("\x%02x") should not crash DomDocument',
             ord($char)
         ));
     }

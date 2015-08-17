@@ -16,8 +16,8 @@ use DOMDocument;
 use DOMElement;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Type;
-use PHPUnit_Util_XML;
 use PhpUnit\Framework\Constraint;
+use PhpUnit\Util\Xml as XmlUtil;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionObject;
@@ -1925,8 +1925,8 @@ abstract class Assert
             }
         }
 
-        PHPUnit_Util_XML::removeCharacterDataNodes($expectedElement);
-        PHPUnit_Util_XML::removeCharacterDataNodes($actualElement);
+        XmlUtil::removeCharacterDataNodes($expectedElement);
+        XmlUtil::removeCharacterDataNodes($actualElement);
 
         self::assertEquals(
             $expectedElement->childNodes->length,

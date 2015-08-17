@@ -10,6 +10,7 @@
 
 use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Util\Xml as XmlUtil;
 
 /**
  * Wrapper for the PHPUnit XML configuration file.
@@ -152,7 +153,7 @@ class PHPUnit_Util_Configuration
     protected function __construct($filename)
     {
         $this->filename = $filename;
-        $this->document = PHPUnit_Util_XML::loadFile($filename, false, true, true);
+        $this->document = XmlUtil::loadFile($filename, false, true, true);
         $this->xpath    = new DOMXPath($this->document);
     }
 
@@ -330,7 +331,7 @@ class PHPUnit_Util_Configuration
                             $argument->tagName == 'directory') {
                                 $arguments[] = $this->toAbsolutePath((string) $argument->nodeValue);
                             } else {
-                                $arguments[] = PHPUnit_Util_XML::xmlToVariable($argument);
+                                $arguments[] = XmlUtil::xmlToVariable($argument);
                             }
                         }
                     }
