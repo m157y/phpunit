@@ -8,9 +8,15 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Util;
+
+use __PHP_Incomplete_Class;
+use ErrorException;
+use PHPUnit_Util_PHP_Default;
+use PHPUnit_Util_PHP_Windows;
 use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\SyntheticError;
-use PhpUnit\Framework\Test;
+use PhpUnit\Framework\Test as TestInterface;
 use PhpUnit\Framework\TestFailure;
 use PhpUnit\Framework\TestResult;
 
@@ -19,10 +25,10 @@ use PhpUnit\Framework\TestResult;
  *
  * @since Class available since Release 3.4.0
  */
-abstract class PHPUnit_Util_PHP
+abstract class Php
 {
     /**
-     * @return PHPUnit_Util_PHP
+     * @return \PhpUnit\Util\Php
      * @since  Method available since Release 3.5.12
      */
     public static function factory()
@@ -42,7 +48,7 @@ abstract class PHPUnit_Util_PHP
      * @param  \PhpUnit\Framework\TestResult $result
      * @throws \PhpUnit\Framework\Exception
      */
-    public function runTestJob($job, Test $test, TestResult $result)
+    public function runTestJob($job, TestInterface $test, TestResult $result)
     {
         $result->startTest($test);
 
@@ -91,7 +97,7 @@ abstract class PHPUnit_Util_PHP
      * @param string                        $stderr
      * @since Method available since Release 3.5.0
      */
-    private function processChildResult(Test $test, TestResult $result, $stdout, $stderr)
+    private function processChildResult(TestInterface $test, TestResult $result, $stdout, $stderr)
     {
         $time = 0;
 

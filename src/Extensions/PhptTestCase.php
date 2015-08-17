@@ -16,6 +16,7 @@ use PhpUnit\Framework\SelfDescribing;
 use PhpUnit\Framework\SkippedTestError;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestResult;
+use PhpUnit\Util\Php as PhpUtil;
 
 /**
  * Runner for PHPT test cases.
@@ -105,7 +106,7 @@ class PHPUnit_Extensions_PhptTestCase implements Test, SelfDescribing
             $result = new TestResult;
         }
 
-        $php      = PHPUnit_Util_PHP::factory();
+        $php      = PhpUtil::factory();
         $skip     = false;
         $time     = 0;
         $settings = $this->settings;

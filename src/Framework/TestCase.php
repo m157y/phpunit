@@ -33,7 +33,7 @@ use PHPUnit_Framework_MockObject_Stub_ReturnValueMap;
 use PHPUnit_Runner_BaseTestRunner;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_GlobalState;
-use PHPUnit_Util_PHP;
+use PhpUnit\Util\Php as PhpUtil;
 use PhpUnit\Util\Test as TestUtil;
 use Prophecy\Exception\Prediction\PredictionException;
 use Prophecy\Prophet;
@@ -733,7 +733,7 @@ abstract class TestCase extends Assert implements Test, SelfDescribing
 
             $this->prepareTemplate($template);
 
-            $php = PHPUnit_Util_PHP::factory();
+            $php = PhpUtil::factory();
             $php->runTestJob($template->render(), $this, $result);
         } else {
             $result->run($this);
