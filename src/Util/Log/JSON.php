@@ -13,6 +13,7 @@ use PhpUnit\Framework\AssertionFailedError;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Util\String as StringUtil;
 use PhpUnit\Util\Test as TestUtil;
 
 /**
@@ -222,7 +223,7 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements TestListener
             'status'  => $status,
             'time'    => $time,
             'trace'   => $trace,
-            'message' => PHPUnit_Util_String::convertToUtf8($message),
+            'message' => StringUtil::convertToUtf8($message),
             'output'  => $output,
             ]
         );
@@ -235,7 +236,7 @@ class PHPUnit_Util_Log_JSON extends PHPUnit_Util_Printer implements TestListener
     {
         array_walk_recursive($buffer, function (&$input) {
             if (is_string($input)) {
-                $input = PHPUnit_Util_String::convertToUtf8($input);
+                $input = StringUtil::convertToUtf8($input);
             }
         });
 

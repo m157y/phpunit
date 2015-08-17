@@ -14,7 +14,6 @@ use DOMCharacterData;
 use DOMDocument;
 use DOMElement;
 use DOMNode;
-use PHPUnit_Util_String;
 use PhpUnit\Framework\Exception;
 use ReflectionClass;
 
@@ -167,7 +166,7 @@ class Xml
             '/[\\x00-\\x08\\x0b\\x0c\\x0e-\\x1f\\x7f]/',
             '',
             htmlspecialchars(
-                PHPUnit_Util_String::convertToUtf8($string),
+                String::convertToUtf8($string),
                 ENT_QUOTES,
                 'UTF-8'
             )

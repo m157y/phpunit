@@ -8,12 +8,14 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Util;
+
 /**
  * String helpers.
  *
  * @since Class available since Release 3.6.0
  */
-class PHPUnit_Util_String
+class String
 {
     /**
      * Converts a string to UTF-8 encoding.
