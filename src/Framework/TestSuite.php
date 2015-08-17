@@ -19,8 +19,8 @@ use PHPUnit_Runner_Filter_Factory;
 use PHPUnit_Util_Fileloader;
 use PHPUnit_Util_InvalidArgumentHelper;
 use PHPUnit_Util_Test;
-use PHPUnit_Util_TestSuiteIterator;
 use PhpUnit\Framework\TestSuite\DataProvider;
+use PhpUnit\Util\TestSuiteIterator;
 use ReflectionClass;
 use ReflectionMethod;
 use Throwable;
@@ -983,7 +983,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
      */
     public function getIterator()
     {
-        $iterator = new PHPUnit_Util_TestSuiteIterator($this);
+        $iterator = new TestSuiteIterator($this);
 
         if ($this->iteratorFilter !== null) {
             $iterator = $this->iteratorFilter->factory($iterator, $this);

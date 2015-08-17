@@ -8,14 +8,17 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Util;
+
 use PhpUnit\Framework\TestSuite;
+use RecursiveIterator;
 
 /**
  * Iterator for test suites.
  *
  * @since Class available since Release 3.1.0
  */
-class PHPUnit_Util_TestSuiteIterator implements RecursiveIterator
+class TestSuiteIterator implements RecursiveIterator
 {
     /**
      * @var int
@@ -66,7 +69,7 @@ class PHPUnit_Util_TestSuiteIterator implements RecursiveIterator
     /**
      * Returns the current element.
      *
-     * @return PHPUnit_Framework_Test
+     * @return \PhpUnit\Framework\Test
      */
     public function current()
     {
@@ -84,7 +87,7 @@ class PHPUnit_Util_TestSuiteIterator implements RecursiveIterator
     /**
      * Returns the sub iterator for the current element.
      *
-     * @return PHPUnit_Util_TestSuiteIterator
+     * @return \PhpUnit\Util\TestSuiteIterator
      */
     public function getChildren()
     {

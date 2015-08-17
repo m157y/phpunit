@@ -10,6 +10,7 @@
 
 use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Util\TestSuiteIterator;
 
 /**
  * We have a TestSuite object A.
@@ -38,7 +39,7 @@ class PHPUnit_Extensions_GroupTestSuite extends TestSuite
         }
 
         $tests = new RecursiveIteratorIterator(
-            new PHPUnit_Util_TestSuiteIterator($suite),
+            new TestSuiteIterator($suite),
             RecursiveIteratorIterator::LEAVES_ONLY
         );
 
