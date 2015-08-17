@@ -20,7 +20,7 @@ use PHP_Timer;
 use PHPUnit_Extensions_SeleniumTestCase;
 use PHPUnit_Util_Blacklist;
 use PHPUnit_Util_InvalidArgumentHelper;
-use PHPUnit_Util_Printer;
+use PhpUnit\Util\Printer;
 use PhpUnit\Util\Test as TestUtil;
 use ReflectionClass;
 use SebastianBergmann\ResourceOperations\ResourceOperations;
@@ -202,7 +202,7 @@ class TestResult implements Countable
     public function flushListeners()
     {
         foreach ($this->listeners as $listener) {
-            if ($listener instanceof PHPUnit_Util_Printer) {
+            if ($listener instanceof Printer) {
                 $listener->flush();
             }
         }

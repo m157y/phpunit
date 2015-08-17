@@ -16,6 +16,7 @@ use PhpUnit\Framework\TestFailure;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestResult;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Util\Printer;
 use PhpUnit\Util\Test as TestUtil;
 use SebastianBergmann\Environment\Console;
 
@@ -24,7 +25,7 @@ use SebastianBergmann\Environment\Console;
  *
  * @since Class available since Release 2.0.0
  */
-class PHPUnit_TextUI_ResultPrinter extends PHPUnit_Util_Printer implements TestListener
+class PHPUnit_TextUI_ResultPrinter extends Printer implements TestListener
 {
     const EVENT_TEST_START      = 0;
     const EVENT_TEST_END        = 1;

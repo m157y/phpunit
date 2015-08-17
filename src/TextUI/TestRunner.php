@@ -15,6 +15,7 @@ use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestResult;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Util\Printer;
 use SebastianBergmann\Environment\Runtime;
 
 /**
@@ -216,7 +217,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
 
         if ($this->printer === null) {
             if (isset($arguments['printer']) &&
-                $arguments['printer'] instanceof PHPUnit_Util_Printer) {
+                $arguments['printer'] instanceof Printer) {
                 $this->printer = $arguments['printer'];
             } else {
                 $printerClass = 'PHPUnit_TextUI_ResultPrinter';
@@ -499,7 +500,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
                     $outputStream = $this->printer;
                     $colors       = $arguments['colors'];
                 } else {
-                    $outputStream = new PHPUnit_Util_Printer($arguments['coverageText']);
+                    $outputStream = new Printer($arguments['coverageText']);
                     $colors       = false;
                 }
 

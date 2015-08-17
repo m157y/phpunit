@@ -16,6 +16,7 @@ use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestFailure;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Util\Printer;
 use PhpUnit\Util\Test as TestUtil;
 
 /**
@@ -24,7 +25,7 @@ use PhpUnit\Util\Test as TestUtil;
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Util_Log_TAP extends PHPUnit_Util_Printer implements TestListener
+class PHPUnit_Util_Log_TAP extends Printer implements TestListener
 {
     /**
      * @var int

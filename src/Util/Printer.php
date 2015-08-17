@@ -8,6 +8,9 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Util;
+
+use PHPUnit_Util_InvalidArgumentHelper;
 use PhpUnit\Framework\Exception;
 
 /**
@@ -15,7 +18,7 @@ use PhpUnit\Framework\Exception;
  *
  * @since Class available since Release 2.0.0
  */
-class PHPUnit_Util_Printer
+class Printer
 {
     /**
      * If true, flush output after every write.

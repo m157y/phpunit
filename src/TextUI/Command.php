@@ -703,11 +703,11 @@ class PHPUnit_TextUI_Command
     }
 
     /**
-     * Handles the loading of the PHPUnit_Util_Printer implementation.
+     * Handles the loading of the PhpUnit\Util\Printer implementation.
      *
      * @param  string               $printerClass
      * @param  string               $printerFile
-     * @return PHPUnit_Util_Printer
+     * @return \PhpUnit\Util\Printer
      */
     protected function handlePrinter($printerClass, $printerFile = '')
     {
@@ -729,7 +729,7 @@ class PHPUnit_TextUI_Command
             $class = new ReflectionClass($printerClass);
 
             if ($class->implementsInterface('PhpUnit\\Framework\\TestListener') &&
-                $class->isSubclassOf('PHPUnit_Util_Printer') &&
+                $class->isSubclassOf('PhpUnit\\Util\\Printer') &&
                 $class->isInstantiable()) {
                 if ($class->isSubclassOf('PHPUnit_TextUI_ResultPrinter')) {
                     return $printerClass;

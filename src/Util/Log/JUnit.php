@@ -16,6 +16,7 @@ use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestFailure;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Util\Printer;
 use PhpUnit\Util\Xml as XmlUtil;
 
 /**
@@ -25,7 +26,7 @@ use PhpUnit\Util\Xml as XmlUtil;
  *
  * @since Class available since Release 2.1.0
  */
-class PHPUnit_Util_Log_JUnit extends PHPUnit_Util_Printer implements TestListener
+class PHPUnit_Util_Log_JUnit extends Printer implements TestListener
 {
     /**
      * @var DOMDocument
