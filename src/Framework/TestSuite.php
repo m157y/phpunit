@@ -17,8 +17,8 @@ use PHPUnit_Extensions_PhptTestCase;
 use PHPUnit_Runner_BaseTestRunner;
 use PHPUnit_Runner_Filter_Factory;
 use PHPUnit_Util_Fileloader;
-use PHPUnit_Util_InvalidArgumentHelper;
 use PhpUnit\Framework\TestSuite\DataProvider;
+use PhpUnit\Util\InvalidArgumentHelper;
 use PhpUnit\Util\Test as TestUtil;
 use PhpUnit\Util\TestSuiteIterator;
 use ReflectionClass;
@@ -281,10 +281,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
         }
 
         if (!is_object($testClass)) {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(
-                1,
-                'class name or object'
-            );
+            throw InvalidArgumentHelper::factory(1, 'class name or object');
         }
 
         if ($testClass instanceof self) {
@@ -331,7 +328,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
     public function addTestFile($filename)
     {
         if (!is_string($filename)) {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'string');
+            throw InvalidArgumentHelper::factory(1, 'string');
         }
 
         if (file_exists($filename) && substr($filename, -5) == '.phpt') {
@@ -410,10 +407,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
     {
         if (!(is_array($filenames) ||
              (is_object($filenames) && $filenames instanceof Iterator))) {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(
-                1,
-                'array or iterator'
-            );
+            throw InvalidArgumentHelper::factory(1, 'array or iterator');
         }
 
         foreach ($filenames as $filename) {
@@ -775,7 +769,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
         if (is_bool($runTestInSeparateProcess)) {
             $this->runTestInSeparateProcess = $runTestInSeparateProcess;
         } else {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'boolean');
+            throw InvalidArgumentHelper::factory(1, 'boolean');
         }
     }
 

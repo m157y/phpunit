@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Util;
+
 use PhpUnit\Framework\Exception;
 
 /**
@@ -16,7 +18,7 @@ use PhpUnit\Framework\Exception;
  *
  * @since Class available since Release 3.4.0
  */
-class PHPUnit_Util_InvalidArgumentHelper
+class InvalidArgumentHelper
 {
     /**
      * @param  int                         $argument

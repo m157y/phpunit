@@ -10,8 +10,8 @@
 
 namespace PhpUnit\Util;
 
-use PHPUnit_Util_InvalidArgumentHelper;
 use PhpUnit\Framework\Exception;
+use PhpUnit\Util\InvalidArgumentHelper;
 
 /**
  * Utility class that can print to STDOUT or write to a file.
@@ -168,7 +168,7 @@ class Printer
         if (is_bool($autoFlush)) {
             $this->autoFlush = $autoFlush;
         } else {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'boolean');
+            throw InvalidArgumentHelper::factory(1, 'boolean');
         }
     }
 }

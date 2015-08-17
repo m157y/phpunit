@@ -16,6 +16,7 @@ use PhpUnit\Framework\SelfDescribing;
 use PhpUnit\Framework\SkippedTestError;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestResult;
+use PhpUnit\Util\InvalidArgumentHelper;
 use PhpUnit\Util\Php as PhpUtil;
 
 /**
@@ -66,7 +67,7 @@ class PHPUnit_Extensions_PhptTestCase implements Test, SelfDescribing
     public function __construct($filename)
     {
         if (!is_string($filename)) {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'string');
+            throw InvalidArgumentHelper::factory(1, 'string');
         }
 
         if (!is_file($filename)) {

@@ -11,6 +11,7 @@
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestResult;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Util\InvalidArgumentHelper;
 
 /**
  * A Decorator that runs a test repeatedly.
@@ -43,7 +44,7 @@ class PHPUnit_Extensions_RepeatedTest extends PHPUnit_Extensions_TestDecorator
             $timesRepeat >= 0) {
             $this->timesRepeat = $timesRepeat;
         } else {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(
+            throw InvalidArgumentHelper::factory(
                 2,
                 'positive integer'
             );

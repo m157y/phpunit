@@ -10,8 +10,8 @@
 
 namespace PhpUnit\Framework\Constraint;
 
-use PHPUnit_Util_InvalidArgumentHelper;
 use PhpUnit\Framework\Constraint;
+use PhpUnit\Util\InvalidArgumentHelper;
 
 /**
  * Constraint that evaluates against a specified closure.
@@ -27,10 +27,7 @@ class Callback extends Constraint
     public function __construct($callback)
     {
         if (!is_callable($callback)) {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(
-                1,
-                'callable'
-            );
+            throw InvalidArgumentHelper::factory(1, 'callable');
         }
 
         parent::__construct();

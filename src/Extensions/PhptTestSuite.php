@@ -9,6 +9,7 @@
  */
 
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Util\InvalidArgumentHelper;
 
 /**
  * Suite for .phpt test cases.
@@ -35,7 +36,7 @@ class PHPUnit_Extensions_PhptTestSuite extends TestSuite
                 $this->addTestFile($file);
             }
         } else {
-            throw PHPUnit_Util_InvalidArgumentHelper::factory(1, 'directory name');
+            throw InvalidArgumentHelper::factory(1, 'directory name');
         }
     }
 }
