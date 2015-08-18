@@ -8,10 +8,13 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Extensions;
+
 use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestSuite;
 use PhpUnit\Util\Test as TestUtil;
 use PhpUnit\Util\TestSuiteIterator;
+use RecursiveIteratorIterator;
 
 /**
  * We have a TestSuite object A.
@@ -22,12 +25,12 @@ use PhpUnit\Util\TestSuiteIterator;
  * @group C and @group D in TestSuite object A to be run twice .
  *
  * <code>
- * $suite = new PHPUnit_Extensions_GroupTestSuite($A, array('C', 'D'));
+ * $suite = new PhpUnit\Extensions\GroupTestSuite($A, array('C', 'D'));
  * </code>
  *
  * @since Class available since Release 3.3.0
  */
-class PHPUnit_Extensions_GroupTestSuite extends TestSuite
+class GroupTestSuite extends TestSuite
 {
     public function __construct(TestSuite $suite, array $groups)
     {
