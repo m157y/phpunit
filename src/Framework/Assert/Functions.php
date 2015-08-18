@@ -810,11 +810,11 @@ function assertInternalType($expected, $actual, $message = '')
 /**
  * Asserts that a string is a valid JSON string.
  *
- * @param string $filename
+ * @param string $actualJson
  * @param string $message
- * @since  Method available since Release 3.7.20
+ * @since Method available since Release 3.7.20
  */
-function assertJson($expectedJson, $message = '')
+function assertJson($actualJson, $message = '')
 {
     return call_user_func_array(
         'PhpUnit\\Framework\\Assert::assertJson',
