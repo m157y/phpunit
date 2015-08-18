@@ -141,7 +141,7 @@ class PHPUnit_TextUI_TestRunner extends BaseTestRunner
 
         if (!empty($arguments['groups'])) {
             $filterFactory->addFilter(
-                new ReflectionClass('PHPUnit_Runner_Filter_Group_Include'),
+                new ReflectionClass('PhpUnit\\Runner\\Filter\\Group\\IncludeIterator'),
                 $arguments['groups']
             );
         }
