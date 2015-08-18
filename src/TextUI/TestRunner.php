@@ -15,6 +15,7 @@ use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestResult;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Runner\Version;
 use PhpUnit\Util\Blacklist;
 use PhpUnit\Util\Configuration;
 use PhpUnit\Util\Log\Json as JsonLog;
@@ -252,7 +253,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
 
         if (!$this->printer instanceof TapLog) {
             $this->printer->write(
-                PHPUnit_Runner_Version::getVersionString() . "\n"
+                Version::getVersionString() . "\n"
             );
 
             self::$versionStringPrinted = true;
@@ -480,7 +481,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
                     $arguments['reportHighLowerBound'],
                     sprintf(
                         ' and <a href="http://phpunit.de/">PHPUnit %s</a>',
-                        PHPUnit_Runner_Version::id()
+                        Version::id()
                     )
                 );
 

@@ -10,13 +10,13 @@
 
 namespace PhpUnit\Util;
 
-use PHPUnit_Runner_Version;
 use PhpUnit\Framework\CodeCoverageException;
 use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\InvalidCoversTargetException;
 use PhpUnit\Framework\SelfDescribing;
 use PhpUnit\Framework\Test as TestInterface;
 use PhpUnit\Framework\TestCase;
+use PhpUnit\Runner\Version;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionFunction;
@@ -226,7 +226,7 @@ class Test
         }
 
         if (!empty($required['PHPUnit'])) {
-            $phpunitVersion = PHPUnit_Runner_Version::id();
+            $phpunitVersion = Version::id();
             if (version_compare($phpunitVersion, $required['PHPUnit'], '<')) {
                 $missing[] = sprintf('PHPUnit %s (or later) is required.', $required['PHPUnit']);
             }

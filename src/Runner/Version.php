@@ -8,12 +8,16 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Runner;
+
+use SebastianBergmann\Version as VersionHelper;
+
 /**
  * This class defines the current version of PHPUnit.
  *
  * @since Class available since Release 2.0.0
  */
-class PHPUnit_Runner_Version
+class Version
 {
     private static $pharVersion;
     private static $version;
@@ -30,7 +34,7 @@ class PHPUnit_Runner_Version
         }
 
         if (self::$version === null) {
-            $version       = new SebastianBergmann\Version('5.0', dirname(dirname(__DIR__)));
+            $version       = new VersionHelper('5.0', dirname(dirname(__DIR__)));
             self::$version = $version->getVersion();
         }
 

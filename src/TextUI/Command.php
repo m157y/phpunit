@@ -12,6 +12,7 @@ use Exception as PhpException;
 use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Runner\Version;
 use PhpUnit\Util\Configuration;
 use PhpUnit\Util\Fileloader;
 use PhpUnit\Util\Filesystem;
@@ -788,7 +789,7 @@ class PHPUnit_TextUI_Command
 
         $remoteFilename = sprintf(
             'https://phar.phpunit.de/phpunit%s.phar',
-            PHPUnit_Runner_Version::getReleaseChannel()
+            Version::getReleaseChannel()
         );
 
         $tempFilename = tempnam(sys_get_temp_dir(), 'phpunit') . '.phar';
@@ -848,7 +849,7 @@ class PHPUnit_TextUI_Command
         $this->printVersionString();
 
         $latestVersion = file_get_contents('https://phar.phpunit.de/latest-version-of/phpunit');
-        $isOutdated    = version_compare($latestVersion, PHPUnit_Runner_Version::id(), '>');
+        $isOutdated    = version_compare($latestVersion, Version::id(), '>');
 
         if ($isOutdated) {
             print "You are not using the latest version of PHPUnit.\n";
@@ -967,7 +968,7 @@ EOT;
             return;
         }
 
-        print PHPUnit_Runner_Version::getVersionString() . "\n\n";
+        print Version::getVersionString() . "\n\n";
 
         $this->versionStringPrinted = true;
     }
