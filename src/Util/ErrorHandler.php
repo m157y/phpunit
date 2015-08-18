@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Util;
+
 use PhpUnit\Framework\Error\Deprecated as DeprecatedError;
 use PhpUnit\Framework\Error\Notice as NoticeError;
 use PhpUnit\Framework\Error\Warning as WarningError;
@@ -25,7 +27,7 @@ require_once dirname(__DIR__) . '/Framework/Error/Deprecated.php';
  *
  * @since Class available since Release 3.3.0
  */
-class PHPUnit_Util_ErrorHandler
+class ErrorHandler
 {
     protected static $errorStack = [];
 

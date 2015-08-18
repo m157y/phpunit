@@ -10,8 +10,6 @@
 
 namespace PhpUnit\Util;
 
-use PHPUnit_Util_ErrorHandler;
-
 /**
  * Error handler that converts PHP errors and warnings to exceptions.
  *
@@ -21,7 +19,7 @@ class Regex
 {
     public static function pregMatchSafe($pattern, $subject, $matches = null, $flags = 0, $offset = 0)
     {
-        $handler_terminator = PHPUnit_Util_ErrorHandler::handleErrorOnce(E_WARNING);
+        $handler_terminator = ErrorHandler::handleErrorOnce(E_WARNING);
         $match              = preg_match($pattern, $subject, $matches, $flags, $offset);
         $handler_terminator(); // cleaning
 
