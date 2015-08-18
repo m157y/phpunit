@@ -13,6 +13,7 @@ use PhpUnit\Framework\AssertionFailedError;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Util\Filter;
 use PhpUnit\Util\Printer;
 use PhpUnit\Util\String as StringUtil;
 use PhpUnit\Util\Test as TestUtil;
@@ -51,7 +52,7 @@ class PHPUnit_Util_Log_JSON extends Printer implements TestListener
         $this->writeCase(
             'error',
             $time,
-            PHPUnit_Util_Filter::getFilteredStacktrace($e, false),
+            Filter::getFilteredStacktrace($e, false),
             $e->getMessage(),
             $test
         );
@@ -71,7 +72,7 @@ class PHPUnit_Util_Log_JSON extends Printer implements TestListener
         $this->writeCase(
             'fail',
             $time,
-            PHPUnit_Util_Filter::getFilteredStacktrace($e, false),
+            Filter::getFilteredStacktrace($e, false),
             $e->getMessage(),
             $test
         );
@@ -91,7 +92,7 @@ class PHPUnit_Util_Log_JSON extends Printer implements TestListener
         $this->writeCase(
             'error',
             $time,
-            PHPUnit_Util_Filter::getFilteredStacktrace($e, false),
+            Filter::getFilteredStacktrace($e, false),
             'Incomplete Test: ' . $e->getMessage(),
             $test
         );
@@ -112,7 +113,7 @@ class PHPUnit_Util_Log_JSON extends Printer implements TestListener
         $this->writeCase(
             'error',
             $time,
-            PHPUnit_Util_Filter::getFilteredStacktrace($e, false),
+            Filter::getFilteredStacktrace($e, false),
             'Risky Test: ' . $e->getMessage(),
             $test
         );
@@ -132,7 +133,7 @@ class PHPUnit_Util_Log_JSON extends Printer implements TestListener
         $this->writeCase(
             'error',
             $time,
-            PHPUnit_Util_Filter::getFilteredStacktrace($e, false),
+            Filter::getFilteredStacktrace($e, false),
             'Skipped Test: ' . $e->getMessage(),
             $test
         );

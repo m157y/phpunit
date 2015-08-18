@@ -10,7 +10,7 @@
 
 namespace PhpUnit\Framework;
 
-use PHPUnit_Util_Filter;
+use PhpUnit\Util\Filter;
 
 /**
  * Wraps Exceptions thrown by code under test.
@@ -82,7 +82,7 @@ class ExceptionWrapper extends Exception
     {
         $string = TestFailure::exceptionToString($this);
 
-        if ($trace = PHPUnit_Util_Filter::getFilteredStacktrace($this)) {
+        if ($trace = Filter::getFilteredStacktrace($this)) {
             $string .= "\n" . $trace;
         }
 

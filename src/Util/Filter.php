@@ -8,7 +8,10 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Util;
+
 use Exception as PhpException;
+use PHPUnit_Util_Blacklist;
 use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\SyntheticError;
 
@@ -17,7 +20,7 @@ use PhpUnit\Framework\SyntheticError;
  *
  * @since Class available since Release 2.0.0
  */
-class PHPUnit_Util_Filter
+class Filter
 {
     /**
      * Filters stack frames from PHPUnit classes.

@@ -16,6 +16,7 @@ use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestFailure;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Util\Filter;
 use PhpUnit\Util\Printer;
 use PhpUnit\Util\Xml as XmlUtil;
 
@@ -164,7 +165,7 @@ class PHPUnit_Util_Log_JUnit extends Printer implements TestListener
                 'error',
                 XmlUtil::prepareString(
                     "Incomplete Test\n" .
-                    PHPUnit_Util_Filter::getFilteredStacktrace($e)
+                    Filter::getFilteredStacktrace($e)
                 )
             );
 
@@ -193,7 +194,7 @@ class PHPUnit_Util_Log_JUnit extends Printer implements TestListener
                 'error',
                 XmlUtil::prepareString(
                     "Risky Test\n" .
-                    PHPUnit_Util_Filter::getFilteredStacktrace($e)
+                    Filter::getFilteredStacktrace($e)
                 )
             );
 
@@ -222,7 +223,7 @@ class PHPUnit_Util_Log_JUnit extends Printer implements TestListener
                 'error',
                 XmlUtil::prepareString(
                     "Skipped Test\n" .
-                    PHPUnit_Util_Filter::getFilteredStacktrace($e)
+                    Filter::getFilteredStacktrace($e)
                 )
             );
 
@@ -435,7 +436,7 @@ class PHPUnit_Util_Log_JUnit extends Printer implements TestListener
 
         $buffer .= TestFailure::exceptionToString($e) .
                    "\n" .
-                   PHPUnit_Util_Filter::getFilteredStacktrace($e);
+                   Filter::getFilteredStacktrace($e);
 
         $fault = $this->document->createElement(
             $type,

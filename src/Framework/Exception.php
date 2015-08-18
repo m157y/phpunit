@@ -12,7 +12,7 @@ namespace PhpUnit\Framework;
 
 use Exception as PhpException;
 use PHPUnit_Exception;
-use PHPUnit_Util_Filter;
+use PhpUnit\Util\Filter;
 use RuntimeException;
 
 /**
@@ -71,7 +71,7 @@ class Exception extends RuntimeException implements PHPUnit_Exception
     {
         $string = TestFailure::exceptionToString($this);
 
-        if ($trace = PHPUnit_Util_Filter::getFilteredStacktrace($this)) {
+        if ($trace = Filter::getFilteredStacktrace($this)) {
             $string .= "\n" . $trace;
         }
 
