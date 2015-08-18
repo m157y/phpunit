@@ -1,5 +1,8 @@
 <?php
-class MockRunner extends PHPUnit_Runner_BaseTestRunner
+
+use PhpUnit\Runner\BaseTestRunner;
+
+class MockRunner extends BaseTestRunner
 {
     protected function runFailed($message)
     {

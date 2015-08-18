@@ -11,14 +11,13 @@
 namespace PhpUnit\Util\TestDox;
 
 use Exception as PhpException;
-use PHPUnit_Runner_BaseTestRunner;
+use PhpUnit\Runner\BaseTestRunner;
 use PhpUnit\Framework\AssertionFailedError;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
 use PhpUnit\Util\Printer;
-use PhpUnit\Util\TestDox\NamePrettifier;
 
 /**
  * Base class for printers of TestDox documentation.
@@ -119,7 +118,7 @@ abstract class ResultPrinter extends Printer implements TestListener
             return;
         }
 
-        $this->testStatus = PHPUnit_Runner_BaseTestRunner::STATUS_ERROR;
+        $this->testStatus = BaseTestRunner::STATUS_ERROR;
         $this->failed++;
     }
 
@@ -136,7 +135,7 @@ abstract class ResultPrinter extends Printer implements TestListener
             return;
         }
 
-        $this->testStatus = PHPUnit_Runner_BaseTestRunner::STATUS_FAILURE;
+        $this->testStatus = BaseTestRunner::STATUS_FAILURE;
         $this->failed++;
     }
 
@@ -153,7 +152,7 @@ abstract class ResultPrinter extends Printer implements TestListener
             return;
         }
 
-        $this->testStatus = PHPUnit_Runner_BaseTestRunner::STATUS_INCOMPLETE;
+        $this->testStatus = BaseTestRunner::STATUS_INCOMPLETE;
         $this->incomplete++;
     }
 
@@ -171,7 +170,7 @@ abstract class ResultPrinter extends Printer implements TestListener
             return;
         }
 
-        $this->testStatus = PHPUnit_Runner_BaseTestRunner::STATUS_RISKY;
+        $this->testStatus = BaseTestRunner::STATUS_RISKY;
         $this->risky++;
     }
 
@@ -189,7 +188,7 @@ abstract class ResultPrinter extends Printer implements TestListener
             return;
         }
 
-        $this->testStatus = PHPUnit_Runner_BaseTestRunner::STATUS_SKIPPED;
+        $this->testStatus = BaseTestRunner::STATUS_SKIPPED;
         $this->skipped++;
     }
 
@@ -251,7 +250,7 @@ abstract class ResultPrinter extends Printer implements TestListener
             $this->currentTestMethodPrettified = $this->prettifier->prettifyTestMethod($test->getName(false));
         }
 
-        $this->testStatus = PHPUnit_Runner_BaseTestRunner::STATUS_PASSED;
+        $this->testStatus = BaseTestRunner::STATUS_PASSED;
     }
 
     /**
@@ -267,7 +266,7 @@ abstract class ResultPrinter extends Printer implements TestListener
         }
 
         if (!isset($this->tests[$this->currentTestMethodPrettified])) {
-            if ($this->testStatus == PHPUnit_Runner_BaseTestRunner::STATUS_PASSED) {
+            if ($this->testStatus == BaseTestRunner::STATUS_PASSED) {
                 $this->tests[$this->currentTestMethodPrettified]['success'] = 1;
                 $this->tests[$this->currentTestMethodPrettified]['failure'] = 0;
             } else {
@@ -275,7 +274,7 @@ abstract class ResultPrinter extends Printer implements TestListener
                 $this->tests[$this->currentTestMethodPrettified]['failure'] = 1;
             }
         } else {
-            if ($this->testStatus == PHPUnit_Runner_BaseTestRunner::STATUS_PASSED) {
+            if ($this->testStatus == BaseTestRunner::STATUS_PASSED) {
                 $this->tests[$this->currentTestMethodPrettified]['success']++;
             } else {
                 $this->tests[$this->currentTestMethodPrettified]['failure']++;

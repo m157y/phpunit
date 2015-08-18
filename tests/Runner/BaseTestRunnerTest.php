@@ -12,7 +12,7 @@ use PhpUnit\Framework\TestCase;
 
 /**
  * @since      Class available since Release 2.0.0
- * @covers     PHPUnit_Runner_BaseTestRunner
+ * @covers     \PhpUnit\Runner\BaseTestRunner
  */
 class Runner_BaseTestRunnerTest extends TestCase
 {

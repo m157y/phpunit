@@ -14,6 +14,7 @@ use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
 use PhpUnit\Framework\Warning;
+use PhpUnit\Runner\BaseTestRunner;
 use PhpUnit\Util\Test as TestUtil;
 
 /**
@@ -142,13 +143,13 @@ abstract class PHPUnit_Extensions_TicketListener implements TestListener
     public function endTest(Test $test, $time)
     {
         if (!$test instanceof Warning) {
-            if ($test->getStatus() == PHPUnit_Runner_BaseTestRunner::STATUS_PASSED) {
+            if ($test->getStatus() == BaseTestRunner::STATUS_PASSED) {
                 $ifStatus   = ['assigned', 'new', 'reopened'];
                 $newStatus  = 'closed';
                 $message    = 'Automatically closed by PHPUnit (test passed).';
                 $resolution = 'fixed';
                 $cumulative = true;
-            } elseif ($test->getStatus() == PHPUnit_Runner_BaseTestRunner::STATUS_FAILURE) {
+            } elseif ($test->getStatus() == BaseTestRunner::STATUS_FAILURE) {
                 $ifStatus   = ['closed'];
                 $newStatus  = 'reopened';
                 $message    = 'Automatically reopened by PHPUnit (test failed).';
@@ -163,7 +164,7 @@ abstract class PHPUnit_Extensions_TicketListener implements TestListener
 
             foreach ($tickets as $ticket) {
                 // Remove this test from the totals (if it passed).
-                if ($test->getStatus() == PHPUnit_Runner_BaseTestRunner::STATUS_PASSED) {
+                if ($test->getStatus() == BaseTestRunner::STATUS_PASSED) {
                     unset($this->ticketCounts[$ticket][$name]);
                 }
 

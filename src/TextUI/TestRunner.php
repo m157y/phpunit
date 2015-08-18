@@ -15,6 +15,7 @@ use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestResult;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Runner\BaseTestRunner;
 use PhpUnit\Runner\StandardTestSuiteLoader;
 use PhpUnit\Runner\TestSuiteLoader;
 use PhpUnit\Runner\Version;
@@ -34,7 +35,7 @@ use SebastianBergmann\Environment\Runtime;
  *
  * @since Class available since Release 2.0.0
  */
-class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
+class PHPUnit_TextUI_TestRunner extends BaseTestRunner
 {
     const SUCCESS_EXIT   = 0;
     const FAILURE_EXIT   = 1;

@@ -8,16 +8,19 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Runner;
+
+use File_Iterator_Facade;
 use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\TestSuite;
-use PhpUnit\Runner\StandardTestSuiteLoader;
+use ReflectionException;
 
 /**
  * Base class for all test runners.
  *
  * @since Class available since Release 2.0.0
  */
-abstract class PHPUnit_Runner_BaseTestRunner
+abstract class BaseTestRunner
 {
     const STATUS_PASSED     = 0;
     const STATUS_SKIPPED    = 1;
@@ -116,7 +119,7 @@ abstract class PHPUnit_Runner_BaseTestRunner
      *
      * @param  string          $suiteClassName
      * @param  string          $suiteClassFile
-     * @return ReflectionClass
+     * @return \ReflectionClass
      */
     protected function loadSuiteClass($suiteClassName, $suiteClassFile = '')
     {
