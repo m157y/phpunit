@@ -8,10 +8,12 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Runner\Filter\GroupIterator;
+
 /**
  * @since Class available since Release 4.0.0
  */
-class PHPUnit_Runner_Filter_Group_Exclude extends PHPUnit_Runner_Filter_GroupFilterIterator
+class PHPUnit_Runner_Filter_Group_Exclude extends GroupIterator
 {
     protected function doAccept($hash)
     {

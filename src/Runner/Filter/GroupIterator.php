@@ -8,12 +8,16 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Runner\Filter;
+
 use PhpUnit\Framework\TestSuite;
+use RecursiveFilterIterator;
+use RecursiveIterator;
 
 /**
  * @since Class available since Release 4.0.0
  */
-abstract class PHPUnit_Runner_Filter_GroupFilterIterator extends RecursiveFilterIterator
+abstract class GroupIterator extends RecursiveFilterIterator
 {
     /**
      * @var array
@@ -21,7 +25,7 @@ abstract class PHPUnit_Runner_Filter_GroupFilterIterator extends RecursiveFilter
     protected $groupTests = [];
 
     /**
-     * @param RecursiveIterator            $iterator
+     * @param \RecursiveIterator            $iterator
      * @param array                        $groups
      * @param \PhpUnit\Framework\TestSuite $suite
      */
