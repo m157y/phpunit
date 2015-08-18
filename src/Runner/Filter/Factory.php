@@ -8,12 +8,17 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Runner\Filter;
+
+use InvalidArgumentException;
+use Iterator;
 use PhpUnit\Framework\TestSuite;
+use ReflectionClass;
 
 /**
  * @since Class available since Release 4.0.0
  */
-class PHPUnit_Runner_Filter_Factory
+class Factory
 {
     /**
      * @var array
@@ -21,7 +26,7 @@ class PHPUnit_Runner_Filter_Factory
     private $filters = [];
 
     /**
-     * @param ReflectionClass $filter
+     * @param \ReflectionClass $filter
      * @param mixed           $args
      */
     public function addFilter(ReflectionClass $filter, $args)
@@ -39,7 +44,7 @@ class PHPUnit_Runner_Filter_Factory
     }
 
     /**
-     * @return FilterIterator
+     * @return \FilterIterator
      */
     public function factory(Iterator $iterator, TestSuite $suite)
     {

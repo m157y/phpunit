@@ -14,9 +14,9 @@ use Exception as PhpException;
 use Iterator;
 use IteratorAggregate;
 use PHPUnit_Extensions_PhptTestCase;
-use PHPUnit_Runner_Filter_Factory;
 use PhpUnit\Framework\TestSuite\DataProvider;
 use PhpUnit\Runner\BaseTestRunner;
+use PhpUnit\Runner\Filter\Factory as FilterFactory;
 use PhpUnit\Util\Fileloader;
 use PhpUnit\Util\InvalidArgumentHelper;
 use PhpUnit\Util\Test as TestUtil;
@@ -127,7 +127,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
     protected $foundClasses = [];
 
     /**
-     * @var \PHPUnit_Runner_Filter_Factory
+     * @var \PhpUnit\Runner\Filter\Factory
      */
     private $iteratorFilter = null;
 
@@ -986,7 +986,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
         return $iterator;
     }
 
-    public function injectFilter(PHPUnit_Runner_Filter_Factory $filter)
+    public function injectFilter(FilterFactory $filter)
     {
         $this->iteratorFilter = $filter;
         foreach ($this as $test) {
