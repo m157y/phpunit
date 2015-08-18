@@ -21,6 +21,7 @@ use PhpUnit\Util\Log\Json as JsonLog;
 use PhpUnit\Util\Log\Junit as JunitLog;
 use PhpUnit\Util\Log\Tap as TapLog;
 use PhpUnit\Util\Printer;
+use PhpUnit\Util\TestDox\ResultPrinter\Html as TestDoxHtml;
 use PhpUnit\Util\TestDox\ResultPrinter\Text as TestDoxText;
 use SebastianBergmann\Environment\Runtime;
 
@@ -294,7 +295,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
 
         if (isset($arguments['testdoxHTMLFile'])) {
             $result->addListener(
-                new PHPUnit_Util_TestDox_ResultPrinter_HTML(
+                new TestDoxHtml(
                     $arguments['testdoxHTMLFile']
                 )
             );
