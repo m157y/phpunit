@@ -10,6 +10,7 @@
 
 use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Runner\StandardTestSuiteLoader;
 
 /**
  * Base class for all test runners.
@@ -33,7 +34,7 @@ abstract class PHPUnit_Runner_BaseTestRunner
      */
     public function getLoader()
     {
-        return new PHPUnit_Runner_StandardTestSuiteLoader;
+        return new StandardTestSuiteLoader;
     }
 
     /**
@@ -44,7 +45,7 @@ abstract class PHPUnit_Runner_BaseTestRunner
      * @param  string                 $suiteClassName
      * @param  string                 $suiteClassFile
      * @param  mixed                  $suffixes
-     * @return PHPUnit_Framework_Test
+     * @return \PhpUnit\Framework\Test
      */
     public function getTest($suiteClassName, $suiteClassFile = '', $suffixes = '')
     {

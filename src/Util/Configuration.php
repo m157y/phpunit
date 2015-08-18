@@ -44,7 +44,7 @@ use PhpUnit\Util\Xml as XmlUtil;
  *          stopOnIncomplete="false"
  *          stopOnRisky="false"
  *          stopOnSkipped="false"
- *          testSuiteLoaderClass="PHPUnit_Runner_StandardTestSuiteLoader"
+ *          testSuiteLoaderClass="PhpUnit\Runner\StandardTestSuiteLoader"
  *          beStrictAboutChangesToGlobalState="false"
  *          beStrictAboutOutputDuringTests="false"
  *          beStrictAboutResourceUsageDuringSmallTests="false"

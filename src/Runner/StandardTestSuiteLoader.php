@@ -8,22 +8,24 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Runner;
+
 use PhpUnit\Framework\Exception;
-use PhpUnit\Runner\TestSuiteLoader;
 use PhpUnit\Util\Fileloader;
 use PhpUnit\Util\Filesystem;
+use ReflectionClass;
 
 /**
  * The standard test suite loader.
  *
  * @since Class available since Release 2.0.0
  */
-class PHPUnit_Runner_StandardTestSuiteLoader implements TestSuiteLoader
+class StandardTestSuiteLoader implements TestSuiteLoader
 {
     /**
      * @param  string                      $suiteClassName
      * @param  string                      $suiteClassFile
-     * @return ReflectionClass
+     * @return \ReflectionClass
      * @throws \PhpUnit\Framework\Exception
      */
     public function load($suiteClassName, $suiteClassFile = '')

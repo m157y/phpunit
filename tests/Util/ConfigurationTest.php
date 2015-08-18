@@ -366,7 +366,7 @@ class Util_ConfigurationTest extends TestCase
             'strictCoverage'                             => false,
             'disallowTestOutput'                         => false,
             'enforceTimeLimit'                           => false,
-            'testSuiteLoaderClass'                       => 'PHPUnit_Runner_StandardTestSuiteLoader',
+            'testSuiteLoaderClass'                       => 'PhpUnit\\Runner\\StandardTestSuiteLoader',
             'verbose'                                    => false,
             'timeoutForSmallTests'                       => 1,
             'timeoutForMediumTests'                      => 10,

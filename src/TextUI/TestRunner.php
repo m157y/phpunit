@@ -15,6 +15,7 @@ use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestResult;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Runner\StandardTestSuiteLoader;
 use PhpUnit\Runner\TestSuiteLoader;
 use PhpUnit\Runner\Version;
 use PhpUnit\Util\Blacklist;
@@ -587,7 +588,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
     public function getLoader()
     {
         if ($this->loader === null) {
-            $this->loader = new PHPUnit_Runner_StandardTestSuiteLoader;
+            $this->loader = new StandardTestSuiteLoader;
         }
 
         return $this->loader;

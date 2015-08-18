@@ -695,7 +695,7 @@ class PHPUnit_TextUI_Command
             }
         }
 
-        if ($loaderClass == 'PHPUnit_Runner_StandardTestSuiteLoader') {
+        if ($loaderClass == 'PhpUnit\\Runner\\StandardTestSuiteLoader') {
             return;
         }
 
