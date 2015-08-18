@@ -147,7 +147,7 @@ class PHPUnit_TextUI_TestRunner extends BaseTestRunner
 
         if ($arguments['filter']) {
             $filterFactory->addFilter(
-                new ReflectionClass('PHPUnit_Runner_Filter_Test'),
+                new ReflectionClass('PhpUnit\\Runner\\Filter\\TestIterator'),
                 $arguments['filter']
             );
         }

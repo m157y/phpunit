@@ -8,14 +8,18 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Runner\Filter;
+
 use PhpUnit\Framework\TestSuite;
 use PhpUnit\Util\Regex as RegexUtil;
 use PhpUnit\Util\Test as TestUtil;
+use RecursiveFilterIterator;
+use RecursiveIterator;
 
 /**
  * @since Class available since Release 4.0.0
  */
-class PHPUnit_Runner_Filter_Test extends RecursiveFilterIterator
+class TestIterator extends RecursiveFilterIterator
 {
     /**
      * @var string
@@ -32,7 +36,7 @@ class PHPUnit_Runner_Filter_Test extends RecursiveFilterIterator
     protected $filterMax;
 
     /**
-     * @param RecursiveIterator $iterator
+     * @param \RecursiveIterator $iterator
      * @param string            $filter
      */
     public function __construct(RecursiveIterator $iterator, $filter)
