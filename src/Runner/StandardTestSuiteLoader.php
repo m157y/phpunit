@@ -9,6 +9,7 @@
  */
 
 use PhpUnit\Framework\Exception;
+use PhpUnit\Runner\TestSuiteLoader;
 use PhpUnit\Util\Fileloader;
 use PhpUnit\Util\Filesystem;
 
@@ -17,7 +18,7 @@ use PhpUnit\Util\Filesystem;
  *
  * @since Class available since Release 2.0.0
  */
-class PHPUnit_Runner_StandardTestSuiteLoader implements PHPUnit_Runner_TestSuiteLoader
+class PHPUnit_Runner_StandardTestSuiteLoader implements TestSuiteLoader
 {
     /**
      * @param  string                      $suiteClassName

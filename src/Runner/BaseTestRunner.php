@@ -29,7 +29,7 @@ abstract class PHPUnit_Runner_BaseTestRunner
     /**
      * Returns the loader to be used.
      *
-     * @return PHPUnit_Runner_TestSuiteLoader
+     * @return \PhpUnit\Runner\TestSuiteLoader
      */
     public function getLoader()
     {

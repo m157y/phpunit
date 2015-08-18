@@ -664,11 +664,11 @@ class PHPUnit_TextUI_Command
     }
 
     /**
-     * Handles the loading of the PHPUnit_Runner_TestSuiteLoader implementation.
+     * Handles the loading of the PhpUnit\Runner\TestSuiteLoader implementation.
      *
      * @param  string                         $loaderClass
      * @param  string                         $loaderFile
-     * @return PHPUnit_Runner_TestSuiteLoader
+     * @return \PhpUnit\Runner\TestSuiteLoader
      */
     protected function handleLoader($loaderClass, $loaderFile = '')
     {
@@ -689,7 +689,7 @@ class PHPUnit_TextUI_Command
         if (class_exists($loaderClass, false)) {
             $class = new ReflectionClass($loaderClass);
 
-            if ($class->implementsInterface('PHPUnit_Runner_TestSuiteLoader') &&
+            if ($class->implementsInterface('PhpUnit\\Runner\\TestSuiteLoader') &&
                 $class->isInstantiable()) {
                 return $class->newInstance();
             }
