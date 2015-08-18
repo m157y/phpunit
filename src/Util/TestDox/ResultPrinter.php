@@ -8,7 +8,11 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Util\TestDox;
+
 use Exception as PhpException;
+use PHPUnit_Runner_BaseTestRunner;
+use PHPUnit_Util_TestDox_NamePrettifier;
 use PhpUnit\Framework\AssertionFailedError;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestCase;
@@ -21,10 +25,10 @@ use PhpUnit\Util\Printer;
  *
  * @since Class available since Release 2.1.0
  */
-abstract class PHPUnit_Util_TestDox_ResultPrinter extends Printer implements TestListener
+abstract class ResultPrinter extends Printer implements TestListener
 {
     /**
-     * @var PHPUnit_Util_TestDox_NamePrettifier
+     * @var \PHPUnit_Util_TestDox_NamePrettifier
      */
     protected $prettifier;
 
