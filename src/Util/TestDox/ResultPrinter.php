@@ -12,13 +12,13 @@ namespace PhpUnit\Util\TestDox;
 
 use Exception as PhpException;
 use PHPUnit_Runner_BaseTestRunner;
-use PHPUnit_Util_TestDox_NamePrettifier;
 use PhpUnit\Framework\AssertionFailedError;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestCase;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
 use PhpUnit\Util\Printer;
+use PhpUnit\Util\TestDox\NamePrettifier;
 
 /**
  * Base class for printers of TestDox documentation.
@@ -28,7 +28,7 @@ use PhpUnit\Util\Printer;
 abstract class ResultPrinter extends Printer implements TestListener
 {
     /**
-     * @var \PHPUnit_Util_TestDox_NamePrettifier
+     * @var \PhpUnit\Util\TestDox\NamePrettifier
      */
     protected $prettifier;
 
@@ -91,7 +91,7 @@ abstract class ResultPrinter extends Printer implements TestListener
     {
         parent::__construct($out);
 
-        $this->prettifier = new PHPUnit_Util_TestDox_NamePrettifier;
+        $this->prettifier = new NamePrettifier;
         $this->startRun();
     }
 

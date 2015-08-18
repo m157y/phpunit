@@ -8,12 +8,13 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Util\TestDox;
 /**
  * Prettifies class and method names for use in TestDox documentation.
  *
  * @since Class available since Release 2.1.0
  */
-class PHPUnit_Util_TestDox_NamePrettifier
+class NamePrettifier
 {
     /**
      * @var string

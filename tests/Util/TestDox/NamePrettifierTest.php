@@ -9,6 +9,7 @@
  */
 
 use PhpUnit\Framework\TestCase;
+use PhpUnit\Util\TestDox\NamePrettifier;
 
 /**
  * @since      Class available since Release 2.1.0
@@ -19,11 +20,11 @@ class Util_TestDox_NamePrettifierTest extends TestCase
 
     protected function setUp()
     {
-        $this->namePrettifier = new PHPUnit_Util_TestDox_NamePrettifier;
+        $this->namePrettifier = new NamePrettifier;
     }
 
     /**
-     * @covers PHPUnit_Util_TestDox_NamePrettifier::prettifyTestClass
+     * @covers \PhpUnit\Util\TestDox\NamePrettifier::prettifyTestClass
      */
     public function testTitleHasSensibleDefaults()
     {
@@ -34,7 +35,7 @@ class Util_TestDox_NamePrettifierTest extends TestCase
     }
 
     /**
-     * @covers PHPUnit_Util_TestDox_NamePrettifier::prettifyTestClass
+     * @covers \PhpUnit\Util\TestDox\NamePrettifier::prettifyTestClass
      */
     public function testCaterForUserDefinedSuffix()
     {
@@ -47,7 +48,7 @@ class Util_TestDox_NamePrettifierTest extends TestCase
     }
 
     /**
-     * @covers PHPUnit_Util_TestDox_NamePrettifier::prettifyTestClass
+     * @covers \PhpUnit\Util\TestDox\NamePrettifier::prettifyTestClass
      */
     public function testCaterForUserDefinedPrefix()
     {
@@ -60,7 +61,7 @@ class Util_TestDox_NamePrettifierTest extends TestCase
     }
 
     /**
-     * @covers PHPUnit_Util_TestDox_NamePrettifier::prettifyTestMethod
+     * @covers \PhpUnit\Util\TestDox\NamePrettifier::prettifyTestMethod
      */
     public function testTestNameIsConvertedToASentence()
     {
@@ -72,7 +73,7 @@ class Util_TestDox_NamePrettifierTest extends TestCase
     }
 
     /**
-     * @covers PHPUnit_Util_TestDox_NamePrettifier::prettifyTestMethod
+     * @covers \PhpUnit\Util\TestDox\NamePrettifier::prettifyTestMethod
      * @ticket 224
      */
     public function testTestNameIsNotGroupedWhenNotInSequence()
