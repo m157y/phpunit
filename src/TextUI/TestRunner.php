@@ -18,6 +18,7 @@ use PhpUnit\Framework\TestSuite;
 use PhpUnit\Util\Blacklist;
 use PhpUnit\Util\Configuration;
 use PhpUnit\Util\Log\Json as JsonLog;
+use PhpUnit\Util\Log\Junit as JunitLog;
 use PhpUnit\Util\Printer;
 use SebastianBergmann\Environment\Runtime;
 
@@ -412,7 +413,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
 
         if (isset($arguments['junitLogfile'])) {
             $result->addListener(
-                new PHPUnit_Util_Log_JUnit(
+                new JunitLog(
                     $arguments['junitLogfile'],
                     $arguments['logIncompleteSkipped']
                 )

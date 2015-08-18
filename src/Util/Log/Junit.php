@@ -8,6 +8,9 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Util\Log;
+
+use DOMDocument;
 use Exception as PhpException;
 use PhpUnit\Framework\AssertionFailedError;
 use PhpUnit\Framework\SelfDescribing;
@@ -19,6 +22,8 @@ use PhpUnit\Framework\TestSuite;
 use PhpUnit\Util\Filter;
 use PhpUnit\Util\Printer;
 use PhpUnit\Util\Xml as XmlUtil;
+use ReflectionClass;
+use ReflectionException;
 
 /**
  * A TestListener that generates a logfile of the test execution in XML markup.
@@ -27,15 +32,15 @@ use PhpUnit\Util\Xml as XmlUtil;
  *
  * @since Class available since Release 2.1.0
  */
-class PHPUnit_Util_Log_JUnit extends Printer implements TestListener
+class Junit extends Printer implements TestListener
 {
     /**
-     * @var DOMDocument
+     * @var \DOMDocument
      */
     protected $document;
 
     /**
-     * @var DOMElement
+     * @var \DOMElement
      */
     protected $root;
 
@@ -50,7 +55,7 @@ class PHPUnit_Util_Log_JUnit extends Printer implements TestListener
     protected $writeDocument = true;
 
     /**
-     * @var DOMElement[]
+     * @var \DOMElement[]
      */
     protected $testSuites = [];
 
@@ -85,7 +90,7 @@ class PHPUnit_Util_Log_JUnit extends Printer implements TestListener
     protected $testSuiteLevel = 0;
 
     /**
-     * @var DOMElement
+     * @var \DOMElement
      */
     protected $currentTestCase = null;
 
