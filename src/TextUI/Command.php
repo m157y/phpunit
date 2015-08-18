@@ -12,6 +12,7 @@ use Exception as PhpException;
 use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Util\Getopt;
 
 /**
  * A TestRunner for the Command Line Interface (CLI)
@@ -236,7 +237,7 @@ class PHPUnit_TextUI_Command
         }
 
         try {
-            $this->options = PHPUnit_Util_Getopt::getopt(
+            $this->options = Getopt::getopt(
                 $argv,
                 'd:c:hv',
                 array_keys($this->longOptions)

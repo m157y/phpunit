@@ -9,6 +9,7 @@
  */
 
 use PhpUnit\Framework\TestCase;
+use PhpUnit\Util\Getopt;
 
 /**
  */
@@ -21,7 +22,7 @@ class Util_GetoptTest extends TestCase
             'myArgument',
             '--colors',
         ];
-        $actual = PHPUnit_Util_Getopt::getopt($args, '', ['colors==']);
+        $actual = Getopt::getopt($args, '', ['colors==']);
 
         $expected = [
             [
@@ -45,7 +46,7 @@ class Util_GetoptTest extends TestCase
             'myArgument',
             '-v',
         ];
-        $actual = PHPUnit_Util_Getopt::getopt($args, 'v');
+        $actual = Getopt::getopt($args, 'v');
 
         $expected = [
             [
