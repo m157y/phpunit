@@ -12,7 +12,6 @@ namespace PhpUnit\Framework;
 
 use Exception as PhpException;
 use DeepCopy\DeepCopy;
-use PHPUnit_Extensions_PhptTestCase;
 use PHPUnit_Extensions_SeleniumTestCase;
 use PHPUnit_Framework_MockObject_Generator;
 use PHPUnit_Framework_MockObject_Matcher_AnyInvokedCount;
@@ -30,6 +29,7 @@ use PHPUnit_Framework_MockObject_Stub_ReturnArgument;
 use PHPUnit_Framework_MockObject_Stub_ReturnCallback;
 use PHPUnit_Framework_MockObject_Stub_ReturnSelf;
 use PHPUnit_Framework_MockObject_Stub_ReturnValueMap;
+use PhpUnit\Extensions\PhptTestCase;
 use PhpUnit\Runner\BaseTestRunner;
 use PhpUnit\Util\GlobalState;
 use PhpUnit\Util\InvalidArgumentHelper;
@@ -645,7 +645,7 @@ abstract class TestCase extends Assert implements Test, SelfDescribing
         if ($this->runTestInSeparateProcess === true &&
             $this->inIsolation !== true &&
             !$this instanceof PHPUnit_Extensions_SeleniumTestCase &&
-            !$this instanceof PHPUnit_Extensions_PhptTestCase) {
+            !$this instanceof PhptTestCase) {
             $class = new ReflectionClass($this);
 
             $template = new Text_Template(

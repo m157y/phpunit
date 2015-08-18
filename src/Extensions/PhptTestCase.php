@@ -8,7 +8,10 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Extensions;
+
 use Exception as PhpException;
+use PHP_Timer;
 use PhpUnit\Framework\Assert;
 use PhpUnit\Framework\AssertionFailedError;
 use PhpUnit\Framework\Exception;
@@ -18,13 +21,14 @@ use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestResult;
 use PhpUnit\Util\InvalidArgumentHelper;
 use PhpUnit\Util\Php as PhpUtil;
+use Throwable;
 
 /**
  * Runner for PHPT test cases.
  *
  * @since Class available since Release 3.1.4
  */
-class PHPUnit_Extensions_PhptTestCase implements Test, SelfDescribing
+class PhptTestCase implements Test, SelfDescribing
 {
     /**
      * @var string

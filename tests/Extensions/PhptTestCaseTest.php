@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+use PhpUnit\Extensions\PhptTestCase;
 use PhpUnit\Framework\TestCase;
 
 class Extensions_PhptTestCaseTest extends TestCase
@@ -30,7 +31,7 @@ class Extensions_PhptTestCaseTest extends TestCase
     }
 }
 
-class PhpTestCaseProxy extends PHPUnit_Extensions_PhptTestCase
+class PhpTestCaseProxy extends PhptTestCase
 {
     public function parseIniSection($content)
     {

@@ -9,6 +9,7 @@
  */
 
 use Exception as PhpException;
+use PhpUnit\Extensions\PhptTestCase;
 use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestSuite;
@@ -650,7 +651,7 @@ class PHPUnit_TextUI_Command
         }
 
         if (isset($this->arguments['test']) && is_string($this->arguments['test']) && substr($this->arguments['test'], -5, 5) == '.phpt') {
-            $test = new PHPUnit_Extensions_PhptTestCase($this->arguments['test']);
+            $test = new PhptTestCase($this->arguments['test']);
 
             $this->arguments['test'] = new TestSuite;
             $this->arguments['test']->addTest($test);

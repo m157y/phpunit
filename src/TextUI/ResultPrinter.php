@@ -9,6 +9,7 @@
  */
 
 use Exception as PhpException;
+use PhpUnit\Extensions\PhptTestCase;
 use PhpUnit\Framework\AssertionFailedError;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestCase;
@@ -529,7 +530,7 @@ class PHPUnit_TextUI_ResultPrinter extends Printer implements TestListener
 
         if ($test instanceof TestCase) {
             $this->numAssertions += $test->getNumAssertions();
-        } elseif ($test instanceof PHPUnit_Extensions_PhptTestCase) {
+        } elseif ($test instanceof PhptTestCase) {
             $this->numAssertions++;
         }
 

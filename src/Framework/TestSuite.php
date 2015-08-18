@@ -13,7 +13,7 @@ namespace PhpUnit\Framework;
 use Exception as PhpException;
 use Iterator;
 use IteratorAggregate;
-use PHPUnit_Extensions_PhptTestCase;
+use PhpUnit\Extensions\PhptTestCase;
 use PhpUnit\Framework\TestSuite\DataProvider;
 use PhpUnit\Runner\BaseTestRunner;
 use PhpUnit\Runner\Filter\Factory as FilterFactory;
@@ -333,7 +333,7 @@ class TestSuite implements Test, SelfDescribing, IteratorAggregate
 
         if (file_exists($filename) && substr($filename, -5) == '.phpt') {
             $this->addTest(
-                new PHPUnit_Extensions_PhptTestCase($filename)
+                new PhptTestCase($filename)
             );
 
             return;
