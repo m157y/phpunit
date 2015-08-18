@@ -411,7 +411,7 @@ class PHPUnit_TextUI_Command
                     break;
 
                 case '--tap':
-                    $this->arguments['printer'] = 'PHPUnit_Util_Log_TAP';
+                    $this->arguments['printer'] = 'PhpUnit\\Util\\Log\\Tap';
                     break;
 
                 case '--testdox':

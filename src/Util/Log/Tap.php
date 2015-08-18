@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Util\Log;
+
 use Exception as PhpException;
 use PhpUnit\Framework\AssertionFailedError;
 use PhpUnit\Framework\ExpectationFailedException;
@@ -18,6 +20,7 @@ use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestSuite;
 use PhpUnit\Util\Printer;
 use PhpUnit\Util\Test as TestUtil;
+use Symfony\Component\Yaml\Dumper as YamlDumper;
 
 /**
  * A TestListener that generates a logfile of the
@@ -25,7 +28,7 @@ use PhpUnit\Util\Test as TestUtil;
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Util_Log_TAP extends Printer implements TestListener
+class Tap extends Printer implements TestListener
 {
     /**
      * @var int
@@ -99,7 +102,7 @@ class PHPUnit_Util_Log_TAP extends Printer implements TestListener
             }
         }
 
-        $yaml = new Symfony\Component\Yaml\Dumper;
+        $yaml = new YamlDumper;
 
         $this->write(
             sprintf(

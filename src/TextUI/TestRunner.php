@@ -19,6 +19,7 @@ use PhpUnit\Util\Blacklist;
 use PhpUnit\Util\Configuration;
 use PhpUnit\Util\Log\Json as JsonLog;
 use PhpUnit\Util\Log\Junit as JunitLog;
+use PhpUnit\Util\Log\Tap as TapLog;
 use PhpUnit\Util\Printer;
 use SebastianBergmann\Environment\Runtime;
 
@@ -247,7 +248,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
             }
         }
 
-        if (!$this->printer instanceof PHPUnit_Util_Log_TAP) {
+        if (!$this->printer instanceof TapLog) {
             $this->printer->write(
                 PHPUnit_Runner_Version::getVersionString() . "\n"
             );
@@ -352,7 +353,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
             $codeCoverageReports = 0;
         }
 
-        if (!$this->printer instanceof PHPUnit_Util_Log_TAP) {
+        if (!$this->printer instanceof TapLog) {
             if ($codeCoverageReports > 0 && !$this->codeCoverageFilter->hasWhitelist()) {
                 $this->printer->write("Warning:\tNo whitelist configured for code coverage\n");
             }
@@ -407,7 +408,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
 
         if (isset($arguments['tapLogfile'])) {
             $result->addListener(
-                new PHPUnit_Util_Log_TAP($arguments['tapLogfile'])
+                new TapLog($arguments['tapLogfile'])
             );
         }
 
