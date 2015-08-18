@@ -415,7 +415,7 @@ class PHPUnit_TextUI_Command
                     break;
 
                 case '--testdox':
-                    $this->arguments['printer'] = 'PHPUnit_Util_TestDox_ResultPrinter_Text';
+                    $this->arguments['printer'] = 'PhpUnit\\Util\\TestDox\\ResultPrinter\\Text';
                     break;
 
                 case '--testdox-html':

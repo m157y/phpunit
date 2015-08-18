@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Util\TestDox\ResultPrinter;
+
 use PhpUnit\Util\TestDox\ResultPrinter;
 
 /**
@@ -15,7 +17,7 @@ use PhpUnit\Util\TestDox\ResultPrinter;
  *
  * @since Class available since Release 2.1.0
  */
-class PHPUnit_Util_TestDox_ResultPrinter_Text extends ResultPrinter
+class Text extends ResultPrinter
 {
     /**
      * Handler for 'start class' event.
