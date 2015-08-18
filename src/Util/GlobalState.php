@@ -8,10 +8,15 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Util;
+
+use Closure;
+use PHPUnit_Util_Blacklist;
+
 /**
  * @since Class available since Release 3.4.0
  */
-class PHPUnit_Util_GlobalState
+class GlobalState
 {
     /**
      * @var array

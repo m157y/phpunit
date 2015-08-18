@@ -9,13 +9,14 @@
  */
 
 use PhpUnit\Framework\TestCase;
+use PhpUnit\Util\GlobalState;
 
 /**
  */
 class Util_GlobalStateTest extends TestCase
 {
     /**
-     * @covers PHPUnit_Util_GlobalState::processIncludedFilesAsString
+     * @covers \PhpUnit\Util\GlobalState::processIncludedFilesAsString
      */
     public function testIncludedFilesAsStringSkipsVfsProtocols()
     {
@@ -32,6 +33,6 @@ class Util_GlobalStateTest extends TestCase
         $this->assertEquals(
             "require_once '" . $dir . "/ConfigurationTest.php';\n" .
             "require_once '" . $dir . "/GlobalStateTest.php';\n" .
-            "require_once 'file://" . $dir . "/XMLTest.php';\n", PHPUnit_Util_GlobalState::processIncludedFilesAsString($files));
+            "require_once 'file://" . $dir . "/XMLTest.php';\n", GlobalState::processIncludedFilesAsString($files));
     }
 }
