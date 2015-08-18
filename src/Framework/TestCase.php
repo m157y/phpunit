@@ -649,7 +649,7 @@ abstract class TestCase extends Assert implements Test, SelfDescribing
             $class = new ReflectionClass($this);
 
             $template = new Text_Template(
-                __DIR__ . '/../Util/PHP/Template/TestCaseMethod.tpl'
+                __DIR__ . '/../Util/Php/Template/TestCaseMethod.tpl'
             );
 
             if ($this->preserveGlobalState) {
