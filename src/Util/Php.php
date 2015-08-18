@@ -12,13 +12,13 @@ namespace PhpUnit\Util;
 
 use __PHP_Incomplete_Class;
 use ErrorException;
-use PHPUnit_Util_PHP_Windows;
 use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\SyntheticError;
 use PhpUnit\Framework\Test as TestInterface;
 use PhpUnit\Framework\TestFailure;
 use PhpUnit\Framework\TestResult;
 use PhpUnit\Util\Php\DefaultUtil;
+use PhpUnit\Util\Php\WindowsUtil;
 
 /**
  * Utility methods for PHP sub-processes.
@@ -34,7 +34,7 @@ abstract class Php
     public static function factory()
     {
         if (DIRECTORY_SEPARATOR == '\\') {
-            return new PHPUnit_Util_PHP_Windows;
+            return new WindowsUtil;
         }
 
         return new DefaultUtil;

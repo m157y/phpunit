@@ -108,7 +108,7 @@ class Blacklist
 
             // Hide process isolation workaround on Windows.
             // @see PhpUnit\Util\Php::factory()
-            // @see PHPUnit_Util_PHP_Windows::process()
+            // @see PhpUnit\Util\Php\WindowsUtil::process()
             if (DIRECTORY_SEPARATOR === '\\') {
                 // tempnam() prefix is limited to first 3 chars.
                 // @see http://php.net/manual/en/function.tempnam.php

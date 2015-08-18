@@ -8,8 +8,9 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Util\Php;
+
 use PhpUnit\Framework\Exception;
-use PhpUnit\Util\Php\DefaultUtil;
 use SebastianBergmann\Environment\Runtime;
 
 /**
@@ -17,7 +18,7 @@ use SebastianBergmann\Environment\Runtime;
  *
  * @since Class available since Release 3.5.12
  */
-class PHPUnit_Util_PHP_Windows extends DefaultUtil
+class WindowsUtil extends DefaultUtil
 {
     /**
      * @var string
