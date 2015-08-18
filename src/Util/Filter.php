@@ -11,7 +11,6 @@
 namespace PhpUnit\Util;
 
 use Exception as PhpException;
-use PHPUnit_Util_Blacklist;
 use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\SyntheticError;
 
@@ -68,7 +67,7 @@ class Filter
             );
         }
 
-        $blacklist = new PHPUnit_Util_Blacklist;
+        $blacklist = new Blacklist;
 
         foreach ($eTrace as $frame) {
             if (isset($frame['file']) && is_file($frame['file']) &&

@@ -18,7 +18,7 @@ use PHP_CodeCoverage_Exception_UnintentionallyCoveredCode;
 use PHP_Invoker;
 use PHP_Timer;
 use PHPUnit_Extensions_SeleniumTestCase;
-use PHPUnit_Util_Blacklist;
+use PhpUnit\Util\Blacklist;
 use PhpUnit\Util\InvalidArgumentHelper;
 use PhpUnit\Util\Printer;
 use PhpUnit\Util\Test as TestUtil;
@@ -656,7 +656,7 @@ class TestResult implements Countable
         $test->addToAssertionCount(Assert::getCount());
 
         if ($monitorFunctions) {
-            $blacklist = new PHPUnit_Util_Blacklist;
+            $blacklist = new Blacklist;
             $functions = xdebug_get_monitored_functions();
             xdebug_stop_function_monitor();
 

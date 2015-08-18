@@ -15,6 +15,7 @@ use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestListener;
 use PhpUnit\Framework\TestResult;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Util\Blacklist;
 use PhpUnit\Util\Configuration;
 use PhpUnit\Util\Printer;
 use SebastianBergmann\Environment\Runtime;
@@ -1017,7 +1018,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
             $filter->addFileToBlacklist(__PHPUNIT_PHAR__);
         }
 
-        $blacklist = new PHPUnit_Util_Blacklist;
+        $blacklist = new Blacklist;
 
         foreach ($blacklist->getBlacklistedDirectories() as $directory) {
             $filter->addDirectoryToBlacklist($directory);

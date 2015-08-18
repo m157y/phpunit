@@ -11,7 +11,6 @@
 namespace PhpUnit\Util;
 
 use Closure;
-use PHPUnit_Util_Blacklist;
 
 /**
  * @since Class available since Release 3.4.0
@@ -50,7 +49,7 @@ class GlobalState
 
     public static function processIncludedFilesAsString(array $files)
     {
-        $blacklist = new PHPUnit_Util_Blacklist;
+        $blacklist = new Blacklist;
         $prefix    = false;
         $result    = '';
 
