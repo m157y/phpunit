@@ -17,6 +17,7 @@ use PhpUnit\Framework\TestResult;
 use PhpUnit\Framework\TestSuite;
 use PhpUnit\Util\Blacklist;
 use PhpUnit\Util\Configuration;
+use PhpUnit\Util\Log\Json as JsonLog;
 use PhpUnit\Util\Printer;
 use SebastianBergmann\Environment\Runtime;
 
@@ -399,7 +400,7 @@ class PHPUnit_TextUI_TestRunner extends PHPUnit_Runner_BaseTestRunner
 
         if (isset($arguments['jsonLogfile'])) {
             $result->addListener(
-                new PHPUnit_Util_Log_JSON($arguments['jsonLogfile'])
+                new JsonLog($arguments['jsonLogfile'])
             );
         }
 

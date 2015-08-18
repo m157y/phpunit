@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Util\Log;
+
 use Exception as PhpException;
 use PhpUnit\Framework\AssertionFailedError;
 use PhpUnit\Framework\Test;
@@ -23,7 +25,7 @@ use PhpUnit\Util\Test as TestUtil;
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Util_Log_JSON extends Printer implements TestListener
+class Json extends Printer implements TestListener
 {
     /**
      * @var string
