@@ -12,6 +12,7 @@ use Exception as PhpException;
 use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Util\Fileloader;
 use PhpUnit\Util\Filesystem;
 use PhpUnit\Util\Getopt;
 
@@ -759,7 +760,7 @@ class PHPUnit_TextUI_Command
     protected function handleBootstrap($filename)
     {
         try {
-            PHPUnit_Util_Fileloader::checkAndLoad($filename);
+            Fileloader::checkAndLoad($filename);
         } catch (Exception $e) {
             $this->showError($e->getMessage());
         }

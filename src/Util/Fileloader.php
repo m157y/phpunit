@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Util;
+
 use PhpUnit\Framework\Exception;
 
 /**
@@ -15,7 +17,7 @@ use PhpUnit\Framework\Exception;
  *
  * @since Class available since Release 2.3.0
  */
-class PHPUnit_Util_Fileloader
+class Fileloader
 {
     /**
      * Checks if a PHP sourcefile is readable.
