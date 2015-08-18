@@ -12,6 +12,7 @@ use Exception as PhpException;
 use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Util\Configuration;
 use PhpUnit\Util\Fileloader;
 use PhpUnit\Util\Filesystem;
 use PhpUnit\Util\Getopt;
@@ -569,7 +570,7 @@ class PHPUnit_TextUI_Command
 
         if (isset($this->arguments['configuration'])) {
             try {
-                $configuration = PHPUnit_Util_Configuration::getInstance(
+                $configuration = Configuration::getInstance(
                     $this->arguments['configuration']
                 );
             } catch (Throwable $e) {

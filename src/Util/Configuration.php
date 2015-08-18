@@ -8,8 +8,14 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Util;
+
+use DOMElement;
+use DOMXPath;
+use File_Iterator_Facade;
 use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\TestSuite;
+use PHPUnit_TextUI_ResultPrinter;
 use PhpUnit\Util\Xml as XmlUtil;
 
 /**
@@ -137,7 +143,7 @@ use PhpUnit\Util\Xml as XmlUtil;
  *
  * @since Class available since Release 3.2.0
  */
-class PHPUnit_Util_Configuration
+class Configuration
 {
     private static $instances = [];
 
@@ -168,7 +174,7 @@ class PHPUnit_Util_Configuration
      * Returns a PHPUnit configuration object.
      *
      * @param  string                     $filename
-     * @return PHPUnit_Util_Configuration
+     * @return \PhpUnit\Util\Configuration
      * @since  Method available since Release 3.4.0
      */
     public static function getInstance($filename)
