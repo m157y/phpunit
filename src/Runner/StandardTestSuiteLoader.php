@@ -9,6 +9,7 @@
  */
 
 use PhpUnit\Framework\Exception;
+use PhpUnit\Util\Filesystem;
 
 /**
  * The standard test suite loader.
@@ -28,7 +29,7 @@ class PHPUnit_Runner_StandardTestSuiteLoader implements PHPUnit_Runner_TestSuite
         $suiteClassName = str_replace('.php', '', $suiteClassName);
 
         if (empty($suiteClassFile)) {
-            $suiteClassFile = PHPUnit_Util_Filesystem::classNameToFilename(
+            $suiteClassFile = Filesystem::classNameToFilename(
                 $suiteClassName
             );
         }

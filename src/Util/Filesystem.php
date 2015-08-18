@@ -8,12 +8,14 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Util;
+
 /**
  * Filesystem helpers.
  *
  * @since Class available since Release 3.0.0
  */
-class PHPUnit_Util_Filesystem
+class Filesystem
 {
     /**
      * @var array

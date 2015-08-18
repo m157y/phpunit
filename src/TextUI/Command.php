@@ -12,6 +12,7 @@ use Exception as PhpException;
 use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\Test;
 use PhpUnit\Framework\TestSuite;
+use PhpUnit\Util\Filesystem;
 use PhpUnit\Util\Getopt;
 
 /**
@@ -670,7 +671,7 @@ class PHPUnit_TextUI_Command
     {
         if (!class_exists($loaderClass, false)) {
             if ($loaderFile == '') {
-                $loaderFile = PHPUnit_Util_Filesystem::classNameToFilename(
+                $loaderFile = Filesystem::classNameToFilename(
                     $loaderClass
                 );
             }
@@ -714,7 +715,7 @@ class PHPUnit_TextUI_Command
     {
         if (!class_exists($printerClass, false)) {
             if ($printerFile == '') {
-                $printerFile = PHPUnit_Util_Filesystem::classNameToFilename(
+                $printerFile = Filesystem::classNameToFilename(
                     $printerClass
                 );
             }
