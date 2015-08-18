@@ -9,6 +9,7 @@
  */
 
 use PhpUnit\Framework\Exception;
+use PhpUnit\Util\Php\DefaultUtil;
 use SebastianBergmann\Environment\Runtime;
 
 /**
@@ -16,7 +17,7 @@ use SebastianBergmann\Environment\Runtime;
  *
  * @since Class available since Release 3.5.12
  */
-class PHPUnit_Util_PHP_Windows extends PHPUnit_Util_PHP_Default
+class PHPUnit_Util_PHP_Windows extends DefaultUtil
 {
     /**
      * @var string

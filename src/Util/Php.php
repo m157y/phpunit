@@ -12,13 +12,13 @@ namespace PhpUnit\Util;
 
 use __PHP_Incomplete_Class;
 use ErrorException;
-use PHPUnit_Util_PHP_Default;
 use PHPUnit_Util_PHP_Windows;
 use PhpUnit\Framework\Exception;
 use PhpUnit\Framework\SyntheticError;
 use PhpUnit\Framework\Test as TestInterface;
 use PhpUnit\Framework\TestFailure;
 use PhpUnit\Framework\TestResult;
+use PhpUnit\Util\Php\DefaultUtil;
 
 /**
  * Utility methods for PHP sub-processes.
@@ -37,7 +37,7 @@ abstract class Php
             return new PHPUnit_Util_PHP_Windows;
         }
 
-        return new PHPUnit_Util_PHP_Default;
+        return new DefaultUtil;
     }
 
     /**

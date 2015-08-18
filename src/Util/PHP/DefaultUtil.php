@@ -8,6 +8,8 @@
  * file that was distributed with this source code.
  */
 
+namespace PhpUnit\Util\Php;
+
 use PhpUnit\Framework\Exception;
 use PhpUnit\Util\Php as PhpUtil;
 use SebastianBergmann\Environment\Runtime;
@@ -17,7 +19,7 @@ use SebastianBergmann\Environment\Runtime;
  *
  * @since Class available since Release 3.5.12
  */
-class PHPUnit_Util_PHP_Default extends PhpUtil
+class DefaultUtil extends PhpUtil
 {
     /**
      * Runs a single job (PHP code) using a separate PHP process.
